@@ -626,7 +626,8 @@ async function loadProperties() {
 
   // Render property card HTML
   function propCard(p, hoodAttr) {
-    return `<a href="${p.url}" class="mini-prop"${hoodAttr}>
+    const detailUrl = `property/?id=${p.id}`;
+    return `<a href="${detailUrl}" class="mini-prop"${hoodAttr}>
       <div class="mini-prop-icon" style="background-image:url('${p.image}')"></div>
       <div class="mini-prop-info">
         <div class="mini-prop-name">${p.name}</div>
