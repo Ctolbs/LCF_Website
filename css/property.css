@@ -153,7 +153,7 @@
 }
 .pp-sticky-price span { font-family: 'Jost', sans-serif; font-size: 12px; color: var(--muted); font-weight: 300; }
 .pp-sticky-btn {
-  background: var(--navy); color: var(--mist);
+  background: var(--amber); color: var(--ink);
   padding: 11px 28px; border-radius: 2px;
   font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
   font-weight: 600; text-decoration: none;

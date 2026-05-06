@@ -16,6 +16,7 @@
 <meta name="twitter:title" content="Lake City Flats">
 <meta name="twitter:description" content="Curated short-term rentals in Salt Lake City and Detroit. Book direct and save 15%.">
 <meta name="twitter:image" content="">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
@@ -41,8 +42,8 @@
 .pp-trust-item-icon{font-size:14px;margin-bottom:3px;}
 .pp-trust-item-label{font-size:9.5px;color:var(--forest);font-weight:500;letter-spacing:.04em;}
 .pp-cta-block{padding:14px 16px;display:flex;flex-direction:column;gap:8px;}
-.pp-cta-primary{display:block;text-align:center;background:var(--navy);color:var(--mist);padding:14px;border-radius:2px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;text-decoration:none;font-family:'Jost',sans-serif;transition:background .2s,transform .15s;}
-.pp-cta-primary:hover{background:var(--navy-mid);transform:translateY(-1px);}
+.pp-cta-primary{display:block;text-align:center;background:var(--amber);color:var(--ink);padding:14px;border-radius:2px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;text-decoration:none;font-family:'Jost',sans-serif;transition:background .2s,transform .15s;}
+.pp-cta-primary:hover{background:#e8ae00;transform:translateY(-1px);}
 .pp-cta-secondary{display:block;text-align:center;background:transparent;color:var(--navy);padding:12px;border-radius:2px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:500;text-decoration:none;font-family:'Jost',sans-serif;border:1px solid var(--border-warm);transition:all .2s;}
 .pp-cta-secondary:hover{background:var(--sand);}
 .pp-cta-note{font-size:10.5px;color:var(--muted);text-align:center;line-height:1.5;}
@@ -60,12 +61,21 @@
 
 <nav class="nav" id="nav">
   <a href="../" class="nav-logo">
-    <span class="nav-logo-main">Lake City <span>Flats</span></span>
-    <span class="nav-logo-sub">Salt Lake City &amp; Detroit</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="34" height="34" aria-hidden="true" style="flex-shrink:0;">
+      <circle cx="40" cy="40" r="40" fill="#FBBE01"/>
+      <text x="40" y="37" text-anchor="middle" font-family="Jost,system-ui,sans-serif" font-size="9.5" font-weight="500" letter-spacing="2.5" fill="#0F1218">LAKE CITY</text>
+      <line x1="11" y1="45" x2="27" y2="45" stroke="#0F1218" stroke-width="0.7"/>
+      <line x1="53" y1="45" x2="69" y2="45" stroke="#0F1218" stroke-width="0.7"/>
+      <text x="40" y="52" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="13" font-style="italic" font-weight="500" fill="#0F1218">Flats</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-main">Lake City <span>Flats</span></span>
+      <span class="nav-logo-sub">Salt Lake City · Detroit</span>
+    </span>
   </a>
   <div class="nav-links">
-    <a href="../#slc" class="nav-pill nav-slc">🏔 Salt Lake City</a>
-    <a href="../#detroit" class="nav-pill nav-det">🏛 Detroit</a>
+    <a href="../#slc" class="nav-pill nav-slc">Salt Lake City</a>
+    <a href="../#detroit" class="nav-pill nav-det">Detroit</a>
     <a href="../#reviews">Reviews</a>
     <a href="../#about">About</a>
     <a href="#book" class="nav-book">Book Direct</a>
