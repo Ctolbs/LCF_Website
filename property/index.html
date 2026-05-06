@@ -74,8 +74,8 @@
     </span>
   </a>
   <div class="nav-links">
-    <a href="../#slc" class="nav-pill nav-slc">Salt Lake City</a>
-    <a href="../#detroit" class="nav-pill nav-det">Detroit</a>
+    <a href="../slc/" class="nav-pill nav-slc">Salt Lake City</a>
+    <a href="../detroit/" class="nav-pill nav-det">Detroit</a>
     <a href="../#reviews">Reviews</a>
     <a href="../#about">About</a>
     <a href="#book" class="nav-book">Book Direct</a>
@@ -182,28 +182,28 @@ async function init() {
   const hoodLabel = prop.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const similar = data.properties.filter(p => p.city === prop.city && p.id !== prop.id).slice(0,3);
   const photos = prop.photos;
-  const pd = JSON.stringify(photos);
-  const ci = isSlc ? 'pp-img-slc' : 'pp-img-det';
+  // Safe attribute value: replace " with &quot; so JSON inside onclick="..." doesn't break the attribute
+  const pd = JSON.stringify(photos).replace(/"/g, '&quot;');
 
   function subCell(i) {
-    if (i < photos.length) return `<div class="pp-gallery-sub-img" onclick="openLB(${pd},${i})"><img src="${photos[i]}" alt="${prop.name}"></div>`;
-    return `<div class="pp-gallery-sub-img ${ci}"></div>`;
+    if (i >= photos.length) return '';
+    return `<div class="pp-gallery-sub-img" onclick="openLB(${pd},${i})"><img src="${photos[i]}" alt="${prop.name}" loading="lazy"></div>`;
   }
 
-  const viewAllIdx = Math.min(photos.length - 1, 3);
+  const viewAllIdx = photos.length - 1;
   const viewAllPhoto = photos[viewAllIdx];
+  // Only show sub cells that have photos; pad to 4 total slots (3 sub + view-all)
+  const subCells = [subCell(1), subCell(2), subCell(3)].filter(Boolean).join('');
   const galleryHTML = `
     <div class="pp-gallery">
       <div class="pp-gallery-main"><img class="pp-gallery-main-img" src="${photos[0]}" alt="${prop.name}" onclick="openLB(${pd},0)"></div>
-      <div class="pp-gallery-sub">
-        ${subCell(1)}
-        ${subCell(2)}
-        ${subCell(3)}
+      ${photos.length > 1 ? `<div class="pp-gallery-sub">
+        ${subCells}
         <div class="pp-gallery-sub-img" style="position:relative;" onclick="openLB(${pd},${viewAllIdx})">
-          <img src="${viewAllPhoto}" alt="${prop.name}">
+          <img src="${viewAllPhoto}" alt="${prop.name}" loading="lazy">
           <div class="pp-gallery-more">View all ${photos.length} photos</div>
         </div>
-      </div>
+      </div>` : ''}
     </div>`;
 
   const amenitiesHTML = prop.amenities.map(a=>`<div class="pp-amenity">${a}</div>`).join('');
