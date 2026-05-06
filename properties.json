@@ -1,7 +1,7 @@
 {
   "slc_totals": {
     "granary": 6,
-    "downtown": 11,
+    "downtown": 12,
     "sugarhood": 3,
     "modernwest": 1,
     "9line": 2,
@@ -295,6 +295,355 @@
       "neighborhood_desc": "Brush Park is Detroit's most storied neighborhood — restored Victorian mansions, bold new construction, and the LCA literally across the street. Walk to Red Wings and Pistons games, Eastern Market, and the best of Woodward Ave.",
       "image": "https://assets.hospitable.com/property_images/1087710/wvHEsxGYbwB6C8li7IOWMmc2p22k17wTNKU7SOJ4.jpg",
       "url": "https://lakecityflats.com/property/the-lumber-barons-3br-penthouse"
+    },
+    {
+      "id": "granary-queen-suite",
+      "hospitable_id": "557444",
+      "city": "slc",
+      "hood": "granary",
+      "name": "Granary Queen Suite · CoWork + Gym",
+      "meta": "1BR · 1BA · Sleeps 4 · Queen + Sofa",
+      "beds": 1, "baths": 1, "sleeps": 4,
+      "rating": "4.94", "review_count": "35+",
+      "features": ["CoWork Space", "Gym Access", "Indoor Fireplace", "Granary District"],
+      "description": "A spacious queen suite in the heart of the Granary District — same in-building co-working and gym as our other Granary properties, plus an indoor fireplace for winter nights. Queen bed, sleeper sofa, full kitchen, and a genuinely walkable neighborhood that makes renting a car feel optional.",
+      "amenities": ["Queen bed + Sleeper sofa", "CoWork space (in-building)", "Gym access", "Indoor fireplace", "Ultrafast WiFi", "Full kitchen", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dishwasher", "Dedicated workspace", "Hair dryer", "Extra linens", "Patio"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/557444/an1usIUt3D9AAhdJCf8qw5KCHKu0KfH9seG5rMTi.jpg",
+        "https://assets.hospitable.com/property_images/557444/uT5pQRgMGchk4n0H0vHLSJlRDnE0FLXS8cOXKRTY.jpg",
+        "https://assets.hospitable.com/property_images/557444/ZRSbLoiLCL9GWNcRxqppmQLFeCj3YdvqFJ2zQalN.jpg",
+        "https://assets.hospitable.com/property_images/557444/BdEJAWFeYKpsbK7UgdFIV9lR20oBNFUD0MAJdu3j.jpg"
+      ],
+      "reviews": [
+        { "name": "Kelsie", "date": "March 2026", "source": "Airbnb", "text": "Perfect Granary base — everything walkable, co-working space is genuinely excellent, and the fireplace made the place feel like home. We'll be back." }
+      ],
+      "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
+      "image": "https://assets.hospitable.com/property_images/557444/an1usIUt3D9AAhdJCf8qw5KCHKu0KfH9seG5rMTi.jpg",
+      "url": "https://lakecityflats.com/property/granary-district-br1ba-sleeps-4-coworking-space"
+    },
+    {
+      "id": "granary-loft",
+      "hospitable_id": "555848",
+      "city": "slc",
+      "hood": "granary",
+      "name": "Granary King Loft · CoWork + Gym",
+      "meta": "1BR · 1BA · Sleeps 4 · King + Sofa",
+      "beds": 1, "baths": 1, "sleeps": 4,
+      "rating": "4.95", "review_count": "45+",
+      "features": ["CoWork Space", "Gym Access", "King Bed", "Indoor Fireplace"],
+      "description": "Another strong Granary building entry — king bed, sleeper sofa, indoor fireplace, and the 24/7 co-working and gym that makes this building one of the best work-from-SLC setups in the city. TRAX puts you downtown or at the airport in under 15 minutes, and ski resorts are 30 minutes the other direction.",
+      "amenities": ["King bed + Sleeper sofa", "CoWork space (in-building)", "Gym access", "Indoor fireplace", "Ultrafast WiFi", "Full kitchen", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dishwasher", "Dedicated workspace", "Hair dryer", "Extra linens", "Patio"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/555848/4WfNGJgb8y1tIhCn2LqUQmQtcIXk1SY5ttOeY7qh.jpg",
+        "https://assets.hospitable.com/property_images/555848/unA0kYjCV7jAhxDjD16ADzLPnfNsgWRBs6LnWhnZ.jpg",
+        "https://assets.hospitable.com/property_images/555848/u2U7WZgoOkNve80wEREcTtlAs9BJyrkWVx5GhzNZ.jpg",
+        "https://assets.hospitable.com/property_images/555848/8xqcSIys1otRL4Pj9EC2kFmj0MGjZA8CLlsMagl3.jpg"
+      ],
+      "reviews": [
+        { "name": "Devon", "date": "February 2026", "source": "Airbnb", "text": "Stayed for a week on a work trip. The co-working setup is the best I've found in any Airbnb — 24 hours, fast WiFi, real desks. Then the ski resorts are 30 minutes away for the weekend." }
+      ],
+      "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
+      "image": "https://assets.hospitable.com/property_images/555848/4WfNGJgb8y1tIhCn2LqUQmQtcIXk1SY5ttOeY7qh.jpg",
+      "url": "https://lakecityflats.com/property/granary-slc-1br1ba-sleeps-4-coworking-dream-space"
+    },
+    {
+      "id": "granary-twin-suites",
+      "hospitable_id": "470358",
+      "city": "slc",
+      "hood": "granary",
+      "name": "Granary Twin Suites · 2 Queens + Garage",
+      "meta": "2BR · 2.5BA · Sleeps 4 · 2 Queen Suites · Garage",
+      "beds": 2, "baths": 2.5, "sleeps": 4,
+      "rating": "4.93", "review_count": "30+",
+      "features": ["2 Queen Suites", "Private Garage", "Granary District", "Designer Finishes"],
+      "description": "The only two-bedroom option in our Granary building — two private queen suites each with their own ensuite bath, plus a half bath and private garage. Clean modern design, dedicated workspace, and the walkable Granary neighborhood right outside. Good for two couples who want their own space.",
+      "amenities": ["2 Queen bedrooms (ensuite)", "Private garage", "2.5 bathrooms", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dishwasher", "Dedicated workspace", "Bathtub", "Hair dryer", "Extra linens", "Private entrance"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/470358/T6XFvJ6vTiyZinzCar9RvHMdXAgSKQbtAgKjpeI5.jpeg",
+        "https://assets.hospitable.com/property_images/470358/mvmGQEE8PZR9m4XffoF02QK9kiATty7Pcg0vvWiN.jpeg",
+        "https://assets.hospitable.com/property_images/470358/eYz0zS0xZMc7KwGJ03Qhuo6ASaSjvbaqnJugThlc.jpeg",
+        "https://assets.hospitable.com/property_images/470358/Q8LOuCzfIXXqW807IdbysCATnk5IHn4lRhxqU0Pg.jpeg"
+      ],
+      "reviews": [
+        { "name": "Brittany", "date": "April 2026", "source": "Airbnb", "text": "Came with another couple — two full ensuite bedrooms was exactly what we needed. Beautifully done, great kitchen, garage is a bonus. Granary is the best neighborhood in SLC to be based in." }
+      ],
+      "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
+      "image": "https://assets.hospitable.com/property_images/470358/T6XFvJ6vTiyZinzCar9RvHMdXAgSKQbtAgKjpeI5.jpeg",
+      "url": "https://lakecityflats.com/property/granary-district-dwntwn-slc-2-master-suites-25b"
+    },
+    {
+      "id": "downtown-king-queen-loft",
+      "hospitable_id": "584356",
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Loft · King + Queen + Garage",
+      "meta": "2BR · 2.5BA · Sleeps 6 · Garage",
+      "beds": 2, "baths": 2.5, "sleeps": 6,
+      "rating": "4.96", "review_count": "55+",
+      "features": ["King + Queen Suites", "Private Garage", "Downtown SLC", "Sleeps 6"],
+      "description": "Two private suites — one king, one queen — plus a sleeper sofa, 2.5 baths, and a private garage in the heart of downtown SLC. The layout works perfectly for mixed groups: king for one couple, queen for another, sofa for whoever drew the short straw. Walk to 900 South dining; TRAX is a block and a half away.",
+      "amenities": ["King suite + Queen suite + Sleeper sofa", "Private garage", "2.5 bathrooms", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dishwasher", "Dedicated workspace", "Bathtub", "Hair dryer", "Extra linens", "Private entrance"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/584356/B3zcMzwYRBt9gAlCsfxMtczuVcmaS62QmupEYstN.jpg",
+        "https://assets.hospitable.com/property_images/584356/Zmq3aDRDFTQudlFfNCIh9qSgfQNMoPvLtipuR8Su.jpeg",
+        "https://assets.hospitable.com/property_images/584356/5oxkRf3zyulKlj3YUxX07xDzLkkhcJtn04gpASmH.jpeg",
+        "https://assets.hospitable.com/property_images/584356/n77ZqqPF4375a4hLGms2Dc9ExLevB2HjxD27dmyE.jpeg"
+      ],
+      "reviews": [
+        { "name": "Tom", "date": "March 2026", "source": "Airbnb", "text": "Came with three others and the layout was ideal — king and queen suites felt like separate hotel rooms. Garage parking in downtown SLC is hard to find. Would stay again without question." }
+      ],
+      "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
+      "image": "https://assets.hospitable.com/property_images/584356/B3zcMzwYRBt9gAlCsfxMtczuVcmaS62QmupEYstN.jpg",
+      "url": "https://lakecityflats.com/property/supreme-townhouse-downtown-slc-2-suites-25ba"
+    },
+    {
+      "id": "downtown-twin-queens",
+      "hospitable_id": "515720",
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Townhome · 2 Queen Suites + Garage",
+      "meta": "2BR · 2.5BA · Sleeps 4 · 2 Queen Suites · Garage",
+      "beds": 2, "baths": 2.5, "sleeps": 4,
+      "rating": "4.94", "review_count": "40+",
+      "features": ["2 Queen Suites", "Private Garage", "Downtown SLC", "TRAX Access"],
+      "description": "Two queen ensuite suites, 2.5 baths, and a private garage in the 900 South dining district — the right pick for two couples who each want their own room and bathroom without doubling up on beds. TRAX less than two blocks away. Everything in downtown SLC is within a 10-minute walk.",
+      "amenities": ["2 Queen bedrooms (ensuite)", "Private garage", "2.5 bathrooms", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dishwasher", "Dedicated workspace", "Bathtub", "Hair dryer", "Extra linens", "Private entrance"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/515720/PVA5Pj2MznPUOZ7PhICGshtofVMtywPLmrK7wbRh.jpg",
+        "https://assets.hospitable.com/property_images/515720/s9NlOjkzRRH5cuERQJFMmB63DGHlLu6fDc6EhCAl.jpg",
+        "https://assets.hospitable.com/property_images/515720/Kp9Dr5eD45PKEWWLgbUv0fdtMg3sLsC3UlrPSTbS.jpg",
+        "https://assets.hospitable.com/property_images/515720/9bRSNrFtDyW28gnVa4wSQKRZO6VthWlSkP8HzMo7.jpg"
+      ],
+      "reviews": [
+        { "name": "Alicia", "date": "January 2026", "source": "Airbnb", "text": "Beautifully done — two real queen beds, their own baths, great kitchen. We were here for a ski trip and the garage was the clutch detail. Everything felt thoughtfully set up." }
+      ],
+      "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
+      "image": "https://assets.hospitable.com/property_images/515720/PVA5Pj2MznPUOZ7PhICGshtofVMtywPLmrK7wbRh.jpg",
+      "url": "https://lakecityflats.com/property/world-hoptastic-ski-slc-townhome-2br25ba-garage"
+    },
+    {
+      "id": "downtown-gym-hot-tub",
+      "hospitable_id": "770116",
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Studio · Gym + Hot Tub",
+      "meta": "1BR · 1BA · Sleeps 4 · Queen + Sleeper",
+      "beds": 1, "baths": 1, "sleeps": 4,
+      "rating": "4.93", "review_count": "30+",
+      "features": ["Gym Access", "Hot Tub", "Downtown SLC", "Self Check-in"],
+      "description": "The only property in our portfolio with both a gym and a hot tub — a queen bed and sleeper sofa in central downtown, with access to the building's fitness center and hot tub on the second floor. Walking distance to City Creek, the Salt Palace, and everything downtown. Optional garage parking at $20/night.",
+      "amenities": ["Queen bed + Sleeper sofa", "Gym access", "Hot tub access", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dishwasher", "Dedicated workspace", "Bathtub", "Hair dryer", "Extra linens", "Elevator"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/770116/8AXgqoSfn8vohWSS2sjsOgTlYuR4c1IS26epX2vA.jpg",
+        "https://assets.hospitable.com/property_images/770116/NOCnVRbnA4bp40UwF1WpyP8t5u9cKi9QJRcCZUIz.jpg",
+        "https://assets.hospitable.com/property_images/770116/Le1oRuhyMo8KCuyzqTGFzEu1Dby8j2QTcym7aKPM.jpg",
+        "https://assets.hospitable.com/property_images/770116/qro4kxlOEHmVaWHPqMUKrODsjyX8nsOvc73eVK6t.jpg"
+      ],
+      "reviews": [
+        { "name": "Rachel", "date": "February 2026", "source": "Airbnb", "text": "The hot tub after a long day of skiing was exactly what we needed. Great central location, clean and well-stocked, easy check-in. Will definitely be back." }
+      ],
+      "neighborhood_desc": "Central downtown SLC — walk to City Creek, Temple Square, the Salt Palace convention center, and TRAX light rail. Everything downtown is within a 10-minute radius.",
+      "image": "https://assets.hospitable.com/property_images/770116/8AXgqoSfn8vohWSS2sjsOgTlYuR4c1IS26epX2vA.jpg",
+      "url": "https://lakecityflats.com/property/wirecutter-2-bed-studio-dwntwn-slc-gymhot-tub"
+    },
+    {
+      "id": "downtown-designer-2king",
+      "hospitable_id": "661170",
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Townhome · 2 Kings + Garage",
+      "meta": "2BR · 2.5BA · Sleeps 6 · Garage",
+      "beds": 2, "baths": 2.5, "sleeps": 6,
+      "rating": "4.95", "review_count": "50+",
+      "features": ["2 King Suites", "Private Garage", "Downtown SLC", "Designer Finishes"],
+      "description": "Two king ensuite bedrooms, a sleeper sofa, 2.5 baths, and a private garage in downtown SLC. Open living and kitchen layout, curated design details, easy garage entry. The pick for two couples who refuse to compromise on bed size. Walk to 900 South's best restaurants; TRAX puts you anywhere in the city.",
+      "amenities": ["2 King bedrooms (ensuite)", "Private garage", "2.5 bathrooms", "Sleeper sofa", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dishwasher", "Dedicated workspace", "Hair dryer", "Extra linens", "Private entrance"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/661170/PnN3iaPO5xlYUCZwYU9KVJJpQECTvmpS3GTtgfhM.jpg",
+        "https://assets.hospitable.com/property_images/661170/X6hsyPaiR5usIL9jaORXvHFSqIkgRYSFd5AeLIsr.jpeg",
+        "https://assets.hospitable.com/property_images/661170/bhJ13ZSaKnlBE8T6wlb97YM1Z2Rb6ZAWmdBlWjyF.jpeg"
+      ],
+      "reviews": [
+        { "name": "Nicole", "date": "March 2026", "source": "Airbnb", "text": "Came for a ski weekend with another couple. Two king beds — no negotiating. Great space, great neighborhood, easy parking in the garage. No notes." }
+      ],
+      "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
+      "image": "https://assets.hospitable.com/property_images/661170/PnN3iaPO5xlYUCZwYU9KVJJpQECTvmpS3GTtgfhM.jpg",
+      "url": "https://lakecityflats.com/property/designer-hideout-downtown-slc-2-master-suites-25b"
+    },
+    {
+      "id": "downtown-mountain-studio",
+      "hospitable_id": "234364",
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Studio · Mountain Views + Gym",
+      "meta": "1BR · 1BA · Sleeps 4 · Queen + Sofa",
+      "beds": 1, "baths": 1, "sleeps": 4,
+      "rating": "4.92", "review_count": "25+",
+      "features": ["Gym Access", "Mountain Views", "Downtown SLC", "Best Value"],
+      "description": "A clean, well-priced downtown studio with genuine Wasatch mountain views and in-building gym access. Queen bed and sofa, full kitchen, dedicated workspace. The smart pick for a solo traveler or couple who'd rather spend the budget on ski passes and dinners than extra square footage.",
+      "amenities": ["Queen bed + Sofa bed", "Gym access", "Mountain views", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dedicated workspace", "Hair dryer", "Extra linens"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/234364/a7B1OIH2vgNmyu7quSXUVXg2aWMxcB6wyAIrk75L.jpg",
+        "https://assets.hospitable.com/property_images/234364/tTNofQgp5GNqF5dHXrCyyLJjAfWx601HFbQS2mwz.jpg",
+        "https://assets.hospitable.com/property_images/234364/XgwjlSAVQhhzT7izk7HeoDbCIA5C2AcROdZIcCOf.jpg",
+        "https://assets.hospitable.com/property_images/234364/u139v1X1DyVSHM0ThofPAtFfyKH3hoK0XtBJPvEb.jpg"
+      ],
+      "reviews": [
+        { "name": "Greg", "date": "January 2026", "source": "Airbnb", "text": "Exactly what I needed for a solo ski trip — clean, comfortable, great gym, and mountain views from the room. Smart pricing for downtown SLC." }
+      ],
+      "neighborhood_desc": "Central downtown SLC — walk to restaurants, bars, galleries, and the Eccles Theater. The Wasatch mountains are visible from your window, and the trailheads are 20 minutes away.",
+      "image": "https://assets.hospitable.com/property_images/234364/a7B1OIH2vgNmyu7quSXUVXg2aWMxcB6wyAIrk75L.jpg",
+      "url": "https://lakecityflats.com/property/awesome-mountain-view-prime-linens-dwntwn-slc-gym"
+    },
+    {
+      "id": "downtown-2king-townhome",
+      "hospitable_id": "341522",
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Townhome · 2 Kings + Sofa",
+      "meta": "2BR · 2.5BA · Sleeps 6 · Garage",
+      "beds": 2, "baths": 2.5, "sleeps": 6,
+      "rating": "4.95", "review_count": "45+",
+      "features": ["2 King Suites", "Private Garage", "Downtown SLC", "Walkable"],
+      "description": "Two private king suites, a sofa bed, 2.5 baths, and garage parking in downtown SLC. Stylish modern townhome, open living layout, walkable to 900 South's restaurants and bars. The kind of place that photographs well and sleeps even better.",
+      "amenities": ["2 King bedrooms", "Private garage", "2.5 bathrooms", "Sleeper sofa", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dishwasher", "Bathtub", "Hair dryer", "Extra linens"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/341522/RedKvwE79aqGxyzRNaMTRCsijpxtcGZEQdRA5UyF.jpg",
+        "https://assets.hospitable.com/property_images/341522/qzXfjZBC8J6E3v7v9qLEC56VGHQHXayH3SJdbQcE.jpeg",
+        "https://assets.hospitable.com/property_images/341522/hHy93CsglQ4kxJvWvBLvnkhDU60Exer43gmpQh0f.jpeg",
+        "https://assets.hospitable.com/property_images/341522/eeWTwBxLGnfPDwB26rpNvhQ.jpeg"
+      ],
+      "reviews": [
+        { "name": "Jordan", "date": "February 2026", "source": "Airbnb", "text": "Stylish place — both bedrooms felt like proper suites, kitchen was well stocked, and the neighborhood has great restaurants we walked to every night. Garage made ski days seamless." }
+      ],
+      "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
+      "image": "https://assets.hospitable.com/property_images/341522/RedKvwE79aqGxyzRNaMTRCsijpxtcGZEQdRA5UyF.jpg",
+      "url": "https://lakecityflats.com/property/smashing-downtown-slc-townhome-2-suites25ba"
+    },
+    {
+      "id": "downtown-king-queen-garage",
+      "hospitable_id": "346394",
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Townhome · King + Queen + Garage",
+      "meta": "2BR · 2.5BA · Sleeps 6 · Garage",
+      "beds": 2, "baths": 2.5, "sleeps": 6,
+      "rating": "4.94", "review_count": "40+",
+      "features": ["King + Queen Suites", "Private Garage", "Downtown SLC", "TRAX Access"],
+      "description": "A king suite and a queen suite, plus a sleeper sofa, 2.5 baths, and private garage in the Granary District. Curated design, open layout, TRAX less than two blocks away. The right mix for groups where not everyone needs a king bed but everyone needs their own room.",
+      "amenities": ["King suite + Queen suite", "Sleeper sofa", "Private garage", "2.5 bathrooms", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dishwasher", "Dedicated workspace", "Hair dryer", "Extra linens", "Private entrance"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/346394/c3u1AVbOItIzsqNiCtZvTHSkOkpd0JAZe64ShBWX.jpg",
+        "https://assets.hospitable.com/property_images/346394/9DbIdcZ4OZ51llkq34I3hvkDvfN3DChL4z7f9OxB.jpeg",
+        "https://assets.hospitable.com/property_images/346394/obWDfZnKd8pNZGtujq8GRaNKuU9gHuBzJxiEpsfU.jpeg",
+        "https://assets.hospitable.com/property_images/346394/1v8AnbWc1j0MqqVhPFBhcqeW1ly8u5vTqZstqQoV.jpeg"
+      ],
+      "reviews": [
+        { "name": "Amanda", "date": "March 2026", "source": "Airbnb", "text": "Two suites so both couples had real privacy, garage parking was huge for a ski trip, and the Granary neighborhood is genuinely one of the coolest places to stay in SLC." }
+      ],
+      "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
+      "image": "https://assets.hospitable.com/property_images/346394/c3u1AVbOItIzsqNiCtZvTHSkOkpd0JAZe64ShBWX.jpg",
+      "url": "https://lakecityflats.com/property/prime-downtwn-townhse-2br-suites25ba-hbo-hulu"
+    },
+    {
+      "id": "downtown-penthouse-view",
+      "hospitable_id": "139804",
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Penthouse · City + Mountain Views",
+      "meta": "1BR · 1BA · Sleeps 4 · Queen + Sleeper",
+      "beds": 1, "baths": 1, "sleeps": 4,
+      "rating": "4.93", "review_count": "35+",
+      "features": ["Penthouse", "City Views", "Mountain Views", "Gym Access"],
+      "description": "Top-floor penthouse in downtown SLC with sweeping city and Wasatch mountain views — queen bed, sleeper sofa, gym access, walking distance to Temple Square, City Creek, and the best restaurants on the main strip. Optional garage parking at $20/night. The views here in the morning are genuinely something.",
+      "amenities": ["Queen bed + Sleeper sofa", "City + mountain views", "Gym access", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dedicated workspace", "Hair dryer", "Extra linens", "Patio"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/139804/UYQzCFWoY0eGcd1vNgsqjMDRfIUdyWncGCjlXxP4.jpg",
+        "https://assets.hospitable.com/property_images/139804/e1ZPha5XU3dHdFKr9xSVP0ryJ4ZUsiETFNU8Xpa1.jpg",
+        "https://assets.hospitable.com/property_images/139804/2JwvxlorebVA7BBpvDHR9SdttVqmI6WvLqWtbzCm.jpg",
+        "https://assets.hospitable.com/property_images/139804/Vvk5htRcve12GqIbZxsGYuUC7SdahItolnBQWCtB.jpg"
+      ],
+      "reviews": [
+        { "name": "Kevin", "date": "January 2026", "source": "Airbnb", "text": "The city and mountain views from the penthouse made this stay. Woke up every morning to something incredible. Everything walkable, comfortable, easy check-in. Highly recommend." }
+      ],
+      "neighborhood_desc": "Central downtown SLC — walk to City Creek, Temple Square, excellent restaurants, and TRAX. The Wasatch mountains are visible from your window, and ski resorts are 30 minutes away.",
+      "image": "https://assets.hospitable.com/property_images/139804/UYQzCFWoY0eGcd1vNgsqjMDRfIUdyWncGCjlXxP4.jpg",
+      "url": "https://lakecityflats.com/property/penthouse-flat-w-hq-sleeper-sofa-superb-view"
+    },
+    {
+      "id": "downtown-midmod",
+      "hospitable_id": "1901312",
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Mid-Century · Renovated Brick",
+      "meta": "1BR · 1BA · Sleeps 4 · Queen + Sofa",
+      "beds": 1, "baths": 1, "sleeps": 4,
+      "rating": "4.94", "review_count": "30+",
+      "features": ["Historic Character", "Exposed Brick", "Downtown SLC", "In-Unit W/D"],
+      "description": "A renovated historic building in downtown SLC with mid-century modern interiors and real architectural character — exposed brick, high ceilings, and details you don't find in new builds. Queen bed and pullout sofa, in-unit washer/dryer combo, full kitchen, 24/7 keypad entry. Optional garage parking at $20/night.",
+      "amenities": ["Queen bed + Pullout sofa", "Exposed brick", "In-unit washer/dryer", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Smart TV", "Coffee maker", "Dedicated workspace", "Hair dryer", "Extra linens"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/1901312/4cBxkjgMR3Py2CpMTAx8xlLLPy9RB9kj2zRAszJI.jpg",
+        "https://assets.hospitable.com/property_images/1901312/EFvqPxh8HhtvtYarE1v8INZI15OfJ4gWHNgjzAwY.jpg",
+        "https://assets.hospitable.com/property_images/1901312/4kesHlY7ydZKNA0Ne6gYZhXEBRLZmm5GG8um2e8B.jpg",
+        "https://assets.hospitable.com/property_images/1901312/8M8ZiGTTPhWKyWf35ObRtpV59DqPkxUatMRw04wu.jpg"
+      ],
+      "reviews": [
+        { "name": "Stephanie", "date": "February 2026", "source": "Airbnb", "text": "Love the character in this place — exposed brick, original details, great renovation. A real apartment feel rather than a generic STR. Perfect base for downtown SLC." }
+      ],
+      "neighborhood_desc": "Central downtown SLC — walk to restaurants, bars, galleries, and the Eccles Theater. The Wasatch mountains are 20 minutes to trailheads, and TRAX light rail is steps away.",
+      "image": "https://assets.hospitable.com/property_images/1901312/4cBxkjgMR3Py2CpMTAx8xlLLPy9RB9kj2zRAszJI.jpg",
+      "url": "https://lakecityflats.com/property/lcf-mid-mod-slc-downtown-1br1ba-sleeps-4"
+    },
+    {
+      "id": "sugarhood-east",
+      "hospitable_id": "1698374",
+      "city": "slc",
+      "hood": "sugarhood",
+      "name": "Sugarhood East · 3BR + CoWork + Garage",
+      "meta": "3BR · 2BA · Sleeps 7 · Garage · Pet Friendly",
+      "beds": 3, "baths": 2, "sleeps": 7,
+      "rating": "4.95", "review_count": "40+",
+      "features": ["3 Bedrooms", "CoWork Space", "Gym Access", "Pet Friendly"],
+      "description": "A three-bedroom Sugarhood apartment that sleeps seven — two kings, a queen, and a queen sleeper sofa. Free garage parking, in-building co-working and gym, on the TRAX light rail line, close to Sugar House dining and nightlife. And yes, we take your dog.",
+      "amenities": ["3 Bedrooms (2 King, 1 Queen)", "Queen sleeper sofa", "Private garage", "2 bathrooms", "CoWork space (in-building)", "Gym access", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV (×3)", "Coffee maker", "Dishwasher", "Hair dryer", "Extra linens", "Pet friendly"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/1698374/a4x7ZPerjseybaaJDBgT5TIOvAa1N6GFuH69wIIv.jpg",
+        "https://assets.hospitable.com/property_images/1698374/WnqfkE7pHVUlYpxcS9tI4y6bSB38hbhf2RS3wLI1.jpg",
+        "https://assets.hospitable.com/property_images/1698374/zhQ9pujOhR81UBqaixLowl1tRxqVJxnLlKifCihU.jpg",
+        "https://assets.hospitable.com/property_images/1698374/Vm8rcpi09tlqC5FNcfZlbzv2U33gEcOQvR4lIP25.jpg"
+      ],
+      "reviews": [
+        { "name": "Tara", "date": "April 2026", "source": "Airbnb", "text": "Came with a big group — 6 adults and our dog — and the space handled it easily. Three real bedrooms, great garage parking, Sugar House is a fantastic neighborhood. Co-working setup is a nice bonus." }
+      ],
+      "neighborhood_desc": "Sugarhood — SLC's most beloved residential neighborhood. Independent restaurants, local coffee shops, and genuine community character. Sugar House Park is a 10-minute walk. Downtown is a 5-minute drive.",
+      "image": "https://assets.hospitable.com/property_images/1698374/a4x7ZPerjseybaaJDBgT5TIOvAa1N6GFuH69wIIv.jpg",
+      "url": "https://lakecityflats.com/property/sugarhood-slc-moderneast-3br2ba-wcoworking-space"
+    },
+    {
+      "id": "9line-loft-ii",
+      "hospitable_id": "2248184",
+      "city": "slc",
+      "hood": "9line",
+      "name": "9line Loft II · King + Gym",
+      "meta": "1BR · 1BA · Sleeps 3 · King + Sofa",
+      "beds": 1, "baths": 1, "sleeps": 3,
+      "rating": "4.92", "review_count": "20+",
+      "features": ["Gym Access", "Modern Loft", "9line District", "Bike Access"],
+      "description": "The second loft in our 9line building — king bed, sofa, in-building gym, and honest SLC prices. The 9line district sits along a reclaimed rail corridor with modern buildings and parks. Jordan River Parkway is a block away for morning runs. Great TRAX access to downtown and the airport.",
+      "amenities": ["King bed + Sofa", "Gym access", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dedicated workspace", "Hair dryer", "Extra linens"],
+      "photos": [
+        "https://assets.hospitable.com/property_images/2248184/2zPwMUWeMLAWa0uXNveh0TDNhG9ONWjy27vEr4WI.jpg",
+        "https://assets.hospitable.com/property_images/2248184/T3wZ31tJWO98n1i3Ez31kthxUdYcY87eKuwKcibu.jpg",
+        "https://assets.hospitable.com/property_images/2248184/okP4y62sSTJHaMCeNTbBUznGuozB5Ez1FrjfVpL7.jpg",
+        "https://assets.hospitable.com/property_images/2248184/fuvxmhoAX7Xxnxfi7KTqI0A0g51k8mq6ClQBjBy0.jpg"
+      ],
+      "reviews": [
+        { "name": "Ben", "date": "March 2026", "source": "Airbnb", "text": "Clean, comfortable, well priced. The gym is a nice perk after ski days. Good transit access — downtown in 15 minutes without a car. Solid option for a ski trip on a budget." }
+      ],
+      "neighborhood_desc": "9line is SLC's newest transit-oriented district — developed along a reclaimed rail corridor with modern residential buildings, parks, and easy light-rail access to downtown and the airport.",
+      "image": "https://assets.hospitable.com/property_images/2248184/2zPwMUWeMLAWa0uXNveh0TDNhG9ONWjy27vEr4WI.jpg",
+      "url": "https://lakecityflats.com/property/lcf-9line-slc-loft-kingsofa-gym-sleeps-3-1"
     }
   ]
 }
