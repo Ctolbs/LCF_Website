@@ -17,42 +17,51 @@
 <meta name="twitter:image" content="https://assets.hospitable.com/property_images/794728/iYoD6UheolNm2srzeOmlknUBjmBtJuXoYbe9UWYy.jpg">
 <link rel="canonical" href="https://ctolbs.github.io/LCF_Website/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --forest:#1E3328; --forest-mid:#2D4A3E; --forest-light:#4A7362;
-  --sage:#7AA891; --sage-pale:#DCE9E3; --cream:#F5F0E8; --parchment:#EDE8DC;
-  --warm-white:#FAF8F4; --terra:#B85C38; --terra-light:#D4856A; --terra-pale:#F2E4DC;
-  --charcoal:#1C1F1C; --ink:#2C2F2A; --muted:#6B7468;
-  --border:rgba(30,51,40,0.1); --border-warm:rgba(30,51,40,0.15);
-  --gold:#C9A96E; --gold-light:#E8D5B0;
+  /* Brand palette */
+  --navy:#1C2D47; --navy-mid:#253d60;
+  --pine:#344741; --pine-light:#4A6260;
+  --mist:#F5F3ED; --sand:#E0D1B2;
+  --ink:#0F1218; --amber:#FBBE01; --rule:#D8D4CA;
+  --muted:#6E6E6E;
+  --border:rgba(15,18,24,0.1); --border-warm:rgba(15,18,24,0.15);
+  /* Aliases for component compatibility */
+  --forest:#1C2D47; --forest-mid:#253d60; --forest-light:#344741;
+  --sage:rgba(52,71,65,0.55); --sage-pale:rgba(52,71,65,0.08);
+  --cream:#F5F3ED; --parchment:#E0D1B2; --warm-white:#F5F3ED;
+  --terra:#344741; --terra-light:#4A6260; --terra-pale:rgba(52,71,65,0.08);
+  --charcoal:#0F1218;
+  --gold:#FBBE01; --gold-light:rgba(251,190,1,0.15);
+  /* Detroit */
   --det-navy:#1A2E45; --det-steel:#4A7A9B; --det-pale:#D8E8F2;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Instrument Sans',sans-serif;background:var(--warm-white);color:var(--ink);overflow-x:hidden;}
+body{font-family:'Jost',sans-serif;background:var(--mist);color:var(--ink);overflow-x:hidden;}
 body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .fu{animation:fadeUp .65s ease forwards;opacity:0;}
 .fu1{animation-delay:.08s}.fu2{animation-delay:.22s}.fu3{animation-delay:.36s}.fu4{animation-delay:.5s}
 
 /* NAV */
-.nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:0 48px;height:64px;background:rgba(250,248,244,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:height .3s,box-shadow .3s;}
-.nav.scrolled{height:56px;box-shadow:0 1px 24px rgba(30,51,40,0.07);}
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:0 48px;height:64px;background:rgba(245,243,237,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:height .3s,box-shadow .3s;}
+.nav.scrolled{height:56px;box-shadow:0 1px 24px rgba(15,18,24,0.07);}
 .nav-logo{text-decoration:none;display:flex;flex-direction:column;}
-.nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;letter-spacing:.03em;color:var(--forest);line-height:1;}
-.nav-logo-main span{color:var(--terra);}
+.nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;letter-spacing:.03em;color:var(--navy);line-height:1;}
+.nav-logo-main span{font-style:italic;}
 .nav-logo-sub{font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
 .nav-links{display:flex;gap:22px;align-items:center;}
 .nav-links a{font-size:12.5px;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.03em;}
-.nav-links a:hover{color:var(--forest);}
+.nav-links a:hover{color:var(--navy);}
 .nav-pill{font-size:11px;font-weight:500;padding:5px 13px;border-radius:100px;text-decoration:none;transition:all .2s;letter-spacing:.04em;}
-.nav-slc{background:var(--sage-pale);color:var(--forest);border:1px solid rgba(30,51,40,0.12);}
-.nav-slc:hover{background:#C8DDD5;color:var(--forest) !important;}
+.nav-slc{background:var(--sage-pale);color:var(--navy);border:1px solid rgba(15,18,24,0.12);}
+.nav-slc:hover{background:rgba(52,71,65,0.15);color:var(--navy) !important;}
 .nav-det{background:var(--det-pale);color:var(--det-navy);border:1px solid rgba(26,46,69,0.12);}
 .nav-det:hover{background:#BDD4E8;color:var(--det-navy) !important;}
-.nav-book{background:var(--forest) !important;color:var(--cream) !important;padding:9px 22px;border-radius:2px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:background .2s !important;}
-.nav-book:hover{background:var(--forest-mid) !important;}
+.nav-book{background:var(--navy) !important;color:var(--mist) !important;padding:9px 22px;border-radius:2px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;transition:background .2s !important;}
+.nav-book:hover{background:var(--navy-mid) !important;}
 
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;}
@@ -64,10 +73,10 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .hero-h1 em{font-style:italic;color:var(--gold);}
 .hero-body{font-size:15px;color:rgba(245,240,232,0.52);line-height:1.75;margin-top:24px;max-width:380px;font-weight:300;position:relative;z-index:1;}
 .hero-actions{display:flex;gap:12px;margin-top:40px;position:relative;z-index:1;}
-.btn-cream{background:var(--cream);color:var(--forest);padding:13px 28px;border-radius:2px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;border:none;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background .2s,transform .15s;}
+.btn-cream{background:var(--mist);color:var(--navy);padding:13px 28px;border-radius:2px;font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;font-family:'Jost',sans-serif;transition:background .2s,transform .15s;}
 .btn-cream:hover{background:#fff;transform:translateY(-1px);}
-.btn-ghost{background:transparent;color:rgba(245,240,232,0.6);padding:13px 28px;border-radius:2px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(245,240,232,0.2);cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:all .2s;}
-.btn-ghost:hover{border-color:rgba(245,240,232,0.4);color:rgba(245,240,232,0.9);}
+.btn-ghost{background:transparent;color:rgba(245,243,237,0.6);padding:13px 28px;border-radius:2px;font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;border:1px solid rgba(245,243,237,0.2);cursor:pointer;font-family:'Jost',sans-serif;transition:all .2s;}
+.btn-ghost:hover{border-color:rgba(245,243,237,0.4);color:rgba(245,243,237,0.9);}
 .hero-stats{display:flex;gap:34px;padding-top:42px;margin-top:42px;border-top:1px solid rgba(255,255,255,0.09);position:relative;z-index:1;}
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--cream);line-height:1;}
 .stat-label{font-size:10px;color:rgba(245,240,232,0.4);margin-top:4px;letter-spacing:.07em;}
@@ -163,7 +172,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .city-stat-num{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--cream);}
 .city-stat-label{font-size:10px;color:rgba(245,240,232,0.36);margin-top:3px;letter-spacing:.05em;}
 
-.city-cta{display:inline-block;align-self:flex-start;padding:11px 26px;border-radius:2px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;font-family:'Instrument Sans',sans-serif;border:none;cursor:pointer;transition:all .2s;text-decoration:none;}
+.city-cta{display:inline-block;align-self:flex-start;padding:11px 26px;border-radius:2px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;font-family:'Jost',sans-serif;border:none;cursor:pointer;transition:all .2s;text-decoration:none;}
 .slc-cta{background:var(--sage-pale);color:var(--forest);}
 .slc-cta:hover{background:#fff;}
 .det-cta{background:var(--det-pale);color:var(--det-navy);}
@@ -175,7 +184,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .why-title{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--cream);line-height:1.15;}
 .why-title em{font-style:italic;color:var(--gold);}
 .why-body{font-size:15px;color:rgba(245,240,232,0.5);line-height:1.75;margin-top:22px;font-weight:300;}
-.why-btn{display:inline-block;margin-top:36px;background:var(--cream);color:var(--forest);padding:14px 32px;border-radius:2px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;border:none;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background .2s,transform .15s;}
+.why-btn{display:inline-block;margin-top:36px;background:var(--mist);color:var(--navy);padding:14px 32px;border-radius:2px;font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;font-family:'Jost',sans-serif;transition:background .2s,transform .15s;}
 .why-btn:hover{background:#fff;transform:translateY(-1px);}
 .why-cards{display:flex;flex-direction:column;gap:14px;}
 .why-card{border:1px solid rgba(255,255,255,0.09);border-radius:3px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,0.04);transition:background .2s;}
@@ -199,7 +208,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .reviews-avg{font-size:12px;color:var(--muted);margin-left:auto;}
 .review{border:1px solid var(--border);border-radius:3px;padding:22px 24px;background:var(--warm-white);margin-bottom:14px;transition:box-shadow .2s;}
 .review:last-child{margin-bottom:0;}
-.review:hover{box-shadow:0 6px 24px rgba(30,51,40,0.07);}
+.review:hover{box-shadow:0 6px 24px rgba(15,18,24,0.07);}
 .review-top{display:flex;align-items:center;gap:11px;margin-bottom:14px;}
 .review-av{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;}
 .av-s{background:var(--sage-pale);color:var(--forest);}
@@ -229,7 +238,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 /* FOOTER */
 footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;border-top:1px solid rgba(255,255,255,0.06);}
 .footer-logo-main{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--cream);font-weight:400;}
-.footer-logo-main span{color:var(--terra-light);}
+.footer-logo-main span{color:var(--amber);font-style:italic;}
 .footer-logo-sub{font-size:8.5px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,232,0.28);margin-top:3px;}
 .footer-tagline{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;font-weight:300;color:rgba(245,240,232,0.4);margin-top:14px;line-height:1.65;}
 .footer-contact{margin-top:18px;}
@@ -300,7 +309,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       </div>
     </div>
     <div class="hero-stats fu fu4">
-      <div><div class="stat-num" data-lcf="grand-total">26</div><div class="stat-label">Properties</div></div>
+      <div><div class="stat-num" data-lcf="grand-total">26</div><div class="stat-label">Flats</div></div>
       <div><div class="stat-num">4.96★</div><div class="stat-label">Avg. rating</div></div>
       <div><div class="stat-num">2</div><div class="stat-label">Cities</div></div>
     </div>
@@ -314,7 +323,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <div class="hero-city-content">
         <div class="hero-city-name">Salt Lake City</div>
         <div class="hero-city-hood">Granary · Downtown · Sugarhood<br>ModernWest · 9line · Avenues</div>
-        <div class="hero-city-count"><span data-lcf="slc-total">24</span> properties <span class="hero-city-arrow">→</span></div>
+        <div class="hero-city-count"><span data-lcf="slc-total">24</span> flats <span class="hero-city-arrow">→</span></div>
       </div>
     </a>
     <div class="hero-divider"></div>
@@ -325,7 +334,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <div class="hero-city-content">
         <div class="hero-city-name">Detroit</div>
         <div class="hero-city-hood">Brush Park · steps from the LCA<br>&amp; Woodward Ave</div>
-        <div class="hero-city-count"><span data-lcf="det-total">2</span> properties <span class="hero-city-arrow">→</span></div>
+        <div class="hero-city-count"><span data-lcf="det-total">2</span> flats <span class="hero-city-arrow">→</span></div>
       </div>
     </a>
   </div>
@@ -374,8 +383,8 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     <div class="reveal">
       <div class="city-eyebrow slc-eyebrow">Mountain West · Utah</div>
       <div class="city-name">Salt Lake<br>City</div>
-      <div class="city-desc" style="margin-top:14px;">Ski some of the best powder on Earth in the morning, walk to dinner in the evening. Our <span data-lcf="slc-total">24</span> properties span six of SLC's most walkable, characterful neighborhoods.</div>
-      <div class="city-count-label slc-count" style="margin-top:10px;"><span data-lcf="slc-total">24</span> properties · <span data-lcf="slc-hoods">6</span> neighborhoods</div>
+      <div class="city-desc" style="margin-top:14px;">Ski some of the best powder on Earth in the morning, walk to dinner in the evening. Our <span data-lcf="slc-total">24</span> flats span six of SLC's most walkable, characterful neighborhoods.</div>
+      <div class="city-count-label slc-count" style="margin-top:10px;"><span data-lcf="slc-total">24</span> flats · <span data-lcf="slc-hoods">6</span> neighborhoods</div>
     </div>
 
     <div class="hood-pills reveal" id="slc-pills"></div>
@@ -383,11 +392,11 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     <div class="city-props-list reveal" id="slc-list"></div>
 
     <div class="city-stat-strip reveal">
-      <div class="city-stat-item"><div class="city-stat-num" data-lcf="slc-total">24</div><div class="city-stat-label">Properties</div></div>
+      <div class="city-stat-item"><div class="city-stat-num" data-lcf="slc-total">24</div><div class="city-stat-label">Flats</div></div>
       <div class="city-stat-item"><div class="city-stat-num" data-lcf="slc-hoods">6</div><div class="city-stat-label">Neighborhoods</div></div>
-      <div class="city-stat-item"><div class="city-stat-num">30<span style="font-size:15px;font-family:'Instrument Sans',sans-serif;">min</span></div><div class="city-stat-label">To ski resorts</div></div>
+      <div class="city-stat-item"><div class="city-stat-num">30<span style="font-size:15px;font-family:'Jost',sans-serif;">min</span></div><div class="city-stat-label">To ski resorts</div></div>
     </div>
-    <a href="https://lakecityflats.com" class="city-cta slc-cta reveal">Browse all SLC properties →</a>
+    <a href="https://lakecityflats.com" class="city-cta slc-cta reveal">Browse all SLC stays →</a>
   </div>
 
   <!-- DETROIT -->
@@ -395,13 +404,13 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     <div class="reveal">
       <div class="city-eyebrow det-eyebrow">Great Lakes · Michigan</div>
       <div class="city-name">Detroit</div>
-      <div class="city-desc" style="margin-top:14px;">Jazz roots, Motown soul, and a city rewriting its own story. Our Brush Park properties put you steps from the LCA, Woodward Ave, and the best of a city on the rise.</div>
-      <div class="city-count-label det-count" style="margin-top:10px;"><span data-lcf="det-total">2</span> properties · Brush Park</div>
+      <div class="city-desc" style="margin-top:14px;">Jazz roots, Motown soul, and a city rewriting its own story. Our Brush Park flats put you steps from the LCA, Woodward Ave, and the best of a city on the rise.</div>
+      <div class="city-count-label det-count" style="margin-top:10px;"><span data-lcf="det-total">2</span> flats · Brush Park</div>
     </div>
 
     <div class="det-context reveal">
       <div class="det-context-label">Why only Brush Park?</div>
-      <div class="det-context-body">We picked quality over quantity. Brush Park is Detroit's most storied neighborhood — Victorian mansions, new builds, and the LCA literally across the street. Both of our properties here are exceptional, and we know every corner of them.</div>
+      <div class="det-context-body">We picked quality over quantity. Brush Park is Detroit's most storied neighborhood — Victorian mansions, new builds, and the LCA literally across the street. Both of our flats here are exceptional, and we know every corner of them.</div>
     </div>
 
     <div class="city-props-list reveal" id="det-list"></div>
@@ -414,11 +423,11 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     </div>
 
     <div class="city-stat-strip reveal">
-      <div class="city-stat-item"><div class="city-stat-num" data-lcf="det-total">2</div><div class="city-stat-label">Properties</div></div>
+      <div class="city-stat-item"><div class="city-stat-num" data-lcf="det-total">2</div><div class="city-stat-label">Flats</div></div>
       <div class="city-stat-item"><div class="city-stat-num">1</div><div class="city-stat-label">Neighborhood</div></div>
-      <div class="city-stat-item"><div class="city-stat-num">0<span style="font-size:15px;font-family:'Instrument Sans',sans-serif;">min</span></div><div class="city-stat-label">Walk to LCA</div></div>
+      <div class="city-stat-item"><div class="city-stat-num">0<span style="font-size:15px;font-family:'Jost',sans-serif;">min</span></div><div class="city-stat-label">Walk to LCA</div></div>
     </div>
-    <a href="https://lakecityflats.com" class="city-cta det-cta reveal">Browse Detroit properties →</a>
+    <a href="https://lakecityflats.com" class="city-cta det-cta reveal">Browse Detroit stays →</a>
   </div>
 
 </section>
@@ -508,7 +517,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     </div>
   </div>
   <div class="about-grid reveal">
-    <div class="about-stat"><div class="about-num" data-lcf="grand-total">26</div><div class="about-label">Properties across 2 cities</div></div>
+    <div class="about-stat"><div class="about-num" data-lcf="grand-total">26</div><div class="about-label">Flats across 2 cities</div></div>
     <div class="about-stat"><div class="about-num">4.96</div><div class="about-label">Average guest rating</div></div>
     <div class="about-stat"><div class="about-num">$0</div><div class="about-label">Platform fees when you book direct</div></div>
     <div class="about-stat"><div class="about-num">100%</div><div class="about-label">Locally owned &amp; operated</div></div>
