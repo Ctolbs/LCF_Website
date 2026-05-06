@@ -171,3 +171,29 @@
   font-size: 32px; font-weight: 400; color: var(--forest);
 }
 .pp-similar-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .pp-breadcrumb-bar{padding:14px 28px;}
+  .pp-gallery{height:300px;}
+  .pp-body{grid-template-columns:1fr;gap:40px;padding:36px 28px;max-width:100%;}
+  .pp-right{position:static;}
+  .pp-widget-wrapper{max-width:560px;}
+  #booking-iframe{height:820px;}
+  .pp-similar{padding:48px 28px;}
+  .pp-similar-grid{grid-template-columns:1fr 1fr;}
+}
+
+@media (max-width: 600px) {
+  .pp-breadcrumb-bar{padding:12px 16px;font-size:11px;flex-wrap:wrap;gap:6px;}
+  .pp-gallery{grid-template-columns:1fr;height:auto;}
+  .pp-gallery-main{height:260px;}
+  .pp-gallery-sub{height:120px;grid-template-columns:1fr 1fr;}
+  .pp-body{padding:20px 16px;gap:28px;}
+  .pp-amenity-grid{grid-template-columns:1fr;}
+  .pp-widget-wrapper{max-width:100%;}
+  #booking-iframe{height:780px;}
+  .pp-similar{padding:36px 16px;}
+  .pp-similar-grid{grid-template-columns:1fr;}
+  .pp-sticky-bar{padding:12px 16px;}
+}

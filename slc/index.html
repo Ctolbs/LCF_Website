@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Salt Lake City Flats · Lake City Flats</title>
+<meta name="description" content="24 curated flats across five of SLC's most walkable neighborhoods — ski in the morning, walk to dinner in the evening.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+/* Hero */
+.cp-hero{min-height:68vh;position:relative;display:flex;align-items:flex-end;padding-top:64px;}
+.cp-hero-bg{position:absolute;inset:0;background-image:url('https://assets.hospitable.com/property_images/1258138/dVDFTqHmtW38wcdmoVXGVQnIGwYH8TLTiBbIeQSK.jpg');background-size:cover;background-position:center;}
+.cp-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,16,0.92) 0%,rgba(10,22,16,0.48) 55%,rgba(10,22,16,0.25) 100%);}
+.cp-hero-content{position:relative;z-index:2;padding:72px 80px 68px;max-width:720px;}
+.cp-eyebrow{font-size:9.5px;letter-spacing:.35em;text-transform:uppercase;color:rgba(122,168,145,0.75);margin-bottom:18px;}
+.cp-hero-h1{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;line-height:1.05;color:var(--cream);}
+.cp-hero-sub{font-size:16px;color:rgba(245,240,232,0.5);margin-top:22px;font-weight:300;line-height:1.65;max-width:480px;}
+.cp-hero-cta{margin-top:38px;display:inline-block;background:var(--amber);color:var(--ink);padding:14px 32px;border-radius:2px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;text-decoration:none;transition:background .2s,transform .15s;}
+.cp-hero-cta:hover{background:#e8ae00;transform:translateY(-1px);}
+
+/* Properties section */
+.cp-props{background:var(--forest);padding:72px 80px;}
+.cp-props-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:28px;}
+.cp-section-eyebrow{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-bottom:10px;font-weight:500;}
+.cp-section-title{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--cream);line-height:1.1;}
+.cp-count-label{font-size:11px;color:rgba(122,168,145,0.65);letter-spacing:.12em;text-transform:uppercase;text-align:right;}
+.cp-count-num{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--cream);line-height:1;}
+
+/* Prop list */
+.cp-prop-list{display:flex;flex-direction:column;gap:9px;margin-top:8px;}
+
+/* Why SLC section */
+.cp-why{background:var(--mist);padding:80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;border-top:1px solid var(--border);}
+.cp-why-eyebrow{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;}
+.cp-why-title{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:400;color:var(--forest);line-height:1.15;}
+.cp-why-body{font-size:14.5px;color:var(--muted);line-height:1.8;margin-top:22px;font-weight:300;}
+.cp-slc-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.cp-slc-feat{background:var(--warm-white);border:1px solid var(--border);border-radius:3px;padding:16px;}
+.cp-slc-feat-icon{font-size:18px;margin-bottom:7px;}
+.cp-slc-feat-title{font-size:12.5px;font-weight:500;color:var(--forest);}
+.cp-slc-feat-body{font-size:11.5px;color:var(--muted);margin-top:3px;line-height:1.5;}
+
+/* Reviews */
+.cp-reviews{padding:80px;background:var(--parchment);border-top:1px solid var(--border);}
+.cp-reviews-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;}
+.cp-reviews-avg{font-size:14px;color:var(--muted);}
+.cp-review-list{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;}
+
+/* Responsive */
+@media(max-width:960px){
+  .cp-hero-content{padding:56px 40px 52px;}
+  .cp-hero-h1{font-size:58px;}
+  .cp-props{padding:56px 32px;}
+  .cp-props-head{flex-direction:column;align-items:flex-start;gap:16px;}
+  .cp-why{grid-template-columns:1fr;gap:40px;padding:56px 32px;}
+  .cp-reviews{padding:56px 32px;}
+  .cp-review-list{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .cp-hero-content{padding:40px 20px 40px;}
+  .cp-hero-h1{font-size:44px;}
+  .cp-hero-sub{font-size:14px;}
+  .cp-props{padding:48px 20px;}
+  .cp-section-title{font-size:36px;}
+  .cp-slc-features{grid-template-columns:1fr;}
+  .cp-why{padding:48px 20px;}
+  .cp-why-title{font-size:36px;}
+  .cp-reviews{padding:48px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="../" class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="34" height="34" aria-hidden="true" style="flex-shrink:0;">
+      <circle cx="40" cy="40" r="40" fill="#FBBE01"/>
+      <text x="40" y="37" text-anchor="middle" font-family="Jost,system-ui,sans-serif" font-size="9.5" font-weight="500" letter-spacing="2.5" fill="#0F1218">LAKE CITY</text>
+      <line x1="11" y1="45" x2="27" y2="45" stroke="#0F1218" stroke-width="0.7"/>
+      <line x1="53" y1="45" x2="69" y2="45" stroke="#0F1218" stroke-width="0.7"/>
+      <text x="40" y="52" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="13" font-style="italic" font-weight="500" fill="#0F1218">Flats</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-main">Lake City <span>Flats</span></span>
+      <span class="nav-logo-sub">Salt Lake City · Detroit</span>
+    </span>
+  </a>
+  <div class="nav-links">
+    <a href="../slc/" class="nav-pill nav-slc">Salt Lake City</a>
+    <a href="../detroit/" class="nav-pill nav-det">Detroit</a>
+    <a href="../#reviews">Reviews</a>
+    <a href="../#about">About</a>
+    <a href="../#book" class="nav-book">Book Direct</a>
+  </div>
+</nav>
+
+<section class="cp-hero">
+  <div class="cp-hero-bg"></div>
+  <div class="cp-hero-overlay"></div>
+  <div class="cp-hero-content">
+    <div class="cp-eyebrow fu fu1">Mountain West · Utah</div>
+    <h1 class="cp-hero-h1 fu fu2">Salt Lake<br>City</h1>
+    <p class="cp-hero-sub fu fu3">Ski some of the best powder on Earth in the morning, walk to dinner in the evening. 24 flats across five of SLC's most walkable, characterful neighborhoods.</p>
+    <a href="#properties" class="cp-hero-cta fu fu4">Browse all flats →</a>
+  </div>
+</section>
+
+<section class="cp-props" id="properties">
+  <div class="cp-props-head reveal">
+    <div>
+      <div class="cp-section-eyebrow">Salt Lake City</div>
+      <div class="cp-section-title">Our SLC flats</div>
+    </div>
+    <div style="text-align:right;">
+      <div class="cp-count-num" id="slc-count">24</div>
+      <div class="cp-count-label">flats · 5 neighborhoods</div>
+    </div>
+  </div>
+  <div class="hood-pills reveal" id="slc-pills" style="margin-bottom:20px;"></div>
+  <div class="city-props-list" id="slc-list"></div>
+</section>
+
+<section class="cp-why">
+  <div class="reveal">
+    <div class="cp-why-eyebrow">Why Salt Lake City?</div>
+    <div class="cp-why-title">Two worlds,<br>one city.</div>
+    <p class="cp-why-body">World-class skiing 30 minutes away. A thriving food and arts scene downtown. Jazz basketball. Real coffee. A city that genuinely surprises people. Our flats put you in the middle of all of it — in neighborhoods that actually have character.</p>
+  </div>
+  <div class="cp-slc-features reveal">
+    <div class="cp-slc-feat"><div class="cp-slc-feat-icon">🎿</div><div class="cp-slc-feat-title">30 min to ski</div><div class="cp-slc-feat-body">Alta, Snowbird, Park City — world-class powder</div></div>
+    <div class="cp-slc-feat"><div class="cp-slc-feat-icon">🏀</div><div class="cp-slc-feat-title">Jazz basketball</div><div class="cp-slc-feat-body">Delta Center steps from our downtown flats</div></div>
+    <div class="cp-slc-feat"><div class="cp-slc-feat-icon">🍜</div><div class="cp-slc-feat-title">Great food scene</div><div class="cp-slc-feat-body">Granary & Sugarhood have the best restaurants</div></div>
+    <div class="cp-slc-feat"><div class="cp-slc-feat-icon">💻</div><div class="cp-slc-feat-title">Work-ready</div><div class="cp-slc-feat-body">CoWork setups, fast WiFi, standing desks</div></div>
+  </div>
+</section>
+
+<section class="cp-reviews">
+  <div class="cp-reviews-header reveal">
+    <div>
+      <div class="section-eyebrow">Guest voices</div>
+      <h2 class="section-title">What guests say<br>about SLC</h2>
+    </div>
+    <span class="cp-reviews-avg"><strong>4.96</strong> avg · 200+ reviews</span>
+  </div>
+  <div class="cp-review-list">
+    <div class="review reveal d1">
+      <div class="review-top"><div class="review-av av-s">H</div><div><div class="review-name">Heather</div><div class="review-meta">April 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Sparkling clean, comfortable and spacious — complete with every amenity I could imagine. The quirky art elevated the experience for me. We will always check if this unit is available when we return to SLC.</div>
+      <div class="review-prop">Granary Penthouse · CoWork + Gym</div>
+    </div>
+    <div class="review reveal d2">
+      <div class="review-top"><div class="review-av av-t">J</div><div><div class="review-name">Jane</div><div class="review-meta">April 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Trader Joe's and coffee shops within walking distance. The place was pristine — plenty of towels, extra bedding, a kitchen that was genuinely well equipped. I would definitely stay here again.</div>
+      <div class="review-prop">Downtown SLC · 2 Queens + Garage</div>
+    </div>
+    <div class="review reveal d3">
+      <div class="review-top"><div class="review-av av-g">M</div><div><div class="review-name">Mary</div><div class="review-meta">April 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Great walkable neighborhood — there's a coffee and breakfast taco shop two doors down. We cooked several nights and had everything we needed. The host's list of area suggestions was a really thoughtful touch.</div>
+      <div class="review-prop">Downtown Townhouse · 2BR + Garage</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo-main">Lake City <span>Flats</span></div>
+    <div class="footer-logo-sub">Curated downtown short-term rentals</div>
+    <div class="footer-tagline">"Made by travelers,<br>for travelers."</div>
+    <div class="footer-contact">
+      <a href="tel:18016571028">801-657-1028</a>
+      <a href="mailto:contact@lakecityflats.com">contact@lakecityflats.com</a>
+      <a href="https://instagram.com/lakecityflats">@lakecityflats</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Salt Lake City</div>
+    <a href="#properties">All SLC flats</a>
+    <a href="#properties">Granary District (6)</a>
+    <a href="#properties">Downtown SLC (11)</a>
+    <a href="#properties">Sugarhood (3)</a>
+    <a href="#properties">ModernWest (1)</a>
+    <a href="#properties">9line (2)</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Detroit</div>
+    <a href="../detroit/">Browse Detroit flats</a>
+    <a href="../property/?id=lumber-barons-mansion">Lumber Baron's Mansion</a>
+    <a href="../property/?id=lumber-barons-penthouse">Lumber Baron's Penthouse</a>
+    <hr>
+    <div class="footer-col-title" style="margin-top:6px;">Book direct</div>
+    <a href="../#book">Check availability</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Company</div>
+    <a href="../#about">About LCF</a>
+    <a href="../#reviews">All reviews</a>
+    <a href="https://instagram.com/lakecityflats">Instagram</a>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Lake City Flats, Inc. — Salt Lake City, UT</div>
+    <div class="footer-social">
+      <a href="https://instagram.com/lakecityflats">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+function propCard(p, hoodAttr) {
+  return `<a href="../property/?id=${p.id}" class="mini-prop"${hoodAttr}>
+    <div class="mini-prop-icon" style="background-image:url('${p.image}');width:48px;height:48px;border-radius:3px;background-size:cover;background-position:center;flex-shrink:0;"></div>
+    <div class="mini-prop-info">
+      <div class="mini-prop-name">${p.name}</div>
+      <div class="mini-prop-meta">${p.meta}</div>
+    </div>
+    <span class="mini-prop-rating">★ ${p.rating}</span>
+  </a>`;
+}
+
+function filterSLC(el, hood) {
+  document.querySelectorAll('#slc-pills .hood-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('#slc-list .mini-prop').forEach(p => {
+    const show = hood === 'all' || p.dataset.hood === hood;
+    p.style.display = show ? 'flex' : 'none';
+  });
+}
+
+fetch('../properties.json')
+  .then(r => r.json())
+  .then(data => {
+    const slcProps = data.properties.filter(p => p.city === 'slc');
+    const slc_totals = data.slc_totals;
+    const hoodLabels = { granary:'Granary', downtown:'Downtown', sugarhood:'Sugarhood', modernwest:'ModernWest', '9line':'9line' };
+
+    document.getElementById('slc-count').textContent = slcProps.length;
+
+    document.getElementById('slc-pills').innerHTML =
+      '<span class="hood-pill slc-pill active" onclick="filterSLC(this,\'all\')">All</span>' +
+      Object.entries(slc_totals).map(([h, n]) =>
+        `<span class="hood-pill slc-pill" onclick="filterSLC(this,'${h}')">${hoodLabels[h] || h} (${n})</span>`
+      ).join('');
+
+    document.getElementById('slc-list').innerHTML = slcProps
+      .map(p => propCard(p, ` data-hood="${p.hood}"`))
+      .join('');
+
+    document.querySelectorAll('#slc-list .mini-prop').forEach(el => obs.observe(el));
+  });
+</script>
+</body>
+</html>
