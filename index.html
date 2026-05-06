@@ -4,47 +4,262 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lake City Flats — Curated Downtown Stays in SLC &amp; Detroit</title>
-<meta name="description" content="Curated short-term rentals in Salt Lake City and Detroit. Locally owned, thoughtfully designed, zero platform fees when you book direct.">
-<!-- Open Graph -->
-<meta property="og:title" content="Lake City Flats — Curated Downtown Stays">
-<meta property="og:description" content="23 properties in SLC, 3 in Detroit. Ski access, CoWork, walkable neighborhoods. Book direct and save 15%.">
-<meta property="og:url" content="https://lakecityflats.com">
-<meta property="og:type" content="website">
-<!-- Canonical -->
-<link rel="canonical" href="https://lakecityflats.com">
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<!-- Styles -->
-<link rel="stylesheet" href="css/style.css">
-<!-- LocalBusiness schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "LodgingBusiness",
-  "name": "Lake City Flats",
-  "url": "https://lakecityflats.com",
-  "telephone": "+18016571028",
-  "email": "contact@lakecityflats.com",
-  "description": "Curated short-term rentals in Salt Lake City and Detroit. Locally owned and operated.",
-  "sameAs": ["https://instagram.com/lakecityflats"],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Salt Lake City",
-    "addressRegion": "UT",
-    "addressCountry": "US"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.96",
-    "reviewCount": "240"
-  }
+<style>
+:root {
+  --forest:#1E3328; --forest-mid:#2D4A3E; --forest-light:#4A7362;
+  --sage:#7AA891; --sage-pale:#DCE9E3; --cream:#F5F0E8; --parchment:#EDE8DC;
+  --warm-white:#FAF8F4; --terra:#B85C38; --terra-light:#D4856A; --terra-pale:#F2E4DC;
+  --charcoal:#1C1F1C; --ink:#2C2F2A; --muted:#6B7468;
+  --border:rgba(30,51,40,0.1); --border-warm:rgba(30,51,40,0.15);
+  --gold:#C9A96E; --gold-light:#E8D5B0;
+  --det-navy:#1A2E45; --det-steel:#4A7A9B; --det-pale:#D8E8F2;
 }
-</script>
-<!-- GA4 — replace G-XXXXXXXXXX with real measurement ID -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Instrument Sans',sans-serif;background:var(--warm-white);color:var(--ink);overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.fu{animation:fadeUp .65s ease forwards;opacity:0;}
+.fu1{animation-delay:.08s}.fu2{animation-delay:.22s}.fu3{animation-delay:.36s}.fu4{animation-delay:.5s}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:0 48px;height:64px;background:rgba(250,248,244,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);transition:height .3s,box-shadow .3s;}
+.nav.scrolled{height:56px;box-shadow:0 1px 24px rgba(30,51,40,0.07);}
+.nav-logo{text-decoration:none;display:flex;flex-direction:column;}
+.nav-logo-main{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:500;letter-spacing:.03em;color:var(--forest);line-height:1;}
+.nav-logo-main span{color:var(--terra);}
+.nav-logo-sub{font-size:8.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.nav-links{display:flex;gap:22px;align-items:center;}
+.nav-links a{font-size:12.5px;color:var(--muted);text-decoration:none;transition:color .2s;letter-spacing:.03em;}
+.nav-links a:hover{color:var(--forest);}
+.nav-pill{font-size:11px;font-weight:500;padding:5px 13px;border-radius:100px;text-decoration:none;transition:all .2s;letter-spacing:.04em;}
+.nav-slc{background:var(--sage-pale);color:var(--forest);border:1px solid rgba(30,51,40,0.12);}
+.nav-slc:hover{background:#C8DDD5;color:var(--forest) !important;}
+.nav-det{background:var(--det-pale);color:var(--det-navy);border:1px solid rgba(26,46,69,0.12);}
+.nav-det:hover{background:#BDD4E8;color:var(--det-navy) !important;}
+.nav-book{background:var(--forest) !important;color:var(--cream) !important;padding:9px 22px;border-radius:2px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;transition:background .2s !important;}
+.nav-book:hover{background:var(--forest-mid) !important;}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;}
+.hero-left{background:var(--forest);padding:70px 54px 62px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;}
+.hero-left::before{content:'';position:absolute;top:-100px;right:-100px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(255,255,255,0.05);}
+.hero-left::after{content:'';position:absolute;bottom:-120px;left:-80px;width:500px;height:500px;border-radius:50%;border:1px solid rgba(255,255,255,0.03);}
+.hero-eyebrow{font-size:9.5px;letter-spacing:.35em;text-transform:uppercase;color:var(--sage);margin-bottom:28px;}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:300;line-height:1.1;color:var(--cream);position:relative;z-index:1;}
+.hero-h1 em{font-style:italic;color:var(--gold);}
+.hero-body{font-size:15px;color:rgba(245,240,232,0.52);line-height:1.75;margin-top:24px;max-width:380px;font-weight:300;position:relative;z-index:1;}
+.hero-actions{display:flex;gap:12px;margin-top:40px;position:relative;z-index:1;}
+.btn-cream{background:var(--cream);color:var(--forest);padding:13px 28px;border-radius:2px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;border:none;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background .2s,transform .15s;}
+.btn-cream:hover{background:#fff;transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:rgba(245,240,232,0.6);padding:13px 28px;border-radius:2px;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(245,240,232,0.2);cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:all .2s;}
+.btn-ghost:hover{border-color:rgba(245,240,232,0.4);color:rgba(245,240,232,0.9);}
+.hero-stats{display:flex;gap:34px;padding-top:42px;margin-top:42px;border-top:1px solid rgba(255,255,255,0.09);position:relative;z-index:1;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--cream);line-height:1;}
+.stat-label{font-size:10px;color:rgba(245,240,232,0.4);margin-top:4px;letter-spacing:.07em;}
+.hero-right{display:grid;grid-template-rows:1fr 1fr;position:relative;}
+.hero-city{position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;padding:28px 32px;transition:all .4s;text-decoration:none;}
+.hero-city-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;}
+.hero-city:hover .hero-city-bg{transform:scale(1.04);}
+.hero-city-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,18,10,0.82) 0%,transparent 65%);transition:opacity .4s;}
+.hc-slc .hero-city-bg{background:linear-gradient(170deg,#618A75 0%,#2A5040 30%,#162E22 70%,#0C1E16 100%);}
+.hc-det .hero-city-bg{background:linear-gradient(170deg,#4E7FA0 0%,#284E6A 30%,#162A3C 70%,#0C1A28 100%);}
+.hero-city-content{position:relative;z-index:2;}
+.hero-city-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:#fff;line-height:1;}
+.hero-city-hood{font-size:11px;color:rgba(255,255,255,0.48);margin-top:5px;line-height:1.55;}
+.hero-city-count{font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,0.36);margin-top:12px;display:flex;align-items:center;gap:8px;}
+.hero-city-arrow{transition:transform .3s,opacity .3s;opacity:.28;}
+.hero-city:hover .hero-city-arrow{transform:translateX(4px);opacity:.8;}
+.city-badge{position:absolute;top:16px;right:16px;backdrop-filter:blur(6px);border-radius:100px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.62);padding:5px 12px;}
+.badge-slc{background:rgba(122,168,145,0.18);border:1px solid rgba(122,168,145,0.28);}
+.badge-det{background:rgba(74,122,155,0.18);border:1px solid rgba(74,122,155,0.28);}
+.hero-divider{position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,0.1);pointer-events:none;}
+
+/* MARQUEE */
+.marquee-wrap{background:var(--parchment);overflow:hidden;padding:13px 0;border-top:1px solid var(--border-warm);border-bottom:1px solid var(--border-warm);}
+.marquee-track{display:flex;gap:52px;animation:marquee 32s linear infinite;white-space:nowrap;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;display:flex;align-items:center;gap:16px;}
+.m-slc{color:var(--forest-light);}
+.m-det{color:var(--det-steel);}
+.marquee-sep{width:3px;height:3px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+/* TRUST BAR */
+.trust-bar{background:var(--cream);display:flex;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.trust-item{flex:1;padding:20px 14px;border-right:1px solid var(--border);text-align:center;transition:background .2s;}
+.trust-item:last-child{border-right:none;}
+.trust-item:hover{background:var(--parchment);}
+.trust-icon{font-size:16px;margin-bottom:6px;}
+.trust-label{font-size:12.5px;font-weight:500;color:var(--forest);}
+.trust-sub{font-size:10.5px;color:var(--muted);margin-top:2px;}
+
+/* CITY SPLIT */
+.cities-split{display:grid;grid-template-columns:1fr 1fr;}
+
+.city-col{padding:64px 52px;display:flex;flex-direction:column;gap:28px;position:relative;overflow:hidden;}
+.city-col-slc{background:var(--forest);}
+.city-col-det{background:var(--det-navy);}
+.city-col::after{position:absolute;bottom:-40px;right:-10px;font-family:'Cormorant Garamond',serif;font-size:190px;font-weight:300;line-height:1;pointer-events:none;user-select:none;font-style:italic;opacity:1;}
+.city-col-slc::after{content:'SLC';color:rgba(255,255,255,0.024);}
+.city-col-det::after{content:'DET';color:rgba(255,255,255,0.024);}
+
+.city-eyebrow{font-size:9px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:6px;}
+.slc-eyebrow{color:var(--sage);}
+.det-eyebrow{color:#7AABCA;}
+.city-name{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:var(--cream);line-height:1;}
+.city-desc{font-size:14px;color:rgba(245,240,232,0.5);line-height:1.75;font-weight:300;max-width:360px;}
+.city-count-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;}
+.slc-count{color:rgba(122,168,145,0.7);}
+.det-count{color:rgba(122,171,202,0.7);}
+
+/* Hood pills */
+.hood-pills{display:flex;flex-wrap:wrap;gap:7px;}
+.hood-pill{padding:5px 12px;border-radius:100px;font-size:11px;cursor:pointer;transition:all .2s;border:1px solid;}
+.slc-pill{background:rgba(122,168,145,0.12);border-color:rgba(122,168,145,0.22);color:rgba(245,240,232,0.6);}
+.slc-pill:hover,.slc-pill.active{background:rgba(122,168,145,0.28);border-color:rgba(122,168,145,0.48);color:var(--cream);}
+.det-pill{background:rgba(74,122,155,0.12);border-color:rgba(74,122,155,0.22);color:rgba(245,240,232,0.6);}
+.det-pill:hover,.det-pill.active{background:rgba(74,122,155,0.28);border-color:rgba(74,122,155,0.48);color:var(--cream);}
+
+/* Property mini list */
+.city-props-list{display:flex;flex-direction:column;gap:9px;}
+.mini-prop{background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.08);border-radius:3px;padding:13px 15px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:background .2s,border-color .2s;text-decoration:none;}
+.mini-prop:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.14);}
+.mini-prop-icon{font-size:18px;flex-shrink:0;width:32px;text-align:center;}
+.mini-prop-info{flex:1;min-width:0;}
+.mini-prop-name{font-size:13px;font-weight:500;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mini-prop-meta{font-size:10.5px;color:rgba(245,240,232,0.4);margin-top:2px;}
+.mini-prop-rating{font-size:11.5px;font-weight:500;color:var(--gold);flex-shrink:0;}
+
+/* Detroit context box */
+.det-context{background:rgba(74,122,155,0.12);border:1px solid rgba(74,122,155,0.2);border-radius:3px;padding:16px 18px;}
+.det-context-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(122,171,202,0.65);margin-bottom:8px;}
+.det-context-body{font-size:13px;color:rgba(245,240,232,0.52);line-height:1.7;font-weight:300;}
+
+/* Detroit feature grid */
+.det-features{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.det-feat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:3px;padding:14px 15px;}
+.det-feat-icon{font-size:17px;margin-bottom:7px;}
+.det-feat-title{font-size:12.5px;font-weight:500;color:var(--cream);}
+.det-feat-body{font-size:11.5px;color:rgba(245,240,232,0.4);margin-top:3px;line-height:1.5;}
+
+/* City stats */
+.city-stat-strip{display:flex;gap:0;border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;}
+.city-stat-item{flex:1;padding-right:16px;border-right:1px solid rgba(255,255,255,0.07);margin-right:16px;}
+.city-stat-item:last-child{border-right:none;margin-right:0;}
+.city-stat-num{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--cream);}
+.city-stat-label{font-size:10px;color:rgba(245,240,232,0.36);margin-top:3px;letter-spacing:.05em;}
+
+.city-cta{display:inline-block;align-self:flex-start;padding:11px 26px;border-radius:2px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;font-family:'Instrument Sans',sans-serif;border:none;cursor:pointer;transition:all .2s;text-decoration:none;}
+.slc-cta{background:var(--sage-pale);color:var(--forest);}
+.slc-cta:hover{background:#fff;}
+.det-cta{background:var(--det-pale);color:var(--det-navy);}
+.det-cta:hover{background:#E2EFF8;}
+
+/* WHY DIRECT */
+.why-section{background:var(--forest);padding:80px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.why-eyebrow{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;}
+.why-title{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--cream);line-height:1.15;}
+.why-title em{font-style:italic;color:var(--gold);}
+.why-body{font-size:15px;color:rgba(245,240,232,0.5);line-height:1.75;margin-top:22px;font-weight:300;}
+.why-btn{display:inline-block;margin-top:36px;background:var(--cream);color:var(--forest);padding:14px 32px;border-radius:2px;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;border:none;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background .2s,transform .15s;}
+.why-btn:hover{background:#fff;transform:translateY(-1px);}
+.why-cards{display:flex;flex-direction:column;gap:14px;}
+.why-card{border:1px solid rgba(255,255,255,0.09);border-radius:3px;padding:20px 22px;display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,0.04);transition:background .2s;}
+.why-card:hover{background:rgba(255,255,255,0.07);}
+.why-icon{width:38px;height:38px;border-radius:50%;flex-shrink:0;background:rgba(255,255,255,0.07);display:flex;align-items:center;justify-content:center;font-size:15px;}
+.why-card-title{font-size:14px;font-weight:500;color:var(--cream);margin-bottom:4px;}
+.why-card-body{font-size:12.5px;color:rgba(245,240,232,0.46);line-height:1.6;}
+
+/* REVIEWS */
+.reviews-section{padding:80px 56px;}
+.section-eyebrow{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:10px;font-weight:500;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:400;color:var(--forest);line-height:1.15;}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:40px;}
+.view-all{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--forest-light);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px;transition:color .2s;}
+.view-all:hover{color:var(--forest);}
+.reviews-split{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:44px;}
+.reviews-col-head{display:flex;align-items:center;gap:10px;margin-bottom:18px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+.city-badge-sm{padding:4px 12px;border-radius:100px;font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;}
+.badge-slc-sm{background:var(--sage-pale);color:var(--forest);}
+.badge-det-sm{background:var(--det-pale);color:var(--det-navy);}
+.reviews-avg{font-size:12px;color:var(--muted);margin-left:auto;}
+.review{border:1px solid var(--border);border-radius:3px;padding:22px 24px;background:var(--warm-white);margin-bottom:14px;transition:box-shadow .2s;}
+.review:last-child{margin-bottom:0;}
+.review:hover{box-shadow:0 6px 24px rgba(30,51,40,0.07);}
+.review-top{display:flex;align-items:center;gap:11px;margin-bottom:14px;}
+.review-av{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;}
+.av-s{background:var(--sage-pale);color:var(--forest);}
+.av-t{background:var(--terra-pale);color:var(--terra);}
+.av-g{background:var(--gold-light);color:#7A5A20;}
+.av-d1{background:var(--det-pale);color:var(--det-navy);}
+.av-d2{background:#D8E0F5;color:#2A3A7A;}
+.review-name{font-size:13.5px;font-weight:500;color:var(--charcoal);}
+.review-meta{font-size:10.5px;color:var(--muted);margin-top:1px;}
+.review-stars{margin-left:auto;color:var(--gold);font-size:11px;letter-spacing:1px;}
+.review-text{font-family:'Cormorant Garamond',serif;font-size:15.5px;color:var(--ink);line-height:1.75;font-style:italic;}
+.review-text::before{content:'\201C'}.review-text::after{content:'\201D'}
+.review-prop{font-size:10.5px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--border);}
+
+/* ABOUT */
+.about-section{background:var(--parchment);padding:80px 56px;border-top:1px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-eyebrow{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;}
+.about-title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:400;color:var(--forest);line-height:1.2;}
+.about-body{font-size:15px;color:var(--muted);line-height:1.8;margin-top:18px;font-weight:300;}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px;}
+.about-tag{padding:6px 14px;border-radius:100px;border:1px solid var(--border-warm);font-size:11.5px;color:var(--forest-light);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.about-stat{background:var(--warm-white);border:1px solid var(--border);border-radius:3px;padding:20px 22px;}
+.about-num{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:400;color:var(--forest);line-height:1;}
+.about-label{font-size:11px;color:var(--muted);margin-top:6px;}
+
+/* FOOTER */
+footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-logo-main{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--cream);font-weight:400;}
+.footer-logo-main span{color:var(--terra-light);}
+.footer-logo-sub{font-size:8.5px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,232,0.28);margin-top:3px;}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;font-weight:300;color:rgba(245,240,232,0.4);margin-top:14px;line-height:1.65;}
+.footer-contact{margin-top:18px;}
+.footer-contact a{display:block;font-size:12px;color:rgba(245,240,232,0.4);text-decoration:none;margin-bottom:5px;transition:color .2s;}
+.footer-contact a:hover{color:var(--cream);}
+.footer-col-title{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,232,0.26);margin-bottom:16px;font-weight:500;}
+.footer-col a{display:block;font-size:13px;color:rgba(245,240,232,0.46);text-decoration:none;margin-bottom:10px;transition:color .2s;font-weight:300;}
+.footer-col a:hover{color:var(--cream);}
+.footer-col hr{border:none;border-top:1px solid rgba(255,255,255,0.07);margin:10px 0;}
+.footer-bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,0.07);padding-top:22px;display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:11px;color:rgba(245,240,232,0.2);}
+.footer-social{display:flex;gap:16px;}
+.footer-social a{font-size:11.5px;color:rgba(245,240,232,0.3);text-decoration:none;letter-spacing:.07em;transition:color .2s;}
+.footer-social a:hover{color:var(--cream);}
+
+/* EASTER EGG */
+.egg{display:none;position:fixed;inset:0;z-index:9999;background:var(--forest);flex-direction:column;align-items:center;justify-content:center;cursor:pointer;}
+.egg.show{display:flex;animation:fadeUp .45s ease both;}
+.egg-inner{text-align:center;max-width:680px;padding:0 32px;}
+@keyframes eggIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+.egg-inner{animation:eggIn .4s .1s ease both;}
+.egg-title{font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:300;color:var(--cream);line-height:1.1;}
+.egg-title em{font-style:italic;color:var(--gold);}
+.egg-sub{font-size:14px;color:rgba(245,240,232,0.46);margin-top:18px;line-height:1.65;max-width:400px;margin-left:auto;margin-right:auto;}
+.egg-code{margin-top:28px;display:inline-block;background:rgba(201,169,110,0.14);border:1px solid rgba(201,169,110,0.3);color:var(--gold);font-size:15px;letter-spacing:.2em;text-transform:uppercase;padding:13px 32px;border-radius:2px;font-weight:500;}
+.egg-props{display:flex;gap:12px;margin-top:28px;justify-content:center;flex-wrap:wrap;}
+.egg-prop{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:3px;padding:12px 18px;}
+.egg-prop-name{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--cream);}
+.egg-prop-city{font-size:10.5px;color:rgba(245,240,232,0.36);margin-top:3px;}
+.egg-dismiss{margin-top:28px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,0.22);}
+.egg-bg{position:absolute;font-family:'Cormorant Garamond',serif;font-size:220px;font-weight:300;color:rgba(255,255,255,0.022);line-height:1;user-select:none;pointer-events:none;font-style:italic;}
+.egg-bg-1{top:-40px;left:-30px;}
+.egg-bg-2{bottom:-40px;right:-30px;transform:rotate(180deg);}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.07s}.d2{transition-delay:.15s}.d3{transition-delay:.23s}
+</style>
 </head>
 <body>
+
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">
@@ -87,7 +302,7 @@
       <div class="hero-city-content">
         <div class="hero-city-name">Salt Lake City</div>
         <div class="hero-city-hood">Granary · Downtown · Sugarhood<br>ModernWest · 9line · Avenues</div>
-        <div class="hero-city-count">23 properties <span class="hero-city-arrow">→</span></div>
+        <div class="hero-city-count">24 properties <span class="hero-city-arrow">→</span></div>
       </div>
     </a>
     <div class="hero-divider"></div>
@@ -98,7 +313,7 @@
       <div class="hero-city-content">
         <div class="hero-city-name">Detroit</div>
         <div class="hero-city-hood">Brush Park · steps from the LCA<br>&amp; Woodward Ave</div>
-        <div class="hero-city-count">3 properties <span class="hero-city-arrow">→</span></div>
+        <div class="hero-city-count">2 properties <span class="hero-city-arrow">→</span></div>
       </div>
     </a>
   </div>
@@ -147,14 +362,14 @@
     <div class="reveal">
       <div class="city-eyebrow slc-eyebrow">Mountain West · Utah</div>
       <div class="city-name">Salt Lake<br>City</div>
-      <div class="city-desc" style="margin-top:14px;">Ski some of the best powder on Earth in the morning, walk to dinner in the evening. Our 23 properties span six of SLC's most walkable, characterful neighborhoods.</div>
-      <div class="city-count-label slc-count" style="margin-top:10px;">23 properties · 6 neighborhoods</div>
+      <div class="city-desc" style="margin-top:14px;">Ski some of the best powder on Earth in the morning, walk to dinner in the evening. Our 24 properties span six of SLC's most walkable, characterful neighborhoods.</div>
+      <div class="city-count-label slc-count" style="margin-top:10px;">24 properties · 6 neighborhoods</div>
     </div>
 
     <div class="hood-pills reveal">
       <span class="hood-pill slc-pill active" onclick="filterSLC(this,'all')">All</span>
       <span class="hood-pill slc-pill" onclick="filterSLC(this,'granary')">Granary (6)</span>
-      <span class="hood-pill slc-pill" onclick="filterSLC(this,'downtown')">Downtown (10)</span>
+      <span class="hood-pill slc-pill" onclick="filterSLC(this,'downtown')">Downtown (11)</span>
       <span class="hood-pill slc-pill" onclick="filterSLC(this,'sugarhood')">Sugarhood (3)</span>
       <span class="hood-pill slc-pill" onclick="filterSLC(this,'modernwest')">ModernWest (1)</span>
       <span class="hood-pill slc-pill" onclick="filterSLC(this,'9line')">9line (2)</span>
@@ -215,7 +430,7 @@
     </div>
 
     <div class="city-stat-strip reveal">
-      <div class="city-stat-item"><div class="city-stat-num">23</div><div class="city-stat-label">Properties</div></div>
+      <div class="city-stat-item"><div class="city-stat-num">24</div><div class="city-stat-label">Properties</div></div>
       <div class="city-stat-item"><div class="city-stat-num">6</div><div class="city-stat-label">Neighborhoods</div></div>
       <div class="city-stat-item"><div class="city-stat-num">30<span style="font-size:15px;font-family:'Instrument Sans',sans-serif;">min</span></div><div class="city-stat-label">To ski resorts</div></div>
     </div>
@@ -228,12 +443,12 @@
       <div class="city-eyebrow det-eyebrow">Great Lakes · Michigan</div>
       <div class="city-name">Detroit</div>
       <div class="city-desc" style="margin-top:14px;">Jazz roots, Motown soul, and a city rewriting its own story. Our Brush Park properties put you steps from the LCA, Woodward Ave, and the best of a city on the rise.</div>
-      <div class="city-count-label det-count" style="margin-top:10px;">3 properties · Brush Park</div>
+      <div class="city-count-label det-count" style="margin-top:10px;">2 properties · Brush Park</div>
     </div>
 
     <div class="det-context reveal">
       <div class="det-context-label">Why only Brush Park?</div>
-      <div class="det-context-body">We picked quality over quantity. Brush Park is Detroit's most storied neighborhood — Victorian mansions, new builds, and the LCA literally across the street. All three of our properties here are exceptional, and we know every corner of them.</div>
+      <div class="det-context-body">We picked quality over quantity. Brush Park is Detroit's most storied neighborhood — Victorian mansions, new builds, and the LCA literally across the street. Both of our properties here are exceptional, and we know every corner of them.</div>
     </div>
 
     <div class="city-props-list reveal" id="det-list">
@@ -247,11 +462,6 @@
         <div class="mini-prop-info"><div class="mini-prop-name">Lumber Baron's Penthouse · 3BR + Garage</div><div class="mini-prop-meta">3BR · 2.5BA · Sleeps 6 · 2 Kings + 1 Queen · Garage</div></div>
         <span class="mini-prop-rating">★ 4.99</span>
       </a>
-      <a href="https://lakecityflats.com/property/the-lumber-barons-3br-penthouse" class="mini-prop">
-        <div class="mini-prop-icon">🏒</div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Brush Park · Steps from LCA</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 2 · Walk to everything</div></div>
-        <span class="mini-prop-rating">★ 4.97</span>
-      </a>
     </div>
 
     <div class="det-features reveal">
@@ -262,7 +472,7 @@
     </div>
 
     <div class="city-stat-strip reveal">
-      <div class="city-stat-item"><div class="city-stat-num">3</div><div class="city-stat-label">Properties</div></div>
+      <div class="city-stat-item"><div class="city-stat-num">2</div><div class="city-stat-label">Properties</div></div>
       <div class="city-stat-item"><div class="city-stat-num">1</div><div class="city-stat-label">Neighborhood</div></div>
       <div class="city-stat-item"><div class="city-stat-num">0<span style="font-size:15px;font-family:'Instrument Sans',sans-serif;">min</span></div><div class="city-stat-label">Walk to LCA</div></div>
     </div>
@@ -388,7 +598,6 @@
     <div class="footer-col-title">Detroit</div>
     <a href="#">Lumber Baron's Mansion</a>
     <a href="#">Lumber Baron's Penthouse</a>
-    <a href="#">Brush Park Studio</a>
     <hr>
     <div class="footer-col-title" style="margin-top:6px;">Book direct</div>
     <a href="#">Check availability</a>
@@ -428,6 +637,36 @@
     <div class="egg-dismiss">Click anywhere to close</div>
   </div>
 </div>
-<script src="js/main.js"></script>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// SLC neighborhood filter
+function filterSLC(btn, hood) {
+  document.querySelectorAll('.slc-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#slc-list .mini-prop').forEach(p => {
+    p.style.display = (hood === 'all' || p.dataset.hood === hood) ? '' : 'none';
+  });
+}
+
+// Easter egg: type "lcf"
+let buf = '';
+document.addEventListener('keydown', e => {
+  buf += e.key.toLowerCase();
+  buf = buf.slice(-3);
+  if (buf === 'lcf') { document.getElementById('egg').classList.add('show'); buf = ''; }
+});
+function closeEgg() { document.getElementById('egg').classList.remove('show'); }
+</script>
 </body>
 </html>
