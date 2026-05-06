@@ -64,8 +64,8 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .hero-city-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;}
 .hero-city:hover .hero-city-bg{transform:scale(1.04);}
 .hero-city-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,18,10,0.82) 0%,transparent 65%);transition:opacity .4s;}
-.hc-slc .hero-city-bg{background:linear-gradient(170deg,#618A75 0%,#2A5040 30%,#162E22 70%,#0C1E16 100%);}
-.hc-det .hero-city-bg{background:linear-gradient(170deg,#4E7FA0 0%,#284E6A 30%,#162A3C 70%,#0C1A28 100%);}
+.hc-slc .hero-city-bg{background-image:url('https://assets.hospitable.com/property_images/794728/iYoD6UheolNm2srzeOmlknUBjmBtJuXoYbe9UWYy.jpg');background-size:cover;background-position:center;}
+.hc-det .hero-city-bg{background-image:url('https://assets.hospitable.com/property_images/818686/6icPNDIW9fFETLfG9Y4TbLQMyqXNJDhkl2w9XEHq.jpg');background-size:cover;background-position:center;}
 .hero-city-content{position:relative;z-index:2;}
 .hero-city-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:#fff;line-height:1;}
 .hero-city-hood{font-size:11px;color:rgba(255,255,255,0.48);margin-top:5px;line-height:1.55;}
@@ -126,7 +126,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .city-props-list{display:flex;flex-direction:column;gap:9px;}
 .mini-prop{background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.08);border-radius:3px;padding:13px 15px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:background .2s,border-color .2s;text-decoration:none;}
 .mini-prop:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.14);}
-.mini-prop-icon{font-size:18px;flex-shrink:0;width:32px;text-align:center;}
+.mini-prop-icon{flex-shrink:0;width:48px;height:48px;border-radius:3px;background-size:cover;background-position:center;overflow:hidden;}
 .mini-prop-info{flex:1;min-width:0;}
 .mini-prop-name{font-size:13px;font-weight:500;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .mini-prop-meta{font-size:10.5px;color:rgba(245,240,232,0.4);margin-top:2px;}
@@ -378,52 +378,52 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 
     <div class="city-props-list reveal" id="slc-list">
       <a href="https://lakecityflats.com/property/granary-de-luxe-apartment-1br1ba-w-coworking-sp" class="mini-prop" data-hood="granary">
-        <div class="mini-prop-icon">🏙</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/794728/iYoD6UheolNm2srzeOmlknUBjmBtJuXoYbe9UWYy.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">Granary Penthouse · CoWork + Gym</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 4 · King + Sleeper</div></div>
         <span class="mini-prop-rating">★ 4.96</span>
       </a>
       <a href="https://lakecityflats.com/property/downtown-slc-granary-penthse-1br" class="mini-prop" data-hood="granary">
-        <div class="mini-prop-icon">✨</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/1027962/N95SQ1F7QzwbW4jt992zO9N5CqazoM6Ld1vFeODf.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">Granary King Suite · CoWork + Gym</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 4 · King + Sleeper</div></div>
         <span class="mini-prop-rating">★ 4.97</span>
       </a>
       <a href="https://lakecityflats.com/property/granary-downtown-slc-w-coworking-1br1ba-sleep-4" class="mini-prop" data-hood="granary">
-        <div class="mini-prop-icon">🪴</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/791268/5Shq03rYPscylEhCszD22O0q7dRrusqoKceJxG5S.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">Granary Studio · CoWork + Gym</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 4 · King + Sofa</div></div>
         <span class="mini-prop-rating">★ 4.95</span>
       </a>
       <a href="https://lakecityflats.com/property/superb-townhouse-downtown-slc-2br25ba" class="mini-prop" data-hood="downtown">
-        <div class="mini-prop-icon">🏘</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/358940/453Eoxm5efVj1Luqm64Bivac.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">Downtown Townhouse · 2 King Suites + Garage</div><div class="mini-prop-meta">2BR · 2.5BA · Sleeps 6 · Garage</div></div>
         <span class="mini-prop-rating">★ 4.97</span>
       </a>
       <a href="https://lakecityflats.com/property/moroccan-mountain-downtown-townhome2-suites25ba" class="mini-prop" data-hood="downtown">
-        <div class="mini-prop-icon">🏗</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/341520/58PmDQDdxpJ4uCWVka58yFjvKU9ahRBg3pgOr6TH.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">Downtown Townhome · 2 King Suites + 2-Car Garage</div><div class="mini-prop-meta">2BR · 2.5BA · Sleeps 6 · 2-Car Garage</div></div>
         <span class="mini-prop-rating">★ 4.96</span>
       </a>
       <a href="https://lakecityflats.com/property/modern-east-slc-downtown-1br1ba-sleeps-4-w-view" class="mini-prop" data-hood="downtown">
-        <div class="mini-prop-icon">🏔</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/789842/VOUKTqIU9w6raf5Z9soA5z4zTCRjrw3gPbDKe8fO.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">Exposed Brick Studio · Mountain Views</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 4 · King</div></div>
         <span class="mini-prop-rating">★ 4.94</span>
       </a>
       <a href="https://lakecityflats.com/property/sugarhood-slc-penthouse-3br2ba" class="mini-prop" data-hood="sugarhood">
-        <div class="mini-prop-icon">🌄</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/1678254/b2DmJ99K9I5jnWzRvQLsdEVbUGtAHP9fB24anagq.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">Sugarhood Penthouse · 3BR + CoWork + Garage</div><div class="mini-prop-meta">3BR · 2BA · Sleeps 7 · Garage</div></div>
         <span class="mini-prop-rating">★ 4.95</span>
       </a>
       <a href="https://lakecityflats.com/property/modernwest-townhome-downtown-slc" class="mini-prop" data-hood="modernwest">
-        <div class="mini-prop-icon">🔷</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/1258138/sVkhMHIrx34hKa1ku530NlLfXzrEhtpm6OLk7xo9.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">ModernWest Townhome · 3BR + Garage</div><div class="mini-prop-meta">3BR · 3.5BA · Sleeps 6 · Garage</div></div>
         <span class="mini-prop-rating">★ 4.96</span>
       </a>
       <a href="https://lakecityflats.com/property/lcf-9line-slc-loft-kingsofa-gym-sleeps-3" class="mini-prop" data-hood="9line">
-        <div class="mini-prop-icon">🔲</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/2236536/NF3wJYF8MVVuEK054KEhpbrnBlLjwllDU7Lm1pPZ.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">9line Loft · King + Gym</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 3 · King + Sofa</div></div>
         <span class="mini-prop-rating">★ 4.94</span>
       </a>
       <a href="https://lakecityflats.com/property/avenues-appartement-de-luxe-king-suite-sleeper" class="mini-prop" data-hood="avenues">
-        <div class="mini-prop-icon">🌿</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/668430/nPDhy1nfDhwrtL7TfnPs3GB3yosUcI2WVVbsinZt.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">Avenues King Suite · Gym</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 4 · King + Sleeper</div></div>
         <span class="mini-prop-rating">★ 4.95</span>
       </a>
@@ -453,12 +453,12 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 
     <div class="city-props-list reveal" id="det-list">
       <a href="https://lakecityflats.com/property/the-lumber-barons-downtown-mansion-2kingbr25ba" class="mini-prop">
-        <div class="mini-prop-icon">🏛</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/818686/6icPNDIW9fFETLfG9Y4TbLQMyqXNJDhkl2w9XEHq.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">Lumber Baron's Mansion · 2 King Suites</div><div class="mini-prop-meta">2BR · 2.5BA · Sleeps 6 · Gym · Brush Park</div></div>
         <span class="mini-prop-rating">★ 4.98</span>
       </a>
       <a href="https://lakecityflats.com/property/the-lumber-barons-3br-penthouse" class="mini-prop">
-        <div class="mini-prop-icon">👑</div>
+        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/1087710/wvHEsxGYbwB6C8li7IOWMmc2p22k17wTNKU7SOJ4.jpg')"></div>
         <div class="mini-prop-info"><div class="mini-prop-name">Lumber Baron's Penthouse · 3BR + Garage</div><div class="mini-prop-meta">3BR · 2.5BA · Sleeps 6 · 2 Kings + 1 Queen · Garage</div></div>
         <span class="mini-prop-rating">★ 4.99</span>
       </a>
