@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lake City Flats — Loading...</title>
 <meta name="description" content="Curated short-term rentals in Salt Lake City and Detroit. Book direct and save 15%.">
+<!-- OG tags updated dynamically by JS after property loads -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lake City Flats">
+<meta property="og:title" content="Lake City Flats">
+<meta property="og:description" content="Curated short-term rentals in Salt Lake City and Detroit. Book direct and save 15%.">
+<meta property="og:image" content="">
+<meta property="og:url" content="">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lake City Flats">
+<meta name="twitter:description" content="Curated short-term rentals in Salt Lake City and Detroit. Book direct and save 15%.">
+<meta name="twitter:image" content="">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Instrument Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
@@ -102,11 +113,57 @@ async function init() {
     return;
   }
 
-  document.title = `${prop.name} — Lake City Flats`;
-  document.querySelector('meta[name="description"]').content = `${prop.meta} in ${prop.city === 'slc' ? 'Salt Lake City' : 'Detroit'}. Book direct with Lake City Flats and save ~15% vs. Airbnb.`;
+  const cityFull = prop.city === 'slc' ? 'Salt Lake City' : 'Detroit';
+  const pageTitle = `${prop.name} — Lake City Flats`;
+  const pageDesc = `${prop.meta} in ${cityFull}. Book direct with Lake City Flats and save ~15% vs. Airbnb. No service fees.`;
+  const pageUrl = location.href;
+  const pageImg = prop.photos[0] || prop.image;
+
+  document.title = pageTitle;
+  document.querySelector('meta[name="description"]').content = pageDesc;
+  document.querySelector('meta[property="og:title"]').content = pageTitle;
+  document.querySelector('meta[property="og:description"]').content = pageDesc;
+  document.querySelector('meta[property="og:image"]').content = pageImg;
+  document.querySelector('meta[property="og:url"]').content = pageUrl;
+  document.querySelector('meta[name="twitter:title"]').content = pageTitle;
+  document.querySelector('meta[name="twitter:description"]').content = pageDesc;
+  document.querySelector('meta[name="twitter:image"]').content = pageImg;
+
+  const hoodAddress = prop.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+  const stateCode = prop.city === 'slc' ? 'UT' : 'MI';
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": prop.name,
+    "description": prop.description,
+    "url": pageUrl,
+    "image": prop.photos,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": cityFull,
+      "addressRegion": stateCode,
+      "addressCountry": "US"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": prop.rating,
+      "reviewCount": parseInt(prop.review_count) || 10,
+      "bestRating": "5"
+    },
+    "amenityFeature": prop.amenities.map(a => ({"@type":"LocationFeatureSpecification","name":a,"value":true})),
+    "numberOfRooms": prop.beds,
+    "occupancy": {"@type":"QuantitativeValue","maxValue":prop.sleeps},
+    "petsAllowed": false,
+    "telephone": "+18016571028",
+    "email": "contact@lakecityflats.com"
+  };
+  const s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.text = JSON.stringify(jsonLd);
+  document.head.appendChild(s);
 
   const isSlc = prop.city === 'slc';
-  const cityLabel = isSlc ? 'Salt Lake City' : 'Detroit';
+  const cityLabel = cityFull;
   const hoodLabel = prop.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const similar = data.properties.filter(p => p.city === prop.city && p.id !== prop.id).slice(0,3);
   const photos = prop.photos;
