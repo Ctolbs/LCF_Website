@@ -160,6 +160,18 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .det-context-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(122,171,202,0.65);margin-bottom:8px;}
 .det-context-body{font-size:13px;color:rgba(245,240,232,0.52);line-height:1.7;font-weight:300;}
 
+/* Detroit property cards */
+.det-prop-card{display:flex;flex-direction:column;background:rgba(255,255,255,0.055);border:1px solid rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;text-decoration:none;transition:background .2s,border-color .2s;}
+.det-prop-card:hover{background:rgba(255,255,255,0.09);border-color:rgba(255,255,255,0.16);}
+.det-prop-card-img{width:100%;height:150px;background-size:cover;background-position:center;}
+.det-prop-card-body{padding:14px 16px;display:flex;justify-content:space-between;align-items:flex-start;}
+.det-prop-card-name{font-size:13.5px;font-weight:500;color:var(--cream);line-height:1.3;}
+.det-prop-card-meta{font-size:11px;color:rgba(245,240,232,0.42);margin-top:4px;}
+.det-prop-card-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;padding-left:12px;}
+.det-prop-card-rating{font-size:11.5px;font-weight:500;color:var(--gold);}
+.det-prop-card-link{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,0.35);white-space:nowrap;}
+.det-prop-card:hover .det-prop-card-link{color:var(--gold);}
+
 /* Detroit feature grid */
 .det-features{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .det-feat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:3px;padding:14px 15px;}
@@ -432,13 +444,6 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <div class="det-feat"><div class="det-feat-icon">🏛</div><div class="det-feat-title">Historic Brush Park</div><div class="det-feat-body">Victorian mansions &amp; bold new builds</div></div>
       <div class="det-feat"><div class="det-feat-icon">🍴</div><div class="det-feat-title">Walk to everything</div><div class="det-feat-body">Restaurants, bars &amp; shops on Woodward</div></div>
     </div>
-
-    <div class="city-stat-strip reveal">
-      <div class="city-stat-item"><div class="city-stat-num" data-lcf="det-total">2</div><div class="city-stat-label">Flats</div></div>
-      <div class="city-stat-item"><div class="city-stat-num">1</div><div class="city-stat-label">Neighborhood</div></div>
-      <div class="city-stat-item"><div class="city-stat-num">0<span style="font-size:15px;font-family:'Jost',sans-serif;">min</span></div><div class="city-stat-label">Walk to LCA</div></div>
-    </div>
-    <a href="https://lakecityflats.com" class="city-cta det-cta reveal">Browse Detroit stays →</a>
   </div>
 
 </section>
@@ -674,7 +679,19 @@ async function loadProperties() {
     .join('');
 
   document.getElementById('det-list').innerHTML = detProps
-    .map(p => propCard(p, ''))
+    .map(p => `<a href="property/?id=${p.id}" class="det-prop-card">
+      <div class="det-prop-card-img" style="background-image:url('${p.image}')"></div>
+      <div class="det-prop-card-body">
+        <div>
+          <div class="det-prop-card-name">${p.name}</div>
+          <div class="det-prop-card-meta">${p.meta}</div>
+        </div>
+        <div class="det-prop-card-right">
+          <span class="det-prop-card-rating">★ ${p.rating}</span>
+          <span class="det-prop-card-link">View flat →</span>
+        </div>
+      </div>
+    </a>`)
     .join('');
 
   // Re-run scroll observer on newly added elements
