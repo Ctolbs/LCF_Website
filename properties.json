@@ -4,8 +4,7 @@
     "downtown": 12,
     "sugarhood": 3,
     "modernwest": 1,
-    "9line": 2,
-    "avenues": 1
+    "9line": 2
   },
   "properties": [
     {
@@ -94,7 +93,6 @@
       "description": "Two full king suites, 2.5 baths, and a private garage — ideal for two couples or a family who want their own space without sharing walls. A full townhouse in the middle of downtown SLC, within walking distance of the best restaurants in the city. This is the one guests rebook year after year.",
       "amenities": ["2 King beds", "Private garage", "2.5 bathrooms", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dishwasher", "Dining table (6)", "Rooftop deck", "Hair dryer", "Extra linens", "Free parking"],
       "photos": [
-        "https://assets.hospitable.com/property_images/358940/453Eoxm5efVj1Luqm64Bivac.jpg",
         "https://assets.hospitable.com/property_images/358940/4aEZBQfsHGQd47Ph0kVaofsdXLTSLfRVUGLb60pw.jpeg"
       ],
       "reviews": [
@@ -102,7 +100,7 @@
         { "name": "Sarah", "date": "March 2026", "source": "Airbnb", "text": "Perfect for our group of four. Two full king suites meant everyone had real privacy. The garage was clutch in winter. We'd definitely be back." }
       ],
       "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
-      "image": "https://assets.hospitable.com/property_images/358940/453Eoxm5efVj1Luqm64Bivac.jpg",
+      "image": "https://assets.hospitable.com/property_images/358940/4aEZBQfsHGQd47Ph0kVaofsdXLTSLfRVUGLb60pw.jpeg",
       "url": "https://lakecityflats.com/property/superb-townhouse-downtown-slc-2br25ba"
     },
     {
@@ -220,29 +218,6 @@
       "neighborhood_desc": "9line is SLC's newest transit-oriented district — developed along a reclaimed rail corridor with modern residential buildings, parks, and easy light-rail access to downtown and the airport.",
       "image": "https://assets.hospitable.com/property_images/2236536/NF3wJYF8MVVuEK054KEhpbrnBlLjwllDU7Lm1pPZ.jpg",
       "url": "https://lakecityflats.com/property/lcf-9line-slc-loft-kingsofa-gym-sleeps-3"
-    },
-    {
-      "id": "avenues-suite",
-      "hospitable_id": "668430",
-      "city": "slc",
-      "hood": "avenues",
-      "name": "Avenues King Suite · Gym",
-      "meta": "1BR · 1BA · Sleeps 4 · King + Sleeper",
-      "beds": 1, "baths": 1, "sleeps": 4,
-      "rating": "4.95", "review_count": "40+",
-      "features": ["Historic Avenues", "Gym Access", "Walkable", "Mountain Views"],
-      "description": "In the historic Avenues — SLC's most architecturally beautiful neighborhood, tucked into the foothills above downtown. This king suite has mountain views, in-building gym access, and the quiet of a genuine neighborhood rather than a hotel corridor. Walk to some of the city's best independent restaurants.",
-      "amenities": ["King bed + Sleeper sofa", "Gym access", "Mountain views", "Full kitchen", "Ultrafast WiFi", "Self check-in", "Air conditioning", "Washer/dryer", "Smart TV", "Coffee maker", "Dedicated workspace", "Hair dryer", "Extra linens"],
-      "photos": [
-        "https://assets.hospitable.com/property_images/668430/nPDhy1nfDhwrtL7TfnPs3GB3yosUcI2WVVbsinZt.jpg",
-        "https://assets.hospitable.com/property_images/668430/vZ0kFl5h5yI6ahCkr55UQBwN6h6AEEFRHzZsapTf.jpg"
-      ],
-      "reviews": [
-        { "name": "Patricia", "date": "March 2026", "source": "Airbnb", "text": "The Avenues is such a special neighborhood — we walked to a phenomenal dinner and a great coffee spot the next morning. The suite itself was beautifully done. Mountain views from bed. Highly recommend." }
-      ],
-      "neighborhood_desc": "The Avenues is SLC's oldest and most beloved neighborhood — tree-lined streets, Victorian architecture, and a community feel you can't manufacture. Steps from great independent restaurants and a 10-minute walk to Temple Square.",
-      "image": "https://assets.hospitable.com/property_images/668430/nPDhy1nfDhwrtL7TfnPs3GB3yosUcI2WVVbsinZt.jpg",
-      "url": "https://lakecityflats.com/property/avenues-appartement-de-luxe-king-suite-sleeper"
     },
     {
       "id": "lumber-barons-mansion",
