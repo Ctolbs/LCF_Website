@@ -10,6 +10,7 @@
   "properties": [
     {
       "id": "granary-penthouse",
+      "hospitable_id": "794728",
       "city": "slc",
       "hood": "granary",
       "name": "Granary Penthouse · CoWork + Gym",
@@ -34,6 +35,7 @@
     },
     {
       "id": "granary-king-suite",
+      "hospitable_id": "1027962",
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Suite · CoWork + Gym",
@@ -58,6 +60,7 @@
     },
     {
       "id": "granary-studio",
+      "hospitable_id": "791268",
       "city": "slc",
       "hood": "granary",
       "name": "Granary Studio · CoWork + Gym",
@@ -80,6 +83,7 @@
     },
     {
       "id": "downtown-townhouse",
+      "hospitable_id": "358940",
       "city": "slc",
       "hood": "downtown",
       "name": "Downtown Townhouse · 2 King Suites + Garage",
@@ -103,6 +107,7 @@
     },
     {
       "id": "downtown-townhome",
+      "hospitable_id": "341520",
       "city": "slc",
       "hood": "downtown",
       "name": "Downtown Townhome · 2 King Suites + 2-Car Garage",
@@ -125,6 +130,7 @@
     },
     {
       "id": "brick-studio",
+      "hospitable_id": "789842",
       "city": "slc",
       "hood": "downtown",
       "name": "Exposed Brick Studio · Mountain Views",
@@ -147,6 +153,7 @@
     },
     {
       "id": "sugarhood-penthouse",
+      "hospitable_id": "1678254",
       "city": "slc",
       "hood": "sugarhood",
       "name": "Sugarhood Penthouse · 3BR + CoWork + Garage",
@@ -170,6 +177,7 @@
     },
     {
       "id": "modernwest-townhome",
+      "hospitable_id": "1258138",
       "city": "slc",
       "hood": "modernwest",
       "name": "ModernWest Townhome · 3BR + Garage",
@@ -192,6 +200,7 @@
     },
     {
       "id": "9line-loft",
+      "hospitable_id": "2236536",
       "city": "slc",
       "hood": "9line",
       "name": "9line Loft · King + Gym",
@@ -214,6 +223,7 @@
     },
     {
       "id": "avenues-suite",
+      "hospitable_id": "668430",
       "city": "slc",
       "hood": "avenues",
       "name": "Avenues King Suite · Gym",
@@ -236,6 +246,7 @@
     },
     {
       "id": "lumber-barons-mansion",
+      "hospitable_id": "818686",
       "city": "detroit",
       "hood": "brush-park",
       "name": "Lumber Baron's Mansion · 2 King Suites",
@@ -262,6 +273,7 @@
     },
     {
       "id": "lumber-barons-penthouse",
+      "hospitable_id": "1087710",
       "city": "detroit",
       "hood": "brush-park",
       "name": "Lumber Baron's Penthouse · 3BR + Garage",
