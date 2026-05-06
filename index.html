@@ -288,7 +288,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       </div>
     </div>
     <div class="hero-stats fu fu4">
-      <div><div class="stat-num">26</div><div class="stat-label">Properties</div></div>
+      <div><div class="stat-num" data-lcf="grand-total">26</div><div class="stat-label">Properties</div></div>
       <div><div class="stat-num">4.96★</div><div class="stat-label">Avg. rating</div></div>
       <div><div class="stat-num">2</div><div class="stat-label">Cities</div></div>
     </div>
@@ -302,7 +302,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <div class="hero-city-content">
         <div class="hero-city-name">Salt Lake City</div>
         <div class="hero-city-hood">Granary · Downtown · Sugarhood<br>ModernWest · 9line · Avenues</div>
-        <div class="hero-city-count">24 properties <span class="hero-city-arrow">→</span></div>
+        <div class="hero-city-count"><span data-lcf="slc-total">24</span> properties <span class="hero-city-arrow">→</span></div>
       </div>
     </a>
     <div class="hero-divider"></div>
@@ -313,7 +313,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <div class="hero-city-content">
         <div class="hero-city-name">Detroit</div>
         <div class="hero-city-hood">Brush Park · steps from the LCA<br>&amp; Woodward Ave</div>
-        <div class="hero-city-count">2 properties <span class="hero-city-arrow">→</span></div>
+        <div class="hero-city-count"><span data-lcf="det-total">2</span> properties <span class="hero-city-arrow">→</span></div>
       </div>
     </a>
   </div>
@@ -362,76 +362,17 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     <div class="reveal">
       <div class="city-eyebrow slc-eyebrow">Mountain West · Utah</div>
       <div class="city-name">Salt Lake<br>City</div>
-      <div class="city-desc" style="margin-top:14px;">Ski some of the best powder on Earth in the morning, walk to dinner in the evening. Our 24 properties span six of SLC's most walkable, characterful neighborhoods.</div>
-      <div class="city-count-label slc-count" style="margin-top:10px;">24 properties · 6 neighborhoods</div>
+      <div class="city-desc" style="margin-top:14px;">Ski some of the best powder on Earth in the morning, walk to dinner in the evening. Our <span data-lcf="slc-total">24</span> properties span six of SLC's most walkable, characterful neighborhoods.</div>
+      <div class="city-count-label slc-count" style="margin-top:10px;"><span data-lcf="slc-total">24</span> properties · <span data-lcf="slc-hoods">6</span> neighborhoods</div>
     </div>
 
-    <div class="hood-pills reveal">
-      <span class="hood-pill slc-pill active" onclick="filterSLC(this,'all')">All</span>
-      <span class="hood-pill slc-pill" onclick="filterSLC(this,'granary')">Granary (6)</span>
-      <span class="hood-pill slc-pill" onclick="filterSLC(this,'downtown')">Downtown (11)</span>
-      <span class="hood-pill slc-pill" onclick="filterSLC(this,'sugarhood')">Sugarhood (3)</span>
-      <span class="hood-pill slc-pill" onclick="filterSLC(this,'modernwest')">ModernWest (1)</span>
-      <span class="hood-pill slc-pill" onclick="filterSLC(this,'9line')">9line (2)</span>
-      <span class="hood-pill slc-pill" onclick="filterSLC(this,'avenues')">Avenues (1)</span>
-    </div>
+    <div class="hood-pills reveal" id="slc-pills"></div>
 
-    <div class="city-props-list reveal" id="slc-list">
-      <a href="https://lakecityflats.com/property/granary-de-luxe-apartment-1br1ba-w-coworking-sp" class="mini-prop" data-hood="granary">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/794728/iYoD6UheolNm2srzeOmlknUBjmBtJuXoYbe9UWYy.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Granary Penthouse · CoWork + Gym</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 4 · King + Sleeper</div></div>
-        <span class="mini-prop-rating">★ 4.96</span>
-      </a>
-      <a href="https://lakecityflats.com/property/downtown-slc-granary-penthse-1br" class="mini-prop" data-hood="granary">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/1027962/N95SQ1F7QzwbW4jt992zO9N5CqazoM6Ld1vFeODf.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Granary King Suite · CoWork + Gym</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 4 · King + Sleeper</div></div>
-        <span class="mini-prop-rating">★ 4.97</span>
-      </a>
-      <a href="https://lakecityflats.com/property/granary-downtown-slc-w-coworking-1br1ba-sleep-4" class="mini-prop" data-hood="granary">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/791268/5Shq03rYPscylEhCszD22O0q7dRrusqoKceJxG5S.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Granary Studio · CoWork + Gym</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 4 · King + Sofa</div></div>
-        <span class="mini-prop-rating">★ 4.95</span>
-      </a>
-      <a href="https://lakecityflats.com/property/superb-townhouse-downtown-slc-2br25ba" class="mini-prop" data-hood="downtown">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/358940/453Eoxm5efVj1Luqm64Bivac.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Downtown Townhouse · 2 King Suites + Garage</div><div class="mini-prop-meta">2BR · 2.5BA · Sleeps 6 · Garage</div></div>
-        <span class="mini-prop-rating">★ 4.97</span>
-      </a>
-      <a href="https://lakecityflats.com/property/moroccan-mountain-downtown-townhome2-suites25ba" class="mini-prop" data-hood="downtown">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/341520/58PmDQDdxpJ4uCWVka58yFjvKU9ahRBg3pgOr6TH.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Downtown Townhome · 2 King Suites + 2-Car Garage</div><div class="mini-prop-meta">2BR · 2.5BA · Sleeps 6 · 2-Car Garage</div></div>
-        <span class="mini-prop-rating">★ 4.96</span>
-      </a>
-      <a href="https://lakecityflats.com/property/modern-east-slc-downtown-1br1ba-sleeps-4-w-view" class="mini-prop" data-hood="downtown">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/789842/VOUKTqIU9w6raf5Z9soA5z4zTCRjrw3gPbDKe8fO.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Exposed Brick Studio · Mountain Views</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 4 · King</div></div>
-        <span class="mini-prop-rating">★ 4.94</span>
-      </a>
-      <a href="https://lakecityflats.com/property/sugarhood-slc-penthouse-3br2ba" class="mini-prop" data-hood="sugarhood">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/1678254/b2DmJ99K9I5jnWzRvQLsdEVbUGtAHP9fB24anagq.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Sugarhood Penthouse · 3BR + CoWork + Garage</div><div class="mini-prop-meta">3BR · 2BA · Sleeps 7 · Garage</div></div>
-        <span class="mini-prop-rating">★ 4.95</span>
-      </a>
-      <a href="https://lakecityflats.com/property/modernwest-townhome-downtown-slc" class="mini-prop" data-hood="modernwest">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/1258138/sVkhMHIrx34hKa1ku530NlLfXzrEhtpm6OLk7xo9.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">ModernWest Townhome · 3BR + Garage</div><div class="mini-prop-meta">3BR · 3.5BA · Sleeps 6 · Garage</div></div>
-        <span class="mini-prop-rating">★ 4.96</span>
-      </a>
-      <a href="https://lakecityflats.com/property/lcf-9line-slc-loft-kingsofa-gym-sleeps-3" class="mini-prop" data-hood="9line">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/2236536/NF3wJYF8MVVuEK054KEhpbrnBlLjwllDU7Lm1pPZ.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">9line Loft · King + Gym</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 3 · King + Sofa</div></div>
-        <span class="mini-prop-rating">★ 4.94</span>
-      </a>
-      <a href="https://lakecityflats.com/property/avenues-appartement-de-luxe-king-suite-sleeper" class="mini-prop" data-hood="avenues">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/668430/nPDhy1nfDhwrtL7TfnPs3GB3yosUcI2WVVbsinZt.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Avenues King Suite · Gym</div><div class="mini-prop-meta">1BR · 1BA · Sleeps 4 · King + Sleeper</div></div>
-        <span class="mini-prop-rating">★ 4.95</span>
-      </a>
-    </div>
+    <div class="city-props-list reveal" id="slc-list"></div>
 
     <div class="city-stat-strip reveal">
-      <div class="city-stat-item"><div class="city-stat-num">24</div><div class="city-stat-label">Properties</div></div>
-      <div class="city-stat-item"><div class="city-stat-num">6</div><div class="city-stat-label">Neighborhoods</div></div>
+      <div class="city-stat-item"><div class="city-stat-num" data-lcf="slc-total">24</div><div class="city-stat-label">Properties</div></div>
+      <div class="city-stat-item"><div class="city-stat-num" data-lcf="slc-hoods">6</div><div class="city-stat-label">Neighborhoods</div></div>
       <div class="city-stat-item"><div class="city-stat-num">30<span style="font-size:15px;font-family:'Instrument Sans',sans-serif;">min</span></div><div class="city-stat-label">To ski resorts</div></div>
     </div>
     <a href="https://lakecityflats.com" class="city-cta slc-cta reveal">Browse all SLC properties →</a>
@@ -443,7 +384,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <div class="city-eyebrow det-eyebrow">Great Lakes · Michigan</div>
       <div class="city-name">Detroit</div>
       <div class="city-desc" style="margin-top:14px;">Jazz roots, Motown soul, and a city rewriting its own story. Our Brush Park properties put you steps from the LCA, Woodward Ave, and the best of a city on the rise.</div>
-      <div class="city-count-label det-count" style="margin-top:10px;">2 properties · Brush Park</div>
+      <div class="city-count-label det-count" style="margin-top:10px;"><span data-lcf="det-total">2</span> properties · Brush Park</div>
     </div>
 
     <div class="det-context reveal">
@@ -451,18 +392,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <div class="det-context-body">We picked quality over quantity. Brush Park is Detroit's most storied neighborhood — Victorian mansions, new builds, and the LCA literally across the street. Both of our properties here are exceptional, and we know every corner of them.</div>
     </div>
 
-    <div class="city-props-list reveal" id="det-list">
-      <a href="https://lakecityflats.com/property/the-lumber-barons-downtown-mansion-2kingbr25ba" class="mini-prop">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/818686/6icPNDIW9fFETLfG9Y4TbLQMyqXNJDhkl2w9XEHq.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Lumber Baron's Mansion · 2 King Suites</div><div class="mini-prop-meta">2BR · 2.5BA · Sleeps 6 · Gym · Brush Park</div></div>
-        <span class="mini-prop-rating">★ 4.98</span>
-      </a>
-      <a href="https://lakecityflats.com/property/the-lumber-barons-3br-penthouse" class="mini-prop">
-        <div class="mini-prop-icon" style="background-image:url('https://assets.hospitable.com/property_images/1087710/wvHEsxGYbwB6C8li7IOWMmc2p22k17wTNKU7SOJ4.jpg')"></div>
-        <div class="mini-prop-info"><div class="mini-prop-name">Lumber Baron's Penthouse · 3BR + Garage</div><div class="mini-prop-meta">3BR · 2.5BA · Sleeps 6 · 2 Kings + 1 Queen · Garage</div></div>
-        <span class="mini-prop-rating">★ 4.99</span>
-      </a>
-    </div>
+    <div class="city-props-list reveal" id="det-list"></div>
 
     <div class="det-features reveal">
       <div class="det-feat"><div class="det-feat-icon">🏒</div><div class="det-feat-title">LCA next door</div><div class="det-feat-body">Walk to Red Wings, Pistons &amp; concerts</div></div>
@@ -472,7 +402,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     </div>
 
     <div class="city-stat-strip reveal">
-      <div class="city-stat-item"><div class="city-stat-num">2</div><div class="city-stat-label">Properties</div></div>
+      <div class="city-stat-item"><div class="city-stat-num" data-lcf="det-total">2</div><div class="city-stat-label">Properties</div></div>
       <div class="city-stat-item"><div class="city-stat-num">1</div><div class="city-stat-label">Neighborhood</div></div>
       <div class="city-stat-item"><div class="city-stat-num">0<span style="font-size:15px;font-family:'Instrument Sans',sans-serif;">min</span></div><div class="city-stat-label">Walk to LCA</div></div>
     </div>
@@ -566,7 +496,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     </div>
   </div>
   <div class="about-grid reveal">
-    <div class="about-stat"><div class="about-num">26</div><div class="about-label">Properties across 2 cities</div></div>
+    <div class="about-stat"><div class="about-num" data-lcf="grand-total">26</div><div class="about-label">Properties across 2 cities</div></div>
     <div class="about-stat"><div class="about-num">4.96</div><div class="about-label">Average guest rating</div></div>
     <div class="about-stat"><div class="about-num">$0</div><div class="about-label">Platform fees when you book direct</div></div>
     <div class="about-stat"><div class="about-num">100%</div><div class="about-label">Locally owned &amp; operated</div></div>
@@ -667,6 +597,59 @@ document.addEventListener('keydown', e => {
   if (buf === 'lcf') { document.getElementById('egg').classList.add('show'); buf = ''; }
 });
 function closeEgg() { document.getElementById('egg').classList.remove('show'); }
+
+// Load properties from JSON
+async function loadProperties() {
+  const data = await fetch('properties.json').then(r => r.json());
+  const { properties, slc_totals } = data;
+
+  // Calculate totals
+  const slcTotal = Object.values(slc_totals).reduce((a, b) => a + b, 0);
+  const detProps = properties.filter(p => p.city === 'detroit');
+  const detTotal = detProps.length;
+  const grandTotal = slcTotal + detTotal;
+  const hoodCount = Object.keys(slc_totals).length;
+
+  // Update all count spans
+  document.querySelectorAll('[data-lcf="slc-total"]').forEach(el => el.textContent = slcTotal);
+  document.querySelectorAll('[data-lcf="det-total"]').forEach(el => el.textContent = detTotal);
+  document.querySelectorAll('[data-lcf="grand-total"]').forEach(el => el.textContent = grandTotal);
+  document.querySelectorAll('[data-lcf="slc-hoods"]').forEach(el => el.textContent = hoodCount);
+
+  // Render hood pills
+  const hoodLabels = { granary:'Granary', downtown:'Downtown', sugarhood:'Sugarhood', modernwest:'ModernWest', '9line':'9line', avenues:'Avenues' };
+  document.getElementById('slc-pills').innerHTML =
+    '<span class="hood-pill slc-pill active" onclick="filterSLC(this,\'all\')">All</span>' +
+    Object.entries(slc_totals).map(([h, n]) =>
+      `<span class="hood-pill slc-pill" onclick="filterSLC(this,'${h}')">${hoodLabels[h] || h} (${n})</span>`
+    ).join('');
+
+  // Render property card HTML
+  function propCard(p, hoodAttr) {
+    return `<a href="${p.url}" class="mini-prop"${hoodAttr}>
+      <div class="mini-prop-icon" style="background-image:url('${p.image}')"></div>
+      <div class="mini-prop-info">
+        <div class="mini-prop-name">${p.name}</div>
+        <div class="mini-prop-meta">${p.meta}</div>
+      </div>
+      <span class="mini-prop-rating">★ ${p.rating}</span>
+    </a>`;
+  }
+
+  document.getElementById('slc-list').innerHTML = properties
+    .filter(p => p.city === 'slc')
+    .map(p => propCard(p, ` data-hood="${p.hood}"`))
+    .join('');
+
+  document.getElementById('det-list').innerHTML = detProps
+    .map(p => propCard(p, ''))
+    .join('');
+
+  // Re-run scroll observer on newly added elements
+  document.querySelectorAll('.reveal:not(.in)').forEach(el => obs.observe(el));
+}
+
+loadProperties();
 </script>
 </body>
 </html>

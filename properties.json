@@ -1,0 +1,120 @@
+{
+  "slc_totals": {
+    "granary": 6,
+    "downtown": 11,
+    "sugarhood": 3,
+    "modernwest": 1,
+    "9line": 2,
+    "avenues": 1
+  },
+  "properties": [
+    {
+      "city": "slc",
+      "hood": "granary",
+      "name": "Granary Penthouse · CoWork + Gym",
+      "meta": "1BR · 1BA · Sleeps 4 · King + Sleeper",
+      "rating": "4.96",
+      "image": "https://assets.hospitable.com/property_images/794728/iYoD6UheolNm2srzeOmlknUBjmBtJuXoYbe9UWYy.jpg",
+      "url": "https://lakecityflats.com/property/granary-de-luxe-apartment-1br1ba-w-coworking-sp"
+    },
+    {
+      "city": "slc",
+      "hood": "granary",
+      "name": "Granary King Suite · CoWork + Gym",
+      "meta": "1BR · 1BA · Sleeps 4 · King + Sleeper",
+      "rating": "4.97",
+      "image": "https://assets.hospitable.com/property_images/1027962/N95SQ1F7QzwbW4jt992zO9N5CqazoM6Ld1vFeODf.jpg",
+      "url": "https://lakecityflats.com/property/downtown-slc-granary-penthse-1br"
+    },
+    {
+      "city": "slc",
+      "hood": "granary",
+      "name": "Granary Studio · CoWork + Gym",
+      "meta": "1BR · 1BA · Sleeps 4 · King + Sofa",
+      "rating": "4.95",
+      "image": "https://assets.hospitable.com/property_images/791268/5Shq03rYPscylEhCszD22O0q7dRrusqoKceJxG5S.jpg",
+      "url": "https://lakecityflats.com/property/granary-downtown-slc-w-coworking-1br1ba-sleep-4"
+    },
+    {
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Townhouse · 2 King Suites + Garage",
+      "meta": "2BR · 2.5BA · Sleeps 6 · Garage",
+      "rating": "4.97",
+      "image": "https://assets.hospitable.com/property_images/358940/453Eoxm5efVj1Luqm64Bivac.jpg",
+      "url": "https://lakecityflats.com/property/superb-townhouse-downtown-slc-2br25ba"
+    },
+    {
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Downtown Townhome · 2 King Suites + 2-Car Garage",
+      "meta": "2BR · 2.5BA · Sleeps 6 · 2-Car Garage",
+      "rating": "4.96",
+      "image": "https://assets.hospitable.com/property_images/341520/58PmDQDdxpJ4uCWVka58yFjvKU9ahRBg3pgOr6TH.jpg",
+      "url": "https://lakecityflats.com/property/moroccan-mountain-downtown-townhome2-suites25ba"
+    },
+    {
+      "city": "slc",
+      "hood": "downtown",
+      "name": "Exposed Brick Studio · Mountain Views",
+      "meta": "1BR · 1BA · Sleeps 4 · King",
+      "rating": "4.94",
+      "image": "https://assets.hospitable.com/property_images/789842/VOUKTqIU9w6raf5Z9soA5z4zTCRjrw3gPbDKe8fO.jpg",
+      "url": "https://lakecityflats.com/property/modern-east-slc-downtown-1br1ba-sleeps-4-w-view"
+    },
+    {
+      "city": "slc",
+      "hood": "sugarhood",
+      "name": "Sugarhood Penthouse · 3BR + CoWork + Garage",
+      "meta": "3BR · 2BA · Sleeps 7 · Garage",
+      "rating": "4.95",
+      "image": "https://assets.hospitable.com/property_images/1678254/b2DmJ99K9I5jnWzRvQLsdEVbUGtAHP9fB24anagq.jpg",
+      "url": "https://lakecityflats.com/property/sugarhood-slc-penthouse-3br2ba"
+    },
+    {
+      "city": "slc",
+      "hood": "modernwest",
+      "name": "ModernWest Townhome · 3BR + Garage",
+      "meta": "3BR · 3.5BA · Sleeps 6 · Garage",
+      "rating": "4.96",
+      "image": "https://assets.hospitable.com/property_images/1258138/sVkhMHIrx34hKa1ku530NlLfXzrEhtpm6OLk7xo9.jpg",
+      "url": "https://lakecityflats.com/property/modernwest-townhome-downtown-slc"
+    },
+    {
+      "city": "slc",
+      "hood": "9line",
+      "name": "9line Loft · King + Gym",
+      "meta": "1BR · 1BA · Sleeps 3 · King + Sofa",
+      "rating": "4.94",
+      "image": "https://assets.hospitable.com/property_images/2236536/NF3wJYF8MVVuEK054KEhpbrnBlLjwllDU7Lm1pPZ.jpg",
+      "url": "https://lakecityflats.com/property/lcf-9line-slc-loft-kingsofa-gym-sleeps-3"
+    },
+    {
+      "city": "slc",
+      "hood": "avenues",
+      "name": "Avenues King Suite · Gym",
+      "meta": "1BR · 1BA · Sleeps 4 · King + Sleeper",
+      "rating": "4.95",
+      "image": "https://assets.hospitable.com/property_images/668430/nPDhy1nfDhwrtL7TfnPs3GB3yosUcI2WVVbsinZt.jpg",
+      "url": "https://lakecityflats.com/property/avenues-appartement-de-luxe-king-suite-sleeper"
+    },
+    {
+      "city": "detroit",
+      "hood": "brush-park",
+      "name": "Lumber Baron's Mansion · 2 King Suites",
+      "meta": "2BR · 2.5BA · Sleeps 6 · Gym · Brush Park",
+      "rating": "4.98",
+      "image": "https://assets.hospitable.com/property_images/818686/6icPNDIW9fFETLfG9Y4TbLQMyqXNJDhkl2w9XEHq.jpg",
+      "url": "https://lakecityflats.com/property/the-lumber-barons-downtown-mansion-2kingbr25ba"
+    },
+    {
+      "city": "detroit",
+      "hood": "brush-park",
+      "name": "Lumber Baron's Penthouse · 3BR + Garage",
+      "meta": "3BR · 2.5BA · Sleeps 6 · 2 Kings + 1 Queen · Garage",
+      "rating": "4.99",
+      "image": "https://assets.hospitable.com/property_images/1087710/wvHEsxGYbwB6C8li7IOWMmc2p22k17wTNKU7SOJ4.jpg",
+      "url": "https://lakecityflats.com/property/the-lumber-barons-3br-penthouse"
+    }
+  ]
+}
