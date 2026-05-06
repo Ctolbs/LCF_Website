@@ -77,7 +77,9 @@ data.properties.forEach(prop => {
     // Adjust relative asset paths one extra level up (property/{id}/ vs property/)
     .replace(/href="\.\.\/([^"]*)"/g, 'href="../../$1"')
     .replace(/fetch\('\.\.\/properties\.json'\)/g, "fetch('../../properties.json')")
-    // pre-select this property on load by appending ?id= to the URL rewrite
+    // Similar property links: ?id=SLUG resolves wrong from a subdirectory → use sibling path
+    .replace('href="?id=${s.id}"', 'href="../${s.id}/"')
+    // Hardcode property ID so page loads correctly without a ?id= query param
     .replace(
       /const id = new URLSearchParams\(location\.search\)\.get\('id'\);/,
       `const id = '${prop.id}';`
