@@ -34,7 +34,7 @@
 
 /* Body layout */
 .pp-body {
-  display: grid; grid-template-columns: 1fr 380px;
+  display: grid; grid-template-columns: 1fr 330px;
   gap: 56px; padding: 48px 56px; align-items: start;
   max-width: 1200px; margin: 0 auto;
 }
