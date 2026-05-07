@@ -1,10 +1,10 @@
 {
   "slc_totals": {
     "granary": 6,
-    "downtown": 13,
+    "9line": 8,
+    "downtown": 7,
     "sugarhood": 2,
-    "modernwest": 1,
-    "9line": 2
+    "modernwest": 1
   },
   "properties": [
     {
@@ -266,7 +266,7 @@
       "id": "downtown-townhouse",
       "hospitable_id": "358940",
       "city": "slc",
-      "hood": "downtown",
+      "hood": "9line",
       "name": "Downtown Townhouse \u00b7 2 King Suites + Garage",
       "meta": "2BR \u00b7 2.5BA \u00b7 Sleeps 6 \u00b7 Garage",
       "beds": 2,
@@ -375,7 +375,7 @@
       "id": "downtown-townhome",
       "hospitable_id": "341520",
       "city": "slc",
-      "hood": "downtown",
+      "hood": "9line",
       "name": "Downtown Townhome \u00b7 2 King Suites + 2-Car Garage",
       "meta": "2BR \u00b7 2.5BA \u00b7 Sleeps 6 \u00b7 2-Car Garage",
       "beds": 2,
@@ -1480,7 +1480,7 @@
       "id": "downtown-twin-queens",
       "hospitable_id": "515720",
       "city": "slc",
-      "hood": "downtown",
+      "hood": "9line",
       "name": "Downtown Townhome \u00b7 2 Queen Suites + Garage",
       "meta": "2BR \u00b7 2.5BA \u00b7 Sleeps 4 \u00b7 2 Queen Suites \u00b7 Garage",
       "beds": 2,
@@ -1640,7 +1640,7 @@
       "id": "downtown-designer-2king",
       "hospitable_id": "661170",
       "city": "slc",
-      "hood": "downtown",
+      "hood": "9line",
       "name": "Downtown Townhome \u00b7 2 Kings + Garage",
       "meta": "2BR \u00b7 2.5BA \u00b7 Sleeps 6 \u00b7 Garage",
       "beds": 2,
@@ -1818,7 +1818,7 @@
       "id": "downtown-2king-townhome",
       "hospitable_id": "341522",
       "city": "slc",
-      "hood": "downtown",
+      "hood": "9line",
       "name": "Downtown Townhome \u00b7 2 Kings + Sofa",
       "meta": "2BR \u00b7 2.5BA \u00b7 Sleeps 6 \u00b7 Garage",
       "beds": 2,
@@ -1916,7 +1916,7 @@
       "id": "downtown-king-queen-garage",
       "hospitable_id": "346394",
       "city": "slc",
-      "hood": "downtown",
+      "hood": "9line",
       "name": "Downtown Townhome \u00b7 King + Queen + Garage",
       "meta": "2BR \u00b7 2.5BA \u00b7 Sleeps 6 \u00b7 Garage",
       "beds": 2,
