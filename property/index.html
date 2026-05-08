@@ -174,6 +174,13 @@ async function init() {
   s.text = JSON.stringify(jsonLd);
   document.head.appendChild(s);
 
+  // Wire "Book Direct" nav + sticky bar to open Hospitable booking engine
+  if (prop.hospitable_id) {
+    const bookingUrl = `https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}`;
+    const navBtn = document.querySelector('.nav-book');
+    if (navBtn) { navBtn.href = bookingUrl; navBtn.target = '_blank'; navBtn.rel = 'noopener noreferrer'; }
+  }
+
   const isSlc = prop.city === 'slc';
   const cityLabel = cityFull;
   const hoodLabel = prop.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
@@ -308,7 +315,7 @@ async function init() {
         <div class="pp-sticky-price">★ ${prop.rating} <span>· ${prop.review_count} reviews</span></div>
         <div style="font-size:10px;color:var(--muted);margin-top:1px;">Save ~15% booking direct</div>
       </div>
-      <a href="#book" class="pp-sticky-btn">Book direct →</a>
+      <a href="${prop.hospitable_id ? `https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}` : '#book'}" target="_blank" rel="noopener noreferrer" class="pp-sticky-btn">Book direct →</a>
     </div>
 
     ${similar.length>0?`
