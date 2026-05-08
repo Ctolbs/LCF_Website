@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>All Reviews · Lake City Flats</title>
+<meta name="description" content="240+ five-star reviews from guests across our Salt Lake City and Detroit flats.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.rv-header{background:var(--forest);padding:144px 56px 64px;}
+.rv-eyebrow{font-size:9.5px;letter-spacing:.35em;text-transform:uppercase;color:rgba(162,208,170,0.65);margin-bottom:14px;}
+.rv-title{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;line-height:1.05;color:var(--cream);}
+.rv-stats{display:flex;gap:36px;margin-top:32px;flex-wrap:wrap;}
+.rv-stat-num{font-size:22px;font-weight:500;color:var(--gold);line-height:1;}
+.rv-stat-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-top:3px;}
+
+.rv-filters{background:var(--warm-white);border-bottom:1px solid var(--border);padding:0 56px;display:flex;gap:0;position:sticky;top:56px;z-index:100;}
+.rv-filter{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--muted);padding:17px 22px;border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;cursor:pointer;transition:color .2s,border-color .2s;white-space:nowrap;font-family:'Jost',sans-serif;}
+.rv-filter:hover{color:var(--forest);}
+.rv-filter.active{color:var(--forest);border-bottom-color:var(--amber);}
+
+.rv-grid-wrap{background:var(--mist);padding:52px 56px 80px;}
+.rv-grid{columns:2;column-gap:20px;}
+.rv-grid .review{break-inside:avoid;margin-bottom:16px;}
+.rv-grid .review.hidden{display:none;}
+
+@media(max-width:960px){
+  .rv-header{padding:120px 32px 48px;}
+  .rv-title{font-size:44px;}
+  .rv-filters{padding:0 32px;top:56px;}
+  .rv-grid-wrap{padding:36px 32px 64px;}
+  .rv-grid{columns:1;}
+}
+@media(max-width:600px){
+  .rv-header{padding:104px 20px 40px;}
+  .rv-title{font-size:36px;}
+  .rv-filters{padding:0 16px;}
+  .rv-grid-wrap{padding:28px 20px 56px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="../" class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="34" height="34" aria-hidden="true" style="flex-shrink:0;">
+      <circle cx="50" cy="50" r="50" fill="#FBBE01"/>
+      <text x="50" y="62" text-anchor="middle" font-family="Jost,system-ui,sans-serif" font-size="30" font-weight="500" letter-spacing="3" fill="#0F1218">LCF</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-main">Lake City <span>Flats</span></span>
+      <span class="nav-logo-sub">Salt Lake City · Detroit</span>
+    </span>
+  </a>
+  <div class="nav-links">
+    <a href="../slc/" class="nav-pill nav-slc">Salt Lake City</a>
+    <a href="../detroit/" class="nav-pill nav-det">Detroit</a>
+    <a href="../#reviews">Reviews</a>
+    <a href="../#about">About</a>
+    <a href="../#book" class="nav-book">Book Direct</a>
+  </div>
+</nav>
+
+<div class="rv-header">
+  <div class="rv-eyebrow">Guest voices</div>
+  <h1 class="rv-title">What people say<br>about staying with us.</h1>
+  <div class="rv-stats">
+    <div>
+      <div class="rv-stat-num">4.97★</div>
+      <div class="rv-stat-label">Overall avg.</div>
+    </div>
+    <div>
+      <div class="rv-stat-num">240+</div>
+      <div class="rv-stat-label">Total reviews</div>
+    </div>
+    <div>
+      <div class="rv-stat-num">4.96★</div>
+      <div class="rv-stat-label">Salt Lake City</div>
+    </div>
+    <div>
+      <div class="rv-stat-num">4.98★</div>
+      <div class="rv-stat-label">Detroit</div>
+    </div>
+  </div>
+</div>
+
+<div class="rv-filters" id="filters">
+  <button class="rv-filter active" data-filter="all">All (240+)</button>
+  <button class="rv-filter" data-filter="slc">🏔 Salt Lake City (200+)</button>
+  <button class="rv-filter" data-filter="det">🏛 Detroit (40+)</button>
+</div>
+
+<div class="rv-grid-wrap">
+  <div class="rv-grid" id="rv-grid">
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-s">H</div><div><div class="review-name">Heather</div><div class="review-meta">April 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Sparkling clean, comfortable and spacious — complete with every amenity I could imagine. The quirky art elevated the experience for me. We will always check if this unit is available when we return to SLC.</div>
+      <div class="review-prop">Granary Penthouse · CoWork + Gym</div>
+    </div>
+
+    <div class="review reveal" data-city="det">
+      <div class="review-top"><div class="review-av av-d1">S</div><div><div class="review-name">Sheryl</div><div class="review-meta">March 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">So close to the LCA — very walkable to everything on Woodward. We walked around with our family all day and then watched the Red Wings literally across the street. Pristine, well-appointed. Our only regret was having just one night.</div>
+      <div class="review-prop">Lumber Baron's Mansion · 2 King Suites</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-g">K</div><div><div class="review-name">Kevin</div><div class="review-meta">March 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Came to SLC for a conference and the co-working space sold me. Fast wifi, proper desk setup, and a king bed to actually recover in at the end of the day. The neighborhood is walkable enough that I never needed a rideshare.</div>
+      <div class="review-prop">Granary Penthouse · CoWork + Gym</div>
+    </div>
+
+    <div class="review reveal" data-city="det">
+      <div class="review-top"><div class="review-av av-d2">H</div><div><div class="review-name">Hayley</div><div class="review-meta">March 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Stunning — an honor to stay here. Doesn't get any better for a concert. Very walkable and you get a garage. Beautiful, secure, and everything is provided. A proper getaway.</div>
+      <div class="review-prop">Lumber Baron's Penthouse · 3BR + Garage</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-t">J</div><div><div class="review-name">Jane</div><div class="review-meta">April 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Trader Joe's and coffee shops within walking distance. The place was pristine — plenty of towels, extra bedding, a kitchen that was genuinely well equipped. I would definitely stay here again.</div>
+      <div class="review-prop">Downtown SLC · 2 Queens + Garage</div>
+    </div>
+
+    <div class="review reveal" data-city="det">
+      <div class="review-top"><div class="review-av av-d1">J</div><div><div class="review-name">Jessica</div><div class="review-meta">April 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Blew me away — historic architecture meets extremely thoughtful interior design. Staying in Brush Park is surreal given the neighborhood's history, and the LCA is genuinely a 4-minute walk. Host handled every question lightning fast. Already looking at dates to come back.</div>
+      <div class="review-prop">Lumber Baron's Mansion · 2 King Suites</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-s">T</div><div><div class="review-name">Tom</div><div class="review-meta">January 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Third time staying with LCF and won't be the last. They understand what actually makes a short-term rental great — real kitchen equipment, real beds, real towels. No plastic welcome basket nonsense. Just a great place done right.</div>
+      <div class="review-prop">9Line District · 2BR + Parking</div>
+    </div>
+
+    <div class="review reveal" data-city="det">
+      <div class="review-top"><div class="review-av av-d1">P</div><div><div class="review-name">Paul</div><div class="review-meta">March 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Great place, comfortable with thoughtful touches throughout. Excellent neighbourhood — good coffee from the taco place around the corner, a great brunch just next door. Host was very responsive.</div>
+      <div class="review-prop">Brush Park · Downtown Detroit</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-g">M</div><div><div class="review-name">Mary</div><div class="review-meta">April 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Great walkable neighborhood — there's a coffee and breakfast taco shop two doors down. We cooked several nights and had everything we needed. The host's list of area suggestions was a really thoughtful touch.</div>
+      <div class="review-prop">Downtown Townhouse · 2BR + Garage</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-t">R</div><div><div class="review-name">Rachel</div><div class="review-meta">February 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Exactly what I needed for a solo trip. Quiet, comfortable, felt like someone actually thought through what you'd want in a home away from home. The local recommendations guide was genuinely great.</div>
+      <div class="review-prop">Sugarhood · Garden Flat</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-s">D</div><div><div class="review-name">David</div><div class="review-meta">March 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">The Granary neighborhood is everything — walkable, creative, full of good food and coffee. The flat itself was immaculate and the co-working space in the building was a bonus I actually used every day. Exceptional host communication throughout.</div>
+      <div class="review-prop">Granary Loft · Design District</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-g">A</div><div><div class="review-name">Alicia</div><div class="review-meta">April 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Modern, thoughtfully designed, and in a spot that's walkable but still feels like a real neighborhood. Perfect for our anniversary trip. Host was incredibly responsive and the checkout process couldn't have been easier.</div>
+      <div class="review-prop">ModernWest · The Berg</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-t">C</div><div><div class="review-name">Christine</div><div class="review-meta">February 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Absolutely gorgeous flat in the heart of downtown. Walking distance to everything we wanted to do — great restaurants on Main St., easy access to the venues we were visiting. Would recommend without hesitation.</div>
+      <div class="review-prop">Downtown SLC · Studio + Gym</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-s">M</div><div><div class="review-name">Marcus</div><div class="review-meta">March 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Stayed in the 9Line flat for a ski weekend and it was perfect. Easy drive to the canyon, great kitchen, super clean. The neighborhood is up-and-coming with some excellent spots right nearby. Will definitely be back.</div>
+      <div class="review-prop">9Line District · 1BR Loft</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-g">S</div><div><div class="review-name">Sarah</div><div class="review-meta">April 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">We've done Airbnb all over and this is genuinely top-tier. Everything worked, everything was clean, and the little details — good coffee, quality linens, an actual wine opener — showed real thought. Five stars, no question.</div>
+      <div class="review-prop">Sugarhood · 2BR Bungalow</div>
+    </div>
+
+    <div class="review reveal" data-city="slc">
+      <div class="review-top"><div class="review-av av-t">J</div><div><div class="review-name">James</div><div class="review-meta">February 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">Came for a ski trip, stayed in downtown SLC, and everything about it worked perfectly. The parking situation alone saved us so much stress. Clean, warm, well-stocked. Host replied within minutes every time.</div>
+      <div class="review-prop">Downtown Townhouse · 2BR + Garage</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo-main">Lake City <span>Flats</span></div>
+    <div class="footer-logo-sub">Curated downtown short-term rentals</div>
+    <div class="footer-tagline">"Made by travelers,<br>for travelers."</div>
+    <div class="footer-contact">
+      <a href="tel:18016571028">801-657-1028</a>
+      <a href="mailto:contact@lakecityflats.com">contact@lakecityflats.com</a>
+      <a href="https://instagram.com/lakecityflats">@lakecityflats</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Salt Lake City</div>
+    <a href="../slc/">Browse SLC flats</a>
+    <a href="../slc/">Granary District (6)</a>
+    <a href="../slc/">Downtown SLC (7)</a>
+    <a href="../slc/">Sugarhood (2)</a>
+    <a href="../slc/">ModernWest (1)</a>
+    <a href="../slc/">9line (8)</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Detroit</div>
+    <a href="../property/?id=lumber-barons-mansion">Lumber Baron's Mansion</a>
+    <a href="../property/?id=lumber-barons-penthouse">Lumber Baron's Penthouse</a>
+    <hr>
+    <div class="footer-col-title" style="margin-top:6px;">Book direct</div>
+    <a href="../#book">Check availability</a>
+    <a href="mailto:contact@lakecityflats.com?subject=Group%20%26%20Extended%20Stay%20Inquiry">Group &amp; extended stays</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Company</div>
+    <a href="../#about">About LCF</a>
+    <a href="../reviews/">All reviews</a>
+    <a href="https://instagram.com/lakecityflats">Instagram</a>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Lake City Flats, Inc. — Salt Lake City, UT</div>
+    <div class="footer-social">
+      <a href="https://instagram.com/lakecityflats">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.querySelectorAll('.rv-filter').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.rv-filter').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('#rv-grid .review').forEach(card => {
+      card.classList.toggle('hidden', f !== 'all' && card.dataset.city !== f);
+    });
+  });
+});
+</script>
+</body>
+</html>
