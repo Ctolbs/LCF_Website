@@ -293,7 +293,12 @@ async function init() {
             style="width:100%;height:900px;border:none;display:block;"
             frameborder="0"
             src="https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}">
-          </iframe>` : `
+          </iframe>
+          <div class="pp-mobile-book">
+            <div class="pp-mobile-book-label">Check availability &amp; book direct</div>
+            <a href="https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}" target="_blank" rel="noopener noreferrer" class="pp-cta-primary">Open booking calendar →</a>
+            <p class="pp-mobile-book-note">Secure via Stripe · No Airbnb service fees · Save ~15%</p>
+          </div>` : `
           <div class="pp-cta-block">
             <a href="${prop.url}" rel="noopener noreferrer" target="_blank" class="pp-cta-primary">Check availability →</a>
             <a href="mailto:contact@lakecityflats.com?subject=Inquiry: ${encodeURIComponent(prop.name)}" class="pp-cta-secondary">Ask us anything</a>
