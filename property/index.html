@@ -82,7 +82,7 @@
 <div id="pp-root"><div class="pp-loading">Loading property…</div></div>
 
 <div class="lb" id="lb" onclick="closeLB(event)">
-  <button class="lb-close" onclick="document.getElementById('lb').classList.remove('open')">✕</button>
+  <button class="lb-close" aria-label="Close photo gallery" onclick="document.getElementById('lb').classList.remove('open')">✕</button>
   <img class="lb-img" id="lb-img" src="" alt="">
   <div class="lb-nav">
     <button class="lb-btn" onclick="lbNav(-1);event.stopPropagation()">← Prev</button>
