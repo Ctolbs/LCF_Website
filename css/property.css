@@ -110,9 +110,9 @@
   border: 1px solid var(--border);
   border-radius: 4px; overflow: hidden;
   background: var(--warm-white);
-  display: flex; flex-direction: column; align-items: center;
+  display: flex; flex-direction: column; align-items: stretch;
 }
-.pp-widget-wrapper iframe { align-self: stretch; }
+.pp-widget-wrapper iframe { width: 100%; display: block; }
 .pp-direct-banner {
   background: var(--sage-pale);
   padding: 10px 16px;
@@ -167,7 +167,7 @@
   .pp-gallery{height:300px;}
   .pp-body{grid-template-columns:1fr;gap:40px;padding:36px 28px;max-width:100%;}
   .pp-right{position:static;}
-  .pp-widget-wrapper{max-width:560px;}
+  .pp-widget-wrapper{max-width:100%;}
   #booking-iframe{height:820px;}
   .pp-similar{padding:48px 28px;}
   .pp-similar-grid{grid-template-columns:1fr 1fr;}
