@@ -40,8 +40,8 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .nav-slc:hover{background:#C8DDD5;color:var(--forest) !important;}
 .nav-det{background:var(--det-pale);color:var(--det-navy);border:1px solid rgba(26,46,69,0.12);}
 .nav-det:hover{background:#BDD4E8;color:var(--det-navy) !important;}
-.nav-book{background:var(--amber) !important;color:var(--ink) !important;padding:9px 22px;border-radius:2px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;transition:background .2s,transform .15s !important;}
-.nav-book:hover{background:#e8ae00 !important;transform:translateY(-1px);}
+.nav-book{background:var(--navy) !important;color:var(--mist) !important;padding:9px 22px;border-radius:2px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;transition:background .2s,transform .15s !important;}
+.nav-book:hover{background:var(--navy-mid) !important;transform:translateY(-1px);}
 
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;}
