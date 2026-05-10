@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About · Lake City Flats</title>
+<meta name="description" content="We're Clifton and Colby — two partners who personally check every flat before your stay. The story behind Lake City Flats.">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+.ab-header{background:var(--forest);padding:144px 56px 72px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;}
+.ab-eyebrow{font-size:9.5px;letter-spacing:.35em;text-transform:uppercase;color:rgba(162,208,170,0.65);margin-bottom:14px;}
+.ab-title{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;line-height:1.05;color:var(--cream);}
+.ab-title em{font-style:italic;color:var(--gold);}
+.ab-header-right{display:flex;flex-direction:column;gap:24px;padding-bottom:4px;}
+.ab-stat{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;}
+.ab-stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold);line-height:1;}
+.ab-stat-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-top:4px;}
+
+.ab-story{padding:80px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;background:var(--mist);}
+.ab-story-eyebrow{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;font-weight:500;}
+.ab-story-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:400;color:var(--forest);line-height:1.2;margin-bottom:24px;}
+.ab-story-body{font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;}
+.ab-story-body + .ab-story-body{margin-top:16px;}
+.ab-founders{display:flex;flex-direction:column;gap:20px;}
+.ab-founder{background:var(--warm-white);border:1px solid var(--border);border-radius:3px;padding:22px 24px;}
+.ab-founder-name{font-size:14px;font-weight:500;color:var(--forest);margin-bottom:4px;}
+.ab-founder-handle{font-size:11px;color:var(--muted);margin-bottom:12px;}
+.ab-founder-body{font-size:13px;color:var(--muted);line-height:1.75;font-weight:300;}
+.ab-founder-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;}
+.ab-founder-tag{padding:4px 11px;border-radius:100px;border:1px solid var(--border-warm);font-size:10.5px;color:var(--forest-light);}
+
+.ab-values{background:var(--warm-white);padding:80px 56px;border-top:1px solid var(--border);}
+.ab-values-head{margin-bottom:48px;}
+.ab-values-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;}
+.ab-value{border-top:2px solid var(--amber);padding-top:20px;}
+.ab-value-title{font-size:13.5px;font-weight:500;color:var(--forest);margin-bottom:8px;margin-top:12px;}
+.ab-value-icon{font-size:22px;}
+.ab-value-body{font-size:13px;color:var(--muted);line-height:1.75;font-weight:300;}
+
+.ab-cities{background:var(--forest);padding:80px 56px;display:grid;grid-template-columns:1fr 1fr;gap:3px;}
+.ab-city{padding:40px;background:rgba(255,255,255,0.04);}
+.ab-city-eyebrow{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(245,240,232,0.35);margin-bottom:10px;}
+.ab-city-name{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--cream);margin-bottom:12px;}
+.ab-city-body{font-size:13.5px;color:rgba(245,240,232,0.5);line-height:1.75;font-weight:300;margin-bottom:20px;}
+.ab-city-link{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;font-weight:500;transition:opacity .2s;}
+.ab-city-link:hover{opacity:.7;}
+
+.ab-hiring{background:var(--parchment);padding:80px 56px;border-top:1px solid var(--border);}
+.ab-hiring-inner{max-width:640px;}
+.ab-hiring-eyebrow{font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;font-weight:500;}
+.ab-hiring-title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:400;color:var(--forest);line-height:1.15;margin-bottom:20px;}
+.ab-hiring-body{font-size:15px;color:var(--muted);line-height:1.85;font-weight:300;margin-bottom:12px;}
+.ab-hiring-what{margin:28px 0;display:flex;flex-direction:column;gap:10px;}
+.ab-hiring-item{font-size:13.5px;color:var(--muted);display:flex;align-items:flex-start;gap:10px;line-height:1.6;}
+.ab-hiring-item::before{content:'→';color:var(--terra);font-size:12px;margin-top:2px;flex-shrink:0;}
+.ab-hiring-cta{display:inline-block;background:var(--forest);color:var(--cream);padding:14px 32px;border-radius:2px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;text-decoration:none;font-family:'Jost',sans-serif;transition:background .2s,transform .15s;margin-top:8px;}
+.ab-hiring-cta:hover{background:#253d60;transform:translateY(-1px);}
+.ab-hiring-note{font-size:11.5px;color:var(--muted);margin-top:14px;line-height:1.6;}
+
+@media(max-width:960px){
+  .ab-header{grid-template-columns:1fr;gap:40px;padding:120px 32px 56px;}
+  .ab-title{font-size:44px;}
+  .ab-header-right{flex-direction:row;flex-wrap:wrap;gap:0;}
+  .ab-stat{flex:1;min-width:140px;border-top:none;border-left:1px solid rgba(255,255,255,0.1);padding:0 0 0 20px;}
+  .ab-stat:first-child{border-left:none;padding-left:0;}
+  .ab-story{grid-template-columns:1fr;gap:40px;padding:56px 32px;}
+  .ab-values{padding:56px 32px;}
+  .ab-values-grid{grid-template-columns:1fr 1fr;}
+  .ab-cities{grid-template-columns:1fr;padding:0;}
+  .ab-city{padding:36px 32px;}
+  .ab-hiring{padding:56px 32px;}
+}
+@media(max-width:600px){
+  .ab-header{padding:104px 20px 48px;}
+  .ab-title{font-size:36px;}
+  .ab-story{padding:48px 20px;}
+  .ab-values{padding:48px 20px;}
+  .ab-values-grid{grid-template-columns:1fr;}
+  .ab-city{padding:32px 20px;}
+  .ab-hiring{padding:48px 20px;}
+  .ab-hiring-title{font-size:32px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="../index.html" class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="34" height="34" aria-hidden="true" style="flex-shrink:0;">
+      <circle cx="50" cy="50" r="50" fill="#FBBE01"/>
+      <text x="50" y="62" text-anchor="middle" font-family="Jost,system-ui,sans-serif" font-size="30" font-weight="500" letter-spacing="3" fill="#0F1218">LCF</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-main">Lake City <span>Flats</span></span>
+      <span class="nav-logo-sub">Salt Lake City · Detroit</span>
+    </span>
+  </a>
+  <div class="nav-links">
+    <a href="../slc/" class="nav-pill nav-slc">Salt Lake City</a>
+    <a href="../detroit/" class="nav-pill nav-det">Detroit</a>
+    <a href="../reviews/">Reviews</a>
+    <a href="../about/">About</a>
+    <a href="../#slc" class="nav-book">Book Direct</a>
+  </div>
+</nav>
+
+<div class="ab-header">
+  <div>
+    <div class="ab-eyebrow">Who we are</div>
+    <h1 class="ab-title">Two partners.<br>Two cities.<br><em>Zero mediocre stays.</em></h1>
+  </div>
+  <div class="ab-header-right">
+    <div class="ab-stat">
+      <div class="ab-stat-num">26</div>
+      <div class="ab-stat-label">Flats across SLC &amp; Detroit</div>
+    </div>
+    <div class="ab-stat">
+      <div class="ab-stat-num">4.86★</div>
+      <div class="ab-stat-label">Avg. Airbnb rating</div>
+    </div>
+    <div class="ab-stat">
+      <div class="ab-stat-num">4,690+</div>
+      <div class="ab-stat-label">Guest reviews</div>
+    </div>
+    <div class="ab-stat">
+      <div class="ab-stat-num">9yr</div>
+      <div class="ab-stat-label">Superhost streak</div>
+    </div>
+  </div>
+</div>
+
+<section class="ab-story">
+  <div class="reveal">
+    <div class="ab-story-eyebrow">The story</div>
+    <h2 class="ab-story-title">Built because we couldn't find what we wanted.</h2>
+    <p class="ab-story-body">We're Clifton and Colby — the two people who personally check every flat before your stay. We started Lake City Flats because we kept booking places that looked great in photos and felt like nobody actually cared once you arrived.</p>
+    <p class="ab-story-body">So we built the thing we kept wishing existed. Every property is chosen, furnished, and managed by us. The knife is sharp. The WiFi is fast. The bed is excellent. If something's off, you have our number — not a call center.</p>
+    <p class="ab-story-body">We're skiers, jazz fans, foodies, and general nerds who fell in love with Salt Lake City and Detroit — two underrated cities that deserve better representation. We're doing our part.</p>
+  </div>
+  <div class="ab-founders reveal">
+    <div class="ab-founder">
+      <div class="ab-founder-name">Clifton Tolboe</div>
+      <div class="ab-founder-handle"><a href="https://instagram.com/ctolbs" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">@ctolbs</a></div>
+      <p class="ab-founder-body">Salt Lake City native. Skier, runner, and the person most likely to rearrange the furniture before a guest arrives. Handles operations, design, and the obsessive pre-stay checklist.</p>
+      <div class="ab-founder-tags">
+        <span class="ab-founder-tag">🎿 Skier</span>
+        <span class="ab-founder-tag">🏀 Jazz fan</span>
+        <span class="ab-founder-tag">🍜 Foodie</span>
+        <span class="ab-founder-tag">🤓 Nerd</span>
+      </div>
+    </div>
+    <div class="ab-founder">
+      <div class="ab-founder-name">Colby Morley</div>
+      <div class="ab-founder-handle"><a href="https://instagram.com/colby_morley1" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none;">@colby_morley1</a></div>
+      <p class="ab-founder-body">Detroit enthusiast and the reason the Brush Park properties are as good as they are. Handles guest experience, growth, and finding the next great property before anyone else does.</p>
+      <div class="ab-founder-tags">
+        <span class="ab-founder-tag">🏒 Red Wings</span>
+        <span class="ab-founder-tag">🎵 Motown</span>
+        <span class="ab-founder-tag">🏛 Architecture</span>
+        <span class="ab-founder-tag">🌊 Sailor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ab-values">
+  <div class="ab-values-head reveal">
+    <div class="ab-story-eyebrow">What we believe</div>
+    <h2 class="ab-story-title">The things we refuse to compromise on.</h2>
+  </div>
+  <div class="ab-values-grid">
+    <div class="ab-value reveal">
+      <div class="ab-value-icon">🛏</div>
+      <div class="ab-value-title">The bed matters most</div>
+      <div class="ab-value-body">Every flat has a real mattress, real pillows, and real linens. Not the cheapest thing that photographs well. You will sleep.</div>
+    </div>
+    <div class="ab-value reveal">
+      <div class="ab-value-icon">⚡</div>
+      <div class="ab-value-title">Fast WiFi, no excuses</div>
+      <div class="ab-value-body">We test the connection before every stay. If you need to work, you can work. If you need to stream, it streams. Not negotiable.</div>
+    </div>
+    <div class="ab-value reveal">
+      <div class="ab-value-icon">🔪</div>
+      <div class="ab-value-title">The knife is sharp</div>
+      <div class="ab-value-body">It's our shorthand for "the details are right." Sharp knives, working can opener, enough towels, a full roll of toilet paper. Basics done with care.</div>
+    </div>
+    <div class="ab-value reveal">
+      <div class="ab-value-icon">🙋</div>
+      <div class="ab-value-title">Real humans, fast</div>
+      <div class="ab-value-body">You reach us directly. No support queue, no bot, no escalation. We answer our own messages and we do it quickly.</div>
+    </div>
+    <div class="ab-value reveal">
+      <div class="ab-value-icon">🏙</div>
+      <div class="ab-value-title">Location is everything</div>
+      <div class="ab-value-body">Every property is walkable to the best parts of its city. We don't do "great for the price if you have a car." We do downtown.</div>
+    </div>
+    <div class="ab-value reveal">
+      <div class="ab-value-icon">💸</div>
+      <div class="ab-value-title">Book direct, save real money</div>
+      <div class="ab-value-body">No platform fees when you book with us. Same property, same quality, ~15% less. Your money goes to the people who actually care.</div>
+    </div>
+  </div>
+</section>
+
+<div class="ab-cities">
+  <div class="ab-city reveal">
+    <div class="ab-city-eyebrow">Where we are</div>
+    <div class="ab-city-name">Salt Lake City</div>
+    <p class="ab-city-body">24 flats across the Granary District, Downtown, Sugarhood, ModernWest, and 9Line. Thirty minutes from the best powder skiing on earth, walkable to everything worth eating and drinking in the city.</p>
+    <a href="../slc/" class="ab-city-link">Browse SLC flats →</a>
+  </div>
+  <div class="ab-city reveal" style="background:rgba(255,255,255,0.07);">
+    <div class="ab-city-eyebrow">Where we are</div>
+    <div class="ab-city-name">Detroit</div>
+    <p class="ab-city-body">2 exceptional flats in Brush Park — steps from Little Caesars Arena. Victorian mansions, striking new builds, and a city that keeps proving everyone wrong. We love it here.</p>
+    <a href="../detroit/" class="ab-city-link">Browse Detroit flats →</a>
+  </div>
+</div>
+
+<section class="ab-hiring">
+  <div class="ab-hiring-inner reveal">
+    <div class="ab-hiring-eyebrow">Join the team</div>
+    <h2 class="ab-hiring-title">We're always looking for good people.</h2>
+    <p class="ab-hiring-body">LCF is small by design — every person on the team touches the guest experience directly. We're not hiring to fill a box. We're looking for people who care about the details as much as we do.</p>
+    <p class="ab-hiring-body">If any of these sound like you, send us a note:</p>
+    <div class="ab-hiring-what">
+      <div class="ab-hiring-item">You're in Salt Lake City or Detroit and you care about hospitality</div>
+      <div class="ab-hiring-item">You notice when something is off — and you fix it without being asked</div>
+      <div class="ab-hiring-item">You're great with guests: warm, fast, and calm under pressure</div>
+      <div class="ab-hiring-item">You're interested in property management, operations, or real estate</div>
+      <div class="ab-hiring-item">You have a skill we haven't thought of yet</div>
+    </div>
+    <a href="mailto:contact@lakecityflats.com?subject=Application%20%E2%80%94%20Lake%20City%20Flats&body=Hi%20Clifton%20and%20Colby%2C%0A%0AI%27d%20love%20to%20be%20considered%20for%20a%20role%20at%20LCF.%20Attached%20is%20my%20resume%2C%20along%20with%20any%20relevant%20links%20or%20a%20short%20note%20about%20why%20I%27d%20be%20a%20good%20fit.%0A%0A" class="ab-hiring-cta">Send your resume →</a>
+    <p class="ab-hiring-note">Email us at <a href="mailto:contact@lakecityflats.com" style="color:var(--forest);">contact@lakecityflats.com</a> — attach your resume, any relevant links, and a short note about why you'd be a good fit. No formal cover letter required.</p>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo-main">Lake City <span>Flats</span></div>
+    <div class="footer-logo-sub">Curated downtown short-term rentals</div>
+    <div class="footer-tagline">"Made by travelers,<br>for travelers."</div>
+    <div class="footer-contact">
+      <a href="tel:18016571028">801-657-1028</a>
+      <a href="mailto:contact@lakecityflats.com">contact@lakecityflats.com</a>
+      <a href="https://instagram.com/lakecityflats">@lakecityflats</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Salt Lake City</div>
+    <a href="../slc/">Browse SLC flats</a>
+    <a href="../slc/">Granary District (6)</a>
+    <a href="../slc/">Downtown SLC (7)</a>
+    <a href="../slc/">Sugarhood (2)</a>
+    <a href="../slc/">ModernWest (1)</a>
+    <a href="../slc/">9line (8)</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Detroit</div>
+    <a href="../property/?id=lumber-barons-mansion">Lumber Baron's Mansion</a>
+    <a href="../property/?id=lumber-barons-penthouse">Lumber Baron's Penthouse</a>
+    <hr>
+    <div class="footer-col-title" style="margin-top:6px;">Book direct</div>
+    <a href="../#slc">Check availability</a>
+    <a href="mailto:contact@lakecityflats.com?subject=Group%20%26%20Extended%20Stay%20Inquiry">Group &amp; extended stays</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Company</div>
+    <a href="../about/">About LCF</a>
+    <a href="../reviews/">All reviews</a>
+    <a href="https://instagram.com/lakecityflats">Instagram</a>
+    <a href="../about/#hiring">We're hiring</a>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Lake City Flats, Inc. — Salt Lake City, UT</div>
+    <div class="footer-social">
+      <a href="https://instagram.com/lakecityflats">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

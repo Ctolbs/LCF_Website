@@ -1095,12 +1095,12 @@
       "url": "https://lakecityflats.com/property/the-lumber-barons-3br-penthouse"
     },
     {
-      "id": "granary-queen-suite",
+      "id": "granary-west-403",
       "hospitable_id": "557444",
       "city": "slc",
       "hood": "granary",
-      "name": "Granary Queen Suite \u00b7 CoWork + Gym",
-      "meta": "1BR \u00b7 1BA \u00b7 Sleeps 4 \u00b7 Queen + Sofa",
+      "name": "Granary King Suite \u00b7 CoWork + Gym",
+      "meta": "1BR \u00b7 1BA \u00b7 Sleeps 4 \u00b7 King + Sofa",
       "beds": 1,
       "baths": 1,
       "sleeps": 4,

@@ -11,7 +11,7 @@ const ROOT = path.join(__dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'properties.json'), 'utf8'));
 const template = fs.readFileSync(path.join(ROOT, 'property', 'index.html'), 'utf8');
 
-const SITE_BASE = 'https://ctolbs.github.io/LCF_Website';
+const SITE_BASE = 'https://lakecityflats.com';
 
 data.properties.forEach(prop => {
   const cityFull = prop.city === 'slc' ? 'Salt Lake City' : 'Detroit';

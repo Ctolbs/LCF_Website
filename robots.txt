@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ctolbs.github.io/LCF_Website/sitemap.xml
+Sitemap: https://lakecityflats.com/sitemap.xml
