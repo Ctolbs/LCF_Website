@@ -301,3 +301,15 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
   footer{grid-template-columns:1fr;padding:36px 20px;}
   .footer-bottom{flex-direction:column;gap:10px;align-items:flex-start;}
 }
+/* Email capture strip */
+.email-strip{background:var(--navy);padding:64px 56px;text-align:center;border-top:1px solid rgba(255,255,255,0.06);}
+.email-strip-eyebrow{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;font-weight:500;}
+.email-strip-heading{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--cream);margin-bottom:8px;line-height:1.2;}
+.email-strip-sub{font-size:13px;color:rgba(245,240,232,0.42);margin-bottom:28px;font-weight:300;}
+.email-strip-form{display:flex;gap:0;max-width:440px;margin:0 auto;border-radius:3px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.25);}
+.email-strip-form input[type="email"]{flex:1;padding:14px 18px;border:none;background:rgba(255,255,255,0.08);color:var(--cream);font-size:13.5px;font-family:'Jost',sans-serif;outline:none;}
+.email-strip-form input[type="email"]::placeholder{color:rgba(245,240,232,0.3);}
+.email-strip-form button{padding:14px 22px;background:var(--amber);border:none;color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:background .2s;}
+.email-strip-form button:hover{background:#e8ad00;}
+.email-strip-note{font-size:10.5px;color:rgba(245,240,232,0.22);margin-top:12px;}
+@media(max-width:600px){.email-strip{padding:48px 20px;}.email-strip-heading{font-size:26px;}.email-strip-form{flex-direction:column;}.email-strip-form button{padding:14px;}}
