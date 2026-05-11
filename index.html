@@ -18,6 +18,50 @@
 <meta name="twitter:description" content="26 design-forward flats in Salt Lake City and Detroit. Locally owned, book direct and save ~15% vs. Airbnb.">
 <meta name="twitter:image" content="https://lakecityflats.com/img/og-image.jpg">
 <link rel="canonical" href="https://lakecityflats.com/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://lakecityflats.com/#org",
+      "name": "Lake City Flats",
+      "url": "https://lakecityflats.com",
+      "logo": "https://lakecityflats.com/favicon.svg",
+      "description": "26 design-forward short-term rentals in Salt Lake City and Detroit. Locally owned and operated.",
+      "telephone": "+18016571028",
+      "email": "contact@lakecityflats.com",
+      "areaServed": ["Salt Lake City, UT", "Detroit, MI"],
+      "sameAs": ["https://www.instagram.com/lakecityflats"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lakecityflats.com/#website",
+      "url": "https://lakecityflats.com",
+      "name": "Lake City Flats",
+      "publisher": {"@id": "https://lakecityflats.com/#org"}
+    },
+    {
+      "@type": "LodgingBusiness",
+      "name": "Lake City Flats — Salt Lake City",
+      "url": "https://lakecityflats.com/slc/",
+      "description": "24 curated flats across five of SLC's most walkable neighborhoods. Book direct and save ~15% vs. Airbnb.",
+      "address": {"@type": "PostalAddress", "addressLocality": "Salt Lake City", "addressRegion": "UT", "addressCountry": "US"},
+      "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.96", "reviewCount": 4690, "bestRating": "5"},
+      "priceRange": "$$"
+    },
+    {
+      "@type": "LodgingBusiness",
+      "name": "Lake City Flats — Detroit",
+      "url": "https://lakecityflats.com/detroit/",
+      "description": "Two exceptional flats in Detroit's Brush Park — steps from Little Caesars Arena and Woodward Ave.",
+      "address": {"@type": "PostalAddress", "addressLocality": "Detroit", "addressRegion": "MI", "addressCountry": "US"},
+      "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.96", "reviewCount": 4690, "bestRating": "5"},
+      "priceRange": "$$"
+    }
+  ]
+}
+</script>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -274,6 +318,18 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 .footer-social{display:flex;gap:16px;}
 .footer-social a{font-size:11.5px;color:rgba(245,240,232,0.3);text-decoration:none;letter-spacing:.07em;transition:color .2s;}
 .footer-social a:hover{color:var(--cream);}
+
+/* Email capture strip */
+.email-strip{background:var(--navy);padding:64px 56px;text-align:center;border-top:1px solid rgba(255,255,255,0.06);}
+.email-strip-eyebrow{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--amber);margin-bottom:14px;font-weight:500;}
+.email-strip-heading{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--cream);margin-bottom:8px;line-height:1.2;}
+.email-strip-sub{font-size:13px;color:rgba(245,240,232,0.42);margin-bottom:28px;font-weight:300;}
+.email-strip-form{display:flex;gap:0;max-width:440px;margin:0 auto;border-radius:3px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.25);}
+.email-strip-form input[type="email"]{flex:1;padding:14px 18px;border:none;background:rgba(255,255,255,0.08);color:var(--cream);font-size:13.5px;font-family:'Jost',sans-serif;outline:none;}
+.email-strip-form input[type="email"]::placeholder{color:rgba(245,240,232,0.3);}
+.email-strip-form button{padding:14px 22px;background:var(--amber);border:none;color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:background .2s;}
+.email-strip-form button:hover{background:#e8ad00;}
+.email-strip-note{font-size:10.5px;color:rgba(245,240,232,0.22);margin-top:12px;}
 
 /* EASTER EGG */
 .egg{display:none;position:fixed;inset:0;z-index:9999;background:var(--forest);flex-direction:column;align-items:center;justify-content:center;cursor:pointer;}
@@ -606,6 +662,17 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 </section>
 
 <!-- FOOTER -->
+<section class="email-strip">
+  <div class="email-strip-eyebrow">Stay in the loop</div>
+  <div class="email-strip-heading">New flats, powder days, and Detroit events.</div>
+  <div class="email-strip-sub">Occasional notes from the team. No spam, ever.</div>
+  <form class="email-strip-form" action="https://lakecityflats.us17.list-manage.com/subscribe/post?u=80cfa03b1a983242cea5f2fd8&amp;id=e03121d556&amp;f_id=00f9f4e0f0" method="post" target="_blank" novalidate>
+    <input type="email" name="EMAIL" placeholder="your@email.com" required>
+    <button type="submit">Subscribe →</button>
+    <input type="text" name="b_80cfa03b1a983242cea5f2fd8_e03121d556" tabindex="-1" value="" style="display:none;" aria-hidden="true">
+  </form>
+  <div class="email-strip-note">Unsubscribe anytime.</div>
+</section>
 <footer>
   <div>
     <div class="footer-logo-main">Lake City <span>Flats</span></div>
