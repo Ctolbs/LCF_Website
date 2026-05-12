@@ -173,6 +173,13 @@
   .pp-similar-grid{grid-template-columns:1fr 1fr;}
 }
 
+/* Hide iframe on tablet/mobile — widget only renders cleanly in the 350px desktop sidebar */
+@media (max-width: 768px) {
+  #booking-iframe{display:none;}
+  .pp-mobile-book{display:block;}
+  .pp-sticky-bar{display:flex !important;}
+}
+
 @media (max-width: 600px) {
   .pp-breadcrumb-bar{padding:12px 16px;font-size:11px;flex-wrap:wrap;gap:6px;}
   .pp-gallery{grid-template-columns:1fr;height:auto;}
@@ -180,9 +187,7 @@
   .pp-gallery-sub{height:120px;grid-template-columns:1fr 1fr;}
   .pp-body{padding:20px 16px;gap:28px;}
   .pp-amenity-grid{grid-template-columns:1fr;}
-  #booking-iframe{display:none;}
-  .pp-mobile-book{display:block;}
-  .pp-sticky-bar{display:flex !important;padding:12px 16px;}
+  .pp-sticky-bar{padding:12px 16px;}
   .pp-similar{padding:36px 16px;}
   .pp-similar-grid{grid-template-columns:1fr;}
 }
