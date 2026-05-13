@@ -2385,7 +2385,32 @@
         "https://a0.muscache.com/im/pictures/miso/Hosting-53311224/original/469c6b16-955b-4ece-acba-388cdda14eeb.jpeg",
         "https://a0.muscache.com/im/pictures/miso/Hosting-53311224/original/e68cedce-92f8-48ec-8f64-d2cac2850c39.jpeg"
       ],
-      "reviews": [],
+      "reviews": [
+        {
+          "name": "Ian",
+          "date": "October 2025",
+          "source": "Airbnb",
+          "text": "Enjoyed four nights at Lake City Flats, where we felt right at home. Great central location and easy parking in garage below. Comfy bed and pullout couch (even if you don't pull it out). Exactly like the photos and description in listing. Quiet building. Finally, shout-out to the cleaners\u2014this place was hospital clean."
+        },
+        {
+          "name": "Savannah",
+          "date": "September 2025",
+          "source": "Airbnb",
+          "text": "I loved my stay here. It was clean, cozy, beautiful, and had everything I needed (comfy bed, nice kitchen, clean bathroom, bath, and washer/dryer). The natural light in here was beautiful and genuinely made it a great place to work during the day. I loved the light and view from the windows. I also loved being in downtown and within walking distance of places but that the apartment itself was soundproof and quiet. No complaints \u2014 I loved staying here."
+        },
+        {
+          "name": "Andrew",
+          "date": "April 2026",
+          "source": "Airbnb",
+          "text": "Great spot, would stay again. Was our first introduction to SLC and we have no complaints! Cool view from the balcony."
+        },
+        {
+          "name": "Lynn",
+          "date": "November 2025",
+          "source": "Airbnb",
+          "text": "I had an amazing stay at Salt City Flats! It was perfect for a week of work and comfortable to relax. The kitchen had everything I needed to cook meals. One thing to note is that noise from appliances (own and neighbors') were quite loud. That was fine for me but mentioning in case you're sensitive to that."
+        }
+      ],
       "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable from the Salt Flats building \u2014 one of downtown's best addresses.",
       "image": "https://a0.muscache.com/im/pictures/miso/Hosting-53311224/original/469cdd06-b77c-4320-8137-06d731b5f046.jpeg",
       "url": "https://lakecityflats.com/property/lcf-downtown-slc-king-sleeper-gym-sleeps-4"
