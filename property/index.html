@@ -55,6 +55,16 @@
 .pp-sim-meta{font-size:11px;color:var(--muted);margin-top:4px;}
 .pp-sim-rating{font-size:11.5px;color:var(--gold);margin-top:6px;font-weight:500;}
 .pp-loading{display:flex;align-items:center;justify-content:center;height:60vh;font-size:14px;color:var(--muted);}
+/* Booking bottom-sheet modal */
+.bm-overlay{display:none;position:fixed;inset:0;z-index:9500;background:rgba(10,16,12,.6);backdrop-filter:blur(4px);}
+.bm-overlay.open{display:flex;align-items:flex-end;}
+.bm-sheet{background:#fff;width:100%;height:92vh;border-radius:14px 14px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:bmSlideUp .3s ease;}
+@keyframes bmSlideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+.bm-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.bm-title{font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--forest);}
+.bm-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);line-height:1;padding:4px;}
+.bm-frame{flex:1;width:100%;border:none;display:block;}
+.pp-sticky-btn{border:none;cursor:pointer;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-24FKZQFX23"></script>
@@ -89,6 +99,16 @@
 
 <div id="pp-root"><div class="pp-loading">Loading property…</div></div>
 
+<div class="bm-overlay" id="bm-overlay" onclick="closeBM(event)">
+  <div class="bm-sheet">
+    <div class="bm-header">
+      <span class="bm-title">Book Direct · Save ~15%</span>
+      <button class="bm-close" onclick="closeBM()" aria-label="Close booking">✕</button>
+    </div>
+    <iframe id="bm-iframe" class="bm-frame" src="" sandbox="allow-top-navigation-by-user-activation allow-scripts allow-same-origin allow-forms allow-popups" frameborder="0"></iframe>
+  </div>
+</div>
+
 <div class="lb" id="lb" onclick="closeLB(event)">
   <button class="lb-close" aria-label="Close photo gallery" onclick="document.getElementById('lb').classList.remove('open')">✕</button>
   <img class="lb-img" id="lb-img" src="" alt="">
@@ -111,6 +131,19 @@ function openLB(photos, idx) { lbPhotos = photos; lbIdx = idx; document.getEleme
 function renderLB() { document.getElementById('lb-img').src = lbPhotos[lbIdx]; document.getElementById('lb-counter').textContent = `${lbIdx+1} / ${lbPhotos.length}`; }
 function lbNav(dir) { lbIdx = (lbIdx + dir + lbPhotos.length) % lbPhotos.length; renderLB(); }
 function closeLB(e) { if (e.target === document.getElementById('lb')) document.getElementById('lb').classList.remove('open'); }
+
+let _bmUrl = '';
+function openBM() {
+  const iframe = document.getElementById('bm-iframe');
+  if (!iframe.src || iframe.src === window.location.href) iframe.src = _bmUrl;
+  document.getElementById('bm-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeBM(e) {
+  if (e && e.type === 'click' && e.target !== document.getElementById('bm-overlay') && !e.currentTarget.classList.contains('bm-close')) return;
+  document.getElementById('bm-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
 document.addEventListener('keydown', e => {
   if (!document.getElementById('lb').classList.contains('open')) return;
   if (e.key === 'ArrowLeft') lbNav(-1);
@@ -182,11 +215,11 @@ async function init() {
   s.text = JSON.stringify(jsonLd);
   document.head.appendChild(s);
 
-  // Wire "Book Direct" nav + sticky bar to open Hospitable booking engine
+  // Wire "Book Direct" nav button + mobile CTAs to open booking modal
   if (prop.hospitable_id) {
-    const bookingUrl = `https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}`;
+    _bmUrl = `https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}`;
     const navBtn = document.querySelector('.nav-book');
-    if (navBtn) { navBtn.href = bookingUrl; navBtn.target = '_blank'; navBtn.rel = 'noopener noreferrer'; }
+    if (navBtn) { navBtn.href = '#book'; navBtn.onclick = e => { e.preventDefault(); openBM(); }; }
   }
 
   const isSlc = prop.city === 'slc';
@@ -304,7 +337,7 @@ async function init() {
           </iframe>
           <div class="pp-mobile-book">
             <div class="pp-mobile-book-label">Check availability &amp; book direct</div>
-            <a href="https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}" target="_blank" rel="noopener noreferrer" class="pp-cta-primary">Open booking calendar →</a>
+            <button onclick="openBM()" class="pp-cta-primary" style="border:none;cursor:pointer;width:100%;">Check availability →</button>
             <p class="pp-mobile-book-note">Secure via Stripe · No Airbnb service fees · Save ~15%</p>
           </div>` : `
           <div class="pp-cta-block">
@@ -328,7 +361,7 @@ async function init() {
         <div class="pp-sticky-price">★ ${prop.rating} <span>· ${prop.review_count} reviews</span></div>
         <div style="font-size:10px;color:var(--muted);margin-top:1px;">Save ~15% booking direct</div>
       </div>
-      <a href="${prop.hospitable_id ? `https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}` : '#book'}" target="_blank" rel="noopener noreferrer" class="pp-sticky-btn">Book direct →</a>
+      <button onclick="openBM()" class="pp-sticky-btn">Book direct →</button>
     </div>
 
     ${similar.length>0?`
