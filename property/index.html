@@ -225,6 +225,9 @@ async function init() {
   const isSlc = prop.city === 'slc';
   const cityLabel = cityFull;
   const hoodLabel = prop.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+  const hoodCoords={granary:[40.7502,-111.9070],downtown:[40.7628,-111.8910],sugarhood:[40.7126,-111.8492],modernwest:[40.7588,-111.9340],'9line':[40.7272,-111.9294]};
+  const [mapLat,mapLng]=prop.city==='detroit'?[42.3422,-83.0490]:(hoodCoords[prop.hood]||[40.7608,-111.8910]);
+  const osmSrc=`https://www.openstreetmap.org/export/embed.html?bbox=${(mapLng-0.006).toFixed(4)}%2C${(mapLat-0.005).toFixed(4)}%2C${(mapLng+0.006).toFixed(4)}%2C${(mapLat+0.005).toFixed(4)}&layer=mapnik&marker=${mapLat.toFixed(4)}%2C${mapLng.toFixed(4)}`;
   const similar = data.properties.filter(p => p.city === prop.city && p.id !== prop.id).slice(0,3);
   const photos = prop.photos;
   // Safe attribute value: replace " with &quot; so JSON inside onclick="..." doesn't break the attribute
@@ -307,7 +310,8 @@ async function init() {
 
         <div class="pp-section">
           <div class="pp-section-label">Location</div>
-          <div class="pp-map-stub">📍 ${hoodLabel} · ${cityLabel}</div>
+          <div style="border-radius:3px;overflow:hidden;border:1px solid var(--border);margin-bottom:8px;"><iframe src="${osmSrc}" width="100%" height="200" frameborder="0" scrolling="no" loading="lazy" style="display:block;border:0;" title="${hoodLabel} neighborhood map"></iframe></div>
+          <a href="https://www.openstreetmap.org/?mlat=${mapLat}&mlon=${mapLng}#map=16/${mapLat}/${mapLng}" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted);display:inline-block;margin-bottom:12px;">View larger map →</a>
           <div class="pp-location-desc">${prop.neighborhood_desc}</div>
         </div>
 
