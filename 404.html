@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Page Not Found — Lake City Flats</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+<style>
+  .notfound-wrap {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    text-align: center;
+    background: var(--parchment);
+  }
+  .notfound-code {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 120px;
+    font-weight: 300;
+    color: var(--sage-pale);
+    line-height: 1;
+    margin-bottom: 0;
+    letter-spacing: -4px;
+  }
+  .notfound-eyebrow {
+    font-size: 10px;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    color: var(--terra);
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .notfound-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--forest);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .notfound-desc {
+    font-size: 15px;
+    color: var(--muted);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 400px;
+    margin: 0 auto 40px;
+  }
+  .notfound-btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .notfound-btn-primary {
+    background: var(--forest);
+    color: #fff;
+    padding: 13px 32px;
+    border-radius: 2px;
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    transition: background .2s;
+  }
+  .notfound-btn-primary:hover { background: var(--forest-light); }
+  .notfound-btn-secondary {
+    background: transparent;
+    color: var(--forest);
+    padding: 13px 32px;
+    border-radius: 2px;
+    border: 1px solid var(--forest);
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    transition: background .2s, color .2s;
+  }
+  .notfound-btn-secondary:hover { background: var(--forest); color: #fff; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">
+    <div class="nav-logo-mark">LCF</div>
+    <div class="nav-logo-text">
+      <span class="nav-logo-main">Lake City <em>Flats</em></span>
+      <span class="nav-logo-sub">SALT LAKE CITY · DETROIT</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="/slc/" class="nav-pill nav-slc">Salt Lake City</a>
+    <a href="/detroit/" class="nav-pill nav-det">Detroit</a>
+    <a href="/reviews/" class="nav-pill">Reviews</a>
+    <a href="/about/" class="nav-pill">About</a>
+    <a href="/slc/" class="nav-book">Book Direct</a>
+  </div>
+</nav>
+
+<div class="notfound-wrap" style="margin-top:64px;">
+  <div class="notfound-code">404</div>
+  <div class="notfound-eyebrow">Page not found</div>
+  <h1 class="notfound-title">This flat doesn't exist&nbsp;— yet.</h1>
+  <p class="notfound-desc">The page you're looking for may have moved or the link may be outdated. Browse all our properties below.</p>
+  <div class="notfound-btns">
+    <a href="/slc/" class="notfound-btn-primary">Browse Salt Lake City →</a>
+    <a href="/detroit/" class="notfound-btn-secondary">Browse Detroit →</a>
+  </div>
+</div>
+
+</body>
+</html>
