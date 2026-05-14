@@ -174,8 +174,9 @@
 }
 
 /* Hide iframe on tablet/mobile — widget only renders cleanly in the 350px desktop sidebar */
+/* !important required: the iframe has inline style="display:block" that beats a plain CSS rule */
 @media (max-width: 768px) {
-  #booking-iframe{display:none;}
+  #booking-iframe{display:none !important;}
   .pp-mobile-book{display:block;}
   .pp-sticky-bar{display:flex !important;}
 }
