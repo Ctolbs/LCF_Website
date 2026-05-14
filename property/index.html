@@ -385,18 +385,35 @@ async function init() {
     container: 'pp-map',
     style: 'mapbox://styles/mapbox/light-v11',
     center: [mapLng, mapLat],
-    zoom: 15,
-    attributionControl: false
+    zoom: 15.5,
+    attributionControl: false,
+    logoPosition: 'bottom-left'
   });
+  // Fix: resize after layout so container dimensions are correct
+  requestAnimationFrame(() => ppMap.resize());
   ppMap.addControl(new mapboxgl.NavigationControl({showCompass:false}), 'top-right');
   ppMap.addControl(new mapboxgl.AttributionControl({compact:true}), 'bottom-right');
   ppMap.on('load', () => {
-    ppMap.setPaintProperty('water', 'fill-color', '#C4D9D0');
-    ppMap.setPaintProperty('land', 'background-color', '#F7F4EF');
+    ppMap.resize();
+    // Brand colors
+    const style = ppMap.getStyle();
+    style.layers.forEach(layer => {
+      if (layer.type === 'background') ppMap.setPaintProperty(layer.id, 'background-color', '#F5F1EA');
+      if (layer.type === 'fill' && /water/.test(layer.id)) ppMap.setPaintProperty(layer.id, 'fill-color', '#C4D9D0');
+      if (layer.type === 'line' && /water/.test(layer.id)) ppMap.setPaintProperty(layer.id, 'line-color', '#A8C8BF');
+      if (layer.type === 'fill' && /park|landuse|pitch|recreation/.test(layer.id)) ppMap.setPaintProperty(layer.id, 'fill-color', '#D8EBE4');
+    });
   });
+  // LCF branded pin
+  const pinSvg = \`<svg xmlns="http://www.w3.org/2000/svg" width="44" height="56" viewBox="0 0 44 56">
+    <path d="M22 0C9.85 0 0 9.85 0 22c0 15.4 22 34 22 34s22-18.6 22-34C44 9.85 34.15 0 22 0z" fill="#2D4A3E"/>
+    <circle cx="22" cy="21" r="13" fill="#F5F1EA"/>
+    <text x="22" y="25.5" text-anchor="middle" font-family="Jost,Helvetica,sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#2D4A3E">LCF</text>
+  </svg>\`;
   const markerEl = document.createElement('div');
-  markerEl.style.cssText = 'width:22px;height:22px;background:#2D4A3E;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,0.3);cursor:default;';
-  new mapboxgl.Marker({element:markerEl}).setLngLat([mapLng, mapLat]).addTo(ppMap);
+  markerEl.style.cssText = 'cursor:default;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.25));';
+  markerEl.innerHTML = pinSvg;
+  new mapboxgl.Marker({element:markerEl, anchor:'bottom'}).setLngLat([mapLng, mapLat]).addTo(ppMap);
 }
 
 init();
