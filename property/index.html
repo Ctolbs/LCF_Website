@@ -405,14 +405,9 @@ async function init() {
     });
   });
   // LCF branded pin
-  const pinSvg = \`<svg xmlns="http://www.w3.org/2000/svg" width="44" height="56" viewBox="0 0 44 56">
-    <path d="M22 0C9.85 0 0 9.85 0 22c0 15.4 22 34 22 34s22-18.6 22-34C44 9.85 34.15 0 22 0z" fill="#2D4A3E"/>
-    <circle cx="22" cy="21" r="13" fill="#F5F1EA"/>
-    <text x="22" y="25.5" text-anchor="middle" font-family="Jost,Helvetica,sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#2D4A3E">LCF</text>
-  </svg>\`;
   const markerEl = document.createElement('div');
-  markerEl.style.cssText = 'cursor:default;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.25));';
-  markerEl.innerHTML = pinSvg;
+  markerEl.style.cssText = 'cursor:default;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.25));width:44px;height:56px;';
+  markerEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="56" viewBox="0 0 44 56"><path d="M22 0C9.85 0 0 9.85 0 22c0 15.4 22 34 22 34s22-18.6 22-34C44 9.85 34.15 0 22 0z" fill="#2D4A3E"/><circle cx="22" cy="21" r="13" fill="#F5F1EA"/><text x="22" y="25.5" text-anchor="middle" font-family="Jost,Helvetica,sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#2D4A3E">LCF</text></svg>';
   new mapboxgl.Marker({element:markerEl, anchor:'bottom'}).setLngLat([mapLng, mapLat]).addTo(ppMap);
 }
 
