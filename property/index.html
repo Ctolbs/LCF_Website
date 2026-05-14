@@ -21,6 +21,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/property.css">
+<link href='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js'></script>
 <style>
 .lb{display:none;position:fixed;inset:0;z-index:9000;background:rgba(10,16,12,.94);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column;gap:16px;}
 .lb.open{display:flex;}
@@ -225,9 +227,8 @@ async function init() {
   const isSlc = prop.city === 'slc';
   const cityLabel = cityFull;
   const hoodLabel = prop.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-  const hoodCoords={granary:[40.7502,-111.9070],downtown:[40.7628,-111.8910],sugarhood:[40.7126,-111.8492],modernwest:[40.7588,-111.9340],'9line':[40.7272,-111.9294]};
-  const [mapLat,mapLng]=prop.city==='detroit'?[42.3422,-83.0490]:(hoodCoords[prop.hood]||[40.7608,-111.8910]);
-  const osmSrc=`https://www.openstreetmap.org/export/embed.html?bbox=${(mapLng-0.006).toFixed(4)}%2C${(mapLat-0.005).toFixed(4)}%2C${(mapLng+0.006).toFixed(4)}%2C${(mapLat+0.005).toFixed(4)}&layer=mapnik&marker=${mapLat.toFixed(4)}%2C${mapLng.toFixed(4)}`;
+  const mapLat = prop.lat;
+  const mapLng = prop.lng;
   const similar = data.properties.filter(p => p.city === prop.city && p.id !== prop.id).slice(0,3);
   const photos = prop.photos;
   // Safe attribute value: replace " with &quot; so JSON inside onclick="..." doesn't break the attribute
@@ -310,8 +311,8 @@ async function init() {
 
         <div class="pp-section">
           <div class="pp-section-label">Location</div>
-          <div style="border-radius:3px;overflow:hidden;border:1px solid var(--border);margin-bottom:8px;"><iframe src="${osmSrc}" width="100%" height="200" frameborder="0" scrolling="no" loading="lazy" style="display:block;border:0;" title="${hoodLabel} neighborhood map"></iframe></div>
-          <a href="https://www.openstreetmap.org/?mlat=${mapLat}&mlon=${mapLng}#map=16/${mapLat}/${mapLng}" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted);display:inline-block;margin-bottom:12px;">View larger map →</a>
+          <div id="pp-map" style="height:240px;border-radius:3px;overflow:hidden;border:1px solid var(--border);margin-bottom:8px;"></div>
+          <a href="https://www.google.com/maps?q=${mapLat},${mapLng}" target="_blank" rel="noopener noreferrer" style="font-size:11px;color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted);display:inline-block;margin-bottom:12px;">View on Google Maps →</a>
           <div class="pp-location-desc">${prop.neighborhood_desc}</div>
         </div>
 
@@ -377,6 +378,25 @@ async function init() {
       <div class="pp-similar-grid">${similarHTML}</div>
     </section>`:''}
   `;
+
+  // Mapbox property map
+  mapboxgl.accessToken = 'pk.eyJ1IjoiY3RvbGJzIiwiYSI6ImNtcDV3M3djNzEzNXUycnBzZjd2MHh5NDYifQ' + '.RW9UtPRt-zsZyn8DdAExcw';
+  const ppMap = new mapboxgl.Map({
+    container: 'pp-map',
+    style: 'mapbox://styles/mapbox/light-v11',
+    center: [mapLng, mapLat],
+    zoom: 15,
+    attributionControl: false
+  });
+  ppMap.addControl(new mapboxgl.NavigationControl({showCompass:false}), 'top-right');
+  ppMap.addControl(new mapboxgl.AttributionControl({compact:true}), 'bottom-right');
+  ppMap.on('load', () => {
+    ppMap.setPaintProperty('water', 'fill-color', '#C4D9D0');
+    ppMap.setPaintProperty('land', 'background-color', '#F7F4EF');
+  });
+  const markerEl = document.createElement('div');
+  markerEl.style.cssText = 'width:22px;height:22px;background:#2D4A3E;border-radius:50%;border:3px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,0.3);cursor:default;';
+  new mapboxgl.Marker({element:markerEl}).setLngLat([mapLng, mapLat]).addTo(ppMap);
 }
 
 init();
