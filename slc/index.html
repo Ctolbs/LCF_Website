@@ -22,7 +22,7 @@
   "@type": "LodgingBusiness",
   "name": "Lake City Flats — Salt Lake City",
   "url": "https://lakecityflats.com/slc/",
-  "description": "24 curated short-term rentals across five of Salt Lake City's most walkable neighborhoods — Granary District, Downtown, Sugarhood, ModernWest, and 9Line. Ski in the morning, walk to dinner in the evening.",
+  "description": "24 curated short-term rentals across four of Salt Lake City's most walkable neighborhoods — Granary District, Downtown, Sugarhood, and 9Line. Ski in the morning, walk to dinner in the evening.",
   "address": {"@type": "PostalAddress", "addressLocality": "Salt Lake City", "addressRegion": "UT", "postalCode": "84101", "addressCountry": "US"},
   "geo": {"@type": "GeoCoordinates", "latitude": 40.7608, "longitude": -111.8910},
   "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.96", "reviewCount": 4690, "bestRating": "5"},
@@ -247,10 +247,9 @@
   <div class="footer-col">
     <div class="footer-col-title">Salt Lake City</div>
     <a href="#properties">All SLC flats</a>
-    <a href="#properties">Granary District (6)</a>
+    <a href="#properties">Granary District (7)</a>
     <a href="#properties">Downtown SLC (7)</a>
     <a href="#properties">Sugarhood (2)</a>
-    <a href="#properties">ModernWest (1)</a>
     <a href="#properties">9line (8)</a>
   </div>
   <div class="footer-col">
@@ -310,7 +309,7 @@ fetch('../properties.json')
   .then(data => {
     const slcProps = data.properties.filter(p => p.city === 'slc');
     const slc_totals = data.slc_totals;
-    const hoodLabels = { granary:'Granary', downtown:'Downtown', sugarhood:'Sugarhood', modernwest:'ModernWest', '9line':'9line' };
+    const hoodLabels = { granary:'Granary', downtown:'Downtown', sugarhood:'Sugarhood', '9line':'9line' };
 
     document.getElementById('slc-count').textContent = slcProps.length;
 
@@ -361,7 +360,7 @@ function initSLCMap(props) {
     });
 
     // Neighborhood labels
-    [{name:'Granary · Maven',lat:40.744,lng:-111.891},{name:'Downtown',lat:40.7705,lng:-111.875},{name:'Sugar House',lat:40.7175,lng:-111.869},{name:'ModernWest',lat:40.754,lng:-111.904}].forEach(h => {
+    [{name:'Granary · Maven',lat:40.744,lng:-111.891},{name:'Downtown',lat:40.7705,lng:-111.875},{name:'Sugar House',lat:40.7175,lng:-111.869}].forEach(h => {
       const el = document.createElement('div');
       el.style.cssText = 'font-family:Jost,sans-serif;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#2D4A3E;background:rgba(245,241,234,0.88);padding:2px 7px;border-radius:2px;border:1px solid rgba(45,74,62,0.2);white-space:nowrap;pointer-events:none;';
       el.textContent = h.name;
