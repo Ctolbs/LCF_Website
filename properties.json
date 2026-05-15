@@ -1,10 +1,9 @@
 {
   "slc_totals": {
-    "granary": 6,
+    "granary": 7,
     "9line": 8,
     "downtown": 7,
-    "sugarhood": 2,
-    "modernwest": 1
+    "sugarhood": 2
   },
   "properties": [
     {
@@ -665,7 +664,7 @@
       "id": "modernwest-townhome",
       "hospitable_id": "1258138",
       "city": "slc",
-      "hood": "modernwest",
+      "hood": "granary",
       "name": "ModernWest Townhome · 3BR + Garage",
       "meta": "3BR · 3.5BA · Sleeps 6 · Garage",
       "beds": 3,
@@ -679,7 +678,7 @@
         "Private Garage",
         "New Build"
       ],
-      "description": "A three-story new-build townhome in the up-and-coming ModernWest neighborhood — three bedrooms each with their own ensuite bath, and a private garage. Architecturally the most interesting property in our portfolio. Ideal for a group that doesn't want to share bathrooms.",
+      "description": "A three-story new-build townhome on the western edge of SLC's Granary District — three bedrooms each with their own ensuite bath, and a private garage. Architecturally the most interesting property in our portfolio. Ideal for a group that doesn't want to share bathrooms.",
       "amenities": [
         "3 Bedrooms (all King)",
         "3 ensuite baths + powder room",
@@ -784,7 +783,7 @@
           "text": "Stunning property. We had three couples and everyone had a private ensuite — that alone makes this worth every penny. The mountain views from the top floor were phenomenal, especially at sunset."
         }
       ],
-      "neighborhood_desc": "ModernWest is one of SLC's newest and fastest-growing neighborhoods — thoughtfully designed, transit-accessible, and a 10-minute drive to downtown. The 9th and 9th district restaurants are nearby.",
+      "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
       "image": "https://assets.hospitable.com/property_images/1258138/sVkhMHIrx34hKa1ku530NlLfXzrEhtpm6OLk7xo9.jpg",
       "url": "https://lakecityflats.com/property/modernwest-townhome-downtown-slc",
       "lat": 40.751671,
