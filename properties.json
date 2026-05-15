@@ -679,12 +679,11 @@
         "Private Garage",
         "New Build"
       ],
-      "description": "A three-story new-build townhome in the up-and-coming ModernWest neighborhood — three bedrooms each with their own ensuite bath, a rooftop deck with mountain views, and a private garage. Architecturally the most interesting property in our portfolio. Ideal for a group that doesn't want to share bathrooms.",
+      "description": "A three-story new-build townhome in the up-and-coming ModernWest neighborhood — three bedrooms each with their own ensuite bath, and a private garage. Architecturally the most interesting property in our portfolio. Ideal for a group that doesn't want to share bathrooms.",
       "amenities": [
         "3 Bedrooms (all King)",
         "3 ensuite baths + powder room",
         "Private garage",
-        "Rooftop deck",
         "Full kitchen",
         "Ultrafast WiFi",
         "Self check-in",
@@ -782,7 +781,7 @@
           "name": "Marcus",
           "date": "January 2026",
           "source": "Airbnb",
-          "text": "Stunning property. We had three couples and everyone had a private ensuite — that alone makes this worth every penny. The rooftop was phenomenal for watching the mountains turn pink at sunset."
+          "text": "Stunning property. We had three couples and everyone had a private ensuite — that alone makes this worth every penny. The mountain views from the top floor were phenomenal, especially at sunset."
         }
       ],
       "neighborhood_desc": "ModernWest is one of SLC's newest and fastest-growing neighborhoods — thoughtfully designed, transit-accessible, and a 10-minute drive to downtown. The 9th and 9th district restaurants are nearby.",
