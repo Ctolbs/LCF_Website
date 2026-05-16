@@ -229,7 +229,9 @@ async function init() {
   const hoodLabel = prop.hood.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
   const mapLat = prop.lat;
   const mapLng = prop.lng;
-  const similar = data.properties.filter(p => p.city === prop.city && p.id !== prop.id).slice(0,3);
+  const sameHood = data.properties.filter(p => p.city === prop.city && p.id !== prop.id && p.hood === prop.hood);
+  const otherCity = data.properties.filter(p => p.city === prop.city && p.id !== prop.id && p.hood !== prop.hood);
+  const similar = [...sameHood, ...otherCity].slice(0, 3);
   const photos = prop.photos;
   // Safe attribute value: replace " with &quot; so JSON inside onclick="..." doesn't break the attribute
   const pd = JSON.stringify(photos).replace(/"/g, '&quot;');
@@ -285,7 +287,7 @@ async function init() {
   document.getElementById('pp-root').innerHTML = `
     <div class="pp-breadcrumb-bar">
       <a href="../index.html">Home</a><span>›</span>
-      <a href="../#${isSlc?'slc':'detroit'}">${cityLabel}</a><span>›</span>
+      <a href="../${isSlc?'slc':'detroit'}/">${cityLabel}</a><span>›</span>
       <span>${prop.name}</span>
     </div>
 
@@ -438,10 +440,9 @@ init();
   </div>
   <div class="footer-col">
     <div class="footer-col-title">Salt Lake City</div>
-    <a href="../slc/">Granary District (6)</a>
+    <a href="../slc/">Granary District (7)</a>
     <a href="../slc/">Downtown SLC (7)</a>
     <a href="../slc/">Sugarhood (2)</a>
-    <a href="../slc/">ModernWest (1)</a>
     <a href="../slc/">9line (8)</a>
   </div>
   <div class="footer-col">
