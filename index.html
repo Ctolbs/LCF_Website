@@ -470,7 +470,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <span class="city-badge badge-slc">Mountain West</span>
       <div class="hero-city-content">
         <div class="hero-city-name">Salt Lake City</div>
-        <div class="hero-city-hood">Granary · Downtown · Sugarhood<br>ModernWest · 9line</div>
+        <div class="hero-city-hood">Granary · Downtown · Sugarhood · 9line</div>
         <div class="hero-city-count"><span data-lcf="slc-total">24</span> flats <span class="hero-city-arrow">→</span></div>
       </div>
     </a>
@@ -531,7 +531,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     <div class="reveal">
       <div class="city-eyebrow slc-eyebrow">Mountain West · Utah</div>
       <div class="city-name">Salt Lake<br>City</div>
-      <div class="city-desc" style="margin-top:14px;">Ski some of the best powder on Earth in the morning, walk to dinner in the evening. Our <span data-lcf="slc-total">24</span> flats span five of SLC's most walkable, characterful neighborhoods.</div>
+      <div class="city-desc" style="margin-top:14px;">Ski some of the best powder on Earth in the morning, walk to dinner in the evening. Our <span data-lcf="slc-total">24</span> flats span four of SLC's most walkable, characterful neighborhoods.</div>
       <div class="city-count-label slc-count" style="margin-top:10px;"><span data-lcf="slc-total">24</span> flats · <span data-lcf="slc-hoods">5</span> neighborhoods</div>
     </div>
 
@@ -694,10 +694,9 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
   </div>
   <div class="footer-col">
     <div class="footer-col-title">Salt Lake City</div>
-    <a href="#slc">Granary District (6)</a>
+    <a href="#slc">Granary District (7)</a>
     <a href="#slc">Downtown SLC (7)</a>
     <a href="#slc">Sugarhood (2)</a>
-    <a href="#slc">ModernWest (1)</a>
     <a href="#slc">9line (8)</a>
   </div>
   <div class="footer-col">
@@ -791,7 +790,7 @@ async function loadProperties() {
   document.querySelectorAll('[data-lcf="slc-hoods"]').forEach(el => el.textContent = hoodCount);
 
   // Render hood pills
-  const hoodLabels = { granary:'Granary', downtown:'Downtown', sugarhood:'Sugarhood', modernwest:'ModernWest', '9line':'9line' };
+  const hoodLabels = { granary:'Granary', downtown:'Downtown', sugarhood:'Sugarhood', '9line':'9line' };
   document.getElementById('slc-pills').innerHTML =
     '<span class="hood-pill slc-pill active" onclick="filterSLC(this,\'all\')">All</span>' +
     Object.entries(slc_totals).map(([h, n]) =>
