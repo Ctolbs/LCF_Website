@@ -164,8 +164,12 @@
       <div class="cp-count-label">flats · 5 neighborhoods</div>
     </div>
   </div>
-  <div class="hood-pills reveal" id="slc-pills" style="margin-bottom:20px;"></div>
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;" class="reveal">
+    <div class="hood-pills" id="slc-pills"></div>
+    <div class="hood-pills" id="sleeps-pills"></div>
+  </div>
   <div class="city-props-list" id="slc-list"></div>
+  <div id="slc-empty" style="display:none;padding:40px 0;text-align:center;color:rgba(245,240,232,0.4);font-size:14px;font-weight:300;">No flats match those filters — try broadening your search.</div>
 </section>
 
 <section class="cp-map" style="background:var(--parchment);padding:64px 0 0;border-top:1px solid var(--border);">
@@ -284,8 +288,41 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-function propCard(p, hoodAttr) {
-  return `<a href="../property/?id=${p.id}" class="mini-prop"${hoodAttr}>
+let activeHood = 'all', activeSleeps = 'all';
+
+function applyFilters() {
+  let visible = 0;
+  document.querySelectorAll('#slc-list .mini-prop').forEach(p => {
+    const hoodOk = activeHood === 'all' || p.dataset.hood === activeHood;
+    const s = parseInt(p.dataset.sleeps);
+    const sleepsOk = activeSleeps === 'all'
+      || (activeSleeps === '1-2' && s <= 2)
+      || (activeSleeps === '3-4' && s >= 3 && s <= 4)
+      || (activeSleeps === '5+' && s >= 5);
+    const show = hoodOk && sleepsOk;
+    p.style.display = show ? 'flex' : 'none';
+    if (show) visible++;
+  });
+  document.getElementById('slc-count').textContent = visible;
+  document.getElementById('slc-empty').style.display = visible === 0 ? 'block' : 'none';
+}
+
+function filterSLC(el, hood) {
+  document.querySelectorAll('#slc-pills .hood-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  activeHood = hood;
+  applyFilters();
+}
+
+function filterSleeps(el, bucket) {
+  document.querySelectorAll('#sleeps-pills .hood-pill').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  activeSleeps = bucket;
+  applyFilters();
+}
+
+function propCard(p) {
+  return `<a href="../property/?id=${p.id}" class="mini-prop" data-hood="${p.hood}" data-sleeps="${p.sleeps}">
     <div class="mini-prop-icon" style="background-image:url('${p.image}');width:48px;height:48px;border-radius:3px;background-size:cover;background-position:center;flex-shrink:0;"></div>
     <div class="mini-prop-info">
       <div class="mini-prop-name">${p.name}</div>
@@ -293,15 +330,6 @@ function propCard(p, hoodAttr) {
     </div>
     <span class="mini-prop-rating">★ ${p.rating}</span>
   </a>`;
-}
-
-function filterSLC(el, hood) {
-  document.querySelectorAll('#slc-pills .hood-pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  document.querySelectorAll('#slc-list .mini-prop').forEach(p => {
-    const show = hood === 'all' || p.dataset.hood === hood;
-    p.style.display = show ? 'flex' : 'none';
-  });
 }
 
 fetch('../properties.json')
@@ -319,8 +347,14 @@ fetch('../properties.json')
         `<span class="hood-pill slc-pill" onclick="filterSLC(this,'${h}')">${hoodLabels[h] || h} (${n})</span>`
       ).join('');
 
+    document.getElementById('sleeps-pills').innerHTML =
+      '<span class="hood-pill slc-pill active" onclick="filterSleeps(this,\'all\')">Any size</span>' +
+      '<span class="hood-pill slc-pill" onclick="filterSleeps(this,\'1-2\')">Solo / Couple</span>' +
+      '<span class="hood-pill slc-pill" onclick="filterSleeps(this,\'3-4\')">Small group (3–4)</span>' +
+      '<span class="hood-pill slc-pill" onclick="filterSleeps(this,\'5+\')">Group (5+)</span>';
+
     document.getElementById('slc-list').innerHTML = slcProps
-      .map(p => propCard(p, ` data-hood="${p.hood}"`))
+      .map(p => propCard(p))
       .join('');
 
     document.querySelectorAll('#slc-list .mini-prop').forEach(el => obs.observe(el));
