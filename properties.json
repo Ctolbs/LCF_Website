@@ -1163,10 +1163,10 @@
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Loft · CoWork + Gym",
-      "meta": "1BR · 1BA · Sleeps 4 · King + Sofa",
+      "meta": "1BR · 1BA · Sleeps 2 · King",
       "beds": 1,
       "baths": 1,
-      "sleeps": 4,
+      "sleeps": 2,
       "rating": "4.95",
       "review_count": "45+",
       "features": [
@@ -1175,9 +1175,9 @@
         "King Bed",
         "Indoor Fireplace"
       ],
-      "description": "Another strong Granary building entry — king bed, sleeper sofa, indoor fireplace, and the 24/7 co-working and gym that makes this building one of the best work-from-SLC setups in the city. TRAX puts you downtown or at the airport in under 15 minutes, and ski resorts are 30 minutes the other direction.",
+      "description": "Another strong Granary building entry — king bed, indoor fireplace, and the 24/7 co-working and gym that makes this building one of the best work-from-SLC setups in the city. TRAX puts you downtown or at the airport in under 15 minutes, and ski resorts are 30 minutes the other direction.",
       "amenities": [
-        "King bed + Sleeper sofa",
+        "King bed",
         "CoWork space (in-building)",
         "Gym access",
         "Indoor fireplace",
