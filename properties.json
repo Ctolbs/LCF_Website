@@ -101,10 +101,10 @@
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Suite · CoWork + Gym",
-      "meta": "1BR · 1BA · Sleeps 2 · King",
+      "meta": "1BR · 1BA · Sleeps 4 · King + Sleeper",
       "beds": 1,
       "baths": 1,
-      "sleeps": 2,
+      "sleeps": 4,
       "rating": "4.97",
       "review_count": "60+",
       "features": [
@@ -113,9 +113,9 @@
         "Granary District",
         "Self Check-in"
       ],
-      "description": "A refined king suite in the Granary District — same building co-working and gym setup, fresh modern finishes, and the kind of quiet that lets you actually sleep. Ideal for work trips, ski weekends, or a downtown SLC base. Blocks from the best restaurants in the city.",
+      "description": "A refined king suite in the Granary District — same building co-working and gym setup, fresh modern finishes, and the kind of quiet that lets you actually sleep. King bed and sleeper sofa, ideal for work trips, ski weekends, or a downtown SLC base for two. Blocks from the best restaurants in the city.",
       "amenities": [
-        "King bed",
+        "King bed + Sleeper sofa",
         "CoWork space (in-building)",
         "Gym access",
         "Ultrafast WiFi",
@@ -187,10 +187,10 @@
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Suite · CoWork + Gym",
-      "meta": "1BR · 1BA · Sleeps 2 · King",
+      "meta": "1BR · 1BA · Sleeps 4 · King + Sleeper",
       "beds": 1,
       "baths": 1,
-      "sleeps": 2,
+      "sleeps": 4,
       "rating": "4.95",
       "review_count": "50+",
       "features": [
@@ -201,7 +201,7 @@
       ],
       "description": "The most affordable way into the Granary building — same co-working space, same gym, same walkable neighborhood, slightly more efficient footprint. Perfect for a solo traveler, a couple, or anyone who'd rather spend the money on dinner than square footage.",
       "amenities": [
-        "King bed",
+        "King bed + Sleeper sofa",
         "CoWork space (in-building)",
         "Gym access",
         "Ultrafast WiFi",
@@ -1079,10 +1079,10 @@
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Suite · CoWork + Gym",
-      "meta": "1BR · 1BA · Sleeps 2 · King",
+      "meta": "1BR · 1BA · Sleeps 4 · King + Sleeper",
       "beds": 1,
       "baths": 1,
-      "sleeps": 2,
+      "sleeps": 4,
       "rating": "4.94",
       "review_count": "35+",
       "features": [
@@ -1091,9 +1091,9 @@
         "Indoor Fireplace",
         "Granary District"
       ],
-      "description": "A spacious king suite in the heart of the Granary District — same in-building co-working and gym as our other Granary properties, plus an indoor fireplace for winter nights. King bed, full kitchen, and a genuinely walkable neighborhood that makes renting a car feel optional.",
+      "description": "A spacious king suite in the heart of the Granary District — same in-building co-working and gym as our other Granary properties, plus an indoor fireplace for winter nights. King bed, sleeper sofa, full kitchen, and a genuinely walkable neighborhood that makes renting a car feel optional.",
       "amenities": [
-        "King bed",
+        "King bed + Sleeper sofa",
         "CoWork space (in-building)",
         "Gym access",
         "Indoor fireplace",
