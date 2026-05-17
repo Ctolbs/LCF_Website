@@ -1,10 +1,9 @@
 {
   "slc_totals": {
-    "granary": 5,
+    "granary": 6,
     "9line": 10,
     "downtown": 6,
-    "sugarhood": 2,
-    "modernwest": 1
+    "sugarhood": 2
   },
   "properties": [
     {
@@ -649,7 +648,7 @@
       "id": "modernwest-townhome",
       "hospitable_id": "1258138",
       "city": "slc",
-      "hood": "modernwest",
+      "hood": "granary",
       "name": "ModernWest Townhome \u00b7 3BR + Garage",
       "meta": "3BR \u00b7 3.5BA \u00b7 Sleeps 6 \u00b7 Garage",
       "beds": 3,
