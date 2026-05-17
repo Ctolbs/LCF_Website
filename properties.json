@@ -1,14 +1,15 @@
 {
   "slc_totals": {
-    "granary": 7,
-    "9line": 8,
-    "downtown": 7,
-    "sugarhood": 2
+    "granary": 5,
+    "9line": 10,
+    "downtown": 6,
+    "sugarhood": 2,
+    "modernwest": 1
   },
   "properties": [
     {
       "id": "granary-penthouse",
-      "hospitable_id": "794728",
+      "hospitable_id": "555848",
       "city": "slc",
       "hood": "granary",
       "name": "Granary Penthouse · CoWork + Gym",
@@ -44,36 +45,37 @@
         "City views"
       ],
       "photos": [
-        "https://assets.hospitable.com/property_images/794728/iYoD6UheolNm2srzeOmlknUBjmBtJuXoYbe9UWYy.jpg",
-        "https://assets.hospitable.com/property_images/794728/1wzomNHpbgUsaFssrw7mVLtP81f5b0An2GMQdG9C.jpg",
-        "https://assets.hospitable.com/property_images/794728/OWLMp8gJpJ6Ds2cvl8blXh3iR9EhMuWjcjcCXLwT.jpg",
-        "https://assets.hospitable.com/property_images/794728/kjJVfSCIh0eCkSpbLYiNcfVxuW3Qq3gjU8B11IJy.jpg",
-        "https://assets.hospitable.com/property_images/794728/r3jJwBgUCJrj2kpzwgxCcnVKaHL2F9FzwQdys5ba.jpg",
-        "https://assets.hospitable.com/property_images/794728/XmCksq5VDS79D1iQejenF50cnf5eqEu5kivcECQP.jpg",
-        "https://assets.hospitable.com/property_images/794728/yrtUfDw7qqiuY3eaW5jojVChnVeHslcZpLfNrIaW.jpg",
-        "https://assets.hospitable.com/property_images/794728/ekSEt65q72TTSUmO1Z4rgg9GzVrpHSaTG8flKW23.jpg",
-        "https://assets.hospitable.com/property_images/794728/RpAzpqmCE1c78RKYPHdTY94zPfGuDsGSzCUnmDao.jpg",
-        "https://assets.hospitable.com/property_images/794728/Thu5YsVl65CXwJJF4pMy0wGc3lDKPY6pO9TgRggC.jpg",
-        "https://assets.hospitable.com/property_images/794728/WiD4zDx4yZlVu5jexU89EbCAcYiRh3fDPal1xU37.jpg",
-        "https://assets.hospitable.com/property_images/794728/x3BZUeVgqCiPgTuR174hHLZs3N6Jnz0YWHjMWW75.jpg",
-        "https://assets.hospitable.com/property_images/794728/RhZGvZWRuNY1qL6LqdvUVHCtThHlTUUGOMLh8tHW.jpg",
-        "https://assets.hospitable.com/property_images/794728/261KkhPSk0HpnYinDvmgxVOXM8uhwPVLa1AfEbFt.jpg",
-        "https://assets.hospitable.com/property_images/794728/sKYcSudCP5TyzbHixes63wT14RJiPTpUHGvwlz5J.jpg",
-        "https://assets.hospitable.com/property_images/794728/lK7fYV3jdCXh6sKkw5Jh51kS4i4lYjq9ORsBGeGJ.jpg",
-        "https://assets.hospitable.com/property_images/794728/son8wc5jD4M9P04qGprrBali8ZDvrqycnuiwl4Qt.jpg",
-        "https://assets.hospitable.com/property_images/794728/3X7Ba1tIH9GUrH6e0XUYMOYrKoixpUk1jihGuPlQ.jpg",
-        "https://assets.hospitable.com/property_images/794728/5WT3RvU57nvzF9R7xXzyPHhZzLjumwBX6GgGGHQL.jpg",
-        "https://assets.hospitable.com/property_images/794728/FNoR3EcfCYzE9u6C6QguB7Ldlpbc8WCmylwmFUZa.jpg",
-        "https://assets.hospitable.com/property_images/794728/JhSoJEfebe9r9ZBq63ICJ6TM3bVt2GtXapUWNvV9.jpg",
-        "https://assets.hospitable.com/property_images/794728/Udpgo4zFEPAEUHmdk4dw3FoviZ9BjW7fJQZGepuJ.jpg",
-        "https://assets.hospitable.com/property_images/794728/urzvtincHhsepBel3MYSgOeoqCm5t8P9FjVfyodl.jpg",
-        "https://assets.hospitable.com/property_images/794728/fUpeEf1cBeFgWiluZNQo3MOPfbbP1X0nf6vJ6yc0.jpg",
-        "https://assets.hospitable.com/property_images/794728/oSHSkbpta06EfrE5e54j9GKZkz5hojODUuQPkB4f.jpg",
-        "https://assets.hospitable.com/property_images/794728/0PEYZjYza3NksheKIbvfZtaFRS2VgpYzY4wApqko.jpg",
-        "https://assets.hospitable.com/property_images/794728/D6qvT9nA0bCeqWqBJvxTxK8WUvD0Tcsy4cZcJdpZ.jpg",
-        "https://assets.hospitable.com/property_images/794728/0gbSfcpNiyb1ty5Vm3uVEHkOYLizCJQ4rebvEEPJ.jpg",
-        "https://assets.hospitable.com/property_images/794728/3TLzu9YiBEPGcCG4NJpwiYLebXqKfXA4CUz0amCA.jpg",
-        "https://assets.hospitable.com/property_images/794728/jpYfiHx2NZWjDgk2BhjEhQSzAeBpQ6mev30nTcXV.jpg"
+        "https://assets.hospitable.com/property_images/555848/4WfNGJgb8y1tIhCn2LqUQmQtcIXk1SY5ttOeY7qh.jpg",
+        "https://assets.hospitable.com/property_images/555848/unA0kYjCV7jAhxDjD16ADzLPnfNsgWRBs6LnWhnZ.jpg",
+        "https://assets.hospitable.com/property_images/555848/u2U7WZgoOkNve80wEREcTtlAs9BJyrkWVx5GhzNZ.jpg",
+        "https://assets.hospitable.com/property_images/555848/8xqcSIys1otRL4Pj9EC2kFmj0MGjZA8CLlsMagl3.jpg",
+        "https://assets.hospitable.com/property_images/555848/Z8FQDPdHlRlQyL0oEVLk7mPckANy6FO7b00i4pRk.jpg",
+        "https://assets.hospitable.com/property_images/555848/hGNAWpT5CkUjCGWA6LtA4ntZEmgSk8vloWGcwMlI.jpg",
+        "https://assets.hospitable.com/property_images/555848/ACMUPO9mI66CCowC77qDUb3aK19Uf5yK99ONwmL5.jpg",
+        "https://assets.hospitable.com/property_images/555848/c3ZCRZYPdOYQHdtcjFR93VKGe4xSxZCdIiI6Cq5p.jpg",
+        "https://assets.hospitable.com/property_images/555848/jW4e1B9DSkvn03UDSI7gu7raaGPQgVAlAsNsusyq.jpg",
+        "https://assets.hospitable.com/property_images/555848/BxC84HtOjOa703RzJcRDhr4h3nJiU3m4X9BjQuL1.jpg",
+        "https://assets.hospitable.com/property_images/555848/Qwojnl8ie8yEYcEvD4q0mzNtKRNbDzRRValDd34k.jpg",
+        "https://assets.hospitable.com/property_images/555848/zK5USG2ncNQPnia4zRz6MUH0Juln8Z8WJ2ZMxebT.jpg",
+        "https://assets.hospitable.com/property_images/555848/YKMWh4VPfyp5FxBMzXpBUy9TM3IRE8SPctMT4hU0.jpg",
+        "https://assets.hospitable.com/property_images/555848/6NP1lmUBITrsePsehEmmgibdhmmtGsoDClBRbqfO.jpg",
+        "https://assets.hospitable.com/property_images/555848/IVB6kXmApoORi3rHEqf7a1Ix0XaZuolpS3C3Mrfc.jpg",
+        "https://assets.hospitable.com/property_images/555848/LGJt0qJXQgl3Qr4t9M4EqbAb7W9gFRAOb2fJBF9T.jpg",
+        "https://assets.hospitable.com/property_images/555848/5JLkfY7FMLOC0m08RsCY70RevufkCQRoZ4z7xCXO.jpg",
+        "https://assets.hospitable.com/property_images/555848/8oZb56iWXGYq0ghLlsZL88ovRk0nnpJhfpVyhuzV.jpg",
+        "https://assets.hospitable.com/property_images/555848/gEvzsFqfqXZuy0gnDQKCQxOwLYislMBYYY0XRsC8.jpg",
+        "https://assets.hospitable.com/property_images/555848/UmhYnlhYZtlHJlGweQI68zLN9jSYe2NqXpLd8b7u.jpg",
+        "https://assets.hospitable.com/property_images/555848/MAGTNBMsbwWYaNLZeACG1o6w0KrRoZI2YfDW75Ob.jpg",
+        "https://assets.hospitable.com/property_images/555848/oNGkPs3otKnhkmknawlaSFTNgFi61ZlQD3LKxGo2.jpg",
+        "https://assets.hospitable.com/property_images/555848/6kSfyrn5VzUJh5XsrdRMhthORHQ42WZMAIzY6Zib.jpg",
+        "https://assets.hospitable.com/property_images/555848/J7i9rMTtA1YZ2DkloCDXXjP7uEFPBpNplU2jrqvP.jpg",
+        "https://assets.hospitable.com/property_images/555848/9xlZ2Q6x2qzcBMPTQFLzm39o0RDKOLijP6GfmGsX.jpg",
+        "https://assets.hospitable.com/property_images/555848/qI39KQmZn9aFbVzw6tbi9zXdPuIuPRKv6X7uZc8I.jpg",
+        "https://assets.hospitable.com/property_images/555848/fU4G6zHyfY6cwqaGokS01tRv0dleU2Ej5QYK1lmz.jpg",
+        "https://assets.hospitable.com/property_images/555848/SXovV3ppE1ruAxVxqqByPNxX9zx4fdUZrdLS3Cqd.jpg",
+        "https://assets.hospitable.com/property_images/555848/wENGADXStKpK0yvAHSN5VfauR8CtDuE4H5CtRCBr.jpg",
+        "https://assets.hospitable.com/property_images/555848/G9XzbhwBVhqifu1N40M3jzbUqVe2qTA0auqKeDaf.jpg",
+        "https://assets.hospitable.com/property_images/555848/s7V4IGzXRqw8GNVdGVZSfbkPmAG5hC192lsQ4tBg.jpg"
       ],
       "reviews": [
         {
@@ -90,14 +92,12 @@
         }
       ],
       "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
-      "image": "https://assets.hospitable.com/property_images/794728/iYoD6UheolNm2srzeOmlknUBjmBtJuXoYbe9UWYy.jpg",
-      "url": "https://lakecityflats.com/property/granary-de-luxe-apartment-1br1ba-w-coworking-sp",
-      "lat": 40.748393,
-      "lng": -111.899355
+      "image": "https://assets.hospitable.com/property_images/555848/4WfNGJgb8y1tIhCn2LqUQmQtcIXk1SY5ttOeY7qh.jpg",
+      "url": "https://lakecityflats.com/property/granary-de-luxe-apartment-1br1ba-w-coworking-sp"
     },
     {
       "id": "granary-king-suite",
-      "hospitable_id": "1027962",
+      "hospitable_id": "794728",
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Suite · CoWork + Gym",
@@ -132,33 +132,36 @@
         "Extra linens"
       ],
       "photos": [
-        "https://assets.hospitable.com/property_images/1027962/N95SQ1F7QzwbW4jt992zO9N5CqazoM6Ld1vFeODf.jpg",
-        "https://assets.hospitable.com/property_images/1027962/FaBrkLZddFlq0yBJVcFJAM2brHc6oax7NTxAslef.jpg",
-        "https://assets.hospitable.com/property_images/1027962/f0BMIPcWIdvah608SCAdTJCCv5Y3slMkcftCTsXB.jpg",
-        "https://assets.hospitable.com/property_images/1027962/p0mqTXko7QgE2iYh4jwf5LyVNAWa3keU9KgQCBMw.jpg",
-        "https://assets.hospitable.com/property_images/1027962/Kh6p1VH5B9ZYA6CbEpIgtdaSb8oPLXHhVsCKE8gV.jpg",
-        "https://assets.hospitable.com/property_images/1027962/fr79Y7eHMsOUoOvGCalnI06ZWJKdBKwwWh0xawst.jpg",
-        "https://assets.hospitable.com/property_images/1027962/Vsklg50jfaEqTOCChuWy1VgkY6UKj5MjaH94mDYV.jpg",
-        "https://assets.hospitable.com/property_images/1027962/pltbL119vRUERBOw1ztO42sxdKjW1nROquGiyeXT.jpg",
-        "https://assets.hospitable.com/property_images/1027962/P4CbCTNWyE5Sa9kEBgIHcWWGIfHR3lr7hHZ9DOAX.jpg",
-        "https://assets.hospitable.com/property_images/1027962/EMqrQWPw4dInAfNiA4yFsMsvVBbr4K78m43cuFo1.jpg",
-        "https://assets.hospitable.com/property_images/1027962/mXxZky8ZpwQc6XYfLzFcBJQ3UOdpzf1maexVvy78.jpg",
-        "https://assets.hospitable.com/property_images/1027962/K9AlNtHl2LTSzpNDiNT9vwOOfnitrLSskiJdUWec.jpg",
-        "https://assets.hospitable.com/property_images/1027962/KWCaH8eEQ24kRNTjfxL12C4S2BuiuxXPtKhR1bPz.jpg",
-        "https://assets.hospitable.com/property_images/1027962/uZamiHTL6zJNidnmQS6hJJbPWbHhDzWbn5cAFJYa.jpg",
-        "https://assets.hospitable.com/property_images/1027962/U7Ck3FZKvQu9ua3ZewoPwCKdtQXXJsUMvKXN5NG0.jpg",
-        "https://assets.hospitable.com/property_images/1027962/sqrf2sdsne5cjh0lfbCPVf7gyrMZ91pCtgHYyBum.jpg",
-        "https://assets.hospitable.com/property_images/1027962/5ZD3UGpqrU0NH5TQzQYKQzJT5kHyquvTos4ADPXA.jpg",
-        "https://assets.hospitable.com/property_images/1027962/8rayowQAltTvwcN1deKZkkXMIIPhnk54NAM5hYJG.jpg",
-        "https://assets.hospitable.com/property_images/1027962/C7tKkQDAhiUX6oWYzQha1D3dNscWMvx1fFw68vOb.jpg",
-        "https://assets.hospitable.com/property_images/1027962/sLTFciFsKPVgSob5DqzoZ0wlR9huBbTn4pBtMgeS.jpg",
-        "https://assets.hospitable.com/property_images/1027962/hC046MHoPyImKnH1WzoPht98t17ZMbAALMEC9KUc.jpg",
-        "https://assets.hospitable.com/property_images/1027962/SNitEtJz3NLiJW0WuoCqpiqM1km30QSQPlecvKbC.jpg",
-        "https://assets.hospitable.com/property_images/1027962/EZoBFSLSxQLjtJ0iqJ2yRAFVOWW5TatgadQmNO8l.jpg",
-        "https://assets.hospitable.com/property_images/1027962/0m9WL1wvg4EomgeXEChJmRLeKoqG8Z054JyzrVGd.jpg",
-        "https://assets.hospitable.com/property_images/1027962/zlTUQsEYrTMowPYPYreqbpNL0vZLinYIldPZBmTo.jpg",
-        "https://assets.hospitable.com/property_images/1027962/7z1enf3mYOttj3oCdwibvtuk2Hs6XXWnnOlvipWW.jpg",
-        "https://assets.hospitable.com/property_images/1027962/WJOyctOQ7QyYWuOFN9WqUhidkokaL7fitvq0jPS1.jpg"
+        "https://assets.hospitable.com/property_images/794728/iYoD6UheolNm2srzeOmlknUBjmBtJuXoYbe9UWYy.jpg",
+        "https://assets.hospitable.com/property_images/794728/1wzomNHpbgUsaFssrw7mVLtP81f5b0An2GMQdG9C.jpg",
+        "https://assets.hospitable.com/property_images/794728/OWLMp8gJpJ6Ds2cvl8blXh3iR9EhMuWjcjcCXLwT.jpg",
+        "https://assets.hospitable.com/property_images/794728/kjJVfSCIh0eCkSpbLYiNcfVxuW3Qq3gjU8B11IJy.jpg",
+        "https://assets.hospitable.com/property_images/794728/r3jJwBgUCJrj2kpzwgxCcnVKaHL2F9FzwQdys5ba.jpg",
+        "https://assets.hospitable.com/property_images/794728/XmCksq5VDS79D1iQejenF50cnf5eqEu5kivcECQP.jpg",
+        "https://assets.hospitable.com/property_images/794728/yrtUfDw7qqiuY3eaW5jojVChnVeHslcZpLfNrIaW.jpg",
+        "https://assets.hospitable.com/property_images/794728/ekSEt65q72TTSUmO1Z4rgg9GzVrpHSaTG8flKW23.jpg",
+        "https://assets.hospitable.com/property_images/794728/RpAzpqmCE1c78RKYPHdTY94zPfGuDsGSzCUnmDao.jpg",
+        "https://assets.hospitable.com/property_images/794728/Thu5YsVl65CXwJJF4pMy0wGc3lDKPY6pO9TgRggC.jpg",
+        "https://assets.hospitable.com/property_images/794728/WiD4zDx4yZlVu5jexU89EbCAcYiRh3fDPal1xU37.jpg",
+        "https://assets.hospitable.com/property_images/794728/x3BZUeVgqCiPgTuR174hHLZs3N6Jnz0YWHjMWW75.jpg",
+        "https://assets.hospitable.com/property_images/794728/RhZGvZWRuNY1qL6LqdvUVHCtThHlTUUGOMLh8tHW.jpg",
+        "https://assets.hospitable.com/property_images/794728/261KkhPSk0HpnYinDvmgxVOXM8uhwPVLa1AfEbFt.jpg",
+        "https://assets.hospitable.com/property_images/794728/sKYcSudCP5TyzbHixes63wT14RJiPTpUHGvwlz5J.jpg",
+        "https://assets.hospitable.com/property_images/794728/lK7fYV3jdCXh6sKkw5Jh51kS4i4lYjq9ORsBGeGJ.jpg",
+        "https://assets.hospitable.com/property_images/794728/son8wc5jD4M9P04qGprrBali8ZDvrqycnuiwl4Qt.jpg",
+        "https://assets.hospitable.com/property_images/794728/3X7Ba1tIH9GUrH6e0XUYMOYrKoixpUk1jihGuPlQ.jpg",
+        "https://assets.hospitable.com/property_images/794728/5WT3RvU57nvzF9R7xXzyPHhZzLjumwBX6GgGGHQL.jpg",
+        "https://assets.hospitable.com/property_images/794728/FNoR3EcfCYzE9u6C6QguB7Ldlpbc8WCmylwmFUZa.jpg",
+        "https://assets.hospitable.com/property_images/794728/JhSoJEfebe9r9ZBq63ICJ6TM3bVt2GtXapUWNvV9.jpg",
+        "https://assets.hospitable.com/property_images/794728/Udpgo4zFEPAEUHmdk4dw3FoviZ9BjW7fJQZGepuJ.jpg",
+        "https://assets.hospitable.com/property_images/794728/urzvtincHhsepBel3MYSgOeoqCm5t8P9FjVfyodl.jpg",
+        "https://assets.hospitable.com/property_images/794728/fUpeEf1cBeFgWiluZNQo3MOPfbbP1X0nf6vJ6yc0.jpg",
+        "https://assets.hospitable.com/property_images/794728/oSHSkbpta06EfrE5e54j9GKZkz5hojODUuQPkB4f.jpg",
+        "https://assets.hospitable.com/property_images/794728/0PEYZjYza3NksheKIbvfZtaFRS2VgpYzY4wApqko.jpg",
+        "https://assets.hospitable.com/property_images/794728/D6qvT9nA0bCeqWqBJvxTxK8WUvD0Tcsy4cZcJdpZ.jpg",
+        "https://assets.hospitable.com/property_images/794728/0gbSfcpNiyb1ty5Vm3uVEHkOYLizCJQ4rebvEEPJ.jpg",
+        "https://assets.hospitable.com/property_images/794728/3TLzu9YiBEPGcCG4NJpwiYLebXqKfXA4CUz0amCA.jpg",
+        "https://assets.hospitable.com/property_images/794728/jpYfiHx2NZWjDgk2BhjEhQSzAeBpQ6mev30nTcXV.jpg"
       ],
       "reviews": [
         {
@@ -175,14 +178,12 @@
         }
       ],
       "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
-      "image": "https://assets.hospitable.com/property_images/1027962/N95SQ1F7QzwbW4jt992zO9N5CqazoM6Ld1vFeODf.jpg",
-      "url": "https://lakecityflats.com/property/downtown-slc-granary-penthse-1br",
-      "lat": 40.748393,
-      "lng": -111.899355
+      "image": "https://assets.hospitable.com/property_images/794728/iYoD6UheolNm2srzeOmlknUBjmBtJuXoYbe9UWYy.jpg",
+      "url": "https://lakecityflats.com/property/downtown-slc-granary-penthse-1br"
     },
     {
       "id": "granary-west-401",
-      "hospitable_id": "791268",
+      "hospitable_id": "1027962",
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Suite · CoWork + Gym",
@@ -215,39 +216,33 @@
         "Extra linens"
       ],
       "photos": [
-        "https://assets.hospitable.com/property_images/791268/5Shq03rYPscylEhCszD22O0q7dRrusqoKceJxG5S.jpg",
-        "https://assets.hospitable.com/property_images/791268/e58mOpMp4DZ0Uyq1243V5nY4PHGmIlI6rwI8XNEf.jpg",
-        "https://assets.hospitable.com/property_images/791268/0tWfcVSA5r9Rue3SvbwVWOJtLo8h3APhO6QRQFee.jpg",
-        "https://assets.hospitable.com/property_images/791268/F2KYFnCprxHaTgs7UaJY6EQVtgeJEPl12UfeTlJm.jpg",
-        "https://assets.hospitable.com/property_images/791268/G6eq3n4eUvcGj9P9KwebFTYvt3iqMEQwzroEy7mE.jpg",
-        "https://assets.hospitable.com/property_images/791268/rRjaN0Hogr1F33XNoDvggOGhVyL0ZD550xjS8SGN.jpg",
-        "https://assets.hospitable.com/property_images/791268/gsApB6o9jdPPAlXde9zWYYObZv4Z77tEUZCK4dwL.jpg",
-        "https://assets.hospitable.com/property_images/791268/5eeYbH6gqBwdhg7DLC5gVeUH5gpbDWQ4NDCj4BLU.jpg",
-        "https://assets.hospitable.com/property_images/791268/k4Dc8GrwJWDwz4pLAUIHepCDyY1hfZpSQRTATOG4.jpg",
-        "https://assets.hospitable.com/property_images/791268/KVn3x4bmbbpdc8qVvP4EDtgm43VlpTpC7fauGlws.jpg",
-        "https://assets.hospitable.com/property_images/791268/K2HYwUzFDyxyasykHDkvd27vpaKIXcdh5JiLOcJh.jpg",
-        "https://assets.hospitable.com/property_images/791268/m0JwbIxWYdhOAIpVYlKRxGZXsS3uahXLGomyfoMP.jpg",
-        "https://assets.hospitable.com/property_images/791268/CK7CDRbbtlks5pjyKbEye2eproeVeQgjX5ITjaZL.jpg",
-        "https://assets.hospitable.com/property_images/791268/wr9snzNoYDV86ogRnYPVcojhDIXEwQf4YlUBnt66.jpg",
-        "https://assets.hospitable.com/property_images/791268/rst4TnBDCBf4aNwA1ikuNApr7Hdm3t5o9oRloUlk.jpg",
-        "https://assets.hospitable.com/property_images/791268/yLD9Cs7vEbiLKI0OYDgsRdaqD30GvwjaboGbgGPe.jpg",
-        "https://assets.hospitable.com/property_images/791268/PyeqfgOXqMTy4jY8aLzr1fwrj8RiOOlxT4oO6XYv.jpg",
-        "https://assets.hospitable.com/property_images/791268/QdTUMxOskzZNcBuPhssFlExGzaxmQZlau53Gyj3G.jpg",
-        "https://assets.hospitable.com/property_images/791268/oHI4TEUannbwE8J3OMdiOPmQbRZNSVCc3OPmpjHL.jpg",
-        "https://assets.hospitable.com/property_images/791268/Ye8Un30gEjF6Sqf0r4MgUgMElT0lEFxYMYEOEnF8.jpg",
-        "https://assets.hospitable.com/property_images/791268/7BcG7xiZ921OkRJKPTsZpl58VOOv6w8lIbRrDk4x.jpg",
-        "https://assets.hospitable.com/property_images/791268/GQ91AwnpypisZHgfjTohjaoK0xMbU6kAvSwhYOqc.jpg",
-        "https://assets.hospitable.com/property_images/791268/0972bUVyp5keFI7QWlVVTrfYQCG4SvI4JHzjk8Am.jpg",
-        "https://assets.hospitable.com/property_images/791268/VQCoJjsm7vKjtUZUKvKr9cVWsavvqEIn1n00vsSy.jpg",
-        "https://assets.hospitable.com/property_images/791268/UawN3EKQSNwFZB7tLmAWV0yd726GgwgWdCyriCB8.jpg",
-        "https://assets.hospitable.com/property_images/791268/fRpnyVZeD6O03dpwLfsbcWPtgpL0aVEcpaV6UGcE.jpg",
-        "https://assets.hospitable.com/property_images/791268/nhLLXvys1w2L3K5EWAjOL6Va5PL2HvMkIhrQe0A9.jpg",
-        "https://assets.hospitable.com/property_images/791268/yg6RoLSMdLILB7Wx6r6LxubcJ4XM2N4FdnsaoxBh.jpg",
-        "https://assets.hospitable.com/property_images/791268/q77sGn11hFD1AKzGvi1WSV1T5NC9CR5S6AdubMzd.jpg",
-        "https://assets.hospitable.com/property_images/791268/lhfOHjSd6EQfkBEh5LV4z5CO7F5LvC4xcAtOLQmP.jpg",
-        "https://assets.hospitable.com/property_images/791268/JeqcfIO05VvUMA1pBIEHHe6ECK8JtQmg0TsjKohe.jpg",
-        "https://assets.hospitable.com/property_images/791268/iPrB4qLz6SmMEZrYlxUqhzYgjW0QnUDp0o2F1ffD.jpg",
-        "https://assets.hospitable.com/property_images/791268/UnCKecqmheeul7OCh249Mwar41eWCDdFSoRgdoJJ.jpg"
+        "https://assets.hospitable.com/property_images/1027962/N95SQ1F7QzwbW4jt992zO9N5CqazoM6Ld1vFeODf.jpg",
+        "https://assets.hospitable.com/property_images/1027962/FaBrkLZddFlq0yBJVcFJAM2brHc6oax7NTxAslef.jpg",
+        "https://assets.hospitable.com/property_images/1027962/f0BMIPcWIdvah608SCAdTJCCv5Y3slMkcftCTsXB.jpg",
+        "https://assets.hospitable.com/property_images/1027962/p0mqTXko7QgE2iYh4jwf5LyVNAWa3keU9KgQCBMw.jpg",
+        "https://assets.hospitable.com/property_images/1027962/Kh6p1VH5B9ZYA6CbEpIgtdaSb8oPLXHhVsCKE8gV.jpg",
+        "https://assets.hospitable.com/property_images/1027962/fr79Y7eHMsOUoOvGCalnI06ZWJKdBKwwWh0xawst.jpg",
+        "https://assets.hospitable.com/property_images/1027962/Vsklg50jfaEqTOCChuWy1VgkY6UKj5MjaH94mDYV.jpg",
+        "https://assets.hospitable.com/property_images/1027962/pltbL119vRUERBOw1ztO42sxdKjW1nROquGiyeXT.jpg",
+        "https://assets.hospitable.com/property_images/1027962/P4CbCTNWyE5Sa9kEBgIHcWWGIfHR3lr7hHZ9DOAX.jpg",
+        "https://assets.hospitable.com/property_images/1027962/EMqrQWPw4dInAfNiA4yFsMsvVBbr4K78m43cuFo1.jpg",
+        "https://assets.hospitable.com/property_images/1027962/mXxZky8ZpwQc6XYfLzFcBJQ3UOdpzf1maexVvy78.jpg",
+        "https://assets.hospitable.com/property_images/1027962/K9AlNtHl2LTSzpNDiNT9vwOOfnitrLSskiJdUWec.jpg",
+        "https://assets.hospitable.com/property_images/1027962/KWCaH8eEQ24kRNTjfxL12C4S2BuiuxXPtKhR1bPz.jpg",
+        "https://assets.hospitable.com/property_images/1027962/uZamiHTL6zJNidnmQS6hJJbPWbHhDzWbn5cAFJYa.jpg",
+        "https://assets.hospitable.com/property_images/1027962/U7Ck3FZKvQu9ua3ZewoPwCKdtQXXJsUMvKXN5NG0.jpg",
+        "https://assets.hospitable.com/property_images/1027962/sqrf2sdsne5cjh0lfbCPVf7gyrMZ91pCtgHYyBum.jpg",
+        "https://assets.hospitable.com/property_images/1027962/5ZD3UGpqrU0NH5TQzQYKQzJT5kHyquvTos4ADPXA.jpg",
+        "https://assets.hospitable.com/property_images/1027962/8rayowQAltTvwcN1deKZkkXMIIPhnk54NAM5hYJG.jpg",
+        "https://assets.hospitable.com/property_images/1027962/C7tKkQDAhiUX6oWYzQha1D3dNscWMvx1fFw68vOb.jpg",
+        "https://assets.hospitable.com/property_images/1027962/sLTFciFsKPVgSob5DqzoZ0wlR9huBbTn4pBtMgeS.jpg",
+        "https://assets.hospitable.com/property_images/1027962/hC046MHoPyImKnH1WzoPht98t17ZMbAALMEC9KUc.jpg",
+        "https://assets.hospitable.com/property_images/1027962/SNitEtJz3NLiJW0WuoCqpiqM1km30QSQPlecvKbC.jpg",
+        "https://assets.hospitable.com/property_images/1027962/EZoBFSLSxQLjtJ0iqJ2yRAFVOWW5TatgadQmNO8l.jpg",
+        "https://assets.hospitable.com/property_images/1027962/0m9WL1wvg4EomgeXEChJmRLeKoqG8Z054JyzrVGd.jpg",
+        "https://assets.hospitable.com/property_images/1027962/zlTUQsEYrTMowPYPYreqbpNL0vZLinYIldPZBmTo.jpg",
+        "https://assets.hospitable.com/property_images/1027962/7z1enf3mYOttj3oCdwibvtuk2Hs6XXWnnOlvipWW.jpg",
+        "https://assets.hospitable.com/property_images/1027962/WJOyctOQ7QyYWuOFN9WqUhidkokaL7fitvq0jPS1.jpg"
       ],
       "reviews": [
         {
@@ -258,10 +253,8 @@
         }
       ],
       "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
-      "image": "https://assets.hospitable.com/property_images/791268/5Shq03rYPscylEhCszD22O0q7dRrusqoKceJxG5S.jpg",
-      "url": "https://lakecityflats.com/property/granary-downtown-slc-w-coworking-1br1ba-sleep-4",
-      "lat": 40.748393,
-      "lng": -111.899355
+      "image": "https://assets.hospitable.com/property_images/1027962/N95SQ1F7QzwbW4jt992zO9N5CqazoM6Ld1vFeODf.jpg",
+      "url": "https://lakecityflats.com/property/granary-downtown-slc-w-coworking-1br1ba-sleep-4"
     },
     {
       "id": "downtown-townhouse",
@@ -362,9 +355,7 @@
       ],
       "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
       "image": "https://assets.hospitable.com/property_images/358940/453Eoxm5efVj1Luqm4uRyYigwzZ5OTVKXaGHjAhF.jpg",
-      "url": "https://lakecityflats.com/property/superb-townhouse-downtown-slc-2br25ba",
-      "lat": 40.75003,
-      "lng": -111.88714
+      "url": "https://lakecityflats.com/property/superb-townhouse-downtown-slc-2br25ba"
     },
     {
       "id": "downtown-townhome",
@@ -482,9 +473,7 @@
       ],
       "neighborhood_desc": "Downtown SLC — walk to Temple Square, City Creek, excellent restaurants, and TRAX. The 2-car garage makes ski days seamless: load up and go without the morning scramble.",
       "image": "https://assets.hospitable.com/property_images/341520/58PmDQDdxpJ4uCWVka58yFjvKU9ahRBg3pgOr6TH.jpg",
-      "url": "https://lakecityflats.com/property/moroccan-mountain-downtown-townhome2-suites25ba",
-      "lat": 40.75003,
-      "lng": -111.88714
+      "url": "https://lakecityflats.com/property/moroccan-mountain-downtown-townhome2-suites25ba"
     },
     {
       "id": "brick-studio",
@@ -547,9 +536,7 @@
       ],
       "neighborhood_desc": "Central downtown SLC — walk to restaurants, bars, galleries, and the Eccles Theater. The Wasatch mountains are literally visible from your window, and the trailheads are 20 minutes away.",
       "image": "https://assets.hospitable.com/property_images/789842/VOUKTqIU9w6raf5Z9soA5z4zTCRjrw3gPbDKe8fO.jpg",
-      "url": "https://lakecityflats.com/property/modern-east-slc-downtown-1br1ba-sleeps-4-w-view",
-      "lat": 40.767545,
-      "lng": -111.878376
+      "url": "https://lakecityflats.com/property/modern-east-slc-downtown-1br1ba-sleeps-4-w-view"
     },
     {
       "id": "sugarhood-penthouse",
@@ -656,15 +643,13 @@
       ],
       "neighborhood_desc": "Sugarhood — SLC's most beloved residential neighborhood. Independent restaurants, local coffee shops, and genuine community character. Sugar House Park is a 10-minute walk. Downtown is a 5-minute drive.",
       "image": "https://assets.hospitable.com/property_images/1678254/b2DmJ99K9I5jnWzRvQLsdEVbUGtAHP9fB24anagq.jpg",
-      "url": "https://lakecityflats.com/property/sugarhood-slc-penthouse-3br2ba",
-      "lat": 40.722315,
-      "lng": -111.870659
+      "url": "https://lakecityflats.com/property/sugarhood-slc-penthouse-3br2ba"
     },
     {
       "id": "modernwest-townhome",
       "hospitable_id": "1258138",
       "city": "slc",
-      "hood": "granary",
+      "hood": "modernwest",
       "name": "ModernWest Townhome · 3BR + Garage",
       "meta": "3BR · 3.5BA · Sleeps 6 · Garage",
       "beds": 3,
@@ -678,11 +663,12 @@
         "Private Garage",
         "New Build"
       ],
-      "description": "A three-story new-build townhome on the western edge of SLC's Granary District — three bedrooms each with their own ensuite bath, and a private garage. Architecturally the most interesting property in our portfolio. Ideal for a group that doesn't want to share bathrooms.",
+      "description": "A three-story new-build townhome in the up-and-coming ModernWest neighborhood — three bedrooms each with their own ensuite bath, a rooftop deck with mountain views, and a private garage. Architecturally the most interesting property in our portfolio. Ideal for a group that doesn't want to share bathrooms.",
       "amenities": [
         "3 Bedrooms (all King)",
         "3 ensuite baths + powder room",
         "Private garage",
+        "Rooftop deck",
         "Full kitchen",
         "Ultrafast WiFi",
         "Self check-in",
@@ -780,14 +766,12 @@
           "name": "Marcus",
           "date": "January 2026",
           "source": "Airbnb",
-          "text": "Stunning property. We had three couples and everyone had a private ensuite — that alone makes this worth every penny. The mountain views from the top floor were phenomenal, especially at sunset."
+          "text": "Stunning property. We had three couples and everyone had a private ensuite — that alone makes this worth every penny. The rooftop was phenomenal for watching the mountains turn pink at sunset."
         }
       ],
-      "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
+      "neighborhood_desc": "ModernWest is one of SLC's newest and fastest-growing neighborhoods — thoughtfully designed, transit-accessible, and a 10-minute drive to downtown. The 9th and 9th district restaurants are nearby.",
       "image": "https://assets.hospitable.com/property_images/1258138/sVkhMHIrx34hKa1ku530NlLfXzrEhtpm6OLk7xo9.jpg",
-      "url": "https://lakecityflats.com/property/modernwest-townhome-downtown-slc",
-      "lat": 40.751671,
-      "lng": -111.899082
+      "url": "https://lakecityflats.com/property/modernwest-townhome-downtown-slc"
     },
     {
       "id": "9line-loft",
@@ -869,9 +853,7 @@
       ],
       "neighborhood_desc": "9line is SLC's newest transit-oriented district — developed along a reclaimed rail corridor with modern residential buildings, parks, and easy light-rail access to downtown and the airport.",
       "image": "https://assets.hospitable.com/property_images/2236536/NF3wJYF8MVVuEK054KEhpbrnBlLjwllDU7Lm1pPZ.jpg",
-      "url": "https://lakecityflats.com/property/lcf-9line-slc-loft-kingsofa-gym-sleeps-3",
-      "lat": 40.74929,
-      "lng": -111.886329
+      "url": "https://lakecityflats.com/property/lcf-9line-slc-loft-kingsofa-gym-sleeps-3"
     },
     {
       "id": "lumber-barons-mansion",
@@ -981,9 +963,7 @@
       ],
       "neighborhood_desc": "Brush Park is Detroit's most storied neighborhood — restored Victorian mansions, bold new construction, and the LCA literally across the street. Walk to Red Wings and Pistons games, Eastern Market, and the best of Woodward Ave.",
       "image": "https://assets.hospitable.com/property_images/818686/6icPNDIW9fFETLfG9Y4TbLQMyqXNJDhkl2w9XEHq.jpg",
-      "url": "https://lakecityflats.com/property/the-lumber-barons-downtown-mansion-2kingbr25ba",
-      "lat": 42.344217,
-      "lng": -83.053667
+      "url": "https://lakecityflats.com/property/the-lumber-barons-downtown-mansion-2kingbr25ba"
     },
     {
       "id": "lumber-barons-penthouse",
@@ -1091,13 +1071,11 @@
       ],
       "neighborhood_desc": "Brush Park is Detroit's most storied neighborhood — restored Victorian mansions, bold new construction, and the LCA literally across the street. Walk to Red Wings and Pistons games, Eastern Market, and the best of Woodward Ave.",
       "image": "https://assets.hospitable.com/property_images/1087710/wvHEsxGYbwB6C8li7IOWMmc2p22k17wTNKU7SOJ4.jpg",
-      "url": "https://lakecityflats.com/property/the-lumber-barons-3br-penthouse",
-      "lat": 42.344217,
-      "lng": -83.053667
+      "url": "https://lakecityflats.com/property/the-lumber-barons-3br-penthouse"
     },
     {
       "id": "granary-west-403",
-      "hospitable_id": "557444",
+      "hospitable_id": "791268",
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Suite · CoWork + Gym",
@@ -1116,6 +1094,90 @@
       "description": "A spacious queen suite in the heart of the Granary District — same in-building co-working and gym as our other Granary properties, plus an indoor fireplace for winter nights. Queen bed, sleeper sofa, full kitchen, and a genuinely walkable neighborhood that makes renting a car feel optional.",
       "amenities": [
         "Queen bed + Sleeper sofa",
+        "CoWork space (in-building)",
+        "Gym access",
+        "Indoor fireplace",
+        "Ultrafast WiFi",
+        "Full kitchen",
+        "Self check-in",
+        "Air conditioning",
+        "Washer/dryer",
+        "Smart TV",
+        "Coffee maker",
+        "Dishwasher",
+        "Dedicated workspace",
+        "Hair dryer",
+        "Extra linens",
+        "Patio"
+      ],
+      "photos": [
+        "https://assets.hospitable.com/property_images/791268/5Shq03rYPscylEhCszD22O0q7dRrusqoKceJxG5S.jpg",
+        "https://assets.hospitable.com/property_images/791268/e58mOpMp4DZ0Uyq1243V5nY4PHGmIlI6rwI8XNEf.jpg",
+        "https://assets.hospitable.com/property_images/791268/0tWfcVSA5r9Rue3SvbwVWOJtLo8h3APhO6QRQFee.jpg",
+        "https://assets.hospitable.com/property_images/791268/F2KYFnCprxHaTgs7UaJY6EQVtgeJEPl12UfeTlJm.jpg",
+        "https://assets.hospitable.com/property_images/791268/G6eq3n4eUvcGj9P9KwebFTYvt3iqMEQwzroEy7mE.jpg",
+        "https://assets.hospitable.com/property_images/791268/rRjaN0Hogr1F33XNoDvggOGhVyL0ZD550xjS8SGN.jpg",
+        "https://assets.hospitable.com/property_images/791268/gsApB6o9jdPPAlXde9zWYYObZv4Z77tEUZCK4dwL.jpg",
+        "https://assets.hospitable.com/property_images/791268/5eeYbH6gqBwdhg7DLC5gVeUH5gpbDWQ4NDCj4BLU.jpg",
+        "https://assets.hospitable.com/property_images/791268/k4Dc8GrwJWDwz4pLAUIHepCDyY1hfZpSQRTATOG4.jpg",
+        "https://assets.hospitable.com/property_images/791268/KVn3x4bmbbpdc8qVvP4EDtgm43VlpTpC7fauGlws.jpg",
+        "https://assets.hospitable.com/property_images/791268/K2HYwUzFDyxyasykHDkvd27vpaKIXcdh5JiLOcJh.jpg",
+        "https://assets.hospitable.com/property_images/791268/m0JwbIxWYdhOAIpVYlKRxGZXsS3uahXLGomyfoMP.jpg",
+        "https://assets.hospitable.com/property_images/791268/CK7CDRbbtlks5pjyKbEye2eproeVeQgjX5ITjaZL.jpg",
+        "https://assets.hospitable.com/property_images/791268/wr9snzNoYDV86ogRnYPVcojhDIXEwQf4YlUBnt66.jpg",
+        "https://assets.hospitable.com/property_images/791268/rst4TnBDCBf4aNwA1ikuNApr7Hdm3t5o9oRloUlk.jpg",
+        "https://assets.hospitable.com/property_images/791268/yLD9Cs7vEbiLKI0OYDgsRdaqD30GvwjaboGbgGPe.jpg",
+        "https://assets.hospitable.com/property_images/791268/PyeqfgOXqMTy4jY8aLzr1fwrj8RiOOlxT4oO6XYv.jpg",
+        "https://assets.hospitable.com/property_images/791268/QdTUMxOskzZNcBuPhssFlExGzaxmQZlau53Gyj3G.jpg",
+        "https://assets.hospitable.com/property_images/791268/oHI4TEUannbwE8J3OMdiOPmQbRZNSVCc3OPmpjHL.jpg",
+        "https://assets.hospitable.com/property_images/791268/Ye8Un30gEjF6Sqf0r4MgUgMElT0lEFxYMYEOEnF8.jpg",
+        "https://assets.hospitable.com/property_images/791268/7BcG7xiZ921OkRJKPTsZpl58VOOv6w8lIbRrDk4x.jpg",
+        "https://assets.hospitable.com/property_images/791268/GQ91AwnpypisZHgfjTohjaoK0xMbU6kAvSwhYOqc.jpg",
+        "https://assets.hospitable.com/property_images/791268/0972bUVyp5keFI7QWlVVTrfYQCG4SvI4JHzjk8Am.jpg",
+        "https://assets.hospitable.com/property_images/791268/VQCoJjsm7vKjtUZUKvKr9cVWsavvqEIn1n00vsSy.jpg",
+        "https://assets.hospitable.com/property_images/791268/UawN3EKQSNwFZB7tLmAWV0yd726GgwgWdCyriCB8.jpg",
+        "https://assets.hospitable.com/property_images/791268/fRpnyVZeD6O03dpwLfsbcWPtgpL0aVEcpaV6UGcE.jpg",
+        "https://assets.hospitable.com/property_images/791268/nhLLXvys1w2L3K5EWAjOL6Va5PL2HvMkIhrQe0A9.jpg",
+        "https://assets.hospitable.com/property_images/791268/yg6RoLSMdLILB7Wx6r6LxubcJ4XM2N4FdnsaoxBh.jpg",
+        "https://assets.hospitable.com/property_images/791268/q77sGn11hFD1AKzGvi1WSV1T5NC9CR5S6AdubMzd.jpg",
+        "https://assets.hospitable.com/property_images/791268/lhfOHjSd6EQfkBEh5LV4z5CO7F5LvC4xcAtOLQmP.jpg",
+        "https://assets.hospitable.com/property_images/791268/JeqcfIO05VvUMA1pBIEHHe6ECK8JtQmg0TsjKohe.jpg",
+        "https://assets.hospitable.com/property_images/791268/iPrB4qLz6SmMEZrYlxUqhzYgjW0QnUDp0o2F1ffD.jpg",
+        "https://assets.hospitable.com/property_images/791268/UnCKecqmheeul7OCh249Mwar41eWCDdFSoRgdoJJ.jpg"
+      ],
+      "reviews": [
+        {
+          "name": "Kelsie",
+          "date": "March 2026",
+          "source": "Airbnb",
+          "text": "Perfect Granary base — everything walkable, co-working space is genuinely excellent, and the fireplace made the place feel like home. We'll be back."
+        }
+      ],
+      "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
+      "image": "https://assets.hospitable.com/property_images/791268/5Shq03rYPscylEhCszD22O0q7dRrusqoKceJxG5S.jpg",
+      "url": "https://lakecityflats.com/property/granary-district-br1ba-sleeps-4-coworking-space"
+    },
+    {
+      "id": "granary-loft",
+      "hospitable_id": "557444",
+      "city": "slc",
+      "hood": "granary",
+      "name": "Granary King Loft · CoWork + Gym",
+      "meta": "1BR · 1BA · Sleeps 4 · King + Sofa",
+      "beds": 1,
+      "baths": 1,
+      "sleeps": 4,
+      "rating": "4.95",
+      "review_count": "45+",
+      "features": [
+        "CoWork Space",
+        "Gym Access",
+        "King Bed",
+        "Indoor Fireplace"
+      ],
+      "description": "Another strong Granary building entry — king bed, sleeper sofa, indoor fireplace, and the 24/7 co-working and gym that makes this building one of the best work-from-SLC setups in the city. TRAX puts you downtown or at the airport in under 15 minutes, and ski resorts are 30 minutes the other direction.",
+      "amenities": [
+        "King bed + Sleeper sofa",
         "CoWork space (in-building)",
         "Gym access",
         "Indoor fireplace",
@@ -1174,90 +1236,6 @@
       ],
       "reviews": [
         {
-          "name": "Kelsie",
-          "date": "March 2026",
-          "source": "Airbnb",
-          "text": "Perfect Granary base — everything walkable, co-working space is genuinely excellent, and the fireplace made the place feel like home. We'll be back."
-        }
-      ],
-      "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
-      "image": "https://assets.hospitable.com/property_images/557444/an1usIUt3D9AAhdJCf8qw5KCHKu0KfH9seG5rMTi.jpg",
-      "url": "https://lakecityflats.com/property/granary-district-br1ba-sleeps-4-coworking-space",
-      "lat": 40.748393,
-      "lng": -111.899355
-    },
-    {
-      "id": "granary-loft",
-      "hospitable_id": "555848",
-      "city": "slc",
-      "hood": "granary",
-      "name": "Granary King Loft · CoWork + Gym",
-      "meta": "1BR · 1BA · Sleeps 4 · King + Sofa",
-      "beds": 1,
-      "baths": 1,
-      "sleeps": 4,
-      "rating": "4.95",
-      "review_count": "45+",
-      "features": [
-        "CoWork Space",
-        "Gym Access",
-        "King Bed",
-        "Indoor Fireplace"
-      ],
-      "description": "Another strong Granary building entry — king bed, sleeper sofa, indoor fireplace, and the 24/7 co-working and gym that makes this building one of the best work-from-SLC setups in the city. TRAX puts you downtown or at the airport in under 15 minutes, and ski resorts are 30 minutes the other direction.",
-      "amenities": [
-        "King bed + Sleeper sofa",
-        "CoWork space (in-building)",
-        "Gym access",
-        "Indoor fireplace",
-        "Ultrafast WiFi",
-        "Full kitchen",
-        "Self check-in",
-        "Air conditioning",
-        "Washer/dryer",
-        "Smart TV",
-        "Coffee maker",
-        "Dishwasher",
-        "Dedicated workspace",
-        "Hair dryer",
-        "Extra linens",
-        "Patio"
-      ],
-      "photos": [
-        "https://assets.hospitable.com/property_images/555848/4WfNGJgb8y1tIhCn2LqUQmQtcIXk1SY5ttOeY7qh.jpg",
-        "https://assets.hospitable.com/property_images/555848/unA0kYjCV7jAhxDjD16ADzLPnfNsgWRBs6LnWhnZ.jpg",
-        "https://assets.hospitable.com/property_images/555848/u2U7WZgoOkNve80wEREcTtlAs9BJyrkWVx5GhzNZ.jpg",
-        "https://assets.hospitable.com/property_images/555848/8xqcSIys1otRL4Pj9EC2kFmj0MGjZA8CLlsMagl3.jpg",
-        "https://assets.hospitable.com/property_images/555848/Z8FQDPdHlRlQyL0oEVLk7mPckANy6FO7b00i4pRk.jpg",
-        "https://assets.hospitable.com/property_images/555848/hGNAWpT5CkUjCGWA6LtA4ntZEmgSk8vloWGcwMlI.jpg",
-        "https://assets.hospitable.com/property_images/555848/ACMUPO9mI66CCowC77qDUb3aK19Uf5yK99ONwmL5.jpg",
-        "https://assets.hospitable.com/property_images/555848/c3ZCRZYPdOYQHdtcjFR93VKGe4xSxZCdIiI6Cq5p.jpg",
-        "https://assets.hospitable.com/property_images/555848/jW4e1B9DSkvn03UDSI7gu7raaGPQgVAlAsNsusyq.jpg",
-        "https://assets.hospitable.com/property_images/555848/BxC84HtOjOa703RzJcRDhr4h3nJiU3m4X9BjQuL1.jpg",
-        "https://assets.hospitable.com/property_images/555848/Qwojnl8ie8yEYcEvD4q0mzNtKRNbDzRRValDd34k.jpg",
-        "https://assets.hospitable.com/property_images/555848/zK5USG2ncNQPnia4zRz6MUH0Juln8Z8WJ2ZMxebT.jpg",
-        "https://assets.hospitable.com/property_images/555848/YKMWh4VPfyp5FxBMzXpBUy9TM3IRE8SPctMT4hU0.jpg",
-        "https://assets.hospitable.com/property_images/555848/6NP1lmUBITrsePsehEmmgibdhmmtGsoDClBRbqfO.jpg",
-        "https://assets.hospitable.com/property_images/555848/IVB6kXmApoORi3rHEqf7a1Ix0XaZuolpS3C3Mrfc.jpg",
-        "https://assets.hospitable.com/property_images/555848/LGJt0qJXQgl3Qr4t9M4EqbAb7W9gFRAOb2fJBF9T.jpg",
-        "https://assets.hospitable.com/property_images/555848/5JLkfY7FMLOC0m08RsCY70RevufkCQRoZ4z7xCXO.jpg",
-        "https://assets.hospitable.com/property_images/555848/8oZb56iWXGYq0ghLlsZL88ovRk0nnpJhfpVyhuzV.jpg",
-        "https://assets.hospitable.com/property_images/555848/gEvzsFqfqXZuy0gnDQKCQxOwLYislMBYYY0XRsC8.jpg",
-        "https://assets.hospitable.com/property_images/555848/UmhYnlhYZtlHJlGweQI68zLN9jSYe2NqXpLd8b7u.jpg",
-        "https://assets.hospitable.com/property_images/555848/MAGTNBMsbwWYaNLZeACG1o6w0KrRoZI2YfDW75Ob.jpg",
-        "https://assets.hospitable.com/property_images/555848/oNGkPs3otKnhkmknawlaSFTNgFi61ZlQD3LKxGo2.jpg",
-        "https://assets.hospitable.com/property_images/555848/6kSfyrn5VzUJh5XsrdRMhthORHQ42WZMAIzY6Zib.jpg",
-        "https://assets.hospitable.com/property_images/555848/J7i9rMTtA1YZ2DkloCDXXjP7uEFPBpNplU2jrqvP.jpg",
-        "https://assets.hospitable.com/property_images/555848/9xlZ2Q6x2qzcBMPTQFLzm39o0RDKOLijP6GfmGsX.jpg",
-        "https://assets.hospitable.com/property_images/555848/qI39KQmZn9aFbVzw6tbi9zXdPuIuPRKv6X7uZc8I.jpg",
-        "https://assets.hospitable.com/property_images/555848/fU4G6zHyfY6cwqaGokS01tRv0dleU2Ej5QYK1lmz.jpg",
-        "https://assets.hospitable.com/property_images/555848/SXovV3ppE1ruAxVxqqByPNxX9zx4fdUZrdLS3Cqd.jpg",
-        "https://assets.hospitable.com/property_images/555848/wENGADXStKpK0yvAHSN5VfauR8CtDuE4H5CtRCBr.jpg",
-        "https://assets.hospitable.com/property_images/555848/G9XzbhwBVhqifu1N40M3jzbUqVe2qTA0auqKeDaf.jpg",
-        "https://assets.hospitable.com/property_images/555848/s7V4IGzXRqw8GNVdGVZSfbkPmAG5hC192lsQ4tBg.jpg"
-      ],
-      "reviews": [
-        {
           "name": "Devon",
           "date": "February 2026",
           "source": "Airbnb",
@@ -1265,16 +1243,14 @@
         }
       ],
       "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
-      "image": "https://assets.hospitable.com/property_images/555848/4WfNGJgb8y1tIhCn2LqUQmQtcIXk1SY5ttOeY7qh.jpg",
-      "url": "https://lakecityflats.com/property/granary-slc-1br1ba-sleeps-4-coworking-dream-space",
-      "lat": 40.74929,
-      "lng": -111.886329
+      "image": "https://assets.hospitable.com/property_images/557444/an1usIUt3D9AAhdJCf8qw5KCHKu0KfH9seG5rMTi.jpg",
+      "url": "https://lakecityflats.com/property/granary-slc-1br1ba-sleeps-4-coworking-dream-space"
     },
     {
       "id": "granary-twin-suites",
       "hospitable_id": "470358",
       "city": "slc",
-      "hood": "granary",
+      "hood": "9line",
       "name": "Granary Twin Suites · 2 Queens + Garage",
       "meta": "2BR · 2.5BA · Sleeps 4 · 2 Queen Suites · Garage",
       "beds": 2,
@@ -1346,15 +1322,13 @@
       ],
       "neighborhood_desc": "The Granary District is SLC's creative hub — breweries, galleries, coffee shops and restaurants all within a few blocks. TRAX light rail is a 5-minute walk, putting downtown and the airport both under 15 minutes.",
       "image": "https://assets.hospitable.com/property_images/470358/T6XFvJ6vTiyZinzCar9RvHMdXAgSKQbtAgKjpeI5.jpeg",
-      "url": "https://lakecityflats.com/property/granary-district-dwntwn-slc-2-master-suites-25b",
-      "lat": 40.75003,
-      "lng": -111.88714
+      "url": "https://lakecityflats.com/property/granary-district-dwntwn-slc-2-master-suites-25b"
     },
     {
       "id": "downtown-king-queen-loft",
       "hospitable_id": "584356",
       "city": "slc",
-      "hood": "downtown",
+      "hood": "9line",
       "name": "Downtown Loft · King + Queen + Garage",
       "meta": "2BR · 2.5BA · Sleeps 6 · Garage",
       "beds": 2,
@@ -1476,9 +1450,7 @@
       ],
       "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
       "image": "https://assets.hospitable.com/property_images/584356/B3zcMzwYRBt9gAlCsfxMtczuVcmaS62QmupEYstN.jpg",
-      "url": "https://lakecityflats.com/property/supreme-townhouse-downtown-slc-2-suites-25ba",
-      "lat": 40.75003,
-      "lng": -111.88714
+      "url": "https://lakecityflats.com/property/supreme-townhouse-downtown-slc-2-suites-25ba"
     },
     {
       "id": "downtown-twin-queens",
@@ -1571,9 +1543,7 @@
       ],
       "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
       "image": "https://assets.hospitable.com/property_images/515720/0k5n1Yk2DcbcUPUFZmQUbcJBT5dRFw7Kn5sT3SFs.jpg",
-      "url": "https://lakecityflats.com/property/world-hoptastic-ski-slc-townhome-2br25ba-garage",
-      "lat": 40.75003,
-      "lng": -111.88714
+      "url": "https://lakecityflats.com/property/world-hoptastic-ski-slc-townhome-2br25ba-garage"
     },
     {
       "id": "downtown-gym-hot-tub",
@@ -1640,9 +1610,7 @@
       ],
       "neighborhood_desc": "Central downtown SLC — walk to City Creek, Temple Square, the Salt Palace convention center, and TRAX light rail. Everything downtown is within a 10-minute radius.",
       "image": "https://assets.hospitable.com/property_images/770116/8AXgqoSfn8vohWSS2sjsOgTlYuR4c1IS26epX2vA.jpg",
-      "url": "https://lakecityflats.com/property/wirecutter-2-bed-studio-dwntwn-slc-gymhot-tub",
-      "lat": 40.767483,
-      "lng": -111.877932
+      "url": "https://lakecityflats.com/property/wirecutter-2-bed-studio-dwntwn-slc-gymhot-tub"
     },
     {
       "id": "downtown-designer-2king",
@@ -1744,9 +1712,7 @@
       ],
       "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
       "image": "https://assets.hospitable.com/property_images/661170/PnN3iaPO5xlYUCZwYU9KVJJpQECTvmpS3GTtgfhM.jpg",
-      "url": "https://lakecityflats.com/property/designer-hideout-downtown-slc-2-master-suites-25b",
-      "lat": 40.75003,
-      "lng": -111.88714
+      "url": "https://lakecityflats.com/property/designer-hideout-downtown-slc-2-master-suites-25b"
     },
     {
       "id": "downtown-mountain-studio",
@@ -1819,9 +1785,7 @@
       ],
       "neighborhood_desc": "Central downtown SLC — walk to restaurants, bars, galleries, and the Eccles Theater. The Wasatch mountains are visible from your window, and the trailheads are 20 minutes away.",
       "image": "https://assets.hospitable.com/property_images/234364/0KRIunvYZFCKK1WBckmLqfb8zAZoIAY6pFowZq6z.jpg",
-      "url": "https://lakecityflats.com/property/awesome-mountain-view-prime-linens-dwntwn-slc-gym",
-      "lat": 40.767483,
-      "lng": -111.877932
+      "url": "https://lakecityflats.com/property/awesome-mountain-view-prime-linens-dwntwn-slc-gym"
     },
     {
       "id": "downtown-2king-townhome",
@@ -1919,9 +1883,7 @@
       ],
       "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
       "image": "https://assets.hospitable.com/property_images/341522/2SePIEHouIkA3ahwSwJUwgr15zEmm2HlDcmAMuqW.jpg",
-      "url": "https://lakecityflats.com/property/smashing-downtown-slc-townhome-2-suites25ba",
-      "lat": 40.75003,
-      "lng": -111.88714
+      "url": "https://lakecityflats.com/property/smashing-downtown-slc-townhome-2-suites25ba"
     },
     {
       "id": "downtown-king-queen-garage",
@@ -2021,9 +1983,7 @@
       ],
       "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable. The private garage means you don't have to think about parking — ever.",
       "image": "https://assets.hospitable.com/property_images/346394/0Nq10b6nus4Na3G23xPiQGCKGpEGuWpn9zXi1iJ1.jpg",
-      "url": "https://lakecityflats.com/property/prime-downtwn-townhse-2br-suites25ba-hbo-hulu",
-      "lat": 40.75003,
-      "lng": -111.88714
+      "url": "https://lakecityflats.com/property/prime-downtwn-townhse-2br-suites25ba-hbo-hulu"
     },
     {
       "id": "downtown-penthouse-view",
@@ -2093,9 +2053,7 @@
       ],
       "neighborhood_desc": "Central downtown SLC — walk to City Creek, Temple Square, excellent restaurants, and TRAX. The Wasatch mountains are visible from your window, and ski resorts are 30 minutes away.",
       "image": "https://assets.hospitable.com/property_images/139804/2JwvxlorebVA7BBpvDHR9SdttVqmI6WvLqWtbzCm.jpg",
-      "url": "https://lakecityflats.com/property/penthouse-flat-w-hq-sleeper-sofa-superb-view",
-      "lat": 40.767483,
-      "lng": -111.877932
+      "url": "https://lakecityflats.com/property/penthouse-flat-w-hq-sleeper-sofa-superb-view"
     },
     {
       "id": "downtown-midmod",
@@ -2165,9 +2123,7 @@
       ],
       "neighborhood_desc": "Central downtown SLC — walk to restaurants, bars, galleries, and the Eccles Theater. The Wasatch mountains are 20 minutes to trailheads, and TRAX light rail is steps away.",
       "image": "https://assets.hospitable.com/property_images/1901312/0pihNZDjJ1quJ8habNtaACHwygva5ed3uKkm1FNf.jpg",
-      "url": "https://lakecityflats.com/property/lcf-mid-mod-slc-downtown-1br1ba-sleeps-4",
-      "lat": 40.767545,
-      "lng": -111.878376
+      "url": "https://lakecityflats.com/property/lcf-mid-mod-slc-downtown-1br1ba-sleeps-4"
     },
     {
       "id": "sugarhood-east",
@@ -2270,9 +2226,7 @@
       ],
       "neighborhood_desc": "Sugarhood — SLC's most beloved residential neighborhood. Independent restaurants, local coffee shops, and genuine community character. Sugar House Park is a 10-minute walk. Downtown is a 5-minute drive.",
       "image": "https://assets.hospitable.com/property_images/1698374/0m6FWY87Jpy8IEy6eMTlcLnU2p2LNHoKC3Pjr9F2.jpg",
-      "url": "https://lakecityflats.com/property/sugarhood-slc-moderneast-3br2ba-wcoworking-space",
-      "lat": 40.722315,
-      "lng": -111.870659
+      "url": "https://lakecityflats.com/property/sugarhood-slc-moderneast-3br2ba-wcoworking-space"
     },
     {
       "id": "9line-loft-ii",
@@ -2362,9 +2316,7 @@
       ],
       "neighborhood_desc": "9line is SLC's newest transit-oriented district — developed along a reclaimed rail corridor with modern residential buildings, parks, and easy light-rail access to downtown and the airport.",
       "image": "https://assets.hospitable.com/property_images/2248184/1LMz4GEOHmFKsGzIUCq63YHldELTJ8Zx7SHBue9B.jpg",
-      "url": "https://lakecityflats.com/property/lcf-9line-slc-loft-kingsofa-gym-sleeps-3-1",
-      "lat": 40.74929,
-      "lng": -111.886329
+      "url": "https://lakecityflats.com/property/lcf-9line-slc-loft-kingsofa-gym-sleeps-3-1"
     },
     {
       "id": "salt-flats-323",
@@ -2461,9 +2413,7 @@
       ],
       "neighborhood_desc": "Steps from Temple Square, the Gateway, and dozens of the best restaurants in SLC. Everything walkable from the Salt Flats building — one of downtown's best addresses.",
       "image": "https://a0.muscache.com/im/pictures/miso/Hosting-53311224/original/469cdd06-b77c-4320-8137-06d731b5f046.jpeg",
-      "url": "https://lakecityflats.com/property/lcf-downtown-slc-king-sleeper-gym-sleeps-4",
-      "lat": 40.767483,
-      "lng": -111.877932
+      "url": "https://lakecityflats.com/property/lcf-downtown-slc-king-sleeper-gym-sleeps-4"
     }
   ]
 }
