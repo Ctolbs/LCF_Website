@@ -57,6 +57,9 @@
 .pp-sim-meta{font-size:11px;color:var(--muted);margin-top:4px;}
 .pp-sim-rating{font-size:11.5px;color:var(--gold);margin-top:6px;font-weight:500;}
 .pp-loading{display:flex;align-items:center;justify-content:center;height:60vh;font-size:14px;color:var(--muted);}
+.pp-price-line{display:none;align-items:baseline;gap:5px;margin:-4px 0 22px;}
+.pp-price-amt{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:400;color:var(--forest);line-height:1;}
+.pp-price-unit{font-size:13px;color:var(--muted);font-weight:300;}
 /* Booking bottom-sheet modal */
 .bm-overlay{display:none;position:fixed;inset:0;z-index:9500;background:rgba(10,16,12,.6);backdrop-filter:blur(4px);}
 .bm-overlay.open{display:flex;align-items:flex-end;}
@@ -304,6 +307,10 @@ async function init() {
           <div class="pp-meta-dot"></div>
           <span class="pp-rating">★ ${prop.rating} · ${prop.review_count} reviews</span>
         </div>
+        <div class="pp-price-line" id="pp-price-line">
+          <span class="pp-price-amt" id="pp-price-amt"></span>
+          <span class="pp-price-unit">/ night</span>
+        </div>
         <p class="pp-desc">${prop.description}</p>
 
         <div class="pp-section">
@@ -326,7 +333,7 @@ async function init() {
       </div>
 
       <div class="pp-right" id="book">
-        <div class="pp-nudge">Book direct → <strong>save ~15%</strong> vs. Airbnb. No service fees.</div>
+        <div class="pp-nudge" id="pp-nudge">Book direct → <strong>save ~15%</strong> vs. Airbnb. No service fees.</div>
         <div class="pp-widget-wrapper">
           <div class="pp-direct-banner"><span class="pp-direct-icon">🤝</span><span>Direct booking · Secure via Stripe · $5M protection</span></div>
           <div class="pp-trust-row">
@@ -365,8 +372,8 @@ async function init() {
 
     <div class="pp-sticky-bar" id="sticky-bar">
       <div>
-        <div class="pp-sticky-price">★ ${prop.rating} <span>· ${prop.review_count} reviews</span></div>
-        <div style="font-size:10px;color:var(--muted);margin-top:1px;">Save ~15% booking direct</div>
+        <div class="pp-sticky-price" id="pp-sticky-price">★ ${prop.rating} <span>· ${prop.review_count} reviews</span></div>
+        <div style="font-size:10px;color:var(--muted);margin-top:1px;" id="pp-sticky-sub">Save ~15% booking direct</div>
       </div>
       <button onclick="openBM()" class="pp-sticky-btn">Book direct →</button>
     </div>
@@ -380,6 +387,9 @@ async function init() {
       <div class="pp-similar-grid">${similarHTML}</div>
     </section>`:''}
   `;
+
+  // Live pricing from Hospitable/Beyond calendar
+  if (prop.hospitable_id) loadPrice(prop.hospitable_id);
 
   // Mapbox property map
   mapboxgl.accessToken = 'pk.eyJ1IjoiY3RvbGJzIiwiYSI6ImNtcDV3M3djNzEzNXUycnBzZjd2MHh5NDYifQ' + '.RW9UtPRt-zsZyn8DdAExcw';
@@ -414,6 +424,31 @@ async function init() {
 }
 
 init();
+
+async function loadPrice(hospitable_id) {
+  try {
+    const today = new Date();
+    const start = today.toISOString().split('T')[0];
+    const end = new Date(today.getTime() + 30*24*60*60*1000).toISOString().split('T')[0];
+    const resp = await fetch('https://api.hospitable.com/bookings/api/properties/' + hospitable_id + '/calendar?start_date=' + start + '&end_date=' + end);
+    if (!resp.ok) return;
+    const cal = await resp.json();
+    const prices = Object.values(cal).filter(d => d.available && d.price > 0).map(d => d.price);
+    if (!prices.length) return;
+    const min = Math.round(Math.min(...prices));
+    const fmt = '$' + min;
+
+    const priceLine = document.getElementById('pp-price-line');
+    const priceAmt = document.getElementById('pp-price-amt');
+    if (priceLine && priceAmt) { priceAmt.textContent = fmt; priceLine.style.display = 'flex'; }
+
+    const nudge = document.getElementById('pp-nudge');
+    if (nudge) nudge.innerHTML = 'From <strong>' + fmt + '&nbsp;/ night</strong> &mdash; book direct &amp; save ~15% vs. Airbnb.';
+
+    const stickySub = document.getElementById('pp-sticky-sub');
+    if (stickySub) stickySub.textContent = 'from ' + fmt + ' / night · save ~15%';
+  } catch(e) { /* fail silently — no price shown */ }
+}
 </script>
 
 <section class="email-strip">
