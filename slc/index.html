@@ -110,6 +110,9 @@
   .cp-why-title{font-size:36px;}
   .cp-reviews{padding:48px 20px;}
 }
+.mini-prop-right{display:flex;flex-direction:column;align-items:flex-end;gap:3px;flex-shrink:0;}
+.mini-prop-price{font-size:10.5px;color:rgba(245,240,232,0.5);min-height:13px;white-space:nowrap;}
+.mini-prop-price strong{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:400;color:rgba(245,240,232,0.82);}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-24FKZQFX23"></script>
@@ -259,8 +262,8 @@
   <div class="footer-col">
     <div class="footer-col-title">Detroit</div>
     <a href="../detroit/">Browse Detroit flats</a>
-    <a href="../property/?id=lumber-barons-mansion">Lumber Baron's Mansion</a>
-    <a href="../property/?id=lumber-barons-penthouse">Lumber Baron's Penthouse</a>
+    <a href="../property/lumber-barons-mansion/">Lumber Baron's Mansion</a>
+    <a href="../property/lumber-barons-penthouse/">Lumber Baron's Penthouse</a>
     <hr>
     <div class="footer-col-title" style="margin-top:6px;">Book direct</div>
     <a href="../#book">Check availability</a>
@@ -322,13 +325,16 @@ function filterSleeps(el, bucket) {
 }
 
 function propCard(p) {
-  return `<a href="../property/?id=${p.id}" class="mini-prop" data-hood="${p.hood}" data-sleeps="${p.sleeps}">
+  return `<a href="../property/${p.id}/" class="mini-prop" data-hood="${p.hood}" data-sleeps="${p.sleeps}">
     <div class="mini-prop-icon" style="background-image:url('${p.image}');width:48px;height:48px;border-radius:3px;background-size:cover;background-position:center;flex-shrink:0;"></div>
     <div class="mini-prop-info">
       <div class="mini-prop-name">${p.name}</div>
       <div class="mini-prop-meta">${p.meta}</div>
     </div>
-    <span class="mini-prop-rating">★ ${p.rating}</span>
+    <div class="mini-prop-right">
+      <span class="mini-prop-rating">★ ${p.rating}</span>
+      <span class="mini-prop-price" id="slc-price-${p.id}"></span>
+    </div>
   </a>`;
 }
 
@@ -358,8 +364,28 @@ fetch('../properties.json')
       .join('');
 
     document.querySelectorAll('#slc-list .mini-prop').forEach(el => obs.observe(el));
+    loadSLCPrices(slcProps);
     initSLCMap(slcProps);
   });
+
+async function loadSLCPrices(props) {
+  const today = new Date();
+  const start = today.toISOString().split('T')[0];
+  const end = new Date(today.getTime() + 30*24*60*60*1000).toISOString().split('T')[0];
+  for (const p of props) {
+    if (!p.hospitable_id) continue;
+    try {
+      const resp = await fetch('https://api.hospitable.com/bookings/api/properties/' + p.hospitable_id + '/calendar?start_date=' + start + '&end_date=' + end);
+      if (!resp.ok) continue;
+      const cal = await resp.json();
+      const prices = Object.values(cal).filter(d => d.available && d.price > 0).map(d => d.price);
+      if (!prices.length) continue;
+      const min = Math.round(Math.min(...prices));
+      const el = document.getElementById('slc-price-' + p.id);
+      if (el) el.innerHTML = 'From <strong>$' + min + '</strong>';
+    } catch(e) {}
+  }
+}
 
 function initSLCMap(props) {
   mapboxgl.accessToken = 'pk.eyJ1IjoiY3RvbGJzIiwiYSI6ImNtcDV3M3djNzEzNXUycnBzZjd2MHh5NDYifQ' + '.RW9UtPRt-zsZyn8DdAExcw';
@@ -410,11 +436,11 @@ function initSLCMap(props) {
       if (count > 1) el.textContent = count;
 
       const popupHTML = '<div style="font-family:Jost,sans-serif;min-width:210px;">' +
-        group.props.map(p => '<a href="../property/?id=' + p.id + '" style="display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid #f0ebe4;text-decoration:none;gap:14px;"><span style="font-size:12px;color:#1C2D24;font-weight:500;">' + p.name + '</span><span style="font-size:10px;color:#999;white-space:nowrap;">' + p.beds + 'BR · ' + p.sleeps + ' guests</span></a>').join('') +
+        group.props.map(p => '<a href="../property/' + p.id + '/" style="display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid #f0ebe4;text-decoration:none;gap:14px;"><span style="font-size:12px;color:#1C2D24;font-weight:500;">' + p.name + '</span><span style="font-size:10px;color:#999;white-space:nowrap;">' + p.beds + 'BR · ' + p.sleeps + ' guests</span></a>').join('') +
         '</div>';
 
       const popup = new mapboxgl.Popup({offset:size/2+4, closeButton:false, maxWidth:'290px'}).setHTML(popupHTML);
-      if (count === 1) el.addEventListener('click', () => { window.location.href = '../property/?id=' + group.props[0].id; });
+      if (count === 1) el.addEventListener('click', () => { window.location.href = '../property/' + group.props[0].id + '/'; });
       new mapboxgl.Marker({element:el}).setLngLat([group.lng, group.lat]).setPopup(popup).addTo(map);
     });
   });
