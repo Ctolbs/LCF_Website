@@ -278,7 +278,7 @@ async function init() {
   ].join('');
 
   const similarHTML = similar.map(s=>`
-    <a href="?id=${s.id}" class="pp-sim-card">
+    <a href="${s.id}/" class="pp-sim-card">
       <div class="pp-sim-img" style="background-image:url('${s.image}')"></div>
       <div class="pp-sim-body">
         <div class="pp-sim-name">${s.name}</div>
