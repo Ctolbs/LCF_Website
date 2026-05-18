@@ -92,22 +92,28 @@
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" id="nav">
   <a href="/" class="nav-logo">
-    <div class="nav-logo-mark">LCF</div>
-    <div class="nav-logo-text">
-      <span class="nav-logo-main">Lake City <em>Flats</em></span>
-      <span class="nav-logo-sub">SALT LAKE CITY · DETROIT</span>
-    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="34" height="34" aria-hidden="true" style="flex-shrink:0;">
+      <circle cx="50" cy="50" r="50" fill="#FBBE01"/>
+      <text x="50" y="62" text-anchor="middle" font-family="Jost,system-ui,sans-serif" font-size="30" font-weight="500" letter-spacing="3" fill="#0F1218">LCF</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-main">Lake City <span>Flats</span></span>
+      <span class="nav-logo-sub">Salt Lake City · Detroit</span>
+    </span>
   </a>
   <div class="nav-links">
     <a href="/slc/" class="nav-pill nav-slc">Salt Lake City</a>
     <a href="/detroit/" class="nav-pill nav-det">Detroit</a>
-    <a href="/reviews/" class="nav-pill">Reviews</a>
-    <a href="/about/" class="nav-pill">About</a>
+    <a href="/reviews/">Reviews</a>
+    <a href="/about/">About</a>
     <a href="/slc/" class="nav-book">Book Direct</a>
   </div>
 </nav>
+<script>
+window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20));
+</script>
 
 <div class="notfound-wrap" style="margin-top:64px;">
   <div class="notfound-code">404</div>
