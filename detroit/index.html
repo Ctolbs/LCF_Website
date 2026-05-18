@@ -246,8 +246,8 @@
   </div>
   <div class="footer-col">
     <div class="footer-col-title">Detroit</div>
-    <a href="../property/?id=lumber-barons-mansion">Lumber Baron's Mansion</a>
-    <a href="../property/?id=lumber-barons-penthouse">Lumber Baron's Penthouse</a>
+    <a href="../property/lumber-barons-mansion/">Lumber Baron's Mansion</a>
+    <a href="../property/lumber-barons-penthouse/">Lumber Baron's Penthouse</a>
     <hr>
     <div class="footer-col-title" style="margin-top:6px;">Book direct</div>
     <a href="../#book">Check availability</a>
@@ -281,7 +281,7 @@ fetch('../properties.json')
   .then(data => {
     const props = data.properties.filter(p => p.city === 'detroit');
     document.getElementById('det-props').innerHTML = props.map(p => `
-      <a href="../property/?id=${p.id}" class="cp-prop-card reveal">
+      <a href="../property/${p.id}/" class="cp-prop-card reveal">
         <div class="cp-prop-card-img" style="background-image:url('${p.image}')"></div>
         <div class="cp-prop-card-body">
           <div>
@@ -352,7 +352,7 @@ function initDetMap(props) {
     el.textContent = '2';
 
     const popupHTML = '<div style="font-family:Jost,sans-serif;min-width:210px;">' +
-      props.map(p => '<a href="../property/?id=' + p.id + '" style="display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid #f0ebe4;text-decoration:none;gap:14px;"><span style="font-size:12px;color:#1C2D24;font-weight:500;">' + p.name + '</span><span style="font-size:10px;color:#999;white-space:nowrap;">' + p.beds + 'BR · ' + p.sleeps + ' guests</span></a>').join('') +
+      props.map(p => '<a href="../property/' + p.id + '/" style="display:flex;justify-content:space-between;align-items:baseline;padding:7px 0;border-bottom:1px solid #f0ebe4;text-decoration:none;gap:14px;"><span style="font-size:12px;color:#1C2D24;font-weight:500;">' + p.name + '</span><span style="font-size:10px;color:#999;white-space:nowrap;">' + p.beds + 'BR · ' + p.sleeps + ' guests</span></a>').join('') +
       '</div>';
 
     const popup = new mapboxgl.Popup({offset:17, closeButton:false, maxWidth:'290px'}).setHTML(popupHTML);
