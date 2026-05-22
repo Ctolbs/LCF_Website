@@ -595,24 +595,65 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 </section>
 
 <!-- BOOKING WIDGET -->
-<section style="background:var(--parchment);padding:72px 0 0;border-top:1px solid var(--border);" id="booking-section">
-  <div style="max-width:1100px;margin:0 auto;padding:0 56px;">
+<section style="background:var(--parchment);padding:72px 0 80px;border-top:1px solid var(--border);" id="booking-section">
+  <div style="max-width:860px;margin:0 auto;padding:0 56px;">
     <div style="text-align:center;margin-bottom:40px;">
       <div style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;font-weight:500;">Book direct</div>
       <h2 style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:400;color:var(--forest);line-height:1.1;">All 26 flats. Real availability.<br><em style="color:var(--gold);">No service fees.</em></h2>
-      <p style="font-size:14px;color:var(--muted);margin-top:14px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;">Search across every Lake City Flats property — Salt Lake City and Detroit — and book directly with us. Save ~15% vs. Airbnb, every time.</p>
+      <p style="font-size:14px;color:var(--muted);margin-top:14px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;">Select a property below to check availability and book directly. Save ~15% vs. Airbnb — no service fees, same quality.</p>
     </div>
-  </div>
-  <div style="border-top:1px solid var(--border);">
-    <iframe
-      src="https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/"
-      style="width:100%;height:820px;border:none;display:block;"
-      title="Book a Lake City Flat directly"
-      loading="lazy"
-      allow="payment">
-    </iframe>
+
+    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center;">
+      <label for="book-picker" style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap;">Select property</label>
+      <select id="book-picker" style="flex:1;min-width:220px;padding:11px 14px;border:1px solid var(--border-warm);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--forest);background:var(--warm-white);appearance:none;-webkit-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23444' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer;">
+        <option value="">Choose a flat…</option>
+      </select>
+    </div>
+
+    <div id="book-iframe-wrap" style="display:none;border:1px solid var(--border);border-radius:3px;overflow:hidden;background:var(--warm-white);">
+      <div style="background:var(--sage-pale);padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);">
+        <span style="font-size:12px;font-weight:500;color:var(--forest);">🤝 Direct booking · Secure via Stripe · $5M protection</span>
+        <a id="book-prop-link" href="" style="margin-left:auto;font-size:11px;color:var(--forest-light);text-decoration:none;border-bottom:1px solid currentColor;">View property →</a>
+      </div>
+      <iframe id="book-iframe" src="" style="width:100%;height:780px;border:none;display:block;" title="Book direct" allow="payment"></iframe>
+    </div>
+    <p id="book-prompt" style="text-align:center;font-size:13px;color:var(--muted);font-weight:300;padding:40px 0;">↑ Select a property to see live availability and book directly.</p>
   </div>
 </section>
+<script>
+(function(){
+  fetch('properties.json').then(r=>r.json()).then(data=>{
+    const sel = document.getElementById('book-picker');
+    const slcProps = data.properties.filter(p=>p.city==='slc');
+    const detProps = data.properties.filter(p=>p.city==='detroit');
+    const addGroup = (label, arr) => {
+      const og = document.createElement('optgroup');
+      og.label = label;
+      arr.forEach(p => {
+        const o = document.createElement('option');
+        o.value = p.hospitable_id + '|' + p.id;
+        o.textContent = p.name;
+        og.appendChild(o);
+      });
+      sel.appendChild(og);
+    };
+    addGroup('🏔 Salt Lake City', slcProps);
+    addGroup('🏛 Detroit', detProps);
+  });
+  document.getElementById('book-picker').addEventListener('change', function(){
+    const val = this.value;
+    const wrap = document.getElementById('book-iframe-wrap');
+    const prompt = document.getElementById('book-prompt');
+    if (!val) { wrap.style.display='none'; prompt.style.display='block'; return; }
+    const [hid, pid] = val.split('|');
+    document.getElementById('book-iframe').src = 'https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/' + hid;
+    document.getElementById('book-prop-link').href = 'property/' + pid + '/';
+    wrap.style.display = 'block';
+    prompt.style.display = 'none';
+    setTimeout(()=>wrap.scrollIntoView({behavior:'smooth',block:'start'}), 100);
+  });
+})();
+</script>
 
 <!-- REVIEWS -->
 <section class="reviews-section" id="reviews">
