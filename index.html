@@ -594,63 +594,249 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
   </div>
 </section>
 
-<!-- BOOKING WIDGET -->
-<section style="background:var(--parchment);padding:72px 0 80px;border-top:1px solid var(--border);" id="booking-section">
-  <div style="max-width:860px;margin:0 auto;padding:0 56px;">
-    <div style="text-align:center;margin-bottom:40px;">
-      <div style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;font-weight:500;">Book direct</div>
-      <h2 style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:400;color:var(--forest);line-height:1.1;">All 26 flats. Real availability.<br><em style="color:var(--gold);">No service fees.</em></h2>
-      <p style="font-size:14px;color:var(--muted);margin-top:14px;font-weight:300;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7;">Select a property below to check availability and book directly. Save ~15% vs. Airbnb — no service fees, same quality.</p>
+<!-- AVAILABILITY SEARCH -->
+<section style="background:var(--forest);padding:72px 0 80px;border-top:1px solid rgba(255,255,255,0.07);" id="booking-section">
+  <div style="max-width:960px;margin:0 auto;padding:0 48px;">
+    <div style="text-align:center;margin-bottom:36px;">
+      <div style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;font-weight:500;">Book direct · No service fees</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:400;color:var(--cream);line-height:1.1;">Enter your dates.<br><em style="color:var(--gold);">See exactly what's open.</em></h2>
+      <p style="font-size:13.5px;color:rgba(245,243,237,0.55);margin-top:14px;font-weight:300;max-width:440px;margin-left:auto;margin-right:auto;line-height:1.7;">We'll check all 26 flats in real time and show you only the ones available for your stay.</p>
     </div>
 
-    <div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;align-items:center;">
-      <label for="book-picker" style="font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap;">Select property</label>
-      <select id="book-picker" style="flex:1;min-width:220px;padding:11px 14px;border:1px solid var(--border-warm);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--forest);background:var(--warm-white);appearance:none;-webkit-appearance:none;background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23444' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer;">
-        <option value="">Choose a flat…</option>
-      </select>
+    <!-- City filter -->
+    <div style="display:flex;gap:8px;justify-content:center;margin-bottom:20px;" id="bs-city-tabs">
+      <button class="bs-tab bs-tab-active" data-city="">All cities</button>
+      <button class="bs-tab" data-city="slc">🏔 Salt Lake City</button>
+      <button class="bs-tab" data-city="detroit">🏛 Detroit</button>
     </div>
 
-    <div id="book-iframe-wrap" style="display:none;border:1px solid var(--border);border-radius:3px;overflow:hidden;background:var(--warm-white);">
-      <div style="background:var(--sage-pale);padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);">
-        <span style="font-size:12px;font-weight:500;color:var(--forest);">🤝 Direct booking · Secure via Stripe · $5M protection</span>
-        <a id="book-prop-link" href="" style="margin-left:auto;font-size:11px;color:var(--forest-light);text-decoration:none;border-bottom:1px solid currentColor;">View property →</a>
+    <!-- Search bar -->
+    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:3px;padding:20px 24px;display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;">
+      <div style="flex:1;min-width:130px;">
+        <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Check-in</label>
+        <input type="date" id="bs-checkin" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;box-sizing:border-box;color-scheme:dark;">
       </div>
-      <iframe id="book-iframe" src="" style="width:100%;height:780px;border:none;display:block;" title="Book direct" allow="payment"></iframe>
+      <div style="flex:1;min-width:130px;">
+        <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Check-out</label>
+        <input type="date" id="bs-checkout" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;box-sizing:border-box;color-scheme:dark;">
+      </div>
+      <div style="min-width:100px;">
+        <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Guests</label>
+        <select id="bs-guests" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;appearance:none;cursor:pointer;">
+          <option value="1">1 guest</option>
+          <option value="2" selected>2 guests</option>
+          <option value="3">3 guests</option>
+          <option value="4">4 guests</option>
+          <option value="5">5 guests</option>
+          <option value="6">6 guests</option>
+          <option value="7">7 guests</option>
+          <option value="8">8 guests</option>
+          <option value="9">9 guests</option>
+          <option value="10">10+ guests</option>
+        </select>
+      </div>
+      <button id="bs-btn" style="padding:11px 28px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;">Check Availability</button>
     </div>
-    <p id="book-prompt" style="text-align:center;font-size:13px;color:var(--muted);font-weight:300;padding:40px 0;">↑ Select a property to see live availability and book directly.</p>
+
+    <!-- Status / loading -->
+    <div id="bs-status" style="display:none;text-align:center;padding:48px 0;color:rgba(245,243,237,0.6);font-size:13px;font-weight:300;"></div>
+
+    <!-- Results -->
+    <div id="bs-results" style="display:none;margin-top:40px;">
+      <div id="bs-results-head" style="display:flex;align-items:baseline;gap:10px;margin-bottom:22px;">
+        <span id="bs-result-count" style="font-size:14px;font-weight:500;color:var(--cream);"></span>
+        <span id="bs-result-dates" style="font-size:12px;color:rgba(245,243,237,0.5);font-weight:300;"></span>
+      </div>
+      <div id="bs-cards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;"></div>
+      <div id="bs-no-avail" style="display:none;text-align:center;padding:48px 24px;background:rgba(255,255,255,0.04);border-radius:3px;border:1px solid rgba(255,255,255,0.1);">
+        <div style="font-size:32px;margin-bottom:16px;">&#128532;</div>
+        <p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No flats available for those dates</p>
+        <p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we'll help.</p>
+      </div>
+    </div>
   </div>
 </section>
+
+<!-- Booking iframe (full-width, below search section) -->
+<div id="bs-iframe-section" style="display:none;background:var(--warm-white);border-top:3px solid var(--gold);">
+  <div style="max-width:960px;margin:0 auto;padding:0 48px;">
+    <div style="display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--border);">
+      <span style="font-size:12px;font-weight:500;color:var(--forest);">&#129309; Direct booking · Secure via Stripe · $5M liability protection</span>
+      <a id="bs-iframe-prop-link" href="" style="margin-left:auto;font-size:11px;color:var(--forest-light);text-decoration:none;border-bottom:1px solid currentColor;flex-shrink:0;">View property details &#8594;</a>
+    </div>
+  </div>
+  <iframe id="bs-iframe" src="" style="width:100%;height:820px;border:none;display:block;" title="Book direct" allow="payment"></iframe>
+</div>
+
+<style>
+.bs-tab{padding:8px 18px;border-radius:20px;border:1px solid rgba(255,255,255,0.18);background:transparent;color:rgba(245,243,237,0.6);font-size:12px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.04em;cursor:pointer;transition:all .2s;}
+.bs-tab:hover{background:rgba(255,255,255,0.08);color:var(--cream);}
+.bs-tab-active{background:rgba(251,190,1,0.15) !important;border-color:var(--gold) !important;color:var(--gold) !important;}
+.bs-card{background:var(--cream);border-radius:3px;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.bs-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.25);}
+.bs-book-btn{display:block;width:100%;padding:11px 0;background:var(--forest);color:var(--cream);border:none;border-radius:0;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s;text-align:center;}
+.bs-book-btn:hover{background:var(--forest-mid);}
+@media(max-width:700px){#bs-cards{grid-template-columns:1fr !important;}}
+@media(min-width:701px) and (max-width:900px){#bs-cards{grid-template-columns:repeat(2,1fr) !important;}}
+</style>
+
 <script>
 (function(){
-  fetch('properties.json').then(r=>r.json()).then(data=>{
-    const sel = document.getElementById('book-picker');
-    const slcProps = data.properties.filter(p=>p.city==='slc');
-    const detProps = data.properties.filter(p=>p.city==='detroit');
-    const addGroup = (label, arr) => {
-      const og = document.createElement('optgroup');
-      og.label = label;
-      arr.forEach(p => {
-        const o = document.createElement('option');
-        o.value = p.hospitable_id + '|' + p.id;
-        o.textContent = p.name;
-        og.appendChild(o);
-      });
-      sel.appendChild(og);
-    };
-    addGroup('🏔 Salt Lake City', slcProps);
-    addGroup('🏛 Detroit', detProps);
+  var WIDGET = 'https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/';
+  var CAL = 'https://api.hospitable.com/bookings/api/properties/';
+  var allProps = [];
+  var selectedCity = '';
+
+  fetch('properties.json').then(function(r){return r.json();}).then(function(d){ allProps = d.properties; });
+
+  document.querySelectorAll('.bs-tab').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.bs-tab').forEach(function(b){b.classList.remove('bs-tab-active');});
+      this.classList.add('bs-tab-active');
+      selectedCity = this.dataset.city;
+    });
   });
-  document.getElementById('book-picker').addEventListener('change', function(){
-    const val = this.value;
-    const wrap = document.getElementById('book-iframe-wrap');
-    const prompt = document.getElementById('book-prompt');
-    if (!val) { wrap.style.display='none'; prompt.style.display='block'; return; }
-    const [hid, pid] = val.split('|');
-    document.getElementById('book-iframe').src = 'https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/' + hid;
-    document.getElementById('book-prop-link').href = 'property/' + pid + '/';
-    wrap.style.display = 'block';
-    prompt.style.display = 'none';
-    setTimeout(()=>wrap.scrollIntoView({behavior:'smooth',block:'start'}), 100);
+
+  (function setDefaultDates(){
+    var today = new Date();
+    var tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
+    var fmt = function(d){ return d.toISOString().slice(0,10); };
+    document.getElementById('bs-checkin').value = fmt(today);
+    document.getElementById('bs-checkout').value = fmt(tomorrow);
+    document.getElementById('bs-checkin').min = fmt(today);
+    document.getElementById('bs-checkout').min = fmt(tomorrow);
+  })();
+
+  document.getElementById('bs-checkin').addEventListener('change', function(){
+    var co = document.getElementById('bs-checkout');
+    if (co.value && co.value <= this.value) {
+      var d = new Date(this.value + 'T00:00:00');
+      d.setDate(d.getDate()+1);
+      co.value = d.toISOString().slice(0,10);
+    }
+    co.min = this.value;
+  });
+
+  function getNights(ci, co) {
+    var nights = [];
+    var d = new Date(ci + 'T00:00:00');
+    var end = new Date(co + 'T00:00:00');
+    while (d < end) { nights.push(d.toISOString().slice(0,10)); d.setDate(d.getDate()+1); }
+    return nights;
+  }
+
+  function checkProp(hid, ci, co) {
+    return fetch(CAL + hid + '/calendar?start_date=' + ci + '&end_date=' + co)
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(data){
+        if (!data) return null;
+        var nights = getNights(ci, co);
+        if (!nights.length) return null;
+        var ciKey = ci + 'T00:00';
+        var ciDay = data[ciKey];
+        if (ciDay && ciDay.min_stay && nights.length < ciDay.min_stay) return null;
+        var total = 0;
+        for (var i=0; i<nights.length; i++) {
+          var day = data[nights[i] + 'T00:00'];
+          if (!day || !day.available) return null;
+          total += day.price;
+        }
+        return { avgNightly: Math.round(total / nights.length), totalPrice: Math.round(total), nights: nights.length };
+      })
+      .catch(function(){ return null; });
+  }
+
+  function fmtDate(iso) {
+    var parts = iso.split('-');
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[+parts[1]-1] + ' ' + +parts[2];
+  }
+
+  function renderCard(p, avail) {
+    var hood = p.hood.replace(/-/g,' ').replace(/\b\w/g, function(c){return c.toUpperCase();});
+    var cityLabel = p.city === 'slc' ? '&#127956; SLC' : '&#127963; Detroit';
+    var card = document.createElement('div');
+    card.className = 'bs-card';
+    card.innerHTML = '<div style="position:relative;overflow:hidden;padding-top:62%;">' +
+      '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s;">' +
+      '<div style="position:absolute;top:10px;left:10px;background:rgba(28,45,71,0.82);backdrop-filter:blur(6px);padding:4px 10px;border-radius:20px;font-size:10px;color:var(--cream);font-weight:500;">' + cityLabel + ' &middot; ' + hood + '</div></div>' +
+      '<div style="padding:16px 18px 0;">' +
+        '<div style="font-size:14px;font-weight:500;color:var(--forest);line-height:1.3;margin-bottom:8px;">' + p.name + '</div>' +
+        '<div style="display:flex;gap:10px;font-size:11.5px;color:var(--muted);margin-bottom:10px;">' +
+          '<span>' + p.beds + ' bed' + (p.beds!==1?'s':'') + '</span><span>&middot;</span>' +
+          '<span>' + p.baths + ' bath' + (p.baths!==1?'s':'') + '</span><span>&middot;</span>' +
+          '<span>Sleeps ' + p.sleeps + '</span></div>' +
+        '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">' +
+          '<div><span style="font-size:22px;font-weight:600;color:var(--forest);letter-spacing:-.01em;">$' + avail.avgNightly + '</span><span style="font-size:11px;color:var(--muted);"> / night</span></div>' +
+          '<div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">$' + avail.totalPrice + ' total &middot; ' + avail.nights + ' night' + (avail.nights!==1?'s':'') + '</div>' +
+          '<div style="font-size:11px;color:var(--terra);">&#9733; ' + p.rating + ' &middot; ' + p.review_count + ' reviews</div></div></div></div>' +
+      '<button class="bs-book-btn" data-hid="' + p.hospitable_id + '" data-pid="' + p.id + '">Book Direct &#8594;</button>';
+    card.querySelector('.bs-book-btn').addEventListener('click', function(){
+      openIframe(this.dataset.hid, this.dataset.pid);
+    });
+    return card;
+  }
+
+  function openIframe(hid, pid) {
+    var sec = document.getElementById('bs-iframe-section');
+    document.getElementById('bs-iframe').src = WIDGET + hid;
+    document.getElementById('bs-iframe-prop-link').href = 'property/' + pid + '/';
+    sec.style.display = 'block';
+    setTimeout(function(){ sec.scrollIntoView({behavior:'smooth',block:'start'}); }, 60);
+  }
+
+  document.getElementById('bs-btn').addEventListener('click', function(){
+    var ci = document.getElementById('bs-checkin').value;
+    var co = document.getElementById('bs-checkout').value;
+    var guests = parseInt(document.getElementById('bs-guests').value);
+
+    if (!ci || !co || co <= ci) {
+      alert('Please select valid check-in and check-out dates.');
+      return;
+    }
+
+    var btn = this;
+    btn.textContent = 'Checking…';
+    btn.disabled = true;
+
+    var status = document.getElementById('bs-status');
+    var results = document.getElementById('bs-results');
+    var cards = document.getElementById('bs-cards');
+    var noAvail = document.getElementById('bs-no-avail');
+    document.getElementById('bs-iframe-section').style.display = 'none';
+
+    var candidates = allProps.filter(function(p){ return p.sleeps >= guests; });
+    if (selectedCity) candidates = candidates.filter(function(p){ return p.city === selectedCity; });
+
+    status.textContent = 'Checking ' + candidates.length + ' propert' + (candidates.length===1?'y':'ies') + '\u2026';
+    status.style.display = 'block';
+    results.style.display = 'none';
+    cards.innerHTML = '';
+    noAvail.style.display = 'none';
+
+    Promise.all(candidates.map(function(p){
+      return checkProp(p.hospitable_id, ci, co).then(function(a){ return {p:p, a:a}; });
+    })).then(function(checks){
+      var available = checks.filter(function(x){ return x.a !== null; });
+
+      status.style.display = 'none';
+      results.style.display = 'block';
+
+      if (available.length === 0) {
+        document.getElementById('bs-result-count').textContent = '';
+        document.getElementById('bs-result-dates').textContent = '';
+        noAvail.style.display = 'block';
+      } else {
+        available.sort(function(a,b){ return a.a.avgNightly - b.a.avgNightly; });
+        document.getElementById('bs-result-count').textContent = available.length + ' flat' + (available.length===1?'':'s') + ' available';
+        document.getElementById('bs-result-dates').textContent = fmtDate(ci) + ' \u2013 ' + fmtDate(co) + ' \u00b7 ' + guests + ' guest' + (guests===1?'':'s');
+        available.forEach(function(x){ cards.appendChild(renderCard(x.p, x.a)); });
+      }
+
+      btn.textContent = 'Check Availability';
+      btn.disabled = false;
+      results.scrollIntoView({behavior:'smooth', block:'start'});
+    });
   });
 })();
 </script>
@@ -902,3 +1088,4 @@ loadProperties();
 </script>
 </body>
 </html>
+
