@@ -385,14 +385,15 @@
           '<div><span style="font-size:22px;font-weight:600;color:var(--forest);letter-spacing:-.01em;">$' + avail.avgNightly + '</span><span style="font-size:11px;color:var(--muted);"> / night</span></div>' +
           '<div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">$' + avail.totalPrice + ' total &middot; ' + avail.nights + ' night' + (avail.nights!==1?'s':'') + '</div>' +
           '<div style="font-size:11px;color:var(--terra);">&#9733; ' + p.rating + ' &middot; ' + p.review_count + ' reviews</div></div></div></div>' +
-      '<button class="slc-book-btn" data-hid="' + p.hospitable_id + '" data-pid="' + p.id + '">Book Direct &#8594;</button>';
+      '<button class="slc-book-btn" data-hid="' + p.hospitable_id + '" data-pid="' + p.id + '" data-name="' + p.name.replace(/"/g,"'") + '" data-rate="' + avail.avgNightly + '">Book Direct &#8594;</button>';
     card.querySelector('.slc-book-btn').addEventListener('click', function(){
       var hid = this.dataset.hid, pid = this.dataset.pid;
+      lcfTrack('book_direct_click',{property_id:pid,property_name:this.dataset.name||'',city:'slc',nightly_rate:parseInt(this.dataset.rate)||0});
       document.getElementById('slc-iframe').src = WIDGET + hid;
       document.getElementById('slc-iframe-prop-link').href = '../property/' + pid + '/';
       var sec = document.getElementById('slc-iframe-section');
       sec.style.display = 'block';
-      setTimeout(function(){ sec.scrollIntoView({behavior:'smooth',block:'start'}); }, 60);
+      setTimeout(function(){ lcfTrack('booking_iframe_open',{property_id:pid,city:'slc'}); sec.scrollIntoView({behavior:'smooth',block:'start'}); }, 60);
     });
     return card;
   }
@@ -407,6 +408,8 @@
     var btn = this;
     btn.textContent = 'Checking…';
     btn.disabled = true;
+    var _nights = (new Date(co)-new Date(ci))/(1000*60*60*24);
+    lcfTrack('check_availability',{city:'slc',checkin:ci,checkout:co,guests:guests,nights:_nights});
 
     var status = document.getElementById('slc-status');
     var results = document.getElementById('slc-results');
@@ -433,6 +436,7 @@
       if (errCount > 0 && errCount === checks.length) {
         document.getElementById('slc-result-count').textContent = '';
         document.getElementById('slc-result-dates').textContent = '';
+        lcfTrack('api_error',{city:'slc'});
         noAvail.innerHTML = '<div style="font-size:24px;margin-bottom:16px;">&#9888;&#65039;</div>' +
           '<p style="font-size:15px;font-weight:400;color:var(--cream);margin-bottom:8px;">Couldn\'t reach availability data</p>' +
           '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Please try again, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> to check directly.</p>';
@@ -442,10 +446,12 @@
           '<p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No flats available for those dates</p>' +
           '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we\'ll help.</p>';
         noAvail.style.display = 'block';
+        lcfTrack('no_availability',{city:'slc',guests:guests,nights:_nights});
         document.getElementById('slc-result-count').textContent = '';
         document.getElementById('slc-result-dates').textContent = '';
       } else {
         available.sort(function(a,b){ return a.a.avgNightly - b.a.avgNightly; });
+        lcfTrack('availability_results',{city:'slc',available_count:available.length,guests:guests,nights:_nights});
         document.getElementById('slc-result-count').textContent = available.length + ' flat' + (available.length===1?'':'s') + ' available';
         document.getElementById('slc-result-dates').textContent = fmtDate(ci) + ' – ' + fmtDate(co) + ' · ' + guests + ' guest' + (guests===1?'':'s');
         available.forEach(function(x){ cards.appendChild(renderCard(x.p, x.a)); });
@@ -675,6 +681,36 @@ function initSLCMap(props) {
     });
   });
 }
+</script>
+
+<script>
+/* LCF Analytics */
+(function(){
+  function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
+  window.lcfTrack = lcfTrack;
+
+  /* Nav Book Direct */
+  document.querySelectorAll('.nav-book').forEach(function(el){
+    el.addEventListener('click',function(){
+      lcfTrack('nav_book_click',{page_path:window.location.pathname});
+    });
+  });
+
+  /* Email signup — success state + event */
+  document.querySelectorAll('.email-strip-form').forEach(function(form){
+    form.addEventListener('submit',function(){
+      lcfTrack('email_signup',{page_path:window.location.pathname});
+      var btn=form.querySelector('button[type="submit"]');
+      var inp=form.querySelector('input[type="email"]');
+      setTimeout(function(){
+        if(btn){btn.textContent='You\'re in ✔';btn.style.background='#344741';btn.disabled=true;}
+        if(inp) inp.value='';
+        var sub=form.closest('.email-strip')&&form.closest('.email-strip').querySelector('.email-strip-sub');
+        if(sub){sub.textContent='Thanks! We\'ll keep it occasional and worthwhile.';sub.style.color='rgba(245,243,237,0.7)';}
+      },300);
+    });
+  });
+})();
 </script>
 </body>
 </html>
