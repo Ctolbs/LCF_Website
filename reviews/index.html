@@ -293,6 +293,36 @@ document.querySelectorAll('.rv-filter').forEach(btn => {
   });
 });
 </script>
+
+<script>
+/* LCF Analytics */
+(function(){
+  function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
+  window.lcfTrack = lcfTrack;
+
+  /* Nav Book Direct */
+  document.querySelectorAll('.nav-book').forEach(function(el){
+    el.addEventListener('click',function(){
+      lcfTrack('nav_book_click',{page_path:window.location.pathname});
+    });
+  });
+
+  /* Email signup — success state + event */
+  document.querySelectorAll('.email-strip-form').forEach(function(form){
+    form.addEventListener('submit',function(){
+      lcfTrack('email_signup',{page_path:window.location.pathname});
+      var btn=form.querySelector('button[type="submit"]');
+      var inp=form.querySelector('input[type="email"]');
+      setTimeout(function(){
+        if(btn){btn.textContent='You\'re in ✔';btn.style.background='#344741';btn.disabled=true;}
+        if(inp) inp.value='';
+        var sub=form.closest('.email-strip')&&form.closest('.email-strip').querySelector('.email-strip-sub');
+        if(sub){sub.textContent='Thanks! We\'ll keep it occasional and worthwhile.';sub.style.color='rgba(245,243,237,0.7)';}
+      },300);
+    });
+  });
+})();
+</script>
 </body>
 </html>
 
