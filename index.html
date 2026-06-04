@@ -140,7 +140,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .hero-city-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;}
 .hero-city:hover .hero-city-bg{transform:scale(1.04);}
 .hero-city-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,18,10,0.82) 0%,transparent 65%);transition:opacity .4s;}
-.hc-slc .hero-city-bg{background-image:url('https://lakecityflats.com/og-image.jpg');background-size:cover;background-position:center;}
+.hc-slc .hero-city-bg{background-image:url('https://assets.hospitable.com/property_images/1678254/iw0UbbuDyySG5jjc4pSKPOSAMPL0GmspxuNomJ0E.jpg');background-size:cover;background-position:center 30%;}
 .hc-det .hero-city-bg{background-image:url('https://assets.hospitable.com/property_images/818686/6icPNDIW9fFETLfG9Y4TbLQMyqXNJDhkl2w9XEHq.jpg');background-size:cover;background-position:60% 20%;}
 .hero-city-content{position:relative;z-index:2;}
 .hero-city-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:#fff;line-height:1;}
@@ -694,6 +694,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       document.querySelectorAll('.bs-tab').forEach(function(b){b.classList.remove('bs-tab-active');});
       this.classList.add('bs-tab-active');
       selectedCity = this.dataset.city;
+      lcfTrack('city_tab_select',{city:this.dataset.city||'all',page:'home'});
     });
   });
 
@@ -770,19 +771,23 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
           '<div><span style="font-size:22px;font-weight:600;color:var(--forest);letter-spacing:-.01em;">$' + avail.avgNightly + '</span><span style="font-size:11px;color:var(--muted);"> / night</span></div>' +
           '<div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">$' + avail.totalPrice + ' total &middot; ' + avail.nights + ' night' + (avail.nights!==1?'s':'') + '</div>' +
           '<div style="font-size:11px;color:var(--terra);">&#9733; ' + p.rating + ' &middot; ' + p.review_count + ' reviews</div></div></div></div>' +
-      '<button class="bs-book-btn" data-hid="' + p.hospitable_id + '" data-pid="' + p.id + '">Book Direct &#8594;</button>';
+      '<button class="bs-book-btn" data-hid="' + p.hospitable_id + '" data-pid="' + p.id + '" data-name="' + p.name.replace(/"/g,"'") + '" data-city="' + p.city + '" data-rate="' + avail.avgNightly + '">Book Direct &#8594;</button>';
     card.querySelector('.bs-book-btn').addEventListener('click', function(){
-      openIframe(this.dataset.hid, this.dataset.pid);
+      openIframe(this.dataset.hid, this.dataset.pid, this.dataset.name, this.dataset.city, parseInt(this.dataset.rate)||0);
     });
     return card;
   }
 
-  function openIframe(hid, pid) {
+  function openIframe(hid, pid, propName, propCity, rate) {
+    lcfTrack('book_direct_click',{property_id:pid,property_name:propName,city:propCity,nightly_rate:rate,page:'home'});
     var sec = document.getElementById('bs-iframe-section');
     document.getElementById('bs-iframe').src = WIDGET + hid;
     document.getElementById('bs-iframe-prop-link').href = 'property/' + pid + '/';
     sec.style.display = 'block';
-    setTimeout(function(){ sec.scrollIntoView({behavior:'smooth',block:'start'}); }, 60);
+    setTimeout(function(){
+      lcfTrack('booking_iframe_open',{property_id:pid,property_name:propName,city:propCity,page:'home'});
+      sec.scrollIntoView({behavior:'smooth',block:'start'});
+    }, 60);
   }
 
   document.getElementById('bs-btn').addEventListener('click', function(){
@@ -798,6 +803,8 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     var btn = this;
     btn.textContent = 'Checking…';
     btn.disabled = true;
+    var _nights = (new Date(co)-new Date(ci))/(1000*60*60*24);
+    lcfTrack('check_availability',{city:selectedCity||'all',checkin:ci,checkout:co,guests:guests,nights:_nights,page:'home'});
 
     var status = document.getElementById('bs-status');
     var results = document.getElementById('bs-results');
@@ -828,6 +835,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       if (errCount > 0 && errCount === checks.length) {
         document.getElementById('bs-result-count').textContent = '';
         document.getElementById('bs-result-dates').textContent = '';
+        lcfTrack('api_error',{city:selectedCity||'all',page:'home'});
         noAvail.innerHTML = '<div style="font-size:24px;margin-bottom:16px;">&#9888;&#65039;</div>' +
           '<p style="font-size:15px;font-weight:400;color:var(--cream);margin-bottom:8px;">Couldn\'t reach availability data</p>' +
           '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Please try again in a moment, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> to check directly.</p>';
@@ -839,8 +847,10 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
           '<p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No flats available for those dates</p>' +
           '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we\'ll help.</p>';
         noAvail.style.display = 'block';
+        lcfTrack('no_availability',{city:selectedCity||'all',guests:guests,nights:_nights,page:'home'});
       } else {
         available.sort(function(a,b){ return a.a.avgNightly - b.a.avgNightly; });
+        lcfTrack('availability_results',{city:selectedCity||'all',available_count:available.length,guests:guests,nights:_nights,page:'home'});
         document.getElementById('bs-result-count').textContent = available.length + ' flat' + (available.length===1?'':'s') + ' available';
         document.getElementById('bs-result-dates').textContent = fmtDate(ci) + ' \u2013 ' + fmtDate(co) + ' \u00b7 ' + guests + ' guest' + (guests===1?'':'s');
         available.forEach(function(x){ cards.appendChild(renderCard(x.p, x.a)); });
@@ -1098,6 +1108,36 @@ async function loadProperties() {
 }
 
 loadProperties();
+</script>
+
+<script>
+/* LCF Analytics */
+(function(){
+  function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
+  window.lcfTrack = lcfTrack;
+
+  /* Nav Book Direct */
+  document.querySelectorAll('.nav-book').forEach(function(el){
+    el.addEventListener('click',function(){
+      lcfTrack('nav_book_click',{page_path:window.location.pathname});
+    });
+  });
+
+  /* Email signup — success state + event */
+  document.querySelectorAll('.email-strip-form').forEach(function(form){
+    form.addEventListener('submit',function(){
+      lcfTrack('email_signup',{page_path:window.location.pathname});
+      var btn=form.querySelector('button[type="submit"]');
+      var inp=form.querySelector('input[type="email"]');
+      setTimeout(function(){
+        if(btn){btn.textContent='You\'re in ✔';btn.style.background='#344741';btn.disabled=true;}
+        if(inp) inp.value='';
+        var sub=form.closest('.email-strip')&&form.closest('.email-strip').querySelector('.email-strip-sub');
+        if(sub){sub.textContent='Thanks! We\'ll keep it occasional and worthwhile.';sub.style.color='rgba(245,243,237,0.7)';}
+      },300);
+    });
+  });
+})();
 </script>
 </body>
 </html>
