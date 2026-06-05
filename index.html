@@ -135,7 +135,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .hero-stats{display:flex;gap:34px;padding-top:42px;margin-top:42px;border-top:1px solid rgba(255,255,255,0.09);position:relative;z-index:1;}
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--cream);line-height:1;}
 .stat-label{font-size:10px;color:rgba(245,240,232,0.4);margin-top:4px;letter-spacing:.07em;}
-.hero-right{display:flex;flex-direction:column;position:sticky;top:64px;height:calc(100vh - 64px);background:#0e1a26;overflow-y:auto;}
+.hero-right{display:grid;grid-template-rows:1fr 1fr;position:sticky;top:64px;height:calc(100vh - 64px);overflow:hidden;}
 .hero-city{position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;padding:28px 32px;transition:all .4s;text-decoration:none;}
 .hero-city-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;}
 .hero-city:hover .hero-city-bg{transform:scale(1.04);}
@@ -149,40 +149,38 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .hero-city-arrow{transition:transform .3s,opacity .3s;opacity:.28;}
 .hero-city:hover .hero-city-arrow{transform:translateX(4px);opacity:.8;}
 
-/* HERO BOOKING PANEL */
-.hbp-inner{padding:32px 28px;display:flex;flex-direction:column;flex:1;min-height:0;}
-.hbp-eyebrow{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(251,190,1,0.7);margin-bottom:10px;}
-.hbp-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--cream);line-height:1.15;margin-bottom:18px;}
-.hbp-tabs{display:flex;gap:6px;margin-bottom:18px;flex-wrap:wrap;}
-.hbp-tab{padding:5px 13px;border-radius:20px;border:1px solid rgba(255,255,255,0.18);background:transparent;color:rgba(245,243,237,0.55);font-size:11px;font-family:'Jost',sans-serif;cursor:pointer;transition:all .2s;}
-.hbp-tab:hover{background:rgba(255,255,255,0.08);color:var(--cream);}
-.hbp-tab-active{background:rgba(251,190,1,0.15)!important;border-color:var(--gold)!important;color:var(--gold)!important;}
-.hbp-field-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,237,0.38);margin-bottom:4px;}
-.hbp-input{width:100%;padding:10px 12px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;box-sizing:border-box;color-scheme:dark;transition:border-color .2s;}
-.hbp-input:focus{border-color:rgba(251,190,1,0.5);}
-.hbp-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;}
-.hbp-field-single{margin-bottom:12px;}
-.hbp-btn{width:100%;padding:12px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s;margin-top:4px;}
+/* HERO BOOKING PANEL — floating glass card */
+.hbp-float{position:absolute;top:20px;right:20px;width:290px;max-height:calc(100% - 40px);overflow-y:auto;background:rgba(8,15,26,0.88);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,0.12);border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,0.55),0 0 0 0.5px rgba(251,190,1,0.06);z-index:10;scrollbar-width:none;}
+.hbp-float::-webkit-scrollbar{display:none;}
+.hbp-inner{padding:20px 18px;}
+.hbp-eyebrow{font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;color:rgba(251,190,1,0.65);margin-bottom:8px;}
+.hbp-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--cream);line-height:1.2;margin-bottom:14px;}
+.hbp-tabs{display:flex;gap:5px;margin-bottom:14px;flex-wrap:wrap;}
+.hbp-tab{padding:4px 11px;border-radius:20px;border:1px solid rgba(255,255,255,0.16);background:transparent;color:rgba(245,243,237,0.5);font-size:10.5px;font-family:'Jost',sans-serif;cursor:pointer;transition:all .2s;}
+.hbp-tab:hover{background:rgba(255,255,255,0.07);color:var(--cream);}
+.hbp-tab-active{background:rgba(251,190,1,0.14)!important;border-color:var(--gold)!important;color:var(--gold)!important;}
+.hbp-field-label{font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,243,237,0.35);margin-bottom:4px;}
+.hbp-input{width:100%;padding:9px 10px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.14);border-radius:2px;font-size:12.5px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;box-sizing:border-box;color-scheme:dark;transition:border-color .2s;}
+.hbp-input:focus{border-color:rgba(251,190,1,0.45);}
+.hbp-row{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:7px;}
+.hbp-field-single{margin-bottom:10px;}
+.hbp-btn{width:100%;padding:11px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s;margin-top:4px;}
 .hbp-btn:hover:not(:disabled){background:#e8ae00;}
 .hbp-btn:disabled{opacity:.6;cursor:not-allowed;}
-.hbp-status{font-size:12px;color:rgba(245,243,237,0.5);padding:14px 0;text-align:center;display:none;}
-.hbp-cards{display:flex;flex-direction:column;gap:8px;margin-top:12px;overflow-y:auto;}
-.hbp-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;cursor:pointer;transition:background .2s,border-color .2s;flex-shrink:0;}
+.hbp-status{font-size:11.5px;color:rgba(245,243,237,0.48);padding:12px 0;text-align:center;display:none;}
+.hbp-cards{display:flex;flex-direction:column;gap:7px;margin-top:10px;}
+.hbp-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:3px;overflow:hidden;cursor:pointer;transition:background .2s,border-color .2s;}
 .hbp-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.18);}
-.hbp-card-img{height:80px;background-size:cover;background-position:center;}
-.hbp-card-body{padding:9px 12px;}
-.hbp-card-name{font-size:12px;font-weight:500;color:var(--cream);line-height:1.3;margin-bottom:2px;}
-.hbp-card-meta{font-size:10.5px;color:rgba(245,243,237,0.42);}
+.hbp-card-img{height:72px;background-size:cover;background-position:center;}
+.hbp-card-body{padding:8px 11px 10px;}
+.hbp-card-name{font-size:11.5px;font-weight:500;color:var(--cream);line-height:1.3;margin-bottom:2px;}
+.hbp-card-meta{font-size:10px;color:rgba(245,243,237,0.4);}
 .hbp-card-row{display:flex;align-items:center;justify-content:space-between;margin-top:6px;}
-.hbp-card-price{font-size:14px;font-weight:600;color:var(--gold);}
-.hbp-card-price span{font-size:10.5px;font-weight:400;color:rgba(245,243,237,0.4);}
-.hbp-book-tag{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,243,237,0.4);border:1px solid rgba(255,255,255,0.16);padding:4px 9px;border-radius:1px;transition:all .2s;}
-.hbp-card:hover .hbp-book-tag{color:var(--gold);border-color:rgba(251,190,1,0.4);}
-.hbp-no-avail{text-align:center;padding:18px 12px;color:rgba(245,243,237,0.45);font-size:12px;font-weight:300;line-height:1.7;}
-.hbp-city-links{display:flex;gap:0;margin-top:auto;padding-top:18px;border-top:1px solid rgba(255,255,255,0.07);flex-shrink:0;}
-.hbp-city-link{flex:1;text-align:center;font-size:11px;letter-spacing:.06em;color:rgba(245,243,237,0.35);text-decoration:none;padding:8px 0;transition:color .2s;border-right:1px solid rgba(255,255,255,0.07);}
-.hbp-city-link:last-child{border-right:none;}
-.hbp-city-link:hover{color:var(--cream);}
+.hbp-card-price{font-size:13px;font-weight:600;color:var(--gold);}
+.hbp-card-price span{font-size:10px;font-weight:400;color:rgba(245,243,237,0.38);}
+.hbp-book-tag{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,243,237,0.38);border:1px solid rgba(255,255,255,0.14);padding:3px 8px;border-radius:1px;transition:all .2s;}
+.hbp-card:hover .hbp-book-tag{color:var(--gold);border-color:rgba(251,190,1,0.38);}
+.hbp-no-avail{text-align:center;padding:16px 10px;color:rgba(245,243,237,0.42);font-size:11.5px;font-weight:300;line-height:1.7;}
 
 .city-badge{position:absolute;top:16px;right:16px;backdrop-filter:blur(6px);border-radius:100px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.62);padding:5px 12px;}
 .badge-slc{background:rgba(122,168,145,0.18);border:1px solid rgba(122,168,145,0.28);}
@@ -400,9 +398,8 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 
   .hero{grid-template-columns:1fr;min-height:auto;}
   .hero-left{padding:80px 32px 48px;min-height:50vh;}
-  .hero-right{position:relative;top:auto;height:auto;min-height:auto;overflow-y:visible;}
-  .hbp-inner{padding:28px 24px;}
-  .hbp-city-links{margin-top:20px;}
+  .hero-right{position:relative;top:auto;height:auto;min-height:440px;overflow:visible;}
+  .hbp-float{position:relative;top:auto;right:auto;width:100%;max-height:none;border-radius:0;border-left:none;border-right:none;border-bottom:none;backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(8,15,26,0.96);box-shadow:none;}
 
   .trust-bar{flex-wrap:wrap;}
   .trust-item{flex:1 1 50%;border-right:none;border-bottom:1px solid var(--border);}
@@ -433,7 +430,8 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
   .btn-cream,.btn-ghost{width:100%;text-align:center;}
   .hero-stats{gap:20px;}
   .stat-num{font-size:26px;}
-  .hbp-inner{padding:24px 20px;}
+  .hbp-float{border-left:none;border-right:none;}
+  .hbp-inner{padding:22px 18px;}
 
   .city-col{padding:40px 20px;}
   .city-name{font-size:38px;}
@@ -504,44 +502,64 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
   </div>
 
   <div class="hero-right">
-    <div class="hbp-inner">
-      <div class="hbp-eyebrow">Book direct &middot; save ~15%</div>
-      <div class="hbp-title">Check availability</div>
-      <div class="hbp-tabs">
-        <button class="hbp-tab hbp-tab-active" data-city="">All cities</button>
-        <button class="hbp-tab" data-city="slc">&#127956; SLC</button>
-        <button class="hbp-tab" data-city="detroit">&#127963; Detroit</button>
+    <a href="slc/" class="hero-city hc-slc">
+      <div class="hero-city-bg"></div>
+      <div class="hero-city-overlay"></div>
+      <span class="city-badge badge-slc">Mountain West</span>
+      <div class="hero-city-content">
+        <div class="hero-city-name">Salt Lake City</div>
+        <div class="hero-city-hood">Granary &middot; Downtown &middot; Sugarhood &middot; 9line</div>
+        <div class="hero-city-count"><span data-lcf="slc-total">24</span> flats <span class="hero-city-arrow">&rarr;</span></div>
       </div>
-      <div class="hbp-row">
-        <div>
-          <div class="hbp-field-label">Check-in</div>
-          <input type="date" id="hbp-checkin" class="hbp-input">
+    </a>
+    <div class="hero-divider"></div>
+    <a href="detroit/" class="hero-city hc-det">
+      <div class="hero-city-bg"></div>
+      <div class="hero-city-overlay"></div>
+      <span class="city-badge badge-det">Great Lakes</span>
+      <div class="hero-city-content">
+        <div class="hero-city-name">Detroit</div>
+        <div class="hero-city-hood">Brush Park &middot; steps from the LCA<br>&amp; Woodward Ave</div>
+        <div class="hero-city-count"><span data-lcf="det-total">2</span> flats <span class="hero-city-arrow">&rarr;</span></div>
+      </div>
+    </a>
+    <!-- Floating booking card -->
+    <div class="hbp-float">
+      <div class="hbp-inner">
+        <div class="hbp-eyebrow">Book direct &middot; save ~15%</div>
+        <div class="hbp-title">Check availability</div>
+        <div class="hbp-tabs">
+          <button class="hbp-tab hbp-tab-active" data-city="">All</button>
+          <button class="hbp-tab" data-city="slc">&#127956; SLC</button>
+          <button class="hbp-tab" data-city="detroit">&#127963; Detroit</button>
         </div>
-        <div>
-          <div class="hbp-field-label">Check-out</div>
-          <input type="date" id="hbp-checkout" class="hbp-input">
+        <div class="hbp-row">
+          <div>
+            <div class="hbp-field-label">Check-in</div>
+            <input type="date" id="hbp-checkin" class="hbp-input">
+          </div>
+          <div>
+            <div class="hbp-field-label">Check-out</div>
+            <input type="date" id="hbp-checkout" class="hbp-input">
+          </div>
         </div>
-      </div>
-      <div class="hbp-field-single">
-        <div class="hbp-field-label">Guests</div>
-        <select id="hbp-guests" class="hbp-input" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
-          <option value="1">1 guest</option>
-          <option value="2" selected>2 guests</option>
-          <option value="3">3 guests</option>
-          <option value="4">4 guests</option>
-          <option value="5">5 guests</option>
-          <option value="6">6 guests</option>
-          <option value="8">8 guests</option>
-          <option value="10">10 guests</option>
-          <option value="12">12 guests</option>
-        </select>
-      </div>
-      <button id="hbp-btn" class="hbp-btn">Check Availability</button>
-      <div id="hbp-status" class="hbp-status"></div>
-      <div id="hbp-cards" class="hbp-cards"></div>
-      <div class="hbp-city-links">
-        <a href="slc/" class="hbp-city-link">&#127956; Salt Lake City &rarr;</a>
-        <a href="detroit/" class="hbp-city-link">&#127963; Detroit &rarr;</a>
+        <div class="hbp-field-single">
+          <div class="hbp-field-label">Guests</div>
+          <select id="hbp-guests" class="hbp-input" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
+            <option value="1">1 guest</option>
+            <option value="2" selected>2 guests</option>
+            <option value="3">3 guests</option>
+            <option value="4">4 guests</option>
+            <option value="5">5 guests</option>
+            <option value="6">6 guests</option>
+            <option value="8">8 guests</option>
+            <option value="10">10 guests</option>
+            <option value="12">12 guests</option>
+          </select>
+        </div>
+        <button id="hbp-btn" class="hbp-btn">Check Availability</button>
+        <div id="hbp-status" class="hbp-status"></div>
+        <div id="hbp-cards" class="hbp-cards"></div>
       </div>
     </div>
   </div>
