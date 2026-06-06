@@ -745,7 +745,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <a id="bs-iframe-prop-link" href="" style="margin-left:auto;font-size:11px;color:var(--forest-light);text-decoration:none;border-bottom:1px solid currentColor;flex-shrink:0;">View property details &#8594;</a>
     </div>
   </div>
-  <iframe id="bs-iframe" src="" style="width:100%;height:820px;border:none;display:block;" title="Book direct" allow="payment"></iframe>
+  <iframe id="bs-iframe" src="" style="width:100%;height:900px;border:none;display:block;" title="Book direct" allow="payment *; camera; microphone" allowpaymentrequest></iframe>
 </div>
 
 <style>
@@ -852,11 +852,19 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
   }
 
   function hbpOpenIframe(hid, pid) {
+    var ci = document.getElementById('hbp-checkin').value;
+    var co = document.getElementById('hbp-checkout').value;
+    var guests = document.getElementById('hbp-guests').value;
+    var url = WIDGET + hid;
+    if (ci && co) url += '?start_date=' + ci + '&end_date=' + co + '&guests=' + (guests||'2');
     var sec = document.getElementById('bs-iframe-section');
-    document.getElementById('bs-iframe').src = WIDGET + hid;
-    document.getElementById('bs-iframe-prop-link').href = 'property/' + pid + '/';
+    document.getElementById('bs-iframe').src = url;
+    document.getElementById('bs-iframe-prop-link').href = 'property/?id=' + pid;
     sec.style.display = 'block';
-    setTimeout(function(){ sec.scrollIntoView({behavior:'smooth',block:'start'}); }, 60);
+    setTimeout(function(){
+      var top = sec.getBoundingClientRect().top + window.pageYOffset - 68;
+      window.scrollTo({top: top, behavior: 'smooth'});
+    }, 60);
     if (typeof lcfTrack !== 'undefined') lcfTrack('booking_iframe_open', {property_id: pid, source: 'hero_panel'});
   }
 
@@ -1009,11 +1017,20 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
   }
 
   function openIframe(hid, pid) {
+    var ci = document.getElementById('bs-checkin').value;
+    var co = document.getElementById('bs-checkout').value;
+    var guests = document.getElementById('bs-guests').value;
+    var url = WIDGET + hid;
+    if (ci && co) url += '?start_date=' + ci + '&end_date=' + co + '&guests=' + (guests||'2');
     var sec = document.getElementById('bs-iframe-section');
-    document.getElementById('bs-iframe').src = WIDGET + hid;
-    document.getElementById('bs-iframe-prop-link').href = 'property/' + pid + '/';
+    document.getElementById('bs-iframe').src = url;
+    document.getElementById('bs-iframe-prop-link').href = 'property/?id=' + pid;
     sec.style.display = 'block';
-    setTimeout(function(){ sec.scrollIntoView({behavior:'smooth',block:'start'}); }, 60);
+    setTimeout(function(){
+      var top = sec.getBoundingClientRect().top + window.pageYOffset - 68;
+      window.scrollTo({top: top, behavior: 'smooth'});
+    }, 60);
+    if (typeof lcfTrack !== 'undefined') lcfTrack('booking_iframe_open', {property_id: pid, source: 'booking_section'});
   }
 
   document.getElementById('bs-btn').addEventListener('click', function(){
