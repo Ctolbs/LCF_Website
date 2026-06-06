@@ -293,6 +293,9 @@ async function init() {
     "amenityFeature": prop.amenities.map(a => ({"@type":"LocationFeatureSpecification","name":a,"value":true})),
     "numberOfRooms": prop.beds,
     "occupancy": {"@type":"QuantitativeValue","maxValue":prop.sleeps},
+    "checkinTime": "15:00",
+    "checkoutTime": "11:00",
+    "geo": {"@type":"GeoCoordinates","latitude":prop.lat,"longitude":prop.lng},
     "petsAllowed": false,
     "telephone": "+18016571028",
     "email": "contact@lakecityflats.com"
