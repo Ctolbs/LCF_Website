@@ -9,12 +9,12 @@
 <meta property="og:site_name" content="Lake City Flats">
 <meta property="og:title" content="About · Lake City Flats">
 <meta property="og:description" content="In 2011, Clifton became the first Airbnb host in Utah. He slept on a couch at his day job while hosting the first 110 guests. The real story behind Lake City Flats.">
-<meta property="og:image" content="https://lakecityflats.com/og-image.jpg">
+<meta property="og:image" content="https://assets.hospitable.com/property_images/555848/4WfNGJgb8y1tIhCn2LqUQmQtcIXk1SY5ttOeY7qh.jpg">
 <meta property="og:url" content="https://lakecityflats.com/about/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About · Lake City Flats">
 <meta name="twitter:description" content="In 2011, Clifton became the first Airbnb host in Utah. He slept on a couch at his day job while hosting the first 110 guests. The real story behind Lake City Flats.">
-<meta name="twitter:image" content="https://lakecityflats.com/og-image.jpg">
+<meta name="twitter:image" content="https://assets.hospitable.com/property_images/555848/4WfNGJgb8y1tIhCn2LqUQmQtcIXk1SY5ttOeY7qh.jpg">
 <link rel="canonical" href="https://lakecityflats.com/about/">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -107,6 +107,62 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-24FKZQFX23');
+</script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://lakecityflats.com/about/",
+    "url": "https://lakecityflats.com/about/",
+    "name": "About · Lake City Flats",
+    "description": "In 2011, Clifton became the first Airbnb host in Utah. He slept on a couch at his day job while hosting the first 110 guests. The real story behind Lake City Flats.",
+    "inLanguage": "en-US",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://lakecityflats.com/#website",
+      "url": "https://lakecityflats.com/",
+      "name": "Lake City Flats"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://lakecityflats.com/"},
+        {"@type":"ListItem","position":2,"name":"About","item":"https://lakecityflats.com/about/"}
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://lakecityflats.com/#organization",
+    "name": "Lake City Flats",
+    "legalName": "Lake City Flats, Inc.",
+    "url": "https://lakecityflats.com/",
+    "logo": "https://assets.hospitable.com/property_images/555848/4WfNGJgb8y1tIhCn2LqUQmQtcIXk1SY5ttOeY7qh.jpg",
+    "email": "contact@lakecityflats.com",
+    "telephone": "+18016571028",
+    "foundingDate": "2011",
+    "description": "Locally owned short-term rental company operating 26 curated properties in Salt Lake City and Detroit. Book direct and save ~15% vs Airbnb. 4.96 stars across 4,690+ reviews.",
+    "sameAs": ["https://www.instagram.com/lakecityflats"],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.96",
+      "bestRating": "5",
+      "worstRating": "1",
+      "reviewCount": "4690"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://lakecityflats.com/#clifton-tolboe",
+    "name": "Clifton Tolboe",
+    "jobTitle": "Founder",
+    "description": "Salt Lake City native and the first Airbnb host in Utah (2011). Founder of Lake City Flats.",
+    "worksFor": {"@id": "https://lakecityflats.com/#organization"}
+  }
+]
 </script>
 </head>
 <body>
@@ -326,36 +382,6 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
-
-<script>
-/* LCF Analytics */
-(function(){
-  function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
-  window.lcfTrack = lcfTrack;
-
-  /* Nav Book Direct */
-  document.querySelectorAll('.nav-book').forEach(function(el){
-    el.addEventListener('click',function(){
-      lcfTrack('nav_book_click',{page_path:window.location.pathname});
-    });
-  });
-
-  /* Email signup — success state + event */
-  document.querySelectorAll('.email-strip-form').forEach(function(form){
-    form.addEventListener('submit',function(){
-      lcfTrack('email_signup',{page_path:window.location.pathname});
-      var btn=form.querySelector('button[type="submit"]');
-      var inp=form.querySelector('input[type="email"]');
-      setTimeout(function(){
-        if(btn){btn.textContent='You\'re in ✔';btn.style.background='#344741';btn.disabled=true;}
-        if(inp) inp.value='';
-        var sub=form.closest('.email-strip')&&form.closest('.email-strip').querySelector('.email-strip-sub');
-        if(sub){sub.textContent='Thanks! We\'ll keep it occasional and worthwhile.';sub.style.color='rgba(245,243,237,0.7)';}
-      },300);
-    });
-  });
-})();
 </script>
 </body>
 </html>
