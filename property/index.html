@@ -22,6 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/property.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <link href='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css' rel='stylesheet' />
 <script src='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js'></script>
 <style>
@@ -71,6 +72,34 @@
 .bm-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);line-height:1;padding:4px;}
 .bm-frame{flex:1;width:min(300px,100%);border:none;display:block;align-self:center;}
 .pp-sticky-btn{border:none;cursor:pointer;}
+/* Property date picker */
+.pp-date-row{display:grid;grid-template-columns:1fr 1fr 72px;gap:6px;padding:12px 16px 14px;background:var(--parchment);border-bottom:1px solid var(--border);}
+.pp-date-label{display:block;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:4px;}
+.pp-date-input,.pp-date-select{width:100%;background:#fff;border:1px solid var(--border-warm);border-radius:2px;padding:7px 10px;font-size:12.5px;color:var(--forest);font-family:'Jost',sans-serif;cursor:pointer;box-sizing:border-box;}
+.pp-date-input:focus,.pp-date-select:focus{outline:none;border-color:var(--forest-light);}
+/* Flatpickr calendar overrides */
+.flatpickr-calendar{background:#0e1a2b;border:1px solid rgba(255,255,255,0.12);border-radius:6px;box-shadow:0 16px 48px rgba(0,0,0,0.55);font-family:'Jost',sans-serif;}
+.flatpickr-calendar.arrowTop:before,.flatpickr-calendar.arrowTop:after{display:none;}
+.flatpickr-months{padding:12px 12px 4px;background:#0e1a2b;border-radius:6px 6px 0 0;}
+.flatpickr-month{background:transparent;color:#f5f3ed;height:32px;}
+.flatpickr-current-month{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;color:#f5f3ed;padding-top:0;}
+.flatpickr-current-month .flatpickr-monthDropdown-months{background:#0e1a2b;color:#f5f3ed;font-family:'Jost',sans-serif;}
+.flatpickr-current-month input.cur-year{color:#f5f3ed;font-family:'Jost',sans-serif;}
+.flatpickr-prev-month svg,.flatpickr-next-month svg{fill:#f5f3ed;opacity:0.5;}
+.flatpickr-prev-month:hover svg,.flatpickr-next-month:hover svg{fill:#FBBE01;opacity:1;}
+.flatpickr-weekdays{background:transparent;padding:0 12px;}
+span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;}
+.flatpickr-days{padding:4px 12px 12px;border-top:1px solid rgba(255,255,255,0.07);}
+.numInputWrapper:hover{background:transparent;}
+.flatpickr-day{color:rgba(245,243,237,0.75);border-radius:3px;font-family:'Jost',sans-serif;font-size:12.5px;height:36px;line-height:36px;max-width:36px;border:none;}
+.flatpickr-day:hover{background:rgba(255,255,255,0.1);color:#f5f3ed;border:none;}
+.flatpickr-day.selected,.flatpickr-day.startRange,.flatpickr-day.endRange{background:#FBBE01 !important;color:#0F1218 !important;border-color:#FBBE01 !important;font-weight:600;}
+.flatpickr-day.inRange{background:rgba(251,190,1,0.15);border-color:transparent;color:#f5f3ed;border-radius:0;}
+.flatpickr-day.startRange{border-radius:3px 0 0 3px;}
+.flatpickr-day.endRange{border-radius:0 3px 3px 0;}
+.flatpickr-day.flatpickr-disabled,.flatpickr-day.prevMonthDay,.flatpickr-day.nextMonthDay{color:rgba(245,243,237,0.18);opacity:1;}
+.flatpickr-day.today{border-bottom:2px solid rgba(251,190,1,0.5) !important;border-radius:3px 3px 0 0;}
+.flatpickr-day.today.selected{border-bottom-color:#FBBE01 !important;}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-24FKZQFX23"></script>
@@ -139,9 +168,22 @@ function lbNav(dir) { lbIdx = (lbIdx + dir + lbPhotos.length) % lbPhotos.length;
 function closeLB(e) { if (e.target === document.getElementById('lb')) document.getElementById('lb').classList.remove('open'); }
 
 let _bmUrl = '';
+function _ppDatesUrl(base) {
+  const ci = (document.getElementById('pp-checkin') || {}).value;
+  const co = (document.getElementById('pp-checkout') || {}).value;
+  const g  = (document.getElementById('pp-guests')   || {}).value;
+  if (ci && co && base) return base + '?start_date=' + ci + '&end_date=' + co + '&guests=' + (g || '2');
+  return base;
+}
+function ppUpdateWidget() {
+  const url = _ppDatesUrl(_bmUrl);
+  const iframe = document.getElementById('booking-iframe');
+  if (iframe && iframe.src !== url) iframe.src = url;
+}
 function openBM() {
+  const url = _ppDatesUrl(_bmUrl);
   const iframe = document.getElementById('bm-iframe');
-  if (!iframe.src || iframe.src === window.location.href) iframe.src = _bmUrl;
+  if (!iframe.src || iframe.src === window.location.href || iframe.src !== url) iframe.src = url;
   document.getElementById('bm-overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -344,6 +386,11 @@ async function init() {
             <div class="pp-trust-item"><div class="pp-trust-item-icon">🛡</div><div class="pp-trust-item-label">$5M cover</div></div>
           </div>
           ${prop.hospitable_id ? `
+          <div class="pp-date-row">
+            <div><label class="pp-date-label">Check-in</label><input type="text" id="pp-checkin" class="pp-date-input" readonly placeholder="Arrival"></div>
+            <div><label class="pp-date-label">Check-out</label><input type="text" id="pp-checkout" class="pp-date-input" readonly placeholder="Departure"></div>
+            <div><label class="pp-date-label">Guests</label><select id="pp-guests" class="pp-date-select"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+          </div>
           <iframe
             id="booking-iframe"
             sandbox="allow-top-navigation-by-user-activation allow-scripts allow-same-origin allow-forms allow-popups"
@@ -392,6 +439,46 @@ async function init() {
 
   // Live pricing from Hospitable/Beyond calendar
   if (prop.hospitable_id) loadPrice(prop.hospitable_id);
+
+  // Flatpickr date picker + blocked-date loading for property page
+  if (prop.hospitable_id && document.getElementById('pp-checkin')) {
+    const _today = new Date();
+    const _todayStr = _today.toISOString().split('T')[0];
+    const _tmrw = new Date(_today); _tmrw.setDate(_tmrw.getDate()+1);
+    const _tmrwStr = _tmrw.toISOString().split('T')[0];
+    const _calEnd = new Date(_today.getTime() + 90*24*60*60*1000).toISOString().split('T')[0];
+    let _fpOut, _fpIn;
+
+    function _initFP(disabled) {
+      _fpOut = flatpickr('#pp-checkout', {
+        minDate: _tmrwStr, defaultDate: _tmrwStr,
+        dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true,
+        disable: disabled,
+        onClose: function() { ppUpdateWidget(); }
+      });
+      _fpIn = flatpickr('#pp-checkin', {
+        minDate: _todayStr, defaultDate: _todayStr,
+        dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true,
+        disable: disabled,
+        onClose: function(sel) {
+          if (!sel[0]) return;
+          const nxt = new Date(sel[0]); nxt.setDate(nxt.getDate()+1);
+          _fpOut.set('minDate', nxt);
+          if (!_fpOut.selectedDates[0] || _fpOut.selectedDates[0] <= sel[0]) _fpOut.setDate(nxt, true);
+          _fpOut.open();
+        }
+      });
+      ppUpdateWidget();
+    }
+
+    fetch('https://api.hospitable.com/bookings/api/properties/' + prop.hospitable_id + '/calendar?start_date=' + _todayStr + '&end_date=' + _calEnd)
+      .then(r => r.ok ? r.json() : {})
+      .then(cal => {
+        const disabled = Object.entries(cal).filter(([,d]) => !d.available).map(([dt]) => dt);
+        _initFP(disabled);
+      })
+      .catch(() => _initFP([]));
+  }
 
   // Mapbox property map
   mapboxgl.accessToken = 'pk.eyJ1IjoiY3RvbGJzIiwiYSI6ImNtcDV3M3djNzEzNXUycnBzZjd2MHh5NDYifQ' + '.RW9UtPRt-zsZyn8DdAExcw';
@@ -536,5 +623,6 @@ async function loadPrice(hospitable_id) {
   });
 })();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 </html>
