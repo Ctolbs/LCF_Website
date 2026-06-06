@@ -72,7 +72,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <style>
+/* Flatpickr LCF dark theme */
+.flatpickr-calendar{background:#0e1a2b;border:1px solid rgba(255,255,255,0.12);border-radius:6px;box-shadow:0 16px 48px rgba(0,0,0,0.55);font-family:'Jost',sans-serif;width:auto;}
+.flatpickr-calendar.arrowTop:before,.flatpickr-calendar.arrowTop:after{display:none;}
+.flatpickr-months{padding:12px 12px 4px;background:#0e1a2b;border-radius:6px 6px 0 0;}
+.flatpickr-month{background:transparent;color:#f5f3ed;height:32px;}
+.flatpickr-current-month{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;color:#f5f3ed;padding-top:0;}
+.flatpickr-current-month .flatpickr-monthDropdown-months{background:#0e1a2b;color:#f5f3ed;font-family:'Jost',sans-serif;}
+.flatpickr-current-month input.cur-year{color:#f5f3ed;font-family:'Jost',sans-serif;}
+.flatpickr-prev-month svg,.flatpickr-next-month svg{fill:#f5f3ed;opacity:0.5;}
+.flatpickr-prev-month:hover svg,.flatpickr-next-month:hover svg{fill:#FBBE01;opacity:1;}
+.flatpickr-weekdays{background:transparent;padding:0 12px;}
+span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;}
+.flatpickr-days{padding:4px 12px 12px;border-top:1px solid rgba(255,255,255,0.07);}
+.dayContainer{gap:2px;}
+.flatpickr-day{color:rgba(245,243,237,0.75);border-radius:3px;font-family:'Jost',sans-serif;font-size:12.5px;height:36px;line-height:36px;max-width:36px;border:none;}
+.flatpickr-day:hover{background:rgba(255,255,255,0.1);color:#f5f3ed;border:none;}
+.flatpickr-day.selected,.flatpickr-day.startRange,.flatpickr-day.endRange{background:#FBBE01 !important;color:#0F1218 !important;border-color:#FBBE01 !important;font-weight:600;}
+.flatpickr-day.inRange{background:rgba(251,190,1,0.15);border-color:transparent;color:#f5f3ed;border-radius:0;}
+.flatpickr-day.startRange{border-radius:3px 0 0 3px;}
+.flatpickr-day.endRange{border-radius:0 3px 3px 0;}
+.flatpickr-day.flatpickr-disabled,.flatpickr-day.prevMonthDay,.flatpickr-day.nextMonthDay{color:rgba(245,243,237,0.18);opacity:1;}
+.flatpickr-day.today{border-bottom:2px solid rgba(251,190,1,0.5) !important;border-radius:3px 3px 0 0;}
+.flatpickr-day.today.selected{border-bottom-color:#FBBE01 !important;}
+.numInputWrapper span{opacity:0.4;}
+.numInputWrapper span:hover{opacity:1;background:rgba(255,255,255,0.1);}
+</style>
 :root {
   /* Brand palette */
   --navy:#1C2D47; --navy-mid:#253d60;
@@ -508,11 +535,11 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
           <div class="hbp-fields-row">
             <div class="hbp-field-wrap">
               <div class="hbp-field-label">Check-in</div>
-              <input type="date" id="hbp-checkin" class="hbp-input">
+              <input type="text" id="hbp-checkin" class="hbp-input" placeholder="Check-in date" readonly style="cursor:pointer;">
             </div>
             <div class="hbp-field-wrap">
               <div class="hbp-field-label">Check-out</div>
-              <input type="date" id="hbp-checkout" class="hbp-input">
+              <input type="text" id="hbp-checkout" class="hbp-input" placeholder="Check-out date" readonly style="cursor:pointer;">
             </div>
             <div class="hbp-field-wrap hbp-field-guests">
               <div class="hbp-field-label">Guests</div>
@@ -777,24 +804,41 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     });
   });
 
-  (function setHbpDates(){
-    var today = new Date();
-    var tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
-    var fmt = function(d){ return d.toISOString().slice(0,10); };
-    document.getElementById('hbp-checkin').value = fmt(today);
-    document.getElementById('hbp-checkout').value = fmt(tomorrow);
-    document.getElementById('hbp-checkin').min = fmt(today);
-    document.getElementById('hbp-checkout').min = fmt(tomorrow);
-  })();
+  // Flatpickr date pickers
+  var today = new Date();
+  var tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
+  var fmt = function(d){ return d.toISOString().slice(0,10); };
 
-  document.getElementById('hbp-checkin').addEventListener('change', function(){
-    var co = document.getElementById('hbp-checkout');
-    if (co.value && co.value <= this.value) {
-      var d = new Date(this.value + 'T00:00:00');
-      d.setDate(d.getDate()+1);
-      co.value = d.toISOString().slice(0,10);
+  var fpOut = flatpickr('#hbp-checkout', {
+    minDate: tomorrow,
+    defaultDate: tomorrow,
+    dateFormat: 'Y-m-d',
+    altInput: true,
+    altFormat: 'M j, Y',
+    disableMobile: true,
+    theme: 'lcf'
+  });
+
+  var fpIn = flatpickr('#hbp-checkin', {
+    minDate: 'today',
+    defaultDate: today,
+    dateFormat: 'Y-m-d',
+    altInput: true,
+    altFormat: 'M j, Y',
+    disableMobile: true,
+    onClose: function(selectedDates) {
+      if (!selectedDates[0]) return;
+      var nextDay = new Date(selectedDates[0]);
+      nextDay.setDate(nextDay.getDate() + 1);
+      fpOut.set('minDate', nextDay);
+      // If checkout is now before checkin, reset it
+      var coVal = document.getElementById('hbp-checkout')._flatpickr
+        ? fpOut.selectedDates[0] : null;
+      if (!coVal || coVal <= selectedDates[0]) {
+        fpOut.setDate(nextDay, true);
+      }
+      fpOut.open();
     }
-    co.min = this.value;
   });
 
   function hbpGetNights(ci, co) {
@@ -1347,6 +1391,7 @@ async function loadProperties() {
 
 loadProperties();
 </script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 </html>
 
