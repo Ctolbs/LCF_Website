@@ -23,8 +23,6 @@
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/property.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<link href='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css' rel='stylesheet' />
-<script src='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js'></script>
 <style>
 .lb{display:none;position:fixed;inset:0;z-index:9000;background:rgba(10,16,12,.94);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column;gap:16px;}
 .lb.open{display:flex;}
@@ -58,7 +56,16 @@
 .pp-sim-name{font-size:13.5px;font-weight:500;color:var(--forest);line-height:1.3;}
 .pp-sim-meta{font-size:11px;color:var(--muted);margin-top:4px;}
 .pp-sim-rating{font-size:11.5px;color:var(--gold);margin-top:6px;font-weight:500;}
-.pp-loading{display:flex;align-items:center;justify-content:center;height:60vh;font-size:14px;color:var(--muted);}
+.pp-sim-price{font-size:11px;color:var(--muted);margin-top:3px;min-height:14px;}
+.pp-loading{display:none;}
+@keyframes pp-shimmer{0%{background-position:-800px 0}100%{background-position:800px 0}}
+.skel-b{background:linear-gradient(90deg,#ece8e0 25%,#f5f1ea 50%,#ece8e0 75%);background-size:1600px 100%;animation:pp-shimmer 1.5s infinite;border-radius:2px;}
+.pp-skeleton{padding:0;}
+.pp-skel-gallery{display:grid;grid-template-columns:3fr 1fr;gap:3px;height:440px;}
+.pp-skel-subs{display:grid;grid-template-rows:repeat(4,1fr);gap:3px;}
+.pp-skel-body{display:grid;grid-template-columns:1fr 380px;gap:48px;padding:40px 48px;max-width:1280px;margin:0 auto;}
+.pp-skel-right{height:460px;border-radius:3px;}
+@media(max-width:960px){.pp-skel-gallery{grid-template-columns:1fr;height:260px;}.pp-skel-subs{display:none;}.pp-skel-body{grid-template-columns:1fr;gap:20px;padding:24px 20px;}.pp-skel-right{height:180px;}}
 .pp-price-line{display:none;align-items:baseline;gap:5px;margin:-4px 0 22px;}
 .pp-price-amt{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:400;color:var(--forest);line-height:1;}
 .pp-price-unit{font-size:13px;color:var(--muted);font-weight:300;}
@@ -132,7 +139,26 @@ span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing
   </div>
 </nav>
 
-<div id="pp-root"><div class="pp-loading">Loading property…</div></div>
+<div id="pp-root"><div class="pp-skeleton">
+    <div class="pp-skel-gallery">
+      <div class="skel-b" style="height:100%;"></div>
+      <div class="pp-skel-subs">
+        <div class="skel-b"></div><div class="skel-b"></div>
+        <div class="skel-b"></div><div class="skel-b"></div>
+      </div>
+    </div>
+    <div class="pp-skel-body">
+      <div>
+        <div class="skel-b" style="height:11px;width:38%;margin-bottom:14px;"></div>
+        <div class="skel-b" style="height:32px;width:72%;margin-bottom:12px;"></div>
+        <div class="skel-b" style="height:11px;width:44%;margin-bottom:28px;"></div>
+        <div class="skel-b" style="height:11px;width:96%;margin-bottom:9px;"></div>
+        <div class="skel-b" style="height:11px;width:89%;margin-bottom:9px;"></div>
+        <div class="skel-b" style="height:11px;width:78%;"></div>
+      </div>
+      <div class="pp-skel-right skel-b"></div>
+    </div>
+  </div></div>
 
 <div class="bm-overlay" id="bm-overlay" onclick="closeBM(event)">
   <div class="bm-sheet">
@@ -328,6 +354,7 @@ async function init() {
         <div class="pp-sim-name">${s.name}</div>
         <div class="pp-sim-meta">${s.meta}</div>
         <div class="pp-sim-rating">★ ${s.rating}</div>
+        <div class="pp-sim-price" id="sim-price-${s.id}"></div>
       </div>
     </a>`).join('');
 
@@ -439,6 +466,22 @@ async function init() {
 
   // Live pricing from Hospitable/Beyond calendar
   if (prop.hospitable_id) loadPrice(prop.hospitable_id);
+  // Load prices for similar property cards
+  if (similar.length) {
+    const _today = new Date().toISOString().split('T')[0];
+    const _end30 = new Date(Date.now()+30*864e5).toISOString().split('T')[0];
+    similar.forEach(s => {
+      if (!s.hospitable_id) return;
+      fetch('https://api.hospitable.com/bookings/api/properties/'+s.hospitable_id+'/calendar?start_date='+_today+'&end_date='+_end30)
+        .then(r=>r.ok?r.json():{}).then(cal=>{
+          const prices=Object.values(cal).filter(d=>d.available&&d.price>0).map(d=>d.price);
+          if (!prices.length) return;
+          const el=document.getElementById('sim-price-'+s.id);
+          if (el) el.textContent='From $'+Math.round(Math.min(...prices))+'/night';
+        }).catch(()=>{});
+    });
+  }
+
 
   // Flatpickr date picker + blocked-date loading for property page
   if (prop.hospitable_id && document.getElementById('pp-checkin')) {
@@ -480,36 +523,37 @@ async function init() {
       .catch(() => _initFP([]));
   }
 
-  // Mapbox property map
-  mapboxgl.accessToken = 'pk.eyJ1IjoiY3RvbGJzIiwiYSI6ImNtcDV3M3djNzEzNXUycnBzZjd2MHh5NDYifQ' + '.RW9UtPRt-zsZyn8DdAExcw';
-  const ppMap = new mapboxgl.Map({
-    container: 'pp-map',
-    style: 'mapbox://styles/mapbox/light-v11',
-    center: [mapLng, mapLat],
-    zoom: 15.5,
-    attributionControl: false,
-    logoPosition: 'bottom-left'
-  });
-  // Fix: resize after layout so container dimensions are correct
-  requestAnimationFrame(() => ppMap.resize());
-  ppMap.addControl(new mapboxgl.NavigationControl({showCompass:false}), 'top-right');
-  ppMap.addControl(new mapboxgl.AttributionControl({compact:true}), 'bottom-right');
-  ppMap.on('load', () => {
-    ppMap.resize();
-    // Brand colors
-    const style = ppMap.getStyle();
-    style.layers.forEach(layer => {
-      if (layer.type === 'background') ppMap.setPaintProperty(layer.id, 'background-color', '#F5F1EA');
-      if (layer.type === 'fill' && /water/.test(layer.id)) ppMap.setPaintProperty(layer.id, 'fill-color', '#C4D9D0');
-      if (layer.type === 'line' && /water/.test(layer.id)) ppMap.setPaintProperty(layer.id, 'line-color', '#A8C8BF');
-      if (layer.type === 'fill' && /park|landuse|pitch|recreation/.test(layer.id)) ppMap.setPaintProperty(layer.id, 'fill-color', '#D8EBE4');
-    });
-  });
-  // LCF branded pin
-  const markerEl = document.createElement('div');
-  markerEl.style.cssText = 'cursor:default;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.25));width:44px;height:56px;';
-  markerEl.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="56" viewBox="0 0 44 56"><path d="M22 0C9.85 0 0 9.85 0 22c0 15.4 22 34 22 34s22-18.6 22-34C44 9.85 34.15 0 22 0z" fill="#2D4A3E"/><circle cx="22" cy="21" r="13" fill="#F5F1EA"/><text x="22" y="25.5" text-anchor="middle" font-family="Jost,Helvetica,sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#2D4A3E">LCF</text></svg>';
-  new mapboxgl.Marker({element:markerEl, anchor:'bottom'}).setLngLat([mapLng, mapLat]).addTo(ppMap);
+  // Lazy-load Mapbox only when map section scrolls into view
+  (function() {
+    const _lat = mapLat, _lng = mapLng;
+    function _initMap() {
+      mapboxgl.accessToken = 'pk.eyJ1IjoiY3RvbGJzIiwiYSI6ImNtcDV3M3djNzEzNXUycnBzZjd2MHh5NDYifQ' + '.RW9UtPRt-zsZyn8DdAExcw';
+      const ppMap = new mapboxgl.Map({container:'pp-map',style:'mapbox://styles/mapbox/light-v11',center:[_lng,_lat],zoom:15.5,attributionControl:false,logoPosition:'bottom-left'});
+      requestAnimationFrame(() => ppMap.resize());
+      ppMap.addControl(new mapboxgl.NavigationControl({showCompass:false}),'top-right');
+      ppMap.addControl(new mapboxgl.AttributionControl({compact:true}),'bottom-right');
+      ppMap.on('load',() => {
+        ppMap.resize();
+        ppMap.getStyle().layers.forEach(layer => {
+          if (layer.type==='background') ppMap.setPaintProperty(layer.id,'background-color','#F5F1EA');
+          if (layer.type==='fill' && /water/.test(layer.id)) ppMap.setPaintProperty(layer.id,'fill-color','#C4D9D0');
+          if (layer.type==='line' && /water/.test(layer.id)) ppMap.setPaintProperty(layer.id,'line-color','#A8C8BF');
+          if (layer.type==='fill' && /park|landuse|pitch|recreation/.test(layer.id)) ppMap.setPaintProperty(layer.id,'fill-color','#D8EBE4');
+        });
+      });
+      const pin = document.createElement('div');
+      pin.style.cssText = 'cursor:default;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.25));width:44px;height:56px;';
+      pin.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="44" height="56" viewBox="0 0 44 56"><path d="M22 0C9.85 0 0 9.85 0 22c0 15.4 22 34 22 34s22-18.6 22-34C44 9.85 34.15 0 22 0z" fill="#2D4A3E"/><circle cx="22" cy="21" r="13" fill="#F5F1EA"/><text x="22" y="25.5" text-anchor="middle" font-family="Jost,Helvetica,sans-serif" font-size="9" font-weight="700" letter-spacing="1" fill="#2D4A3E">LCF</text></svg>';
+      new mapboxgl.Marker({element:pin,anchor:'bottom'}).setLngLat([_lng,_lat]).addTo(ppMap);
+    }
+    function _loadMapbox() {
+      if (window.mapboxgl) { _initMap(); return; }
+      const lnk = document.createElement('link'); lnk.rel='stylesheet'; lnk.href='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css'; document.head.appendChild(lnk);
+      const scr = document.createElement('script'); scr.src='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js'; scr.onload=_initMap; document.head.appendChild(scr);
+    }
+    const _mapEl = document.getElementById('pp-map');
+    if (_mapEl) new IntersectionObserver(function(e,o){if(!e[0].isIntersecting)return;o.disconnect();_loadMapbox();},{rootMargin:'300px'}).observe(_mapEl);
+  })();
 }
 
 init();
