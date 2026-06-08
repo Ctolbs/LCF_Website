@@ -396,6 +396,21 @@ const obs = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+<div id="iab-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1C2D47;border-top:3px solid #FBBE01;padding:13px 20px;box-shadow:0 -4px 20px rgba(0,0,0,0.45);">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:560px;margin:0 auto;">
+    <div>
+      <div style="font-size:12.5px;font-weight:600;color:#F5F3ED;letter-spacing:.01em;">Payment won't complete here</div>
+      <div style="font-size:11.5px;color:rgba(245,243,237,0.62);margin-top:3px;">Tap <strong style="color:#FBBE01;">···</strong> top-right → <strong style="color:#FBBE01;">Open in Safari</strong> to book</div>
+    </div>
+    <button onclick="document.getElementById('iab-bar').remove()" aria-label="Dismiss" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:rgba(245,243,237,0.55);font-size:15px;width:30px;height:30px;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">✕</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(/Instagram|FBAN|FBAV|FB_IAB|FB4A/.test(navigator.userAgent||'')||/\.html.*fbclid/.test(location.search))
+    document.getElementById('iab-bar').style.display='block';
+})();
+</script>
 </body>
 </html>
 
