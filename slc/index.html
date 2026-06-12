@@ -43,6 +43,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="preload" as="image" href="https://assets.hospitable.com/property_images/555848/4WfNGJgb8y1tIhCn2LqUQmQtcIXk1SY5ttOeY7qh.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://assets.hospitable.com" crossorigin>
 <link rel="preconnect" href="https://booking.hospitable.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -302,7 +303,7 @@
       <div id="slc-no-avail" style="display:none;text-align:center;padding:48px 24px;background:rgba(255,255,255,0.04);border-radius:3px;border:1px solid rgba(255,255,255,0.1);">
         <div style="font-size:32px;margin-bottom:16px;">&#128532;</div>
         <p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No SLC flats available for those dates</p>
-        <p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we'll help.</p>
+        <p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we'll help.</p>
       </div>
     </div>
   </div>
@@ -479,12 +480,12 @@
         document.getElementById('slc-result-dates').textContent = '';
         noAvail.innerHTML = '<div style="font-size:24px;margin-bottom:16px;">&#9888;&#65039;</div>' +
           '<p style="font-size:15px;font-weight:400;color:var(--cream);margin-bottom:8px;">Couldn\'t reach availability data</p>' +
-          '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Please try again, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> to check directly.</p>';
+          '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Please try again, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> to check directly.</p>';
         noAvail.style.display = 'block';
       } else if (available.length === 0) {
         noAvail.innerHTML = '<div style="font-size:32px;margin-bottom:16px;">&#128532;</div>' +
           '<p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No flats available for those dates</p>' +
-          '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we\'ll help.</p>';
+          '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we\'ll help.</p>';
         noAvail.style.display = 'block';
         document.getElementById('slc-result-count').textContent = '';
         document.getElementById('slc-result-dates').textContent = '';

@@ -779,6 +779,8 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <button id="bs-btn" style="padding:11px 28px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;">Check Availability</button>
     </div>
 
+    <p style="font-size:10.5px;color:rgba(245,243,237,0.3);margin-top:10px;text-align:center;font-weight:300;">By completing a booking you agree to our <a href="/terms/" style="color:rgba(245,243,237,0.45);text-decoration:underline;">Terms &amp; Conditions</a>.</p>
+
     <!-- Status / loading -->
     <div id="bs-status" style="display:none;text-align:center;padding:48px 0;color:rgba(245,243,237,0.6);font-size:13px;font-weight:300;"></div>
 
@@ -792,7 +794,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <div id="bs-no-avail" style="display:none;text-align:center;padding:48px 24px;background:rgba(255,255,255,0.04);border-radius:3px;border:1px solid rgba(255,255,255,0.1);">
         <div style="font-size:32px;margin-bottom:16px;">&#128532;</div>
         <p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No flats available for those dates</p>
-        <p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we'll help.</p>
+        <p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we'll help.</p>
       </div>
     </div>
   </div>
@@ -982,7 +984,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       cardsEl.innerHTML = '';
 
       if (available.length === 0) {
-        cardsEl.innerHTML = '<div class="hbp-no-avail">😔 No flats available for those dates.<br><span style="font-size:11px;">Try adjusting your dates or </span><a href="mailto:stay@lakecityflats.com" style="color:var(--gold);font-size:11px;text-decoration:none;">contact us</a><span style="font-size:11px;">.</span></div>';
+        cardsEl.innerHTML = '<div class="hbp-no-avail">😔 No flats available for those dates.<br><span style="font-size:11px;">Try adjusting your dates or </span><a href="mailto:contact@lakecityflats.com" style="color:var(--gold);font-size:11px;text-decoration:none;">contact us</a><span style="font-size:11px;">.</span></div>';
         if (typeof lcfTrack !== 'undefined') lcfTrack('no_availability', {checkin:ci, checkout:co, guests:guests, source:'hero_panel'});
       } else {
         available.sort(function(a,b){ return a.a.avgNightly - b.a.avgNightly; });
@@ -1156,14 +1158,14 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
         document.getElementById('bs-result-dates').textContent = '';
         noAvail.innerHTML = '<div style="font-size:24px;margin-bottom:16px;">&#9888;&#65039;</div>' +
           '<p style="font-size:15px;font-weight:400;color:var(--cream);margin-bottom:8px;">Couldn\'t reach availability data</p>' +
-          '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Please try again in a moment, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> to check directly.</p>';
+          '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Please try again in a moment, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> to check directly.</p>';
         noAvail.style.display = 'block';
       } else if (available.length === 0) {
         document.getElementById('bs-result-count').textContent = '';
         document.getElementById('bs-result-dates').textContent = '';
         noAvail.innerHTML = '<div style="font-size:32px;margin-bottom:16px;">&#128532;</div>' +
           '<p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No flats available for those dates</p>' +
-          '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:stay@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we\'ll help.</p>';
+          '<p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we\'ll help.</p>';
         noAvail.style.display = 'block';
       } else {
         available.sort(function(a,b){ return a.a.avgNightly - b.a.avgNightly; });
