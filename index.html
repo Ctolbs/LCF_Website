@@ -755,11 +755,11 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:3px;padding:20px 24px;display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;">
       <div style="flex:1;min-width:130px;">
         <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Check-in</label>
-        <input type="date" id="bs-checkin" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;box-sizing:border-box;color-scheme:dark;">
+        <input type="text" id="bs-checkin" class="hbp-input" placeholder="Arrival" readonly style="cursor:pointer;font-size:13px;padding:10px 12px;">
       </div>
       <div style="flex:1;min-width:130px;">
         <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Check-out</label>
-        <input type="date" id="bs-checkout" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;box-sizing:border-box;color-scheme:dark;">
+        <input type="text" id="bs-checkout" class="hbp-input" placeholder="Departure" readonly style="cursor:pointer;font-size:13px;padding:10px 12px;">
       </div>
       <div style="min-width:100px;">
         <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Guests</label>
@@ -1016,25 +1016,28 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     });
   });
 
-  (function setDefaultDates(){
+  (function initBSPickers(){
     var today = new Date();
     var tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
     var fmt = function(d){ return d.toISOString().slice(0,10); };
-    document.getElementById('bs-checkin').value = fmt(today);
-    document.getElementById('bs-checkout').value = fmt(tomorrow);
-    document.getElementById('bs-checkin').min = fmt(today);
-    document.getElementById('bs-checkout').min = fmt(tomorrow);
+    var bsFpOut = flatpickr('#bs-checkout', {
+      minDate: fmt(tomorrow), defaultDate: fmt(tomorrow),
+      dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y',
+      disableMobile: false
+    });
+    flatpickr('#bs-checkin', {
+      minDate: fmt(today), defaultDate: fmt(today),
+      dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y',
+      disableMobile: false,
+      onClose: function(sel) {
+        if (!sel[0]) return;
+        var nxt = new Date(sel[0]); nxt.setDate(nxt.getDate()+1);
+        bsFpOut.set('minDate', nxt);
+        if (!bsFpOut.selectedDates[0] || bsFpOut.selectedDates[0] <= sel[0]) bsFpOut.setDate(nxt, true);
+        bsFpOut.open();
+      }
+    });
   })();
-
-  document.getElementById('bs-checkin').addEventListener('change', function(){
-    var co = document.getElementById('bs-checkout');
-    if (co.value && co.value <= this.value) {
-      var d = new Date(this.value + 'T00:00:00');
-      d.setDate(d.getDate()+1);
-      co.value = d.toISOString().slice(0,10);
-    }
-    co.min = this.value;
-  });
 
   function getNights(ci, co) {
     var nights = [];
