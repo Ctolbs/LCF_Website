@@ -39,6 +39,20 @@
     <priority>0.3</priority>
   </url>
 
+  <!-- Landing pages -->
+  <url>
+    <loc>https://lakecityflats.com/bookdirect/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lakecityflats.com/slc/downtown/</loc>
+    <lastmod>2026-06-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
   <!-- Salt Lake City properties -->
   <url>
     <loc>https://lakecityflats.com/property/granary-penthouse/</loc>

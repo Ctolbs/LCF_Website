@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book Direct & Save · Lake City Flats</title>
+<meta name="description" content="Book Lake City Flats directly and skip the Airbnb service fee. Save ~15% on 26 curated short-term rentals in Salt Lake City and Detroit. Secure via Stripe, instant confirmation.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lake City Flats">
+<meta property="og:title" content="Book Direct & Save · Lake City Flats">
+<meta property="og:description" content="Skip the Airbnb fee. Book directly with Lake City Flats and save ~15% on every stay. 26 curated rentals in SLC and Detroit.">
+<meta property="og:image" content="https://lakecityflats.com/og-image.jpg">
+<meta property="og:url" content="https://lakecityflats.com/bookdirect/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Book Direct & Save · Lake City Flats">
+<meta name="twitter:description" content="Skip the Airbnb fee. Book directly with Lake City Flats and save ~15% on every stay.">
+<meta name="twitter:image" content="https://lakecityflats.com/og-image.jpg">
+<link rel="canonical" href="https://lakecityflats.com/bookdirect/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Book Direct & Save — Lake City Flats",
+  "url": "https://lakecityflats.com/bookdirect/",
+  "description": "Book Lake City Flats short-term rentals directly and save ~15% vs. Airbnb. 26 properties in Salt Lake City and Detroit.",
+  "isPartOf": {"@id": "https://lakecityflats.com/#website"}
+}
+</script>
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://assets.hospitable.com" crossorigin>
+<link rel="preconnect" href="https://booking.hospitable.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<link rel="stylesheet" href="../css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-24FKZQFX23"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-24FKZQFX23');
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2052764251979823');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2052764251979823&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel -->
+<style>
+/* Hero */
+.bd-hero{background:var(--forest);padding:120px 56px 80px;text-align:center;border-bottom:1px solid rgba(255,255,255,0.08);}
+.bd-eyebrow{font-size:9.5px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:500;}
+.bd-h1{font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:300;color:var(--cream);line-height:1.05;margin-bottom:18px;}
+.bd-sub{font-size:16px;color:rgba(245,243,237,0.62);font-weight:300;line-height:1.7;max-width:520px;margin:0 auto 48px;}
+.bd-saving-strip{display:inline-flex;align-items:center;gap:24px;background:rgba(251,190,1,0.12);border:1px solid rgba(251,190,1,0.3);border-radius:3px;padding:14px 28px;margin-bottom:48px;}
+.bd-saving-item{font-size:11.5px;color:rgba(245,243,237,0.75);letter-spacing:.02em;}
+.bd-saving-item strong{color:var(--gold);font-weight:600;}
+/* Search bar */
+.bd-search{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:3px;padding:20px 24px;display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;max-width:900px;margin:0 auto;}
+.bd-search-label{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.45);font-weight:600;margin-bottom:7px;}
+.bd-search-input{width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;box-sizing:border-box;}
+.bd-search-input::placeholder{color:rgba(245,243,237,0.35);}
+.bd-search-select{width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;appearance:none;cursor:pointer;}
+.bd-btn{padding:11px 32px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s;white-space:nowrap;flex-shrink:0;}
+.bd-btn:hover{background:#e8ae00;}
+/* Results */
+.bd-results-wrap{max-width:1100px;margin:0 auto;padding:0 56px;}
+.bd-card{background:var(--cream);border-radius:3px;overflow:hidden;transition:transform .2s,box-shadow .2s;}
+.bd-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.2);}
+.bd-book-btn{display:block;width:100%;padding:11px 0;background:var(--forest);color:var(--cream);border:none;font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:600;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s;text-align:center;}
+.bd-book-btn:hover{background:var(--forest-mid);}
+/* Why section */
+.bd-why{background:var(--parchment);padding:80px 56px;border-top:1px solid var(--border);}
+.bd-why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:48px auto 0;}
+.bd-why-card{background:var(--warm-white);border:1px solid var(--border);border-radius:3px;padding:24px;}
+.bd-why-icon{font-size:24px;margin-bottom:12px;}
+.bd-why-title{font-size:13px;font-weight:600;color:var(--forest);margin-bottom:8px;}
+.bd-why-body{font-size:12px;color:var(--muted);line-height:1.65;}
+/* How it works */
+.bd-how{background:var(--forest);padding:80px 56px;border-top:1px solid rgba(255,255,255,0.07);}
+.bd-how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:900px;margin:48px auto 0;}
+.bd-step-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(251,190,1,0.35);line-height:1;margin-bottom:12px;}
+.bd-step-title{font-size:13.5px;font-weight:500;color:var(--cream);margin-bottom:8px;}
+.bd-step-body{font-size:12px;color:rgba(245,243,237,0.5);line-height:1.7;font-weight:300;}
+/* Promo */
+.bd-promo{background:rgba(251,190,1,0.08);border:1px solid rgba(251,190,1,0.25);border-radius:3px;padding:24px 32px;max-width:620px;margin:48px auto 0;text-align:center;}
+.bd-promo-title{font-size:13px;font-weight:500;color:var(--cream);margin-bottom:6px;}
+.bd-promo-body{font-size:12px;color:rgba(245,243,237,0.5);font-weight:300;line-height:1.65;}
+/* iframe section */
+.bd-iframe-section{background:var(--warm-white);border-top:3px solid var(--gold);}
+.bd-iframe-header{max-width:900px;margin:0 auto;padding:0 56px;}
+/* Responsive */
+@media(max-width:900px){
+  .bd-hero{padding:100px 32px 64px;}
+  .bd-h1{font-size:52px;}
+  .bd-search{padding:16px;}
+  .bd-saving-strip{flex-direction:column;gap:10px;}
+  .bd-why{padding:56px 32px;}
+  .bd-why-grid{grid-template-columns:1fr 1fr;}
+  .bd-how{padding:56px 32px;}
+  .bd-how-steps{grid-template-columns:1fr;}
+  .bd-results-wrap{padding:0 32px;}
+}
+@media(max-width:600px){
+  .bd-hero{padding:80px 20px 56px;}
+  .bd-h1{font-size:40px;}
+  .bd-sub{font-size:14px;}
+  .bd-search{padding:14px;}
+  .bd-why{padding:48px 20px;}
+  .bd-why-grid{grid-template-columns:1fr;}
+  .bd-how{padding:48px 20px;}
+  .bd-results-wrap{padding:0 20px;}
+}
+@media(max-width:700px){#bd-cards{grid-template-columns:1fr !important;}}
+@media(min-width:701px) and (max-width:900px){#bd-cards{grid-template-columns:repeat(2,1fr) !important;}}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="34" height="34" aria-hidden="true" style="flex-shrink:0;">
+      <circle cx="50" cy="50" r="50" fill="#FBBE01"/>
+      <text x="50" y="62" text-anchor="middle" font-family="Jost,system-ui,sans-serif" font-size="30" font-weight="500" letter-spacing="3" fill="#0F1218">LCF</text>
+    </svg>
+    <span class="nav-logo-text">
+      <span class="nav-logo-main">Lake City <span>Flats</span></span>
+      <span class="nav-logo-sub">Salt Lake City · Detroit</span>
+    </span>
+  </a>
+  <div class="nav-links">
+    <a href="../slc/" class="nav-pill nav-slc">Salt Lake City</a>
+    <a href="../detroit/" class="nav-pill nav-det">Detroit</a>
+    <a href="../reviews/">Reviews</a>
+    <a href="../about/">About</a>
+    <a href="#search" class="nav-book">Book Direct</a>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="nav-drawer" aria-hidden="true">
+  <a href="../slc/" class="nav-drawer-link">Salt Lake City</a>
+  <a href="../detroit/" class="nav-drawer-link">Detroit</a>
+  <a href="../reviews/" class="nav-drawer-link">Reviews</a>
+  <a href="../about/" class="nav-drawer-link">About</a>
+  <a href="#search" class="nav-drawer-link nav-drawer-book">Book Direct</a>
+</div>
+
+<section class="bd-hero" id="search">
+  <div class="bd-eyebrow">Direct booking · No Airbnb fees</div>
+  <h1 class="bd-h1">Skip the fee.<br>Book direct.</h1>
+  <p class="bd-sub">When you book with us directly instead of Airbnb, you skip the platform service fee — typically 12–15% of your total. Same properties, same team, lower price.</p>
+
+  <div class="bd-saving-strip">
+    <span class="bd-saving-item">✓ Save <strong>~15%</strong> vs. Airbnb</span>
+    <span class="bd-saving-item" style="color:rgba(245,243,237,0.25);">|</span>
+    <span class="bd-saving-item">✓ Secure via <strong>Stripe</strong></span>
+    <span class="bd-saving-item" style="color:rgba(245,243,237,0.25);">|</span>
+    <span class="bd-saving-item">✓ <strong>Instant</strong> confirmation</span>
+  </div>
+
+  <div class="bd-search">
+    <div style="min-width:130px;">
+      <label class="bd-search-label">City</label>
+      <select id="bd-city" class="bd-search-select">
+        <option value="all">All cities</option>
+        <option value="slc">Salt Lake City</option>
+        <option value="detroit">Detroit</option>
+      </select>
+    </div>
+    <div style="flex:1;min-width:130px;">
+      <label class="bd-search-label">Check-in</label>
+      <input type="text" id="bd-checkin" class="bd-search-input" placeholder="Arrival" readonly style="cursor:pointer;">
+    </div>
+    <div style="flex:1;min-width:130px;">
+      <label class="bd-search-label">Check-out</label>
+      <input type="text" id="bd-checkout" class="bd-search-input" placeholder="Departure" readonly style="cursor:pointer;">
+    </div>
+    <div style="min-width:100px;">
+      <label class="bd-search-label">Guests</label>
+      <select id="bd-guests" class="bd-search-select">
+        <option value="1">1 guest</option>
+        <option value="2" selected>2 guests</option>
+        <option value="3">3 guests</option>
+        <option value="4">4 guests</option>
+        <option value="5">5 guests</option>
+        <option value="6">6 guests</option>
+        <option value="7">7 guests</option>
+        <option value="8">8+ guests</option>
+      </select>
+    </div>
+    <button id="bd-btn" class="bd-btn">Check Availability</button>
+  </div>
+
+  <p style="font-size:11px;color:rgba(245,243,237,0.28);margin-top:16px;text-align:center;font-weight:300;">Have a promo code? Enter it at checkout — it applies automatically.</p>
+
+  <div id="bd-status" style="display:none;text-align:center;padding:36px 0;color:rgba(245,243,237,0.55);font-size:13px;font-weight:300;"></div>
+
+  <div id="bd-results" style="display:none;margin-top:40px;">
+    <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:22px;max-width:900px;margin-left:auto;margin-right:auto;">
+      <span id="bd-result-count" style="font-size:14px;font-weight:500;color:var(--cream);"></span>
+      <span id="bd-result-dates" style="font-size:12px;color:rgba(245,243,237,0.45);font-weight:300;"></span>
+    </div>
+    <div id="bd-cards" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto;"></div>
+    <div id="bd-no-avail" style="display:none;text-align:center;padding:48px 24px;background:rgba(255,255,255,0.04);border-radius:3px;border:1px solid rgba(255,255,255,0.1);max-width:900px;margin:0 auto;">
+      <div style="font-size:32px;margin-bottom:16px;">😔</div>
+      <p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No flats available for those dates</p>
+      <p style="font-size:13px;color:rgba(245,243,237,0.45);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we'll help find something.</p>
+    </div>
+  </div>
+</section>
+
+<div id="bd-iframe-section" class="bd-iframe-section" style="display:none;">
+  <div class="bd-iframe-header">
+    <div style="display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--border);">
+      <span style="font-size:12px;font-weight:500;color:var(--forest);">🤝 Direct booking · Secure via Stripe · $5M liability protection · Save ~15% vs. Airbnb</span>
+      <a id="bd-iframe-prop-link" href="" style="margin-left:auto;font-size:11px;color:var(--forest-light);text-decoration:none;border-bottom:1px solid currentColor;flex-shrink:0;">View property details →</a>
+    </div>
+  </div>
+  <iframe id="bd-iframe" src="" style="width:100%;height:820px;border:none;display:block;" title="Book direct" allow="payment *; camera; microphone" allowpaymentrequest></iframe>
+</div>
+
+<section class="bd-why">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div style="text-align:center;">
+      <div style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;font-weight:500;">Why direct?</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:400;color:var(--forest);line-height:1.1;">Four reasons to skip the middleman.</h2>
+    </div>
+    <div class="bd-why-grid">
+      <div class="bd-why-card">
+        <div class="bd-why-icon">💰</div>
+        <div class="bd-why-title">Save ~15% every time</div>
+        <div class="bd-why-body">Airbnb charges guests a 12–15% service fee on top of the nightly rate. Book direct and that money stays in your pocket — on a $1,000 stay, that's $120–150 back.</div>
+      </div>
+      <div class="bd-why-card">
+        <div class="bd-why-icon">📞</div>
+        <div class="bd-why-title">Talk to the owners</div>
+        <div class="bd-why-body">You're booking directly with Clifton and the LCF team — not a support queue. If anything comes up before or during your stay, you reach us directly.</div>
+      </div>
+      <div class="bd-why-card">
+        <div class="bd-why-icon">🎟</div>
+        <div class="bd-why-title">Promo codes work here</div>
+        <div class="bd-why-body">Discount codes — including friends & family rates — only apply to direct bookings. Enter your code at checkout and it applies automatically.</div>
+      </div>
+      <div class="bd-why-card">
+        <div class="bd-why-icon">🔒</div>
+        <div class="bd-why-title">Just as secure</div>
+        <div class="bd-why-body">Direct bookings process through Stripe — the same payment infrastructure used by millions of businesses worldwide. Your card details are never stored on our servers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bd-how">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <div style="font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-bottom:14px;font-weight:500;">How it works</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--cream);line-height:1.1;">Three steps to booking direct.</h2>
+    <div class="bd-how-steps">
+      <div>
+        <div class="bd-step-num">01</div>
+        <div class="bd-step-title">Enter your dates</div>
+        <div class="bd-step-body">Use the search above to pick your dates and guest count. We'll check real-time availability across all 26 properties.</div>
+      </div>
+      <div>
+        <div class="bd-step-num">02</div>
+        <div class="bd-step-title">Pick your flat</div>
+        <div class="bd-step-body">Browse properties that are open for your dates with live pricing. No hidden fees — the price you see is what you pay us.</div>
+      </div>
+      <div>
+        <div class="bd-step-num">03</div>
+        <div class="bd-step-title">Secure checkout</div>
+        <div class="bd-step-body">Complete your booking via Stripe. You'll get an instant confirmation email with check-in instructions — no waiting, no back-and-forth.</div>
+      </div>
+    </div>
+    <div class="bd-promo">
+      <div class="bd-promo-title">Have a promo code?</div>
+      <div class="bd-promo-body">Enter it at checkout in the booking form above — it applies automatically. Direct booking is the only way to use discount codes; they don't work on Airbnb or VRBO.</div>
+    </div>
+  </div>
+</section>
+
+<section class="email-strip">
+  <div class="email-strip-eyebrow">Stay in the loop</div>
+  <div class="email-strip-heading">New flats, powder days, and Detroit events.</div>
+  <div class="email-strip-sub">Occasional notes from the team. No spam, ever.</div>
+  <form class="email-strip-form" id="bd-email-form" action="https://lakecityflats.us17.list-manage.com/subscribe/post?u=80cfa03b1a983242cea5f2fd8&amp;id=e03121d556&amp;f_id=00f9f4e0f0" method="post" target="_blank" novalidate>
+    <input type="email" name="EMAIL" placeholder="your@email.com" required>
+    <button type="submit">Subscribe →</button>
+    <input type="text" name="b_80cfa03b1a983242cea5f2fd8_e03121d556" tabindex="-1" value="" style="display:none;" aria-hidden="true">
+  </form>
+  <div class="email-strip-note">Unsubscribe anytime.</div>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-logo-main">Lake City <span>Flats</span></div>
+    <div class="footer-logo-sub">Curated downtown short-term rentals</div>
+    <div class="footer-tagline">"Made by travelers,<br>for travelers."</div>
+    <div class="footer-contact">
+      <a href="tel:18016571028">801-657-1028</a>
+      <a href="mailto:contact@lakecityflats.com">contact@lakecityflats.com</a>
+      <a href="https://instagram.com/lakecityflats">@lakecityflats</a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Salt Lake City</div>
+    <a href="../slc/">All SLC flats</a>
+    <a href="../slc/downtown/">Downtown SLC</a>
+    <a href="../slc/">Granary District</a>
+    <a href="../slc/">9line</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Detroit</div>
+    <a href="../detroit/">Browse Detroit flats</a>
+    <a href="../property/lumber-barons-mansion/">Lumber Baron's Mansion</a>
+    <a href="../property/lumber-barons-penthouse/">Lumber Baron's Penthouse</a>
+    <hr>
+    <div class="footer-col-title" style="margin-top:6px;">Book direct</div>
+    <a href="/bookdirect/">Book Direct &amp; Save</a>
+  </div>
+  <div class="footer-col">
+    <div class="footer-col-title">Company</div>
+    <a href="../about/">About LCF</a>
+    <a href="../terms/">Terms &amp; Conditions</a>
+    <a href="../reviews/">All reviews</a>
+    <a href="https://instagram.com/lakecityflats">Instagram</a>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Lake City Flats, LLC — Salt Lake City, UT</div>
+    <div class="footer-social"><a href="https://instagram.com/lakecityflats">Instagram</a></div>
+  </div>
+</footer>
+
+<script>
+function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
+
+document.getElementById('bd-email-form').addEventListener('submit', function() {
+  lcfTrack('email_signup', {source: 'bookdirect_page'});
+});
+
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
+
+(function(){var btn=document.getElementById('nav-hamburger'),drw=document.getElementById('nav-drawer');if(!btn)return;btn.addEventListener('click',function(){var o=drw.classList.toggle('open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));drw.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':'';});drw.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drw.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');drw.setAttribute('aria-hidden','true');document.body.style.overflow='';});});})();
+</script>
+
+<script>
+(function(){
+  var WIDGET = 'https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/';
+  var CAL = 'https://api.hospitable.com/bookings/api/properties/';
+  var allProps = [];
+
+  fetch('../properties.json').then(function(r){return r.json();}).then(function(d){ allProps = d.properties; });
+
+  var _today = new Date();
+  var _tomorrow = new Date(_today); _tomorrow.setDate(_today.getDate()+1);
+
+  var bdFpOut = flatpickr('#bd-checkout', {
+    minDate: _tomorrow, defaultDate: _tomorrow,
+    dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: false
+  });
+
+  flatpickr('#bd-checkin', {
+    minDate: 'today', defaultDate: _today,
+    dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: false,
+    onClose: function(sel) {
+      if (!sel[0]) return;
+      var nxt = new Date(sel[0]); nxt.setDate(nxt.getDate()+1);
+      bdFpOut.set('minDate', nxt);
+      if (!bdFpOut.selectedDates[0] || bdFpOut.selectedDates[0] <= sel[0]) bdFpOut.setDate(nxt, true);
+      bdFpOut.open();
+    }
+  });
+
+  function getNights(ci, co) {
+    var nights = [], d = new Date(ci + 'T00:00:00'), end = new Date(co + 'T00:00:00');
+    while (d < end) { nights.push(d.toISOString().slice(0,10)); d.setDate(d.getDate()+1); }
+    return nights;
+  }
+
+  function checkProp(hid, ci, co) {
+    return fetch(CAL + hid + '/calendar?start_date=' + ci + '&end_date=' + co)
+      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(data){
+        if (!data) return null;
+        var nights = getNights(ci, co);
+        if (!nights.length) return null;
+        var ciDay = data[ci + 'T00:00'];
+        if (ciDay && ciDay.min_stay && nights.length < ciDay.min_stay) return null;
+        var total = 0;
+        for (var i=0; i<nights.length; i++) {
+          var day = data[nights[i] + 'T00:00'];
+          if (!day || !day.available) return null;
+          total += day.price;
+        }
+        return { avgNightly: Math.round(total / nights.length), totalPrice: Math.round(total), nights: nights.length };
+      })
+      .catch(function(){ return null; });
+  }
+
+  function fmtDate(iso) {
+    var p = iso.split('-');
+    var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return months[+p[1]-1] + ' ' + +p[2];
+  }
+
+  function renderCard(p, avail) {
+    var cityLabel = p.city === 'slc' ? '🏔 SLC' : '🏛 Detroit';
+    var hood = p.hood.replace(/-/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+    var card = document.createElement('div');
+    card.className = 'bd-card';
+    card.innerHTML =
+      '<div style="position:relative;overflow:hidden;padding-top:62%;">' +
+        '<img src="' + p.image + '" alt="' + p.name + '" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s;">' +
+        '<div style="position:absolute;top:10px;left:10px;background:rgba(15,18,24,0.82);backdrop-filter:blur(6px);padding:4px 10px;border-radius:20px;font-size:10px;color:var(--cream);font-weight:500;">' + cityLabel + ' · ' + hood + '</div>' +
+        '<div style="position:absolute;top:10px;right:10px;background:var(--gold);color:var(--ink);padding:3px 9px;border-radius:20px;font-size:9.5px;font-weight:700;letter-spacing:.05em;">SAVE ~15%</div>' +
+      '</div>' +
+      '<div style="padding:16px 18px 0;">' +
+        '<div style="font-size:14px;font-weight:500;color:var(--forest);line-height:1.3;margin-bottom:7px;">' + p.name + '</div>' +
+        '<div style="display:flex;gap:10px;font-size:11.5px;color:var(--muted);margin-bottom:10px;">' +
+          '<span>' + p.beds + ' bed' + (p.beds!==1?'s':'') + '</span><span>·</span>' +
+          '<span>' + p.baths + ' bath' + (p.baths!==1?'s':'') + '</span><span>·</span>' +
+          '<span>Sleeps ' + p.sleeps + '</span></div>' +
+        '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">' +
+          '<div><span style="font-size:22px;font-weight:600;color:var(--forest);">$' + avail.avgNightly + '</span><span style="font-size:11px;color:var(--muted);"> / night</span></div>' +
+          '<div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">$' + avail.totalPrice + ' · ' + avail.nights + ' night' + (avail.nights!==1?'s':'') + '</div>' +
+          '<div style="font-size:11px;color:var(--terra);">★ ' + p.rating + ' · ' + p.review_count + ' reviews</div></div></div></div>' +
+      '<button class="bd-book-btn" data-hid="' + p.hospitable_id + '" data-pid="' + p.id + '">Book Direct — Skip the Fee →</button>';
+    card.querySelector('.bd-book-btn').addEventListener('click', function(){
+      var hid = this.dataset.hid, pid = this.dataset.pid;
+      var ci = document.getElementById('bd-checkin').value;
+      var co = document.getElementById('bd-checkout').value;
+      var guests = document.getElementById('bd-guests').value;
+      var url = WIDGET + hid;
+      if (ci && co) url += '?start_date=' + ci + '&end_date=' + co + '&guests=' + (guests||'2');
+      lcfTrack('widget_open', {property_id: pid, source: 'bookdirect_page'});
+      document.getElementById('bd-iframe').src = url;
+      document.getElementById('bd-iframe-prop-link').href = '../property/?id=' + pid;
+      var sec = document.getElementById('bd-iframe-section');
+      sec.style.display = 'block';
+      setTimeout(function(){
+        var top = sec.getBoundingClientRect().top + window.pageYOffset - 68;
+        window.scrollTo({top: top, behavior: 'smooth'});
+      }, 60);
+    });
+    return card;
+  }
+
+  document.getElementById('bd-btn').addEventListener('click', function(){
+    var ci = document.getElementById('bd-checkin').value;
+    var co = document.getElementById('bd-checkout').value;
+    var guests = parseInt(document.getElementById('bd-guests').value);
+    var city = document.getElementById('bd-city').value;
+
+    if (!ci || !co || co <= ci) { alert('Please select valid check-in and check-out dates.'); return; }
+    lcfTrack('date_search', {check_in: ci, check_out: co, guests: guests, city: city, source: 'bookdirect_page'});
+
+    var btn = this;
+    btn.textContent = 'Checking…';
+    btn.disabled = true;
+
+    var status = document.getElementById('bd-status');
+    var results = document.getElementById('bd-results');
+    var cards = document.getElementById('bd-cards');
+    var noAvail = document.getElementById('bd-no-avail');
+    document.getElementById('bd-iframe-section').style.display = 'none';
+
+    var candidates = allProps.filter(function(p){ return p.sleeps >= guests; });
+    if (city !== 'all') candidates = candidates.filter(function(p){ return p.city === city; });
+
+    status.textContent = 'Checking ' + candidates.length + ' propert' + (candidates.length===1?'y':'ies') + '…';
+    status.style.display = 'block';
+    results.style.display = 'none';
+    cards.innerHTML = '';
+    noAvail.style.display = 'none';
+
+    Promise.all(candidates.map(function(p){
+      return checkProp(p.hospitable_id, ci, co)
+        .then(function(a){ return {p:p, a:a, err:false}; })
+        .catch(function(){ return {p:p, a:null, err:true}; });
+    })).then(function(checks){
+      var available = checks.filter(function(x){ return x.a !== null; });
+      status.style.display = 'none';
+      results.style.display = 'block';
+      if (available.length === 0) {
+        noAvail.style.display = 'block';
+        document.getElementById('bd-result-count').textContent = '';
+        document.getElementById('bd-result-dates').textContent = '';
+      } else {
+        available.sort(function(a,b){ return a.a.avgNightly - b.a.avgNightly; });
+        document.getElementById('bd-result-count').textContent = available.length + ' flat' + (available.length===1?'':'s') + ' available';
+        document.getElementById('bd-result-dates').textContent = fmtDate(ci) + ' – ' + fmtDate(co) + ' · ' + guests + ' guest' + (guests===1?'':'s');
+        lcfTrack('availability_results', {count: available.length, check_in: ci, check_out: co, source: 'bookdirect_page'});
+        available.forEach(function(x){ cards.appendChild(renderCard(x.p, x.a)); });
+      }
+      btn.textContent = 'Check Availability';
+      btn.disabled = false;
+      results.scrollIntoView({behavior:'smooth', block:'start'});
+    });
+  });
+})();
+</script>
+
+<div id="iab-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1C2D47;border-top:3px solid #FBBE01;padding:13px 20px;box-shadow:0 -4px 20px rgba(0,0,0,0.45);">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:560px;margin:0 auto;">
+    <div>
+      <div style="font-size:12.5px;font-weight:600;color:#F5F3ED;letter-spacing:.01em;">Payment won't complete here</div>
+      <div style="font-size:11.5px;color:rgba(245,243,237,0.62);margin-top:3px;">Tap <strong style="color:#FBBE01;">···</strong> top-right → <strong style="color:#FBBE01;">Open in Safari</strong> to book</div>
+    </div>
+    <button onclick="document.getElementById('iab-bar').remove()" aria-label="Dismiss" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);color:rgba(245,243,237,0.55);font-size:15px;width:30px;height:30px;border-radius:50%;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:sans-serif;">✕</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(/Instagram|FBAN|FBAV|FB_IAB|FB4A/.test(navigator.userAgent||'')||/\.html.*fbclid/.test(location.search))
+    document.getElementById('iab-bar').style.display='block';
+})();
+</script>
+</body>
+</html>

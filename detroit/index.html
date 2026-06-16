@@ -25,7 +25,7 @@
   "description": "Two exceptional short-term rentals in Detroit's Brush Park historic district — steps from Little Caesars Arena, Woodward Ave, and the best of a city on the rise.",
   "address": {"@type": "PostalAddress", "addressLocality": "Detroit", "addressRegion": "MI", "postalCode": "48201", "addressCountry": "US"},
   "geo": {"@type": "GeoCoordinates", "latitude": 42.3407, "longitude": -83.0471},
-  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.96", "reviewCount": 4690, "bestRating": "5"},
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.98", "reviewCount": 75, "bestRating": "5"},
   "amenityFeature": [
     {"@type": "LocationFeatureSpecification", "name": "No service fees", "value": true},
     {"@type": "LocationFeatureSpecification", "name": "Self check-in", "value": true},
@@ -538,6 +538,7 @@
 </footer>
 
 <script>
+function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 20));
 
@@ -545,6 +546,10 @@ const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+document.querySelector('.email-strip-form').addEventListener('submit', function() {
+  lcfTrack('email_signup', {source: 'detroit_page'});
+});
 
 fetch('../properties.json')
   .then(r => r.json())

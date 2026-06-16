@@ -358,6 +358,16 @@ async function init() {
     ...prop.features.map(f=>`<span class="pp-badge pp-badge-feat">${f}</span>`)
   ].join('');
 
+  const WALK_HOOKS = {
+    'granary':    ['🚶 5 min to TRAX', '🎿 30 min to Alta & Snowbird', '🍜 Granary District restaurants on your block'],
+    'downtown':   ['🚶 5 min walk to Delta Center', '🚶 Walk to Temple Square & City Creek', '🎿 30 min drive to ski resorts'],
+    '9line':      ['🚈 TRAX stop nearby', '🚶 10 min walk to downtown SLC', '🎿 35 min to ski resorts'],
+    'sugarhood':  ['🌳 Sugar House Park — 10 min walk', '🍜 Sugar House restaurant row nearby', '🚗 5 min drive to downtown'],
+    'brush-park': ['🏒 2 min walk to Little Caesars Arena', '🚶 Steps from Woodward Ave', '🎵 10 min to Eastern Market']
+  };
+  const hoodHooks = WALK_HOOKS[prop.hood] || [];
+  const hoodHooksHTML = hoodHooks.length ? `<div style="display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 22px;">${hoodHooks.map(h=>`<span style="display:inline-flex;align-items:center;padding:5px 12px;background:var(--parchment);border:1px solid var(--border);border-radius:20px;font-size:11px;color:var(--muted);">${h}</span>`).join('')}</div>` : '';
+
   const similarHTML = similar.map(s=>`
     <a href="${s.id}/" class="pp-sim-card">
       <div class="pp-sim-img" style="background-image:url('${s.image}')"></div>
@@ -394,6 +404,7 @@ async function init() {
           <span class="pp-price-unit">/ night</span>
         </div>
         <p class="pp-desc">${prop.description}</p>
+        ${hoodHooksHTML}
 
         <div class="pp-section">
           <div class="pp-section-label">What's included</div>
