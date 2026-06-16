@@ -824,6 +824,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 </style>
 
 <script>
+function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
 (function(){
   var WIDGET = 'https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/';
   var CAL = 'https://api.hospitable.com/bookings/api/properties/';
@@ -1125,6 +1126,8 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       alert('Please select valid check-in and check-out dates.');
       return;
     }
+
+    lcfTrack('date_search', {check_in: ci, check_out: co, guests: guests, source: 'booking_search'});
 
     var btn = this;
     btn.textContent = 'Checking…';

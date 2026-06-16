@@ -197,6 +197,8 @@ function lbNav(dir) { lbIdx = (lbIdx + dir + lbPhotos.length) % lbPhotos.length;
 function closeLB(e) { if (e.target === document.getElementById('lb')) document.getElementById('lb').classList.remove('open'); }
 
 let _bmUrl = '';
+let _lcfPropId = '';
+let _lcfPropName = '';
 function _ppDatesUrl(base) {
   const ci = (document.getElementById('pp-checkin') || {}).value;
   const co = (document.getElementById('pp-checkout') || {}).value;
@@ -210,6 +212,7 @@ function ppUpdateWidget() {
   if (iframe && iframe.src !== url) iframe.src = url;
 }
 function openBM() {
+  lcfTrack('widget_open', {property_id: _lcfPropId, property_name: _lcfPropName});
   const url = _ppDatesUrl(_bmUrl);
   const iframe = document.getElementById('bm-iframe');
   if (!iframe.src || iframe.src === window.location.href || iframe.src !== url) iframe.src = url;
@@ -299,6 +302,8 @@ async function init() {
   // Wire "Book Direct" nav button + mobile CTAs to open booking modal
   if (prop.hospitable_id) {
     _bmUrl = `https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}`;
+    _lcfPropId = prop.id;
+    _lcfPropName = prop.name;
     const navBtn = document.querySelector('.nav-book');
     if (navBtn) { navBtn.href = '#book'; navBtn.onclick = e => { e.preventDefault(); openBM(); }; }
   }
@@ -412,7 +417,7 @@ async function init() {
       <div class="pp-right" id="book">
         <div class="pp-nudge" id="pp-nudge">Book direct → <strong>save ~15%</strong> vs. Airbnb. No service fees.</div>
         <div class="pp-widget-wrapper">
-          <div class="pp-direct-banner"><span class="pp-direct-icon">🤝</span><span>Direct booking · Secure via Stripe · $5M protection</span></div>
+          <div class="pp-direct-banner"><span class="pp-direct-icon">🤝</span><span>Save ~15% vs Airbnb · No service fees · Secure via Stripe</span></div>
           <div class="pp-trust-row">
             <div class="pp-trust-item"><div class="pp-trust-item-icon">🔒</div><div class="pp-trust-item-label">Stripe</div></div>
             <div class="pp-trust-item"><div class="pp-trust-item-icon">⚡</div><div class="pp-trust-item-label">Instant confirm</div></div>
@@ -503,7 +508,15 @@ async function init() {
         minDate: _tmrwStr, defaultDate: _tmrwStr,
         dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true,
         disable: disabled,
-        onClose: function() { ppUpdateWidget(); }
+        onClose: function(sel) {
+          if (sel[0] && _fpIn && _fpIn.selectedDates[0]) {
+            lcfTrack('dates_selected', {
+              check_in: _fpIn.selectedDates[0].toISOString().split('T')[0],
+              check_out: sel[0].toISOString().split('T')[0]
+            });
+          }
+          ppUpdateWidget();
+        }
       });
       _fpIn = flatpickr('#pp-checkin', {
         minDate: _todayStr, defaultDate: _todayStr,
