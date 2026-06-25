@@ -72,8 +72,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <style>
 /* Flatpickr LCF dark theme */
 .flatpickr-calendar{background:#0e1a2b;border:1px solid rgba(255,255,255,0.12);border-radius:6px;box-shadow:0 16px 48px rgba(0,0,0,0.55);font-family:'Jost',sans-serif;width:auto;}
@@ -86,10 +86,11 @@
 .flatpickr-prev-month svg,.flatpickr-next-month svg{fill:#f5f3ed;opacity:0.5;}
 .flatpickr-prev-month:hover svg,.flatpickr-next-month:hover svg{fill:#FBBE01;opacity:1;}
 .flatpickr-weekdays{background:transparent;padding:0 12px;}
-span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;}
+.flatpickr-weekdaycontainer{gap:2px;}
+span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;max-width:36px;}
 .flatpickr-days{padding:4px 12px 12px;border-top:1px solid rgba(255,255,255,0.07);}
-.dayContainer{gap:2px;}
-.flatpickr-day{color:rgba(245,243,237,0.75);border-radius:3px;font-family:'Jost',sans-serif;font-size:12.5px;height:36px;line-height:36px;max-width:36px;border:none;}
+.dayContainer{gap:2px;width:264px;min-width:264px;max-width:264px;}
+.flatpickr-day{color:rgba(245,243,237,0.75);border-radius:3px;font-family:'Jost',sans-serif;font-size:12.5px;height:36px;line-height:36px;flex:0 0 36px;max-width:36px;border:none;}
 .flatpickr-day:hover{background:rgba(255,255,255,0.1);color:#f5f3ed;border:none;}
 .flatpickr-day.selected,.flatpickr-day.startRange,.flatpickr-day.endRange{background:#FBBE01 !important;color:#0F1218 !important;border-color:#FBBE01 !important;font-weight:600;}
 .flatpickr-day.inRange{background:rgba(251,190,1,0.15);border-color:transparent;color:#f5f3ed;border-radius:0;}
@@ -844,11 +845,14 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   // Flatpickr date pickers
   var today = new Date();
   var tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
-  var fmt = function(d){ return d.toISOString().slice(0,10); };
+  // Local-date formatter — reads local Y/M/D so the date string never shifts
+  // a day the way toISOString() (which converts to UTC) does.
+  var fmt = function(d){
+    return d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2);
+  };
 
   var fpOut = flatpickr('#hbp-checkout', {
     minDate: tomorrow,
-    defaultDate: tomorrow,
     dateFormat: 'Y-m-d',
     altInput: true,
     altFormat: 'M j, Y',
@@ -857,8 +861,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   });
 
   var fpIn = flatpickr('#hbp-checkin', {
-    minDate: 'today',
-    defaultDate: today,
+    minDate: today,
     dateFormat: 'Y-m-d',
     altInput: true,
     altFormat: 'M j, Y',
@@ -868,9 +871,8 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
       var nextDay = new Date(selectedDates[0]);
       nextDay.setDate(nextDay.getDate() + 1);
       fpOut.set('minDate', nextDay);
-      // If checkout is now before checkin, reset it
-      var coVal = document.getElementById('hbp-checkout')._flatpickr
-        ? fpOut.selectedDates[0] : null;
+      // If checkout is missing or now on/before check-in, advance it.
+      var coVal = fpOut.selectedDates[0] || null;
       if (!coVal || coVal <= selectedDates[0]) {
         fpOut.setDate(nextDay, true);
       }
@@ -882,7 +884,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     var nights = [];
     var d = new Date(ci + 'T00:00:00');
     var end = new Date(co + 'T00:00:00');
-    while (d < end) { nights.push(d.toISOString().slice(0,10)); d.setDate(d.getDate()+1); }
+    while (d < end) { nights.push(fmt(d)); d.setDate(d.getDate()+1); }
     return nights;
   }
 
@@ -1020,16 +1022,15 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   (function initBSPickers(){
     var today = new Date();
     var tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
-    var fmt = function(d){ return d.toISOString().slice(0,10); };
     var bsFpOut = flatpickr('#bs-checkout', {
-      minDate: fmt(tomorrow), defaultDate: fmt(tomorrow),
+      minDate: tomorrow,
       dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y',
-      disableMobile: false
+      disableMobile: true
     });
     flatpickr('#bs-checkin', {
-      minDate: fmt(today), defaultDate: fmt(today),
+      minDate: today,
       dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y',
-      disableMobile: false,
+      disableMobile: true,
       onClose: function(sel) {
         if (!sel[0]) return;
         var nxt = new Date(sel[0]); nxt.setDate(nxt.getDate()+1);
@@ -1042,9 +1043,10 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
 
   function getNights(ci, co) {
     var nights = [];
+    var fmt = function(d){ return d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2); };
     var d = new Date(ci + 'T00:00:00');
     var end = new Date(co + 'T00:00:00');
-    while (d < end) { nights.push(d.toISOString().slice(0,10)); d.setDate(d.getDate()+1); }
+    while (d < end) { nights.push(fmt(d)); d.setDate(d.getDate()+1); }
     return nights;
   }
 

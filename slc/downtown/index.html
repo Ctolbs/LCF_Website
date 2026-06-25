@@ -56,8 +56,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <link rel="stylesheet" href="../../css/style.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-24FKZQFX23"></script>
@@ -382,8 +382,9 @@ fetch('../../properties.json')
 
 async function loadPrices(props) {
   const today = new Date();
-  const start = today.toISOString().split('T')[0];
-  const end = new Date(today.getTime() + 30*24*60*60*1000).toISOString().split('T')[0];
+  const _fl = d => d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);
+  const start = _fl(today);
+  const end = _fl(new Date(today.getTime() + 30*24*60*60*1000));
   for (const p of props) {
     if (!p.hospitable_id) continue;
     try {
@@ -414,12 +415,12 @@ async function loadPrices(props) {
   var _tomorrow = new Date(_today); _tomorrow.setDate(_today.getDate()+1);
 
   var fpDTOut = flatpickr('#dt-checkout', {
-    minDate: _tomorrow, defaultDate: _tomorrow,
+    minDate: _tomorrow,
     dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true
   });
 
   flatpickr('#dt-checkin', {
-    minDate: 'today', defaultDate: _today,
+    minDate: 'today',
     dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true,
     onClose: function(sel) {
       if (!sel[0]) return;
@@ -432,7 +433,7 @@ async function loadPrices(props) {
 
   function getNights(ci, co) {
     var nights = [], d = new Date(ci + 'T00:00:00'), end = new Date(co + 'T00:00:00');
-    while (d < end) { nights.push(d.toISOString().slice(0,10)); d.setDate(d.getDate()+1); }
+    while (d < end) { nights.push(d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)); d.setDate(d.getDate()+1); }
     return nights;
   }
 

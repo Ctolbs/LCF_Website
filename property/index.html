@@ -25,7 +25,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/property.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <style>
 .lb{display:none;position:fixed;inset:0;z-index:9000;background:rgba(10,16,12,.94);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column;gap:16px;}
 .lb.open{display:flex;}
@@ -490,8 +491,9 @@ async function init() {
   if (prop.hospitable_id) loadPrice(prop.hospitable_id);
   // Load prices for similar property cards
   if (similar.length) {
-    const _today = new Date().toISOString().split('T')[0];
-    const _end30 = new Date(Date.now()+30*864e5).toISOString().split('T')[0];
+    const _fl = d => d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2);
+    const _today = _fl(new Date());
+    const _end30 = _fl(new Date(Date.now()+30*864e5));
     similar.forEach(s => {
       if (!s.hospitable_id) return;
       fetch('https://api.hospitable.com/bookings/api/properties/'+s.hospitable_id+'/calendar?start_date='+_today+'&end_date='+_end30)
@@ -507,30 +509,32 @@ async function init() {
 
   // Flatpickr date picker + blocked-date loading for property page
   if (prop.hospitable_id && document.getElementById('pp-checkin')) {
+    // Local-date formatter — avoids the UTC day-shift that toISOString() causes.
+    const _fmtLocal = d => d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2);
     const _today = new Date();
-    const _todayStr = _today.toISOString().split('T')[0];
+    const _todayStr = _fmtLocal(_today);
     const _tmrw = new Date(_today); _tmrw.setDate(_tmrw.getDate()+1);
-    const _tmrwStr = _tmrw.toISOString().split('T')[0];
-    const _calEnd = new Date(_today.getTime() + 90*24*60*60*1000).toISOString().split('T')[0];
+    const _tmrwStr = _fmtLocal(_tmrw);
+    const _calEnd = _fmtLocal(new Date(_today.getTime() + 90*24*60*60*1000));
     let _fpOut, _fpIn;
 
     function _initFP(disabled) {
       _fpOut = flatpickr('#pp-checkout', {
-        minDate: _tmrwStr, defaultDate: _tmrwStr,
+        minDate: _tmrwStr,
         dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true,
         disable: disabled,
         onClose: function(sel) {
           if (sel[0] && _fpIn && _fpIn.selectedDates[0]) {
             lcfTrack('dates_selected', {
-              check_in: _fpIn.selectedDates[0].toISOString().split('T')[0],
-              check_out: sel[0].toISOString().split('T')[0]
+              check_in: _fmtLocal(_fpIn.selectedDates[0]),
+              check_out: _fmtLocal(sel[0])
             });
           }
           ppUpdateWidget();
         }
       });
       _fpIn = flatpickr('#pp-checkin', {
-        minDate: _todayStr, defaultDate: _todayStr,
+        minDate: _todayStr,
         dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true,
         disable: disabled,
         onClose: function(sel) {
@@ -590,9 +594,10 @@ init();
 
 async function loadPrice(hospitable_id) {
   try {
+    const _fl = d => d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2);
     const today = new Date();
-    const start = today.toISOString().split('T')[0];
-    const end = new Date(today.getTime() + 30*24*60*60*1000).toISOString().split('T')[0];
+    const start = _fl(today);
+    const end = _fl(new Date(today.getTime() + 30*24*60*60*1000));
     const resp = await fetch('https://api.hospitable.com/bookings/api/properties/' + hospitable_id + '/calendar?start_date=' + start + '&end_date=' + end);
     if (!resp.ok) return;
     const cal = await resp.json();
@@ -698,7 +703,6 @@ async function loadPrice(hospitable_id) {
   });
 })();
 </script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
 (function(){var btn=document.getElementById('nav-hamburger'),drw=document.getElementById('nav-drawer');if(!btn)return;btn.addEventListener('click',function(){var o=drw.classList.toggle('open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));drw.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':'';});drw.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drw.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');drw.setAttribute('aria-hidden','true');document.body.style.overflow='';});});})();
 </script>
