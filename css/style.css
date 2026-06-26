@@ -86,8 +86,8 @@ span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing
 /* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px;}
 .hero-left{background:var(--forest);padding:70px 54px 62px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;}
-.hero-left::before{content:'';position:absolute;top:-100px;right:-100px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(255,255,255,0.05);}
-.hero-left::after{content:'';position:absolute;bottom:-120px;left:-80px;width:500px;height:500px;border-radius:50%;border:1px solid rgba(255,255,255,0.03);}
+.hero-left::before{content:'';position:absolute;top:-100px;right:-100px;width:420px;height:420px;border-radius:50%;border:1px solid rgba(255,255,255,0.05);pointer-events:none;}
+.hero-left::after{content:'';position:absolute;bottom:-120px;left:-80px;width:500px;height:500px;border-radius:50%;border:1px solid rgba(255,255,255,0.03);pointer-events:none;}
 .hero-eyebrow{font-size:9.5px;letter-spacing:.35em;text-transform:uppercase;color:var(--sage);margin-bottom:28px;}
 .hero-h1{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;line-height:1.15;color:var(--cream);position:relative;z-index:1;}
 .hero-h1 em{font-style:italic;color:var(--gold);}
