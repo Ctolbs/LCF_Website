@@ -85,6 +85,13 @@ data.properties.forEach(prop => {
       `const id = '${prop.id}';`
     );
 
+  // Fail loudly if the head-swap didn't take (template markup drifted) instead
+  // of silently shipping pages with the "Loading..." placeholder title/empty OG.
+  if (html.includes('Lake City Flats — Loading...')) {
+    console.error(`ERROR: static <head> not injected for "${prop.id}" — the template's head markup likely drifted from build.js's replace() pattern. Aborting before shipping broken metadata.`);
+    process.exit(1);
+  }
+
   const outDir = path.join(ROOT, 'property', prop.id);
   fs.mkdirSync(outDir, { recursive: true });
   fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
