@@ -99,6 +99,7 @@ span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing
 .flatpickr-day.flatpickr-disabled,.flatpickr-day.prevMonthDay,.flatpickr-day.nextMonthDay{color:rgba(245,243,237,0.18);opacity:1;}
 .flatpickr-day.today{border-bottom:2px solid rgba(251,190,1,0.5) !important;border-radius:3px 3px 0 0;}
 .flatpickr-day.today.selected{border-bottom-color:#FBBE01 !important;}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}}
 .numInputWrapper span{opacity:0.4;}
 .numInputWrapper span:hover{opacity:1;background:rgba(255,255,255,0.1);}
 </style>
@@ -578,7 +579,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
             </div>
             <div class="hbp-field-wrap hbp-field-guests">
               <div class="hbp-field-label">Guests</div>
-              <select id="hbp-guests" class="hbp-input" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
+              <select id="hbp-guests" aria-label="Number of guests" class="hbp-input" style="appearance:none;-webkit-appearance:none;cursor:pointer;">
                 <option value="1">1 guest</option>
                 <option value="2" selected>2 guests</option>
                 <option value="3">3 guests</option>
@@ -762,7 +763,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       </div>
       <div style="min-width:100px;">
         <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Guests</label>
-        <select id="bs-guests" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;appearance:none;cursor:pointer;">
+        <select id="bs-guests" aria-label="Number of guests" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;appearance:none;cursor:pointer;">
           <option value="1">1 guest</option>
           <option value="2" selected>2 guests</option>
           <option value="3">3 guests</option>

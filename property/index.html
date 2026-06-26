@@ -170,7 +170,7 @@
       <span class="bm-title">Book Direct · Save ~15%</span>
       <button class="bm-close" onclick="closeBM()" aria-label="Close booking">✕</button>
     </div>
-    <iframe id="bm-iframe" class="bm-frame" src="" sandbox="allow-top-navigation-by-user-activation allow-scripts allow-same-origin allow-forms allow-popups" frameborder="0"></iframe>
+    <iframe id="bm-iframe" class="bm-frame" title="Book direct" src="" sandbox="allow-top-navigation-by-user-activation allow-scripts allow-same-origin allow-forms allow-popups" frameborder="0"></iframe>
   </div>
 </div>
 
@@ -439,10 +439,11 @@ async function init() {
           <div class="pp-date-row">
             <div><label class="pp-date-label">Check-in</label><input type="text" id="pp-checkin" class="pp-date-input" readonly placeholder="Arrival"></div>
             <div><label class="pp-date-label">Check-out</label><input type="text" id="pp-checkout" class="pp-date-input" readonly placeholder="Departure"></div>
-            <div><label class="pp-date-label">Guests</label><select id="pp-guests" class="pp-date-select"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+            <div><label class="pp-date-label">Guests</label><select id="pp-guests" aria-label="Number of guests" class="pp-date-select"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
           </div>
           <iframe
             id="booking-iframe"
+            title="Book direct"
             sandbox="allow-top-navigation-by-user-activation allow-scripts allow-same-origin allow-forms allow-popups"
             style="height:900px;border:none;"
             frameborder="0"

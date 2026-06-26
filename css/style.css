@@ -351,3 +351,8 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 .email-strip-form button:hover{background:#e8ad00;}
 .email-strip-note{font-size:10.5px;color:rgba(245,240,232,0.22);margin-top:12px;}
 @media(max-width:600px){.email-strip{padding:48px 20px;}.email-strip-heading{font-size:26px;}.email-strip-form{flex-direction:column;}.email-strip-form button{padding:14px;}}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
