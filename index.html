@@ -884,9 +884,19 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     return nights;
   }
 
+  var hbpCalCache = {};
   function hbpCheckProp(hid, ci, co) {
-    return fetch(CAL + hid + '/calendar?start_date=' + ci + '&end_date=' + co)
-      .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
+    // Cache each property's calendar by date range so re-searching (e.g. just
+    // changing the guest count) reuses data instead of re-hitting the API —
+    // the calendar endpoint is rate-limited (60/window) and a search fires one
+    // request per property, so repeat searches would otherwise get throttled.
+    var key = hid + '|' + ci + '|' + co;
+    var calP = (hbpCalCache[key] !== undefined)
+      ? Promise.resolve(hbpCalCache[key])
+      : fetch(CAL + hid + '/calendar?start_date=' + ci + '&end_date=' + co)
+          .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
+          .then(function(data){ hbpCalCache[key] = data; return data; });
+    return calP
       .then(function(data){
         if (!data) return null;
         var nights = hbpGetNights(ci, co);
@@ -984,7 +994,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
       cardsEl.innerHTML = '';
 
       if (available.length === 0) {
-        if (checks.length && checks.every(function(x){ return x.err; })) {
+        if (checks.some(function(x){ return x.err; })) {
           cardsEl.innerHTML = '<div class="hbp-no-avail">⚠️ We couldn\'t reach live availability right now.<br><span style="font-size:11px;">Please try again in a moment, or </span><a href="mailto:contact@lakecityflats.com" style="color:var(--gold);font-size:11px;text-decoration:none;">contact us</a><span style="font-size:11px;">.</span></div>';
           if (typeof lcfTrack !== 'undefined') lcfTrack('availability_error', {checkin:ci, checkout:co, guests:guests, source:'hero_panel'});
         } else {
@@ -1000,6 +1010,15 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
       btn.textContent = 'Check Availability';
       btn.disabled = false;
     });
+  });
+
+  // Re-run the search automatically when guest count changes after results are
+  // already showing (cached calendars make this instant and API-free).
+  document.getElementById('hbp-guests').addEventListener('change', function(){
+    var cards = document.getElementById('hbp-cards');
+    if (cards.children.length && document.getElementById('hbp-checkin').value && document.getElementById('hbp-checkout').value) {
+      document.getElementById('hbp-btn').click();
+    }
   });
 })();
 </script>
@@ -1052,9 +1071,15 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     return nights;
   }
 
+  var bsCalCache = {};
   function checkProp(hid, ci, co) {
-    return fetch(CAL + hid + '/calendar?start_date=' + ci + '&end_date=' + co)
-      .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
+    var key = hid + '|' + ci + '|' + co;
+    var calP = (bsCalCache[key] !== undefined)
+      ? Promise.resolve(bsCalCache[key])
+      : fetch(CAL + hid + '/calendar?start_date=' + ci + '&end_date=' + co)
+          .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
+          .then(function(data){ bsCalCache[key] = data; return data; });
+    return calP
       .then(function(data){
         if (!data) return null;
         var nights = getNights(ci, co);
