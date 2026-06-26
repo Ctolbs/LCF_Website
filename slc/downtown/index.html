@@ -506,7 +506,7 @@ async function loadPrices(props) {
     var co = document.getElementById('dt-checkout').value;
     var guests = parseInt(document.getElementById('dt-guests').value);
 
-    if (!ci || !co || co <= ci) { alert('Please select valid check-in and check-out dates.'); return; }
+    if (!ci || !co || co <= ci) { var st=document.getElementById('dt-status');if(st){st.textContent='Please select valid check-in and check-out dates.';st.style.display='block';} return; }
     lcfTrack('date_search', {check_in: ci, check_out: co, guests: guests, source: 'downtown_slc_page'});
 
     var btn = this;

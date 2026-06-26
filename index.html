@@ -585,9 +585,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
                 <option value="4">4 guests</option>
                 <option value="5">5 guests</option>
                 <option value="6">6 guests</option>
-                <option value="8">8 guests</option>
-                <option value="10">10 guests</option>
-                <option value="12">12 guests</option>
+                <option value="7">7 guests</option>
               </select>
             </div>
             <div class="hbp-field-wrap hbp-field-cta">
@@ -772,9 +770,6 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
           <option value="5">5 guests</option>
           <option value="6">6 guests</option>
           <option value="7">7 guests</option>
-          <option value="8">8 guests</option>
-          <option value="9">9 guests</option>
-          <option value="10">10+ guests</option>
         </select>
       </div>
       <button id="bs-btn" style="padding:11px 28px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;">Check Availability</button>
@@ -956,7 +951,9 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     var guests = parseInt(document.getElementById('hbp-guests').value);
 
     if (!ci || !co || co <= ci) {
-      alert('Please select valid check-in and check-out dates.');
+      var hs = document.getElementById('hbp-status');
+      hs.textContent = 'Please select valid check-in and check-out dates.';
+      hs.style.display = 'block';
       return;
     }
 
@@ -1128,7 +1125,9 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     var guests = parseInt(document.getElementById('bs-guests').value);
 
     if (!ci || !co || co <= ci) {
-      alert('Please select valid check-in and check-out dates.');
+      var bsErr = document.getElementById('bs-status');
+      bsErr.style.display = 'block';
+      bsErr.textContent = 'Please select valid check-in and check-out dates.';
       return;
     }
 

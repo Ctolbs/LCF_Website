@@ -466,7 +466,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
     var guests = parseInt(document.getElementById('bd-guests').value);
     var city = document.getElementById('bd-city').value;
 
-    if (!ci || !co || co <= ci) { alert('Please select valid check-in and check-out dates.'); return; }
+    if (!ci || !co || co <= ci) { var st=document.getElementById('bd-status');if(st){st.textContent='Please select valid check-in and check-out dates.';st.style.display='block';} return; }
     lcfTrack('date_search', {check_in: ci, check_out: co, guests: guests, city: city, source: 'bookdirect_page'});
 
     var btn = this;

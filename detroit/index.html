@@ -424,7 +424,7 @@
     var co = document.getElementById('det-checkout').value;
     var guests = parseInt(document.getElementById('det-guests').value);
 
-    if (!ci || !co || co <= ci) { alert('Please select valid check-in and check-out dates.'); return; }
+    if (!ci || !co || co <= ci) { var st=document.getElementById('det-status');if(st){st.textContent='Please select valid check-in and check-out dates.';st.style.display='block';} return; }
 
     var btn = this;
     btn.textContent = 'Checking…';
