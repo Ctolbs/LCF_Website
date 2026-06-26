@@ -884,19 +884,22 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     return nights;
   }
 
+  // Fetch each property's calendar ONCE for a wide window and cache it by id.
+  // The endpoint is rate-limited (60/window) and a search fires one request per
+  // property, so re-fetching per date range would throttle after a couple of
+  // searches. Pulling a full year once means every later search (any dates, any
+  // guest count) is answered from cache — total API calls are capped at ~26.
   var hbpCalCache = {};
+  function hbpGetCal(hid) {
+    if (hbpCalCache[hid] !== undefined) return Promise.resolve(hbpCalCache[hid]);
+    var s = fmt(new Date());
+    var e = fmt(new Date(Date.now() + 365*86400000));
+    return fetch(CAL + hid + '/calendar?start_date=' + s + '&end_date=' + e)
+      .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
+      .then(function(data){ hbpCalCache[hid] = data; return data; });
+  }
   function hbpCheckProp(hid, ci, co) {
-    // Cache each property's calendar by date range so re-searching (e.g. just
-    // changing the guest count) reuses data instead of re-hitting the API —
-    // the calendar endpoint is rate-limited (60/window) and a search fires one
-    // request per property, so repeat searches would otherwise get throttled.
-    var key = hid + '|' + ci + '|' + co;
-    var calP = (hbpCalCache[key] !== undefined)
-      ? Promise.resolve(hbpCalCache[key])
-      : fetch(CAL + hid + '/calendar?start_date=' + ci + '&end_date=' + co)
-          .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
-          .then(function(data){ hbpCalCache[key] = data; return data; });
-    return calP
+    return hbpGetCal(hid)
       .then(function(data){
         if (!data) return null;
         var nights = hbpGetNights(ci, co);
@@ -1071,15 +1074,19 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     return nights;
   }
 
+  // Fetch each property's calendar once for a wide window, cached by id, so
+  // repeat searches (any dates/guests) don't re-hit the rate-limited endpoint.
   var bsCalCache = {};
+  function bsGetCal(hid) {
+    if (bsCalCache[hid] !== undefined) return Promise.resolve(bsCalCache[hid]);
+    var f = function(d){ return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); };
+    var s = f(new Date()), e = f(new Date(Date.now()+365*86400000));
+    return fetch(CAL + hid + '/calendar?start_date=' + s + '&end_date=' + e)
+      .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
+      .then(function(data){ bsCalCache[hid] = data; return data; });
+  }
   function checkProp(hid, ci, co) {
-    var key = hid + '|' + ci + '|' + co;
-    var calP = (bsCalCache[key] !== undefined)
-      ? Promise.resolve(bsCalCache[key])
-      : fetch(CAL + hid + '/calendar?start_date=' + ci + '&end_date=' + co)
-          .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
-          .then(function(data){ bsCalCache[key] = data; return data; });
-    return calP
+    return bsGetCal(hid)
       .then(function(data){
         if (!data) return null;
         var nights = getNights(ci, co);
