@@ -357,7 +357,7 @@
 
   function checkProp(hid, ci, co) {
     return fetch(CAL + hid + '/calendar?start_date=' + ci + '&end_date=' + co)
-      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
       .then(function(data){
         if (!data) return null;
         var nights = getNights(ci, co);
@@ -372,7 +372,7 @@
         }
         return { avgNightly: Math.round(total / nights.length), totalPrice: Math.round(total), nights: nights.length };
       })
-      .catch(function(){ return null; });
+      .catch(function(e){ throw e; });
   }
 
   function fmtDate(iso) {

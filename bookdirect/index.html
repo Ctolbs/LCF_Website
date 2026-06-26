@@ -394,7 +394,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
 
   function checkProp(hid, ci, co) {
     return fetch(CAL + hid + '/calendar?start_date=' + ci + '&end_date=' + co)
-      .then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); })
       .then(function(data){
         if (!data) return null;
         var nights = getNights(ci, co);
@@ -409,7 +409,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
         }
         return { avgNightly: Math.round(total / nights.length), totalPrice: Math.round(total), nights: nights.length };
       })
-      .catch(function(){ return null; });
+      .catch(function(e){ throw e; });
   }
 
   function fmtDate(iso) {
@@ -497,6 +497,10 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
       status.style.display = 'none';
       results.style.display = 'block';
       if (available.length === 0) {
+        var allErr = checks.length && checks.every(function(x){ return x.err; });
+        noAvail.innerHTML = allErr
+          ? '<div style="font-size:32px;margin-bottom:16px;">&#9888;&#65039;</div><p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">Couldn\'t reach availability data</p><p style="font-size:13px;color:rgba(245,243,237,0.45);font-weight:300;">Please try again in a moment, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> to check directly.</p>'
+          : '<div style="font-size:32px;margin-bottom:16px;">&#128532;</div><p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No flats available for those dates</p><p style="font-size:13px;color:rgba(245,243,237,0.45);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we\'ll help find something.</p>';
         noAvail.style.display = 'block';
         document.getElementById('bd-result-count').textContent = '';
         document.getElementById('bd-result-dates').textContent = '';
