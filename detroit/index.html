@@ -406,7 +406,7 @@
       var co = document.getElementById('det-checkout').value;
       var guests = document.getElementById('det-guests').value;
       var url = WIDGET + hid;
-      if (ci && co) url += '?start_date=' + ci + '&end_date=' + co + '&guests=' + (guests||'2');
+      url += (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (guests||'2');
       document.getElementById('det-iframe').src = url;
       document.getElementById('det-iframe-prop-link').href = '../property/?id=' + pid;
       var sec = document.getElementById('det-iframe-section');

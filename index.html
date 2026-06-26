@@ -939,7 +939,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     var co = document.getElementById('hbp-checkout').value;
     var guests = document.getElementById('hbp-guests').value;
     var url = WIDGET + hid;
-    if (ci && co) url += '?start_date=' + ci + '&end_date=' + co + '&guests=' + (guests||'2');
+    url += (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (guests||'2');
     var sec = document.getElementById('bs-iframe-section');
     document.getElementById('bs-iframe').src = url;
     document.getElementById('bs-iframe-prop-link').href = 'property/?id=' + pid;
@@ -1107,7 +1107,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     var co = document.getElementById('bs-checkout').value;
     var guests = document.getElementById('bs-guests').value;
     var url = WIDGET + hid;
-    if (ci && co) url += '?start_date=' + ci + '&end_date=' + co + '&guests=' + (guests||'2');
+    url += (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (guests||'2');
     var sec = document.getElementById('bs-iframe-section');
     document.getElementById('bs-iframe').src = url;
     document.getElementById('bs-iframe-prop-link').href = 'property/?id=' + pid;

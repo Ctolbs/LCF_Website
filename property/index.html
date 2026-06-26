@@ -204,8 +204,8 @@ function _ppDatesUrl(base) {
   const ci = (document.getElementById('pp-checkin') || {}).value;
   const co = (document.getElementById('pp-checkout') || {}).value;
   const g  = (document.getElementById('pp-guests')   || {}).value;
-  if (ci && co && base) return base + '?start_date=' + ci + '&end_date=' + co + '&guests=' + (g || '2');
-  return base;
+  if (!base) return base;
+  return base + (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (g || '2');
 }
 function ppUpdateWidget() {
   const url = _ppDatesUrl(_bmUrl);

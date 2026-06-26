@@ -487,7 +487,7 @@ async function loadPrices(props) {
       var co = document.getElementById('dt-checkout').value;
       var guests = document.getElementById('dt-guests').value;
       var url = WIDGET + hid;
-      if (ci && co) url += '?start_date=' + ci + '&end_date=' + co + '&guests=' + (guests||'2');
+      url += (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (guests||'2');
       lcfTrack('widget_open', {property_id: pid, source: 'downtown_slc_page'});
       document.getElementById('dt-iframe').src = url;
       document.getElementById('dt-iframe-prop-link').href = '../../property/?id=' + pid;

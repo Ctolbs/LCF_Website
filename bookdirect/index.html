@@ -446,7 +446,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
       var co = document.getElementById('bd-checkout').value;
       var guests = document.getElementById('bd-guests').value;
       var url = WIDGET + hid;
-      if (ci && co) url += '?start_date=' + ci + '&end_date=' + co + '&guests=' + (guests||'2');
+      url += (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (guests||'2');
       lcfTrack('widget_open', {property_id: pid, source: 'bookdirect_page'});
       document.getElementById('bd-iframe').src = url;
       document.getElementById('bd-iframe-prop-link').href = '../property/?id=' + pid;
