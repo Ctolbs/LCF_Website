@@ -10,6 +10,9 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'properties.json'), 'utf8'));
 const template = fs.readFileSync(path.join(ROOT, 'property', 'index.html'), 'utf8');
+// Live per-property review numbers (regenerated nightly); fall back to properties.json.
+let reviews = {};
+try { reviews = (JSON.parse(fs.readFileSync(path.join(ROOT, 'reviews.json'), 'utf8')).properties) || {}; } catch (e) {}
 
 const SITE_BASE = 'https://lakecityflats.com';
 
@@ -36,8 +39,8 @@ data.properties.forEach(prop => {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": prop.rating,
-      "reviewCount": parseInt(prop.review_count) || 10,
+      "ratingValue": String((reviews[prop.id] && reviews[prop.id].rating) != null ? reviews[prop.id].rating : prop.rating),
+      "reviewCount": (reviews[prop.id] && reviews[prop.id].count != null) ? reviews[prop.id].count : (parseInt(prop.review_count) || 10),
       "bestRating": "5"
     },
     "amenityFeature": prop.amenities.map(a => ({
@@ -77,6 +80,7 @@ data.properties.forEach(prop => {
     // Adjust relative asset paths one extra level up (property/{id}/ vs property/)
     .replace(/href="\.\.\/([^"]*)"/g, 'href="../../$1"')
     .replace(/fetch\('\.\.\/properties\.json'\)/g, "fetch('../../properties.json')")
+    .replace(/fetch\('\.\.\/reviews\.json'\)/g, "fetch('../../reviews.json')")
     // Similar property links: ?id=SLUG resolves wrong from a subdirectory → use sibling path
     .replace('href="?id=${s.id}"', 'href="../${s.id}/"')
     // Hardcode property ID so page loads correctly without a ?id= query param

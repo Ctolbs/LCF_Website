@@ -242,6 +242,12 @@ async function init() {
     return;
   }
   const prop = data.properties.find(p => p.id === id);
+  // Merge live review numbers (reviews.json, regenerated nightly) over static data.
+  try {
+    const _rv = await fetch('../reviews.json').then(r => r.ok ? r.json() : null);
+    const _d = _rv && _rv.properties && _rv.properties[id];
+    if (_d && prop) { if (_d.rating != null) prop.rating = _d.rating; if (_d.count != null) prop.review_count = _d.count; }
+  } catch (e) {}
 
   if (!prop) {
     window.location.replace('../');
