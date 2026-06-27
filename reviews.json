@@ -1,0 +1,128 @@
+{
+  "updated": "2026-06-27",
+  "total_reviews": 3116,
+  "average_rating": 4.87,
+  "by_source": {
+    "airbnb": 2343,
+    "direct": 13,
+    "booking": 2,
+    "vrbo": 758
+  },
+  "by_city": {
+    "slc": {
+      "count": 2784,
+      "rating": 4.87
+    },
+    "detroit": {
+      "count": 332,
+      "rating": 4.95
+    }
+  },
+  "property_count": 26,
+  "properties": {
+    "granary-penthouse": {
+      "rating": 4.94,
+      "count": 110
+    },
+    "granary-king-suite": {
+      "rating": 4.85,
+      "count": 96
+    },
+    "granary-west-401": {
+      "rating": 4.93,
+      "count": 85
+    },
+    "downtown-townhouse": {
+      "rating": 4.87,
+      "count": 106
+    },
+    "downtown-townhome": {
+      "rating": 4.81,
+      "count": 123
+    },
+    "brick-studio": {
+      "rating": 4.76,
+      "count": 119
+    },
+    "sugarhood-penthouse": {
+      "rating": 4.67,
+      "count": 18
+    },
+    "modernwest-townhome": {
+      "rating": 4.99,
+      "count": 80
+    },
+    "9line-loft": {
+      "rating": 5.0,
+      "count": 7
+    },
+    "lumber-barons-mansion": {
+      "rating": 4.9,
+      "count": 112
+    },
+    "lumber-barons-penthouse": {
+      "rating": 4.95,
+      "count": 128
+    },
+    "granary-west-403": {
+      "rating": 4.66,
+      "count": 77
+    },
+    "granary-loft": {
+      "rating": 4.91,
+      "count": 108
+    },
+    "granary-twin-suites": {
+      "rating": 4.81,
+      "count": 113
+    },
+    "downtown-king-queen-loft": {
+      "rating": 4.95,
+      "count": 81
+    },
+    "downtown-twin-queens": {
+      "rating": 4.76,
+      "count": 88
+    },
+    "downtown-gym-hot-tub": {
+      "rating": 4.73,
+      "count": 96
+    },
+    "downtown-designer-2king": {
+      "rating": 4.82,
+      "count": 93
+    },
+    "downtown-mountain-studio": {
+      "rating": 4.73,
+      "count": 96
+    },
+    "downtown-2king-townhome": {
+      "rating": 4.86,
+      "count": 150
+    },
+    "downtown-king-queen-garage": {
+      "rating": 4.91,
+      "count": 176
+    },
+    "downtown-penthouse-view": {
+      "rating": 4.81,
+      "count": 113
+    },
+    "downtown-midmod": {
+      "rating": 4.94,
+      "count": 16
+    },
+    "sugarhood-east": {
+      "rating": 4.91,
+      "count": 35
+    },
+    "9line-loft-ii": {
+      "rating": 5.0,
+      "count": 7
+    },
+    "salt-flats-323": {
+      "rating": 4.84,
+      "count": 125
+    }
+  }
+}
