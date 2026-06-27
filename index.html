@@ -519,6 +519,31 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 </head>
 <body>
 
+<script>
+/* Single source of truth for review numbers: reviews.json (regenerated nightly
+   from live Airbnb data + manual VRBO). Populates the rating/count displays and
+   exposes lcfApplyReviews() to merge real per-property numbers into cards. */
+(function(){
+  window.__lcfReviewsReady = fetch('reviews.json').then(function(r){return r.ok?r.json():null;}).then(function(R){
+    window.__lcfReviews = R || null;
+    if (!R) return null;
+    var fmt = function(n){ return Number(n).toLocaleString(); };
+    document.querySelectorAll('[data-lcf-avg]').forEach(function(e){ if(R.average_rating!=null) e.textContent = R.average_rating + '★'; });
+    document.querySelectorAll('[data-lcf-rev]').forEach(function(e){
+      var k = e.getAttribute('data-lcf-rev');
+      var c = k==='all' ? {rating:R.average_rating, count:R.total_reviews} : (R.by_city && R.by_city[k]);
+      if (c && c.rating!=null) e.innerHTML = '<strong>'+c.rating+'</strong> · '+fmt(c.count)+' reviews';
+    });
+    return R;
+  }).catch(function(){ return null; });
+  window.lcfApplyReviews = function(props){
+    var R = window.__lcfReviews; if(!R||!R.properties||!props) return props;
+    props.forEach(function(p){ var d=R.properties[p.id]; if(d){ if(d.rating!=null)p.rating=d.rating; if(d.count!=null)p.review_count=d.count; } });
+    return props;
+  };
+})();
+</script>
+
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a href="#" class="nav-logo">
@@ -601,7 +626,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     </div>
     <div class="hero-stats fu fu4">
       <div><div class="stat-num" data-lcf="grand-total">26</div><div class="stat-label">Flats</div></div>
-      <div><div class="stat-num">4.96★</div><div class="stat-label">Avg. rating</div></div>
+      <div><div class="stat-num" data-lcf-avg>4.96★</div><div class="stat-label">Avg. rating</div></div>
       <div><div class="stat-num">2</div><div class="stat-label">Cities</div></div>
     </div>
   </div>
@@ -828,7 +853,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   var hbpProps = [];
   var hbpCity = '';
 
-  fetch('properties.json').then(function(r){return r.json();}).then(function(d){ hbpProps = d.properties; });
+  fetch('properties.json').then(function(r){return r.json();}).then(function(d){ hbpProps = d.properties; window.__lcfReviewsReady.then(function(){ window.lcfApplyReviews(hbpProps); }); });
 
   document.querySelectorAll('.hbp-tab').forEach(function(btn){
     btn.addEventListener('click', function(){
@@ -1033,7 +1058,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   var allProps = [];
   var selectedCity = '';
 
-  fetch('properties.json').then(function(r){return r.json();}).then(function(d){ allProps = d.properties; });
+  fetch('properties.json').then(function(r){return r.json();}).then(function(d){ allProps = d.properties; window.__lcfReviewsReady.then(function(){ window.lcfApplyReviews(allProps); }); });
 
   document.querySelectorAll('.bs-tab').forEach(function(btn){
     btn.addEventListener('click', function(){
@@ -1235,7 +1260,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     <div>
       <div class="reviews-col-head reveal">
         <span class="city-badge-sm badge-slc-sm">🏔 Salt Lake City</span>
-        <span class="reviews-avg"><strong>4.96</strong> · 4,620+ reviews</span>
+        <span class="reviews-avg" data-lcf-rev="slc"><strong>4.96</strong> · 4,620+ reviews</span>
       </div>
       <div class="review reveal d1">
         <div class="review-top"><div class="review-av av-s">H</div><div><div class="review-name">Heather</div><div class="review-meta">April 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
@@ -1256,7 +1281,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     <div>
       <div class="reviews-col-head reveal">
         <span class="city-badge-sm badge-det-sm">🏛 Detroit</span>
-        <span class="reviews-avg"><strong>4.98</strong> · 70+ reviews</span>
+        <span class="reviews-avg" data-lcf-rev="detroit"><strong>4.98</strong> · 70+ reviews</span>
       </div>
       <div class="review reveal d1">
         <div class="review-top"><div class="review-av av-d1">S</div><div><div class="review-name">Sheryl</div><div class="review-meta">March 2026 · Airbnb</div></div><div class="review-stars">★★★★★</div></div>
@@ -1410,6 +1435,7 @@ function closeEgg() { document.getElementById('egg').classList.remove('show'); }
 // Load properties from JSON
 async function loadProperties() {
   const data = await fetch('properties.json').then(r => r.json());
+  await window.__lcfReviewsReady; window.lcfApplyReviews(data.properties);
   const { properties, slc_totals } = data;
 
   // Calculate totals
