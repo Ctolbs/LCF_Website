@@ -17,8 +17,8 @@ jobs:
           echo "-- top-level keys --"; jq -r 'keys' props.json
           echo "-- property count in page --"; jq '.data | length' props.json
           echo "-- first property: field names (no values, privacy) --"; jq -r '.data[0] | keys' props.json
-          echo "-- id-like + public name fields only --"; jq -c '.data[] | {id, name, public_name, listing_id, platform_id}' props.json 2>/dev/null | head -30
-          echo "-- pagination meta --"; jq '.meta // .links' props.json
+          echo "-- uuid -> picture (to extract numeric id for mapping) --"; jq -r '.data[] | .id + "  " + (.picture // "NONE" | tostring)' props.json | head -30
+          echo "-- mapping check: uuid -> numeric id parsed from picture --"; jq -r '.data[] | .id + " -> " + ((.picture // "" | capture("property_images/(?<n>[0-9]+)/")?.n) // "NO-MATCH")' props.json | head -30
           echo
           echo "===== /v2/properties/{uuid}/reviews (first property) ====="
           UUID=$(jq -r '.data[0].id' props.json)
