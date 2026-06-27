@@ -69,9 +69,11 @@
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://pub-b7ec579abf5b4197b5fcb40a0cf5ac32.r2.dev" crossorigin>
 <link rel="preconnect" href="https://booking.hospitable.com" crossorigin>
+<link rel="preload" as="image" href="images/slc-hero.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <style>
@@ -183,8 +185,8 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .hero-city-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;}
 .hero-city:hover .hero-city-bg{transform:scale(1.04);}
 .hero-city-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,18,10,0.82) 0%,transparent 65%);transition:opacity .4s;}
-.hc-slc .hero-city-bg{background-image:url('images/slc-hero.jpg');background-size:cover;background-position:center 55%;}
-.hc-det .hero-city-bg{background-image:url('images/detroit-hero.jpg');background-size:cover;background-position:60% 20%;}
+.hc-slc .hero-city-bg{background-image:url('images/slc-hero.webp');background-size:cover;background-position:center 55%;}
+.hc-det .hero-city-bg{background-image:url('images/detroit-hero.webp');background-size:cover;background-position:60% 20%;}
 .hero-city-content{position:relative;z-index:2;}
 .hero-city-name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:400;color:#fff;line-height:1;}
 .hero-city-hood{font-size:11px;color:rgba(255,255,255,0.48);margin-top:5px;line-height:1.55;}
