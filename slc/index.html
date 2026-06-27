@@ -514,7 +514,7 @@
   <div class="email-strip-heading">New flats, powder days, and Detroit events.</div>
   <div class="email-strip-sub">Occasional notes from the team. No spam, ever.</div>
   <form class="email-strip-form" action="https://lakecityflats.us17.list-manage.com/subscribe/post?u=80cfa03b1a983242cea5f2fd8&amp;id=e03121d556&amp;f_id=00f9f4e0f0" method="post" target="_blank" novalidate>
-    <input type="email" name="EMAIL" placeholder="your@email.com" required>
+    <input type="email" name="EMAIL" aria-label="Email address" placeholder="your@email.com" required>
     <button type="submit">Subscribe →</button>
     <input type="text" name="b_80cfa03b1a983242cea5f2fd8_e03121d556" tabindex="-1" value="" style="display:none;" aria-hidden="true">
   </form>
@@ -635,16 +635,16 @@ fetch('../properties.json')
     document.getElementById('slc-count').textContent = slcProps.length;
 
     document.getElementById('slc-pills').innerHTML =
-      '<span class="hood-pill slc-pill active" onclick="filterSLC(this,\'all\')">All</span>' +
+      '<span role="button" tabindex="0" class="hood-pill slc-pill active" onclick="filterSLC(this,\'all\')">All</span>' +
       Object.entries(slc_totals).map(([h, n]) =>
-        `<span class="hood-pill slc-pill" onclick="filterSLC(this,'${h}')">${hoodLabels[h] || h} (${n})</span>`
+        `<span role="button" tabindex="0" class="hood-pill slc-pill" onclick="filterSLC(this,'${h}')">${hoodLabels[h] || h} (${n})</span>`
       ).join('');
 
     document.getElementById('sleeps-pills').innerHTML =
-      '<span class="hood-pill slc-pill active" onclick="filterSleeps(this,\'all\')">Any size</span>' +
-      '<span class="hood-pill slc-pill" onclick="filterSleeps(this,\'1-2\')">Solo / Couple</span>' +
-      '<span class="hood-pill slc-pill" onclick="filterSleeps(this,\'3-4\')">Small group (3–4)</span>' +
-      '<span class="hood-pill slc-pill" onclick="filterSleeps(this,\'5+\')">Group (5+)</span>';
+      '<span role="button" tabindex="0" class="hood-pill slc-pill active" onclick="filterSleeps(this,\'all\')">Any size</span>' +
+      '<span role="button" tabindex="0" class="hood-pill slc-pill" onclick="filterSleeps(this,\'1-2\')">Solo / Couple</span>' +
+      '<span role="button" tabindex="0" class="hood-pill slc-pill" onclick="filterSleeps(this,\'3-4\')">Small group (3–4)</span>' +
+      '<span role="button" tabindex="0" class="hood-pill slc-pill" onclick="filterSleeps(this,\'5+\')">Group (5+)</span>';
 
     document.getElementById('slc-list').innerHTML = slcProps
       .map(p => propCard(p))
@@ -751,6 +751,14 @@ function initSLCMap(props) {
   if(/Instagram|FBAN|FBAV|FB_IAB|FB4A/.test(navigator.userAgent||'')||/\.html.*fbclid/.test(location.search))
     document.getElementById('iab-bar').style.display='block';
 })();
+</script>
+<script>
+/* a11y: activate role=button pills/gallery via keyboard (Enter/Space) */
+document.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&e.target&&e.target.matches&&e.target.matches(".hood-pill,.pp-gallery-main-img,.pp-gallery-sub-img")){e.preventDefault();e.target.click();}});
+</script>
+<script>
+/* a11y: label flatpickr's visible alt-input (it does not inherit aria-label) */
+window.addEventListener("load",function(){document.querySelectorAll("input[id$=\"-checkin\"],input[id$=\"-checkout\"]").forEach(function(o){var a=o.nextElementSibling;if(a&&a.tagName==="INPUT"&&!a.getAttribute("aria-label"))a.setAttribute("aria-label",o.getAttribute("placeholder")||(o.id.indexOf("checkin")>-1?"Check-in date":"Check-out date"));});});
 </script>
 </body>
 </html>

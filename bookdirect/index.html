@@ -298,7 +298,7 @@ fbq('track', 'PageView');
   <div class="email-strip-heading">New flats, powder days, and Detroit events.</div>
   <div class="email-strip-sub">Occasional notes from the team. No spam, ever.</div>
   <form class="email-strip-form" id="bd-email-form" action="https://lakecityflats.us17.list-manage.com/subscribe/post?u=80cfa03b1a983242cea5f2fd8&amp;id=e03121d556&amp;f_id=00f9f4e0f0" method="post" target="_blank" novalidate>
-    <input type="email" name="EMAIL" placeholder="your@email.com" required>
+    <input type="email" name="EMAIL" aria-label="Email address" placeholder="your@email.com" required>
     <button type="submit">Subscribe →</button>
     <input type="text" name="b_80cfa03b1a983242cea5f2fd8_e03121d556" tabindex="-1" value="" style="display:none;" aria-hidden="true">
   </form>
@@ -541,6 +541,10 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
   if(/Instagram|FBAN|FBAV|FB_IAB|FB4A/.test(navigator.userAgent||'')||/\.html.*fbclid/.test(location.search))
     document.getElementById('iab-bar').style.display='block';
 })();
+</script>
+<script>
+/* a11y: label flatpickr's visible alt-input (it does not inherit aria-label) */
+window.addEventListener("load",function(){document.querySelectorAll("input[id$=\"-checkin\"],input[id$=\"-checkout\"]").forEach(function(o){var a=o.nextElementSibling;if(a&&a.tagName==="INPUT"&&!a.getAttribute("aria-label"))a.setAttribute("aria-label",o.getAttribute("placeholder")||(o.id.indexOf("checkin")>-1?"Check-in date":"Check-out date"));});});
 </script>
 </body>
 </html>
