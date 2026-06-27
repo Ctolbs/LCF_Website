@@ -42,19 +42,25 @@ def api(url, auth=False, tries=3):
             raise
 
 def reviews_for(uuid):
-    """Return (count, average_rating) by paginating all reviews."""
+    """Return (count, average_rating, ratings, info) by paginating all reviews."""
+    from collections import Counter
     ratings, total, page = [], 0, 1
+    fetched = 0; plat = Counter(); unrated = 0
     while True:
         rv = api(f"{PUB}/properties/{uuid}/reviews?per_page=50&page={page}", auth=True)
         meta = rv.get("meta", {})
         total = meta.get("total", total)
         for r in rv.get("data", []):
+            fetched += 1
+            plat[r.get("platform", "?")] += 1
             rt = (r.get("public") or {}).get("rating")
             if isinstance(rt, (int, float)): ratings.append(rt)
+            else: unrated += 1
         if page >= meta.get("last_page", 1): break
         page += 1; time.sleep(0.3)
     avg = round(sum(ratings)/len(ratings), 2) if ratings else None
-    return total, avg, ratings
+    info = {"meta_total": total, "fetched": fetched, "unrated": unrated, "platforms": dict(plat)}
+    return total, avg, ratings, info
 
 def main():
     write = "--write" in sys.argv
@@ -71,7 +77,7 @@ def main():
         if page >= r["meta"]["last_page"]: break
         page += 1
 
-    out, all_ratings, misses = {}, [], []
+    out, all_ratings, misses, plat_totals = {}, [], [], {}
     for p in props:
         slug, hid = p["id"], p["hospitable_id"]
         try:
@@ -82,14 +88,19 @@ def main():
         uuid = name_to_uuid.get(pubname)
         if not uuid:
             misses.append((slug, f"no uuid for public_name: {pubname!r}")); continue
-        count, avg, ratings = reviews_for(uuid)
+        count, avg, ratings, info = reviews_for(uuid)
         out[slug] = {"rating": avg, "count": count}
         all_ratings += ratings
-        print(f"  {slug:28s} count={count:4d} avg={avg}  ({pubname[:40]})")
+        flag = "" if info["meta_total"] == info["fetched"] else "  !!PAGINATION MISMATCH"
+        for k in info["platforms"]:
+            plat_totals[k] = plat_totals.get(k, 0) + info["platforms"][k]
+        print(f"  {slug:28s} total={count:4d} fetched={info['fetched']:4d} unrated={info['unrated']:3d} "
+              f"platforms={info['platforms']}{flag}")
         time.sleep(0.4)
 
     total = sum(v["count"] for v in out.values())
     overall = round(sum(all_ratings)/len(all_ratings), 2) if all_ratings else None
+    print(f"\nPLATFORM BREAKDOWN (all properties): {plat_totals}")
     summary = {
         "total_reviews": total,
         "average_rating": overall,
