@@ -25,8 +25,8 @@
     {"id": "4389294", "name": "Sugarhood Sugar House 3BR/2BA CoWork+Gym", "count": 8, "rating": 5},
     {"id": "2841293", "name": "Downtown SLC 1BR Exposed Brick Mtn Views", "count": 12, "rating": 4.5},
     {"id": "1904536", "name": "Downtown SLC Townhome King+Queen+Sofa 2.5BA", "count": 36, "rating": 5},
-    {"id": "3297920", "name": "Lumber Baron's Brush Park Mansion", "count": 51, "rating": 5},
-    {"id": "3415256", "name": "Lumber Baron's Brush Park Penthouse", "count": 41, "rating": 5},
+    {"id": "3297920", "name": "Lumber Baron's Brush Park Mansion", "count": 51, "rating": 5, "city": "detroit"},
+    {"id": "3415256", "name": "Lumber Baron's Brush Park Penthouse", "count": 41, "rating": 5, "city": "detroit"},
     {"id": "4354967", "name": "Sugarhood SLC Penthouse 3BR/2BA", "count": 19, "rating": 5}
   ]
 }

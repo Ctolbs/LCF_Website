@@ -102,26 +102,38 @@ def main():
     airbnb_sum = float(sum(all_ratings))
 
     # VRBO (and any other manual sources) blended in from reviews-manual.json
-    vrbo_count, vrbo_sum = 0, 0.0
     mf = os.path.join(here, "reviews-manual.json")
-    if os.path.exists(mf):
-        for v in json.load(open(mf)).get("vrbo", []):
-            c = v.get("count") or 0
-            r = v.get("rating")
-            vrbo_count += c
-            if r: vrbo_sum += c * r
+    vrbo = json.load(open(mf)).get("vrbo", []) if os.path.exists(mf) else []
+    vrbo_count = sum((v.get("count") or 0) for v in vrbo)
+    vrbo_sum = sum((v.get("count") or 0) * v["rating"] for v in vrbo if v.get("rating"))
 
     combined_total = airbnb_count + vrbo_count
     combined_avg = round((airbnb_sum + vrbo_sum) / combined_total, 2) if combined_total else None
+
+    # per-city aggregates (Airbnb per-property by city + VRBO by city tag; default slc)
+    prop_city = {p["id"]: p.get("city", "slc") for p in props}
+    city = {}
+    for slug, v in out.items():
+        d = city.setdefault(prop_city.get(slug, "slc"), {"count": 0, "sum": 0.0})
+        d["count"] += v["count"]; d["sum"] += v["count"] * (v["rating"] or 0)
+    for v in vrbo:
+        c = v.get("count") or 0
+        d = city.setdefault(v.get("city", "slc"), {"count": 0, "sum": 0.0})
+        d["count"] += c
+        if v.get("rating"): d["sum"] += c * v["rating"]
+    by_city = {k: {"count": d["count"], "rating": round(d["sum"]/d["count"], 2)}
+               for k, d in city.items() if d["count"]}
 
     summary = {
         "updated": os.environ.get("RUN_DATE", ""),
         "total_reviews": combined_total,
         "average_rating": combined_avg,
         "by_source": {**plat_totals, "vrbo": vrbo_count},
+        "by_city": by_city,
         "property_count": len(out),
         "properties": out,            # per-property Airbnb numbers (for cards)
     }
+    print(f"BY CITY: {by_city}")
     print(f"\nPLATFORM BREAKDOWN (Hospitable API): {plat_totals}")
     print(f"Hospitable (airbnb+direct+booking): {airbnb_count} reviews  avg {round(airbnb_sum/airbnb_count,3)}")
     print(f"VRBO (manual):                      {vrbo_count} reviews  avg {round(vrbo_sum/vrbo_count,3) if vrbo_count else None}")
