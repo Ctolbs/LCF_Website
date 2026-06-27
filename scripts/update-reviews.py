@@ -98,24 +98,40 @@ def main():
               f"platforms={info['platforms']}{flag}")
         time.sleep(0.4)
 
-    total = sum(v["count"] for v in out.values())
-    overall = round(sum(all_ratings)/len(all_ratings), 2) if all_ratings else None
-    print(f"\nPLATFORM BREAKDOWN (all properties): {plat_totals}")
+    airbnb_count = sum(v["count"] for v in out.values())   # airbnb + direct + booking
+    airbnb_sum = float(sum(all_ratings))
+
+    # VRBO (and any other manual sources) blended in from reviews-manual.json
+    vrbo_count, vrbo_sum = 0, 0.0
+    mf = os.path.join(here, "reviews-manual.json")
+    if os.path.exists(mf):
+        for v in json.load(open(mf)).get("vrbo", []):
+            c = v.get("count") or 0
+            r = v.get("rating")
+            vrbo_count += c
+            if r: vrbo_sum += c * r
+
+    combined_total = airbnb_count + vrbo_count
+    combined_avg = round((airbnb_sum + vrbo_sum) / combined_total, 2) if combined_total else None
+
     summary = {
-        "total_reviews": total,
-        "average_rating": overall,
+        "updated": os.environ.get("RUN_DATE", ""),
+        "total_reviews": combined_total,
+        "average_rating": combined_avg,
+        "by_source": {**plat_totals, "vrbo": vrbo_count},
         "property_count": len(out),
-        "properties": out,
+        "properties": out,            # per-property Airbnb numbers (for cards)
     }
-    print(f"\nTOTAL reviews={total}  overall avg={overall}  properties matched={len(out)}/{len(props)}")
+    print(f"\nPLATFORM BREAKDOWN (Hospitable API): {plat_totals}")
+    print(f"Hospitable (airbnb+direct+booking): {airbnb_count} reviews  avg {round(airbnb_sum/airbnb_count,3)}")
+    print(f"VRBO (manual):                      {vrbo_count} reviews  avg {round(vrbo_sum/vrbo_count,3) if vrbo_count else None}")
+    print(f"COMBINED (truthful headline):       {combined_total} reviews  avg {combined_avg}")
+    print(f"properties matched: {len(out)}/{len(props)}")
     if misses:
         print("UNMATCHED:")
         for s, why in misses: print(f"  {s}: {why}")
 
     if write:
-        import datetime  # noqa
-        # timestamp is passed via env in CI to keep runs reproducible; fallback omitted
-        summary["updated"] = os.environ.get("RUN_DATE", "")
         with open(os.path.join(here, "reviews.json"), "w") as f:
             json.dump(summary, f, indent=2)
         print("Wrote reviews.json")

@@ -1,0 +1,32 @@
+{
+  "_README": "VRBO (and any other non-Hospitable) review data. These are NOT available via the Hospitable API, so they're entered by hand from the Expedia/VRBO dashboard. The nightly updater blends them with the live Airbnb numbers to produce reviews.json. 'count' is exact; 'rating' is the listing's star average (the dashboard shows half-star precision, which is fine for a blended figure). To refresh: re-screenshot the VRBO listings page and update the counts/ratings below.",
+  "_updated": "2026-06-27",
+  "vrbo": [
+    {"id": "4670131", "name": "Downtown SLC 1BR - A/C + W/D", "count": 12, "rating": 4.5},
+    {"id": "2037244", "name": "2 Master Suites + 2.5BA Townhome", "count": 41, "rating": 5},
+    {"id": "5201451", "name": "9line SLC Loft 205", "count": 0, "rating": null},
+    {"id": "5184670", "name": "9line SLC Loft 203", "count": 0, "rating": null},
+    {"id": "2239572", "name": "Downtown SLC 1BR CoWork near Delta", "count": 25, "rating": 4.5},
+    {"id": "2844699", "name": "Downtown SLC King+Sleeper CoWork 403", "count": 19, "rating": 5},
+    {"id": "2543309", "name": "Downtown SLC King+Sleeper Gym 323", "count": 46, "rating": 5},
+    {"id": "2305742", "name": "Downtown SLC King+Queen+Sofa Garage Sleeps 6", "count": 64, "rating": 5},
+    {"id": "1618373", "name": "Downtown SLC Penthouse Queen+Daybed Views", "count": 55, "rating": 5},
+    {"id": "2795230", "name": "Downtown SLC Studio Queen+Sleeper Gym Views", "count": 14, "rating": 4.5},
+    {"id": "1729754", "name": "Downtown SLC 1BR Queen+Sofa Gym/HotTub", "count": 54, "rating": 5},
+    {"id": "1868477", "name": "Downtown SLC Townhome 2 King Suites Sofa 2.5BA", "count": 34, "rating": 5},
+    {"id": "2127458", "name": "Downtown SLC Townhome 2 Queens 2.5BA Garage", "count": 47, "rating": 5},
+    {"id": "1887209", "name": "Downtown SLC Townhome King+Queen+Sofa 2.5BA", "count": 27, "rating": 5},
+    {"id": "2852807", "name": "Granary 1 King BR/1BA CoWork+Gym Garage", "count": 12, "rating": 5},
+    {"id": "2518506", "name": "Downtown SL Townhome 2 King Master Suites 2.5BA", "count": 51, "rating": 5},
+    {"id": "2243445", "name": "Granary 1KingBR Sleeps3 CoWork+Gym Garage", "count": 17, "rating": 5},
+    {"id": "3319603", "name": "Granary District SLC King CoWork+Gym Garage", "count": 15, "rating": 5},
+    {"id": "3711617", "name": "Granary/Downtown Townhome 2 King 1 Queen Suite", "count": 36, "rating": 5},
+    {"id": "1869834", "name": "Granary/Downtown Townhome 2 King Sleeper Sofa", "count": 22, "rating": 4.5},
+    {"id": "4389294", "name": "Sugarhood Sugar House 3BR/2BA CoWork+Gym", "count": 8, "rating": 5},
+    {"id": "2841293", "name": "Downtown SLC 1BR Exposed Brick Mtn Views", "count": 12, "rating": 4.5},
+    {"id": "1904536", "name": "Downtown SLC Townhome King+Queen+Sofa 2.5BA", "count": 36, "rating": 5},
+    {"id": "3297920", "name": "Lumber Baron's Brush Park Mansion", "count": 51, "rating": 5},
+    {"id": "3415256", "name": "Lumber Baron's Brush Park Penthouse", "count": 41, "rating": 5},
+    {"id": "4354967", "name": "Sugarhood SLC Penthouse 3BR/2BA", "count": 19, "rating": 5}
+  ]
+}
