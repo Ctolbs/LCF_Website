@@ -146,6 +146,7 @@ fbq('track', 'PageView');
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav" id="nav">
   <a href="/" class="nav-logo">
@@ -169,6 +170,7 @@ fbq('track', 'PageView');
     <span></span><span></span><span></span>
   </button>
 </nav>
+<main id="main" tabindex="-1">
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
   <a href="../../slc/" class="nav-drawer-link">Salt Lake City</a>
   <a href="../../detroit/" class="nav-drawer-link">Detroit</a>
@@ -301,6 +303,7 @@ fbq('track', 'PageView');
   <div class="email-strip-note">Unsubscribe anytime.</div>
 </section>
 
+</main>
 <footer>
   <div>
     <div class="footer-logo-main">Lake City <span>Flats</span></div>
@@ -357,7 +360,7 @@ document.getElementById('dt-email-form').addEventListener('submit', function() {
   lcfTrack('email_signup', {source: 'downtown_slc_page'});
 });
 
-(function(){var btn=document.getElementById('nav-hamburger'),drw=document.getElementById('nav-drawer');if(!btn)return;btn.addEventListener('click',function(){var o=drw.classList.toggle('open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));drw.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':'';});drw.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drw.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');drw.setAttribute('aria-hidden','true');document.body.style.overflow='';});});})();
+(function(){var btn=document.getElementById('nav-hamburger'),drw=document.getElementById('nav-drawer');if(!btn||!drw)return;function setOpen(o){drw.classList.toggle('open',o);btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));drw.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':'';if(o){var f=drw.querySelector('a,button');if(f)f.focus();}else{btn.focus();}}btn.addEventListener('click',function(){setOpen(!drw.classList.contains('open'));});drw.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});document.addEventListener('keydown',function(e){if(!drw.classList.contains('open'))return;if(e.key==='Escape'){setOpen(false);return;}if(e.key==='Tab'){var f=drw.querySelectorAll('a,button');if(!f.length)return;var first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});})();
 
 // --- Property list ---
 fetch('../../properties.json')

@@ -127,6 +127,9 @@ span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{font-family:'Jost',sans-serif;background:var(--mist);color:var(--ink);overflow-x:hidden;}
+.skip-link{position:absolute;left:8px;top:-48px;z-index:9999;background:var(--navy);color:var(--cream);padding:10px 18px;border-radius:0 0 4px 4px;font-size:12px;letter-spacing:.08em;text-decoration:none;transition:top .15s;}
+.skip-link:focus{top:0;}
+a:focus-visible,button:focus-visible,[role="button"]:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--amber);outline-offset:2px;border-radius:2px;}
 body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .fu{animation:fadeUp .65s ease forwards;opacity:0;}
@@ -520,6 +523,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
   <!-- End Meta Pixel -->
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <script>
 /* Single source of truth for review numbers: reviews.json (regenerated nightly
@@ -569,6 +573,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
     <span></span><span></span><span></span>
   </button>
 </nav>
+<main id="main" tabindex="-1">
 <div class="nav-drawer" id="nav-drawer" aria-hidden="true">
   <a href="slc/" class="nav-drawer-link">Salt Lake City</a>
   <a href="detroit/" class="nav-drawer-link">Detroit</a>
@@ -1341,6 +1346,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   </form>
   <div class="email-strip-note">Unsubscribe anytime.</div>
 </section>
+</main>
 <footer>
   <div>
     <div class="footer-logo-main">Lake City <span>Flats</span></div>
@@ -1502,7 +1508,7 @@ async function loadProperties() {
 loadProperties();
 </script>
 <script>
-(function(){var btn=document.getElementById('nav-hamburger'),drw=document.getElementById('nav-drawer');if(!btn)return;btn.addEventListener('click',function(){var o=drw.classList.toggle('open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));drw.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':'';});drw.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drw.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');drw.setAttribute('aria-hidden','true');document.body.style.overflow='';});});})();
+(function(){var btn=document.getElementById('nav-hamburger'),drw=document.getElementById('nav-drawer');if(!btn||!drw)return;function setOpen(o){drw.classList.toggle('open',o);btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));drw.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':'';if(o){var f=drw.querySelector('a,button');if(f)f.focus();}else{btn.focus();}}btn.addEventListener('click',function(){setOpen(!drw.classList.contains('open'));});drw.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});document.addEventListener('keydown',function(e){if(!drw.classList.contains('open'))return;if(e.key==='Escape'){setOpen(false);return;}if(e.key==='Tab'){var f=drw.querySelectorAll('a,button');if(!f.length)return;var first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});})();
 </script>
 <div id="iab-bar" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#1C2D47;border-top:3px solid #FBBE01;padding:13px 20px;box-shadow:0 -4px 20px rgba(0,0,0,0.45);">
   <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:560px;margin:0 auto;">
