@@ -4,16 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>All Reviews · Lake City Flats</title>
-<meta name="description" content="4,690+ five-star reviews from guests across our Salt Lake City and Detroit flats.">
+<meta name="description" content="3,100+ guest reviews across our Salt Lake City and Detroit flats, averaging 4.87 stars.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lake City Flats">
 <meta property="og:title" content="Reviews · Lake City Flats">
-<meta property="og:description" content="4,690+ five-star reviews from guests across our Salt Lake City and Detroit flats.">
+<meta property="og:description" content="3,100+ guest reviews across our Salt Lake City and Detroit flats, averaging 4.87 stars.">
 <meta property="og:image" content="https://lakecityflats.com/og-image.jpg">
 <meta property="og:url" content="https://lakecityflats.com/reviews/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Reviews · Lake City Flats">
-<meta name="twitter:description" content="4,690+ five-star reviews from guests across our Salt Lake City and Detroit flats.">
+<meta name="twitter:description" content="3,100+ guest reviews across our Salt Lake City and Detroit flats, averaging 4.87 stars.">
 <meta name="twitter:image" content="https://lakecityflats.com/og-image.jpg">
 <link rel="canonical" href="https://lakecityflats.com/reviews/">
 <link rel="icon" href="../favicon.ico" sizes="any">
@@ -74,7 +74,7 @@
     "@id": "https://lakecityflats.com/reviews/",
     "url": "https://lakecityflats.com/reviews/",
     "name": "All Reviews · Lake City Flats",
-    "description": "4,690+ five-star reviews from guests across our Salt Lake City and Detroit flats.",
+    "description": "3,100+ guest reviews across our Salt Lake City and Detroit flats, averaging 4.87 stars.",
     "inLanguage": "en-US",
     "isPartOf": {
       "@type": "WebSite",
@@ -102,10 +102,10 @@
     "sameAs": ["https://www.instagram.com/lakecityflats"],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.96",
+      "ratingValue": "4.87",
       "bestRating": "5",
       "worstRating": "1",
-      "reviewCount": "4690"
+      "reviewCount": "3116"
     }
   },
   {
@@ -177,28 +177,28 @@
   <h1 class="rv-title">What people say<br>about staying with us.</h1>
   <div class="rv-stats">
     <div>
-      <div class="rv-stat-num">4.96★</div>
+      <div class="rv-stat-num" data-lcf-avg>4.87★</div>
       <div class="rv-stat-label">Overall avg.</div>
     </div>
     <div>
-      <div class="rv-stat-num">4,690+</div>
+      <div class="rv-stat-num" data-lcf-count>3,116</div>
       <div class="rv-stat-label">Total reviews</div>
     </div>
     <div>
-      <div class="rv-stat-num">4.96★</div>
+      <div class="rv-stat-num" data-lcf-city-rating="slc">4.87★</div>
       <div class="rv-stat-label">Salt Lake City</div>
     </div>
     <div>
-      <div class="rv-stat-num">4.98★</div>
+      <div class="rv-stat-num" data-lcf-city-rating="detroit">4.95★</div>
       <div class="rv-stat-label">Detroit</div>
     </div>
   </div>
 </div>
 
 <div class="rv-filters" id="filters">
-  <button class="rv-filter active" data-filter="all">All (4,690+)</button>
-  <button class="rv-filter" data-filter="slc">🏔 Salt Lake City (4,620+)</button>
-  <button class="rv-filter" data-filter="det">🏛 Detroit (70+)</button>
+  <button class="rv-filter active" data-filter="all" data-lcf-filter="all">All (3,116)</button>
+  <button class="rv-filter" data-filter="slc" data-lcf-filter="slc">🏔 Salt Lake City (2,784)</button>
+  <button class="rv-filter" data-filter="det" data-lcf-filter="detroit">🏛 Detroit (332)</button>
 </div>
 
 <div class="rv-grid-wrap">
@@ -395,6 +395,21 @@ document.querySelectorAll('.rv-filter').forEach(btn => {
   if(/Instagram|FBAN|FBAV|FB_IAB|FB4A/.test(navigator.userAgent||'')||/\.html.*fbclid/.test(location.search))
     document.getElementById('iab-bar').style.display='block';
 })();
+</script>
+<script>
+/* truthful review numbers from reviews.json (regenerated nightly) */
+fetch('../reviews.json').then(function(r){return r.ok?r.json():null;}).then(function(R){
+  if(!R)return;
+  var fmt=function(n){return Number(n).toLocaleString();};
+  document.querySelectorAll('[data-lcf-avg]').forEach(function(e){ if(R.average_rating!=null) e.textContent=R.average_rating+'★'; });
+  document.querySelectorAll('[data-lcf-count]').forEach(function(e){ if(R.total_reviews!=null) e.textContent=fmt(R.total_reviews); });
+  if(R.by_city){
+    document.querySelectorAll('[data-lcf-city-rating]').forEach(function(e){ var c=R.by_city[e.getAttribute('data-lcf-city-rating')]; if(c) e.textContent=c.rating+'★'; });
+    var sc=R.by_city.slc?R.by_city.slc.count:0, dc=R.by_city.detroit?R.by_city.detroit.count:0;
+    var labels={all:'All ('+fmt(R.total_reviews)+')', slc:'🏔 Salt Lake City ('+fmt(sc)+')', detroit:'🏛 Detroit ('+fmt(dc)+')'};
+    document.querySelectorAll('[data-lcf-filter]').forEach(function(e){ var k=e.getAttribute('data-lcf-filter'); if(labels[k]) e.textContent=labels[k]; });
+  }
+}).catch(function(){});
 </script>
 </body>
 </html>

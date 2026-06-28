@@ -25,7 +25,7 @@
   "description": "24 curated short-term rentals across four of Salt Lake City's most walkable neighborhoods — Granary District, Downtown, Sugarhood, and 9Line. Ski in the morning, walk to dinner in the evening.",
   "address": {"@type": "PostalAddress", "addressLocality": "Salt Lake City", "addressRegion": "UT", "postalCode": "84101", "addressCountry": "US"},
   "geo": {"@type": "GeoCoordinates", "latitude": 40.7608, "longitude": -111.8910},
-  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.96", "reviewCount": 4690, "bestRating": "5"},
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.87", "reviewCount": 2784, "bestRating": "5"},
   "amenityFeature": [
     {"@type": "LocationFeatureSpecification", "name": "No service fees", "value": true},
     {"@type": "LocationFeatureSpecification", "name": "Self check-in", "value": true},
@@ -234,7 +234,7 @@
       <div class="section-eyebrow">Guest voices</div>
       <h2 class="section-title">What guests say<br>about SLC</h2>
     </div>
-    <span class="cp-reviews-avg"><strong>4.96</strong> avg · 4,690+ reviews</span>
+    <span class="cp-reviews-avg" data-lcf-city="slc"><strong>4.87</strong> avg · 2,784 reviews</span>
   </div>
   <div class="cp-review-list">
     <div class="review reveal d1">
@@ -759,6 +759,16 @@ document.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" "
 <script>
 /* a11y: label flatpickr's visible alt-input (it does not inherit aria-label) */
 window.addEventListener("load",function(){document.querySelectorAll("input[id$=\"-checkin\"],input[id$=\"-checkout\"]").forEach(function(o){var a=o.nextElementSibling;if(a&&a.tagName==="INPUT"&&!a.getAttribute("aria-label"))a.setAttribute("aria-label",o.getAttribute("placeholder")||(o.id.indexOf("checkin")>-1?"Check-in date":"Check-out date"));});});
+</script>
+<script>
+/* truthful per-city review numbers from reviews.json (regenerated nightly) */
+fetch('../reviews.json').then(function(r){return r.ok?r.json():null;}).then(function(R){
+  if(!R||!R.by_city)return;
+  document.querySelectorAll('[data-lcf-city]').forEach(function(e){
+    var c=R.by_city[e.getAttribute('data-lcf-city')];
+    if(c) e.innerHTML='<strong>'+c.rating+'</strong> avg \u00b7 '+Number(c.count).toLocaleString()+' reviews';
+  });
+}).catch(function(){});
 </script>
 </body>
 </html>

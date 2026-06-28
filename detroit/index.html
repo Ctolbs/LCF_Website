@@ -25,7 +25,7 @@
   "description": "Two exceptional short-term rentals in Detroit's Brush Park historic district — steps from Little Caesars Arena, Woodward Ave, and the best of a city on the rise.",
   "address": {"@type": "PostalAddress", "addressLocality": "Detroit", "addressRegion": "MI", "postalCode": "48201", "addressCountry": "US"},
   "geo": {"@type": "GeoCoordinates", "latitude": 42.3407, "longitude": -83.0471},
-  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.98", "reviewCount": 75, "bestRating": "5"},
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.95", "reviewCount": 332, "bestRating": "5"},
   "amenityFeature": [
     {"@type": "LocationFeatureSpecification", "name": "No service fees", "value": true},
     {"@type": "LocationFeatureSpecification", "name": "Self check-in", "value": true},
@@ -219,7 +219,7 @@
       <div class="section-eyebrow">Guest voices</div>
       <h2 class="section-title">What guests say<br>about Detroit</h2>
     </div>
-    <span class="cp-reviews-avg"><strong>4.98</strong> avg · 70+ reviews</span>
+    <span class="cp-reviews-avg" data-lcf-city="detroit"><strong>4.95</strong> avg · 332 reviews</span>
   </div>
   <div class="cp-review-list">
     <div class="review reveal d1">
@@ -667,6 +667,16 @@ document.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" "
 <script>
 /* a11y: label flatpickr's visible alt-input (it does not inherit aria-label) */
 window.addEventListener("load",function(){document.querySelectorAll("input[id$=\"-checkin\"],input[id$=\"-checkout\"]").forEach(function(o){var a=o.nextElementSibling;if(a&&a.tagName==="INPUT"&&!a.getAttribute("aria-label"))a.setAttribute("aria-label",o.getAttribute("placeholder")||(o.id.indexOf("checkin")>-1?"Check-in date":"Check-out date"));});});
+</script>
+<script>
+/* truthful per-city review numbers from reviews.json (regenerated nightly) */
+fetch('../reviews.json').then(function(r){return r.ok?r.json():null;}).then(function(R){
+  if(!R||!R.by_city)return;
+  document.querySelectorAll('[data-lcf-city]').forEach(function(e){
+    var c=R.by_city[e.getAttribute('data-lcf-city')];
+    if(c) e.innerHTML='<strong>'+c.rating+'</strong> avg \u00b7 '+Number(c.count).toLocaleString()+' reviews';
+  });
+}).catch(function(){});
 </script>
 </body>
 </html>
