@@ -1,16 +1,16 @@
 {
-  "updated": "2026-06-28",
-  "total_reviews": 3116,
+  "updated": "2026-06-29",
+  "total_reviews": 3117,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2343,
+    "airbnb": 2344,
     "direct": 13,
     "booking": 2,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2784,
+      "count": 2785,
       "rating": 4.87
     },
     "detroit": {
@@ -50,7 +50,7 @@
     },
     "modernwest-townhome": {
       "rating": 4.99,
-      "count": 80
+      "count": 81
     },
     "9line-loft": {
       "rating": 5.0,
