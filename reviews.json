@@ -1,16 +1,16 @@
 {
-  "updated": "2026-06-29",
-  "total_reviews": 3117,
+  "updated": "2026-06-30",
+  "total_reviews": 3122,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2344,
-    "direct": 13,
+    "airbnb": 2348,
+    "direct": 14,
     "booking": 2,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2785,
+      "count": 2790,
       "rating": 4.87
     },
     "detroit": {
@@ -25,8 +25,8 @@
       "count": 110
     },
     "granary-king-suite": {
-      "rating": 4.85,
-      "count": 96
+      "rating": 4.86,
+      "count": 97
     },
     "granary-west-401": {
       "rating": 4.93,
@@ -41,12 +41,12 @@
       "count": 123
     },
     "brick-studio": {
-      "rating": 4.76,
-      "count": 119
+      "rating": 4.77,
+      "count": 121
     },
     "sugarhood-penthouse": {
-      "rating": 4.67,
-      "count": 18
+      "rating": 4.68,
+      "count": 19
     },
     "modernwest-townhome": {
       "rating": 4.99,
@@ -105,8 +105,8 @@
       "count": 176
     },
     "downtown-penthouse-view": {
-      "rating": 4.81,
-      "count": 113
+      "rating": 4.82,
+      "count": 114
     },
     "downtown-midmod": {
       "rating": 4.94,
