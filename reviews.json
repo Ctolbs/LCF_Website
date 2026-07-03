@@ -1,17 +1,17 @@
 {
-  "updated": "2026-07-02",
-  "total_reviews": 3124,
+  "updated": "2026-07-03",
+  "total_reviews": 3125,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2350,
+    "airbnb": 2351,
     "direct": 14,
     "booking": 2,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2792,
-      "rating": 4.87
+      "count": 2793,
+      "rating": 4.86
     },
     "detroit": {
       "count": 332,
@@ -109,8 +109,8 @@
       "count": 114
     },
     "downtown-midmod": {
-      "rating": 4.94,
-      "count": 16
+      "rating": 4.71,
+      "count": 17
     },
     "sugarhood-east": {
       "rating": 4.91,
