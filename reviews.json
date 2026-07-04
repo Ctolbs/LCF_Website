@@ -1,20 +1,20 @@
 {
-  "updated": "2026-07-03",
-  "total_reviews": 3125,
+  "updated": "2026-07-04",
+  "total_reviews": 3129,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2351,
+    "airbnb": 2354,
     "direct": 14,
-    "booking": 2,
+    "booking": 3,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2793,
+      "count": 2796,
       "rating": 4.86
     },
     "detroit": {
-      "count": 332,
+      "count": 333,
       "rating": 4.95
     }
   },
@@ -38,7 +38,7 @@
     },
     "downtown-townhome": {
       "rating": 4.81,
-      "count": 123
+      "count": 124
     },
     "brick-studio": {
       "rating": 4.77,
@@ -58,7 +58,7 @@
     },
     "lumber-barons-mansion": {
       "rating": 4.9,
-      "count": 112
+      "count": 113
     },
     "lumber-barons-penthouse": {
       "rating": 4.95,
@@ -74,7 +74,7 @@
     },
     "granary-twin-suites": {
       "rating": 4.81,
-      "count": 113
+      "count": 114
     },
     "downtown-king-queen-loft": {
       "rating": 4.95,
@@ -90,7 +90,7 @@
     },
     "downtown-designer-2king": {
       "rating": 4.82,
-      "count": 93
+      "count": 94
     },
     "downtown-mountain-studio": {
       "rating": 4.73,
