@@ -1,16 +1,16 @@
 {
-  "updated": "2026-07-04",
-  "total_reviews": 3129,
+  "updated": "2026-07-05",
+  "total_reviews": 3131,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2354,
+    "airbnb": 2356,
     "direct": 14,
     "booking": 3,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2796,
+      "count": 2798,
       "rating": 4.86
     },
     "detroit": {
@@ -85,16 +85,16 @@
       "count": 88
     },
     "downtown-gym-hot-tub": {
-      "rating": 4.73,
-      "count": 97
+      "rating": 4.71,
+      "count": 98
     },
     "downtown-designer-2king": {
       "rating": 4.82,
       "count": 94
     },
     "downtown-mountain-studio": {
-      "rating": 4.73,
-      "count": 97
+      "rating": 4.71,
+      "count": 98
     },
     "downtown-2king-townhome": {
       "rating": 4.86,
