@@ -1,16 +1,16 @@
 {
-  "updated": "2026-07-05",
-  "total_reviews": 3131,
+  "updated": "2026-07-06",
+  "total_reviews": 3133,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2356,
+    "airbnb": 2358,
     "direct": 14,
     "booking": 3,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2798,
+      "count": 2800,
       "rating": 4.86
     },
     "detroit": {
@@ -77,8 +77,8 @@
       "count": 114
     },
     "downtown-king-queen-loft": {
-      "rating": 4.95,
-      "count": 81
+      "rating": 4.94,
+      "count": 82
     },
     "downtown-twin-queens": {
       "rating": 4.76,
@@ -89,8 +89,8 @@
       "count": 98
     },
     "downtown-designer-2king": {
-      "rating": 4.82,
-      "count": 94
+      "rating": 4.81,
+      "count": 95
     },
     "downtown-mountain-studio": {
       "rating": 4.71,
