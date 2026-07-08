@@ -1,16 +1,16 @@
 {
-  "updated": "2026-07-07",
-  "total_reviews": 3133,
+  "updated": "2026-07-08",
+  "total_reviews": 3135,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2358,
+    "airbnb": 2360,
     "direct": 14,
     "booking": 3,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2800,
+      "count": 2802,
       "rating": 4.86
     },
     "detroit": {
@@ -22,7 +22,7 @@
   "properties": {
     "granary-penthouse": {
       "rating": 4.94,
-      "count": 110
+      "count": 111
     },
     "granary-king-suite": {
       "rating": 4.86,
@@ -113,8 +113,8 @@
       "count": 17
     },
     "sugarhood-east": {
-      "rating": 4.91,
-      "count": 35
+      "rating": 4.92,
+      "count": 36
     },
     "9line-loft-ii": {
       "rating": 5.0,
