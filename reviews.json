@@ -1,16 +1,16 @@
 {
-  "updated": "2026-07-10",
-  "total_reviews": 3137,
+  "updated": "2026-07-11",
+  "total_reviews": 3138,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2362,
+    "airbnb": 2363,
     "direct": 14,
     "booking": 3,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2804,
+      "count": 2805,
       "rating": 4.86
     },
     "detroit": {
@@ -97,8 +97,8 @@
       "count": 98
     },
     "downtown-2king-townhome": {
-      "rating": 4.86,
-      "count": 150
+      "rating": 4.85,
+      "count": 151
     },
     "downtown-king-queen-garage": {
       "rating": 4.91,
