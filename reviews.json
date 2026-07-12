@@ -1,9 +1,9 @@
 {
-  "updated": "2026-07-11",
-  "total_reviews": 3138,
+  "updated": "2026-07-12",
+  "total_reviews": 3139,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2363,
+    "airbnb": 2364,
     "direct": 14,
     "booking": 3,
     "vrbo": 758
@@ -14,7 +14,7 @@
       "rating": 4.86
     },
     "detroit": {
-      "count": 333,
+      "count": 334,
       "rating": 4.95
     }
   },
@@ -62,7 +62,7 @@
     },
     "lumber-barons-penthouse": {
       "rating": 4.95,
-      "count": 128
+      "count": 129
     },
     "granary-west-403": {
       "rating": 4.66,
