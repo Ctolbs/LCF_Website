@@ -1,16 +1,16 @@
 {
-  "updated": "2026-07-14",
-  "total_reviews": 3142,
+  "updated": "2026-07-15",
+  "total_reviews": 3144,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2367,
+    "airbnb": 2369,
     "direct": 14,
     "booking": 3,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2808,
+      "count": 2810,
       "rating": 4.86
     },
     "detroit": {
@@ -30,7 +30,7 @@
     },
     "granary-west-401": {
       "rating": 4.93,
-      "count": 85
+      "count": 86
     },
     "downtown-townhouse": {
       "rating": 4.87,
@@ -65,8 +65,8 @@
       "count": 129
     },
     "granary-west-403": {
-      "rating": 4.66,
-      "count": 77
+      "rating": 4.67,
+      "count": 78
     },
     "granary-loft": {
       "rating": 4.91,
