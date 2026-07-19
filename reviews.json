@@ -1,16 +1,16 @@
 {
-  "updated": "2026-07-18",
-  "total_reviews": 3148,
+  "updated": "2026-07-19",
+  "total_reviews": 3149,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2373,
+    "airbnb": 2374,
     "direct": 14,
     "booking": 3,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2814,
+      "count": 2815,
       "rating": 4.86
     },
     "detroit": {
@@ -78,7 +78,7 @@
     },
     "downtown-king-queen-loft": {
       "rating": 4.94,
-      "count": 82
+      "count": 83
     },
     "downtown-twin-queens": {
       "rating": 4.76,
