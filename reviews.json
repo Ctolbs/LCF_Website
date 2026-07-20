@@ -1,16 +1,16 @@
 {
-  "updated": "2026-07-19",
-  "total_reviews": 3149,
+  "updated": "2026-07-20",
+  "total_reviews": 3154,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 2374,
+    "airbnb": 2379,
     "direct": 14,
     "booking": 3,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 2815,
+      "count": 2820,
       "rating": 4.86
     },
     "detroit": {
@@ -42,7 +42,7 @@
     },
     "brick-studio": {
       "rating": 4.77,
-      "count": 121
+      "count": 122
     },
     "sugarhood-penthouse": {
       "rating": 4.71,
@@ -85,16 +85,16 @@
       "count": 88
     },
     "downtown-gym-hot-tub": {
-      "rating": 4.71,
-      "count": 98
+      "rating": 4.72,
+      "count": 99
     },
     "downtown-designer-2king": {
       "rating": 4.81,
-      "count": 95
+      "count": 96
     },
     "downtown-mountain-studio": {
-      "rating": 4.71,
-      "count": 98
+      "rating": 4.72,
+      "count": 99
     },
     "downtown-2king-townhome": {
       "rating": 4.86,
@@ -122,7 +122,7 @@
     },
     "salt-flats-323": {
       "rating": 4.84,
-      "count": 125
+      "count": 126
     }
   }
 }
