@@ -40,7 +40,7 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .flatpickr-prev-month:hover svg,.flatpickr-next-month:hover svg{fill:#FBBE01;opacity:1;}
 .flatpickr-weekdays{background:transparent;padding:0 12px;}
 .flatpickr-weekdaycontainer{gap:2px;}
-span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;max-width:36px;}
+span.flatpickr-weekday{color:rgba(245,243,237,0.65);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;max-width:36px;}
 .flatpickr-days{padding:4px 12px 12px;border-top:1px solid rgba(255,255,255,0.07);}
 .dayContainer{gap:2px;width:264px;min-width:264px;max-width:264px;}
 .flatpickr-day{color:rgba(245,243,237,0.75);border-radius:3px;font-family:'Jost',sans-serif;font-size:12.5px;height:36px;line-height:36px;flex:0 0 36px;max-width:36px;border:none;}
@@ -103,7 +103,7 @@ span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing
 .btn-ghost:hover{border-color:rgba(245,243,237,0.4);color:rgba(245,243,237,0.9);}
 .hero-stats{display:flex;gap:34px;padding-top:42px;margin-top:42px;border-top:1px solid rgba(255,255,255,0.09);position:relative;z-index:1;}
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--cream);line-height:1;}
-.stat-label{font-size:10px;color:rgba(245,240,232,0.4);margin-top:4px;letter-spacing:.07em;}
+.stat-label{font-size:10px;color:rgba(245,240,232,0.65);margin-top:4px;letter-spacing:.07em;}
 .hero-right{display:grid;grid-template-rows:1fr 1fr;position:relative;}
 .hero-city{position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;padding:28px 32px;transition:all .4s;text-decoration:none;}
 .hero-city-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .6s ease;}
@@ -174,7 +174,7 @@ span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing
 .mini-prop-icon{font-size:18px;flex-shrink:0;width:32px;text-align:center;}
 .mini-prop-info{flex:1;min-width:0;}
 .mini-prop-name{font-size:13px;font-weight:500;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.mini-prop-meta{font-size:10.5px;color:rgba(245,240,232,0.4);margin-top:2px;}
+.mini-prop-meta{font-size:10.5px;color:rgba(245,240,232,0.65);margin-top:2px;}
 .mini-prop-rating{font-size:11.5px;font-weight:500;color:var(--gold);flex-shrink:0;}
 
 /* Detroit context box */
@@ -187,7 +187,7 @@ span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing
 .det-feat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:3px;padding:14px 15px;}
 .det-feat-icon{font-size:17px;margin-bottom:7px;}
 .det-feat-title{font-size:12.5px;font-weight:500;color:var(--cream);}
-.det-feat-body{font-size:11.5px;color:rgba(245,240,232,0.4);margin-top:3px;line-height:1.5;}
+.det-feat-body{font-size:11.5px;color:rgba(245,240,232,0.65);margin-top:3px;line-height:1.5;}
 
 /* City stats */
 .city-stat-strip{display:flex;gap:0;border-top:1px solid rgba(255,255,255,0.08);padding-top:22px;}
@@ -264,11 +264,11 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 .footer-logo-main{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--cream);font-weight:400;}
 .footer-logo-main span{color:var(--amber);font-style:italic;}
 .footer-logo-sub{font-size:8.5px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,232,0.28);margin-top:3px;}
-.footer-tagline{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;font-weight:300;color:rgba(245,240,232,0.4);margin-top:14px;line-height:1.65;}
+.footer-tagline{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;font-weight:300;color:rgba(245,240,232,0.65);margin-top:14px;line-height:1.65;}
 .footer-contact{margin-top:18px;}
-.footer-contact a{display:block;font-size:12px;color:rgba(245,240,232,0.4);text-decoration:none;margin-bottom:5px;transition:color .2s;}
+.footer-contact a{display:block;font-size:12px;color:rgba(245,240,232,0.65);text-decoration:none;margin-bottom:5px;transition:color .2s;}
 .footer-contact a:hover{color:var(--cream);}
-.footer-col-title{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,232,0.26);margin-bottom:16px;font-weight:500;}
+.footer-col-title{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,232,0.65);margin-bottom:16px;font-weight:500;}
 .footer-col a{display:block;font-size:13px;color:rgba(245,240,232,0.46);text-decoration:none;margin-bottom:10px;transition:color .2s;font-weight:300;}
 .footer-col a:hover{color:var(--cream);}
 .footer-col hr{border:none;border-top:1px solid rgba(255,255,255,0.07);margin:10px 0;}
