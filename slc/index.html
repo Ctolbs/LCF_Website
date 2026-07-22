@@ -52,8 +52,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <link rel="stylesheet" href="../css/style.css">
-<link href='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css' rel='stylesheet' />
-<script src='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js'></script>
 <style>
 /* Hero */
 .cp-hero{min-height:68vh;position:relative;display:flex;align-items:flex-end;padding-top:64px;}
@@ -655,7 +653,7 @@ fetch('../properties.json')
 
     document.querySelectorAll('#slc-list .mini-prop').forEach(el => obs.observe(el));
     loadSLCPrices(slcProps);
-    initSLCMap(slcProps);
+    _lazyMap('slc-overview-map', function(){ initSLCMap(slcProps); });
   });
 
 async function loadSLCPrices(props) {
@@ -678,6 +676,14 @@ async function loadSLCPrices(props) {
   }
 }
 
+function _ensureMapbox(cb){
+  if(window.mapboxgl){cb();return;}
+  if(window._mbQ){window._mbQ.push(cb);return;}
+  window._mbQ=[cb];
+  var l=document.createElement('link');l.rel='stylesheet';l.href='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.css';document.head.appendChild(l);
+  var s=document.createElement('script');s.src='https://api.mapbox.com/mapbox-gl-js/v3.9.3/mapbox-gl.js';s.onload=function(){window._mbQ.forEach(function(f){f();});window._mbQ=null;};document.head.appendChild(s);
+}
+function _lazyMap(id,cb){var el=document.getElementById(id);if(!el)return;new IntersectionObserver(function(e,o){if(!e[0].isIntersecting)return;o.disconnect();_ensureMapbox(cb);},{rootMargin:'300px'}).observe(el);}
 function initSLCMap(props) {
   mapboxgl.accessToken = 'pk.eyJ1IjoiY3RvbGJzIiwiYSI6ImNtcDV3M3djNzEzNXUycnBzZjd2MHh5NDYifQ' + '.RW9UtPRt-zsZyn8DdAExcw';
   const map = new mapboxgl.Map({
