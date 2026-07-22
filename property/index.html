@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lake City Flats — Loading...</title>
-<meta name="description" content="Curated short-term rentals in Salt Lake City and Detroit. Book direct and save 15%.">
+<meta name="description" content="Curated short-term rentals in Salt Lake City and Detroit. Book direct — no service fees.">
 <!-- OG tags updated dynamically by JS after property loads -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Lake City Flats">
 <meta property="og:title" content="Lake City Flats">
-<meta property="og:description" content="Curated short-term rentals in Salt Lake City and Detroit. Book direct and save 15%.">
+<meta property="og:description" content="Curated short-term rentals in Salt Lake City and Detroit. Book direct — no service fees.">
 <meta property="og:image" content="">
 <meta property="og:url" content="">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lake City Flats">
-<meta name="twitter:description" content="Curated short-term rentals in Salt Lake City and Detroit. Book direct and save 15%.">
+<meta name="twitter:description" content="Curated short-term rentals in Salt Lake City and Detroit. Book direct — no service fees.">
 <meta name="twitter:image" content="">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="preconnect" href="https://pub-b7ec579abf5b4197b5fcb40a0cf5ac32.r2.dev" crossorigin>
@@ -169,7 +169,7 @@
 <div class="bm-overlay" id="bm-overlay" role="dialog" aria-modal="true" aria-label="Book direct" onclick="closeBM(event)">
   <div class="bm-sheet">
     <div class="bm-header">
-      <span class="bm-title">Book Direct · Save ~15%</span>
+      <span class="bm-title">Book Direct · No Service Fees</span>
       <button class="bm-close" onclick="closeBM()" aria-label="Close booking">✕</button>
     </div>
     <iframe id="bm-iframe" class="bm-frame" title="Book direct" src="" sandbox="allow-top-navigation-by-user-activation allow-scripts allow-same-origin allow-forms allow-popups" frameborder="0"></iframe>
@@ -272,7 +272,7 @@ async function init() {
 
   const cityFull = prop.city === 'slc' ? 'Salt Lake City' : 'Detroit';
   const pageTitle = `${prop.name} — Lake City Flats`;
-  const pageDesc = `${prop.meta} in ${cityFull}. Book direct with Lake City Flats and save ~15% vs. Airbnb. No service fees.`;
+  const pageDesc = `${prop.meta} in ${cityFull}. Book direct with Lake City Flats — always cheaper than Airbnb. No service fees.`;
   const pageUrl = location.href;
   const pageImg = prop.photos[0] || prop.image;
 
@@ -449,9 +449,9 @@ async function init() {
       </div>
 
       <div class="pp-right" id="book">
-        <div class="pp-nudge" id="pp-nudge">Book direct → <strong>save ~15%</strong> vs. Airbnb. No service fees.</div>
+        <div class="pp-nudge" id="pp-nudge">Book direct → <strong>always cheaper</strong> than Airbnb. No service fees.</div>
         <div class="pp-widget-wrapper">
-          <div class="pp-direct-banner"><span class="pp-direct-icon">🤝</span><span>Save ~15% vs Airbnb · No service fees · Secure via Stripe</span></div>
+          <div class="pp-direct-banner"><span class="pp-direct-icon">🤝</span><span>Always cheaper direct · No service fees · Secure via Stripe</span></div>
           <div class="pp-trust-row">
             <div class="pp-trust-item"><div class="pp-trust-item-icon">🔒</div><div class="pp-trust-item-label">Stripe</div></div>
             <div class="pp-trust-item"><div class="pp-trust-item-icon">⚡</div><div class="pp-trust-item-label">Instant confirm</div></div>
@@ -474,7 +474,7 @@ async function init() {
           <div class="pp-mobile-book">
             <div class="pp-mobile-book-label">Check availability &amp; book direct</div>
             <button onclick="openBM()" class="pp-cta-primary" style="border:none;cursor:pointer;width:100%;">Check availability →</button>
-            <p class="pp-mobile-book-note">Secure via Stripe · No Airbnb service fees · Save ~15%</p>
+            <p class="pp-mobile-book-note">Secure via Stripe · No Airbnb service fees · Always cheaper direct</p>
           </div>` : `
           <div class="pp-cta-block">
             <a href="${prop.url}" rel="noopener noreferrer" target="_blank" class="pp-cta-primary">Check availability →</a>
@@ -495,7 +495,7 @@ async function init() {
     <div class="pp-sticky-bar" id="sticky-bar">
       <div>
         <div class="pp-sticky-price" id="pp-sticky-price">★ ${prop.rating} <span>· ${prop.review_count} reviews</span></div>
-        <div style="font-size:10px;color:var(--muted);margin-top:1px;" id="pp-sticky-sub">Save ~15% booking direct</div>
+        <div style="font-size:10px;color:var(--muted);margin-top:1px;" id="pp-sticky-sub">No service fees booking direct</div>
       </div>
       <button onclick="openBM()" class="pp-sticky-btn">Book direct →</button>
     </div>
@@ -634,10 +634,10 @@ async function loadPrice(hospitable_id) {
     if (priceLine && priceAmt) { priceAmt.textContent = fmt; priceLine.style.display = 'flex'; }
 
     const nudge = document.getElementById('pp-nudge');
-    if (nudge) nudge.innerHTML = 'From <strong>' + fmt + '&nbsp;/ night</strong> &mdash; book direct &amp; save ~15% vs. Airbnb.';
+    if (nudge) nudge.innerHTML = 'From <strong>' + fmt + '&nbsp;/ night</strong> &mdash; book direct, no service fees.';
 
     const stickySub = document.getElementById('pp-sticky-sub');
-    if (stickySub) stickySub.textContent = 'from ' + fmt + ' / night · save ~15%';
+    if (stickySub) stickySub.textContent = 'from ' + fmt + ' / night · no service fees';
   } catch(e) { /* fail silently — no price shown */ }
 }
 </script>
