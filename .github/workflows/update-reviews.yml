@@ -12,10 +12,14 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - uses: actions/checkout@v4
       - name: Compute review counts + ratings
@@ -29,14 +33,25 @@ jobs:
             python3 scripts/update-reviews.py
           fi
       - name: Commit reviews.json if it changed
+        id: commit
         if: github.event_name == 'schedule' || inputs.write == true
         run: |
           git add reviews.json
           if git diff --cached --quiet; then
             echo "reviews.json unchanged — nothing to commit."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git config user.name  "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git commit -m "Update reviews.json from Hospitable (automated)"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+  # A GITHUB_TOKEN push does NOT trigger static.yml's on:push (GitHub blocks
+  # recursive workflow runs), so when reviews.json changes we invoke the deploy
+  # workflow explicitly. Without this the nightly update commits but never ships.
+  deploy:
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    uses: ./.github/workflows/static.yml

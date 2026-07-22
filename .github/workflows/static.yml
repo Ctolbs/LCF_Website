@@ -5,6 +5,7 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  workflow_call:   # let other workflows (e.g. update-reviews) trigger a deploy
 
 permissions:
   contents: read
