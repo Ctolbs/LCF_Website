@@ -227,7 +227,8 @@ body::before{content:'';position:fixed;inset:0;z-index:1000;pointer-events:none;
 .hbp-card-price span{font-size:9.5px;font-weight:400;color:rgba(245,243,237,0.38);}
 .hbp-book-tag{font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(245,243,237,0.38);border:1px solid rgba(255,255,255,0.14);padding:3px 7px;border-radius:1px;transition:all .2s;}
 .hbp-card:hover .hbp-book-tag{color:var(--gold);border-color:rgba(251,190,1,0.38);}
-.hbp-no-avail{text-align:center;padding:14px 10px;color:rgba(245,243,237,0.42);font-size:11.5px;font-weight:300;line-height:1.7;grid-column:1/-1;}
+.hbp-no-avail{text-align:center;padding:14px 10px;color:rgba(245,243,237,0.62);font-size:11.5px;font-weight:300;line-height:1.7;grid-column:1/-1;}
+.hbp-alt-head{grid-column:1/-1;text-align:center;padding:8px 10px 2px;color:rgba(245,243,237,0.88);font-size:12px;font-weight:400;line-height:1.6;letter-spacing:.01em;}
 
 .city-badge{position:absolute;top:16px;right:16px;backdrop-filter:blur(6px);border-radius:100px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,0.62);padding:5px 12px;}
 .badge-slc{background:rgba(122,168,145,0.18);border:1px solid rgba(122,168,145,0.28);}
@@ -974,9 +975,9 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     return card;
   }
 
-  function hbpOpenIframe(hid, pid) {
-    var ci = document.getElementById('hbp-checkin').value;
-    var co = document.getElementById('hbp-checkout').value;
+  function hbpOpenIframe(hid, pid, ciOverride, coOverride) {
+    var ci = ciOverride || document.getElementById('hbp-checkin').value;
+    var co = coOverride || document.getElementById('hbp-checkout').value;
     var guests = document.getElementById('hbp-guests').value;
     var url = WIDGET + hid;
     url += (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (guests||'2');
@@ -989,6 +990,54 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
       window.scrollTo({top: top, behavior: 'smooth'});
     }, 60);
     if (typeof lcfTrack !== 'undefined') lcfTrack('booking_iframe_open', {property_id: pid, source: 'hero_panel'});
+  }
+
+  // Nearest available N-night window in a cached calendar (no API call — reuses
+  // the full-year data already fetched for the search). Scans -21..+45 days.
+  function hbpFindAlt(data, ci, nights) {
+    if (!data || !nights) return null;
+    var reqStart = new Date(ci + 'T00:00:00');
+    var today = new Date(fmt(new Date()) + 'T00:00:00');
+    var scan = new Date(reqStart.getTime() - 21*86400000);
+    if (scan < today) scan = today;
+    var scanEnd = new Date(reqStart.getTime() + 45*86400000);
+    var best = null, bestShift = Infinity;
+    for (var d = new Date(scan); d <= scanEnd; d.setDate(d.getDate()+1)) {
+      var day0 = data[fmt(d) + 'T00:00'];
+      if (day0 && day0.min_stay && nights < day0.min_stay) continue;
+      var ok = true, total = 0;
+      for (var i=0; i<nights; i++) {
+        var day = data[fmt(new Date(d.getTime() + i*86400000)) + 'T00:00'];
+        if (!day || !day.available) { ok = false; break; }
+        total += day.price;
+      }
+      if (!ok) continue;
+      var shift = Math.round(Math.abs((d - reqStart) / 86400000));
+      if (shift > 0 && shift < bestShift) {
+        bestShift = shift;
+        best = { ci: fmt(d), co: fmt(new Date(d.getTime() + nights*86400000)),
+                 avgNightly: Math.round(total/nights), shiftDays: shift };
+      }
+    }
+    return best;
+  }
+  function renderHbpAltCard(p, alt) {
+    var card = document.createElement('div');
+    card.className = 'hbp-card';
+    var cityIcon = p.city === 'slc' ? '&#127956;' : '&#127963;';
+    var cityLabel = p.city === 'slc' ? 'SLC' : 'Detroit';
+    card.innerHTML =
+      '<div class="hbp-card-img" style="background-image:url(\'' + p.image + '\')"></div>' +
+      '<div class="hbp-card-body">' +
+        '<div class="hbp-card-name">' + p.name + '</div>' +
+        '<div class="hbp-card-meta">' + cityIcon + ' ' + cityLabel + ' &middot; ' + hbpFmtDate(alt.ci) + ' &ndash; ' + hbpFmtDate(alt.co) + '</div>' +
+        '<div class="hbp-card-row">' +
+          '<div class="hbp-card-price">$' + alt.avgNightly + '<span> /night</span></div>' +
+          '<span class="hbp-book-tag">' + alt.shiftDays + ' day' + (alt.shiftDays===1?'':'s') + ' off &rarr;</span>' +
+        '</div>' +
+      '</div>';
+    card.addEventListener('click', function(){ hbpOpenIframe(p.hospitable_id, p.id, alt.ci, alt.co); });
+    return card;
   }
 
   document.getElementById('hbp-btn').addEventListener('click', function(){
@@ -1033,8 +1082,23 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
           cardsEl.innerHTML = '<div class="hbp-no-avail">⚠️ We couldn\'t reach live availability right now.<br><span style="font-size:11px;">Please try again in a moment, or </span><a href="mailto:contact@lakecityflats.com" style="color:var(--gold);font-size:11px;text-decoration:none;">contact us</a><span style="font-size:11px;">.</span></div>';
           if (typeof lcfTrack !== 'undefined') lcfTrack('availability_error', {checkin:ci, checkout:co, guests:guests, source:'hero_panel'});
         } else {
-          cardsEl.innerHTML = '<div class="hbp-no-avail">😔 No flats available for those dates.<br><span style="font-size:11px;">Try adjusting your dates or </span><a href="mailto:contact@lakecityflats.com" style="color:var(--gold);font-size:11px;text-decoration:none;">contact us</a><span style="font-size:11px;">.</span></div>';
-          if (typeof lcfTrack !== 'undefined') lcfTrack('no_availability', {checkin:ci, checkout:co, guests:guests, source:'hero_panel'});
+          // Exact dates are full — surface the nearest open windows instead of a dead end.
+          var reqNights = hbpGetNights(ci, co).length;
+          var alts = [];
+          candidates.forEach(function(p){
+            var alt = hbpFindAlt(hbpCalCache[p.hospitable_id], ci, reqNights);
+            if (alt) alts.push({p:p, alt:alt});
+          });
+          alts.sort(function(a,b){ return (a.alt.shiftDays - b.alt.shiftDays) || (a.alt.avgNightly - b.alt.avgNightly); });
+          alts = alts.slice(0, 3);
+          if (alts.length) {
+            cardsEl.innerHTML = '<div class="hbp-alt-head">Nothing open for those exact dates &mdash; but these are available nearby:</div>';
+            alts.forEach(function(x){ cardsEl.appendChild(renderHbpAltCard(x.p, x.alt)); });
+            if (typeof lcfTrack !== 'undefined') lcfTrack('no_availability_alts', {checkin:ci, checkout:co, guests:guests, alts:alts.length, source:'hero_panel'});
+          } else {
+            cardsEl.innerHTML = '<div class="hbp-no-avail">😔 No flats available for those dates.<br><span style="font-size:11px;">Try adjusting your dates or </span><a href="mailto:contact@lakecityflats.com" style="color:var(--gold);font-size:11px;text-decoration:none;">contact us</a><span style="font-size:11px;">.</span></div>';
+            if (typeof lcfTrack !== 'undefined') lcfTrack('no_availability', {checkin:ci, checkout:co, guests:guests, source:'hero_panel'});
+          }
         }
       } else {
         available.sort(function(a,b){ return a.a.avgNightly - b.a.avgNightly; });
