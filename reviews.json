@@ -1,20 +1,20 @@
 {
-  "updated": "2026-07-25",
-  "total_reviews": 3946,
+  "updated": "2026-07-26",
+  "total_reviews": 3948,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3171,
+    "airbnb": 3172,
     "direct": 14,
-    "booking": 3,
+    "booking": 4,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3610,
+      "count": 3611,
       "rating": 4.87
     },
     "detroit": {
-      "count": 336,
+      "count": 337,
       "rating": 4.95
     }
   },
@@ -58,7 +58,7 @@
     },
     "lumber-barons-mansion": {
       "rating": 4.9,
-      "count": 114
+      "count": 115
     },
     "lumber-barons-penthouse": {
       "rating": 4.95,
@@ -90,7 +90,7 @@
     },
     "downtown-designer-2king": {
       "rating": 4.82,
-      "count": 185
+      "count": 186
     },
     "downtown-mountain-studio": {
       "rating": 4.72,
