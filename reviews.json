@@ -1,20 +1,20 @@
 {
-  "updated": "2026-07-26",
-  "total_reviews": 3948,
+  "updated": "2026-07-27",
+  "total_reviews": 3951,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3172,
+    "airbnb": 3174,
     "direct": 14,
-    "booking": 4,
+    "booking": 5,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3611,
+      "count": 3612,
       "rating": 4.87
     },
     "detroit": {
-      "count": 337,
+      "count": 339,
       "rating": 4.95
     }
   },
@@ -57,8 +57,8 @@
       "count": 8
     },
     "lumber-barons-mansion": {
-      "rating": 4.9,
-      "count": 115
+      "rating": 4.91,
+      "count": 117
     },
     "lumber-barons-penthouse": {
       "rating": 4.95,
@@ -98,7 +98,7 @@
     },
     "downtown-2king-townhome": {
       "rating": 4.86,
-      "count": 250
+      "count": 251
     },
     "downtown-king-queen-garage": {
       "rating": 4.9,
