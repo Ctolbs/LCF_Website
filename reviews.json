@@ -1,17 +1,17 @@
 {
-  "updated": "2026-07-27",
-  "total_reviews": 3951,
+  "updated": "2026-07-28",
+  "total_reviews": 3952,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3174,
+    "airbnb": 3175,
     "direct": 14,
     "booking": 5,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3612,
-      "rating": 4.87
+      "count": 3613,
+      "rating": 4.86
     },
     "detroit": {
       "count": 339,
@@ -113,8 +113,8 @@
       "count": 18
     },
     "sugarhood-east": {
-      "rating": 4.92,
-      "count": 36
+      "rating": 4.89,
+      "count": 37
     },
     "9line-loft-ii": {
       "rating": 5.0,
