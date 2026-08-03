@@ -1,16 +1,16 @@
 {
-  "updated": "2026-08-02",
-  "total_reviews": 3953,
+  "updated": "2026-08-03",
+  "total_reviews": 3957,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3176,
+    "airbnb": 3180,
     "direct": 14,
     "booking": 5,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3613,
+      "count": 3617,
       "rating": 4.86
     },
     "detroit": {
@@ -50,7 +50,7 @@
     },
     "modernwest-townhome": {
       "rating": 4.99,
-      "count": 82
+      "count": 83
     },
     "9line-loft": {
       "rating": 5.0,
@@ -78,7 +78,7 @@
     },
     "downtown-king-queen-loft": {
       "rating": 4.95,
-      "count": 97
+      "count": 98
     },
     "downtown-twin-queens": {
       "rating": 4.79,
@@ -102,7 +102,7 @@
     },
     "downtown-king-queen-garage": {
       "rating": 4.9,
-      "count": 287
+      "count": 288
     },
     "downtown-penthouse-view": {
       "rating": 4.87,
@@ -122,7 +122,7 @@
     },
     "salt-flats-323": {
       "rating": 4.85,
-      "count": 139
+      "count": 140
     }
   }
 }
