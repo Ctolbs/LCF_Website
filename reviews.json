@@ -1,16 +1,16 @@
 {
-  "updated": "2026-08-06",
-  "total_reviews": 3959,
+  "updated": "2026-08-07",
+  "total_reviews": 3961,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3182,
-    "direct": 14,
+    "direct": 15,
+    "airbnb": 3183,
     "booking": 5,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3619,
+      "count": 3621,
       "rating": 4.86
     },
     "detroit": {
@@ -22,7 +22,7 @@
   "properties": {
     "granary-penthouse": {
       "rating": 4.9,
-      "count": 138
+      "count": 139
     },
     "granary-king-suite": {
       "rating": 4.86,
@@ -98,7 +98,7 @@
     },
     "downtown-2king-townhome": {
       "rating": 4.86,
-      "count": 251
+      "count": 252
     },
     "downtown-king-queen-garage": {
       "rating": 4.9,
