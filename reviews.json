@@ -1,20 +1,20 @@
 {
-  "updated": "2026-08-10",
-  "total_reviews": 3968,
+  "updated": "2026-08-11",
+  "total_reviews": 3970,
   "average_rating": 4.87,
   "by_source": {
     "direct": 15,
-    "airbnb": 3190,
+    "airbnb": 3192,
     "booking": 5,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3628,
+      "count": 3629,
       "rating": 4.87
     },
     "detroit": {
-      "count": 340,
+      "count": 341,
       "rating": 4.95
     }
   },
@@ -62,7 +62,7 @@
     },
     "lumber-barons-penthouse": {
       "rating": 4.95,
-      "count": 131
+      "count": 132
     },
     "granary-west-403": {
       "rating": 4.67,
@@ -109,8 +109,8 @@
       "count": 255
     },
     "downtown-midmod": {
-      "rating": 4.72,
-      "count": 18
+      "rating": 4.74,
+      "count": 19
     },
     "sugarhood-east": {
       "rating": 4.89,
