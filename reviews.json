@@ -1,16 +1,16 @@
 {
-  "updated": "2026-08-16",
-  "total_reviews": 3979,
+  "updated": "2026-08-17",
+  "total_reviews": 3983,
   "average_rating": 4.87,
   "by_source": {
     "direct": 15,
-    "airbnb": 3201,
+    "airbnb": 3205,
     "booking": 5,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3637,
+      "count": 3641,
       "rating": 4.86
     },
     "detroit": {
@@ -34,11 +34,11 @@
     },
     "downtown-townhouse": {
       "rating": 4.88,
-      "count": 176
+      "count": 177
     },
     "downtown-townhome": {
       "rating": 4.85,
-      "count": 240
+      "count": 241
     },
     "brick-studio": {
       "rating": 4.77,
@@ -50,7 +50,7 @@
     },
     "modernwest-townhome": {
       "rating": 4.99,
-      "count": 83
+      "count": 84
     },
     "9line-loft": {
       "rating": 5.0,
@@ -78,7 +78,7 @@
     },
     "downtown-king-queen-loft": {
       "rating": 4.95,
-      "count": 100
+      "count": 101
     },
     "downtown-twin-queens": {
       "rating": 4.79,
