@@ -1,20 +1,20 @@
 {
-  "updated": "2026-08-23",
-  "total_reviews": 3989,
+  "updated": "2026-08-24",
+  "total_reviews": 3992,
   "average_rating": 4.87,
   "by_source": {
     "direct": 17,
-    "airbnb": 3209,
+    "airbnb": 3212,
     "booking": 5,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3646,
+      "count": 3648,
       "rating": 4.86
     },
     "detroit": {
-      "count": 343,
+      "count": 344,
       "rating": 4.95
     }
   },
@@ -45,8 +45,8 @@
       "count": 123
     },
     "sugarhood-penthouse": {
-      "rating": 4.73,
-      "count": 22
+      "rating": 4.74,
+      "count": 23
     },
     "modernwest-townhome": {
       "rating": 4.99,
@@ -58,7 +58,7 @@
     },
     "lumber-barons-mansion": {
       "rating": 4.91,
-      "count": 117
+      "count": 118
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
@@ -106,7 +106,7 @@
     },
     "downtown-penthouse-view": {
       "rating": 4.87,
-      "count": 255
+      "count": 256
     },
     "downtown-midmod": {
       "rating": 4.7,
