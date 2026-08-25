@@ -1,16 +1,16 @@
 {
-  "updated": "2026-08-24",
-  "total_reviews": 3992,
+  "updated": "2026-08-25",
+  "total_reviews": 3993,
   "average_rating": 4.87,
   "by_source": {
     "direct": 17,
-    "airbnb": 3212,
+    "airbnb": 3213,
     "booking": 5,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3648,
+      "count": 3649,
       "rating": 4.86
     },
     "detroit": {
@@ -90,7 +90,7 @@
     },
     "downtown-designer-2king": {
       "rating": 4.81,
-      "count": 189
+      "count": 190
     },
     "downtown-mountain-studio": {
       "rating": 4.72,
