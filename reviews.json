@@ -1,20 +1,20 @@
 {
-  "updated": "2026-08-26",
-  "total_reviews": 3993,
+  "updated": "2026-08-27",
+  "total_reviews": 3996,
   "average_rating": 4.87,
   "by_source": {
     "direct": 17,
-    "airbnb": 3213,
+    "airbnb": 3216,
     "booking": 5,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3649,
+      "count": 3651,
       "rating": 4.86
     },
     "detroit": {
-      "count": 344,
+      "count": 345,
       "rating": 4.95
     }
   },
@@ -30,7 +30,7 @@
     },
     "granary-west-401": {
       "rating": 4.93,
-      "count": 86
+      "count": 87
     },
     "downtown-townhouse": {
       "rating": 4.88,
@@ -62,7 +62,7 @@
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
-      "count": 134
+      "count": 135
     },
     "granary-west-403": {
       "rating": 4.67,
@@ -122,7 +122,7 @@
     },
     "salt-flats-323": {
       "rating": 4.85,
-      "count": 142
+      "count": 143
     }
   }
 }
