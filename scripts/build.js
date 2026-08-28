@@ -19,8 +19,10 @@ const SITE_BASE = 'https://lakecityflats.com';
 data.properties.forEach(prop => {
   const cityFull = prop.city === 'slc' ? 'Salt Lake City' : 'Detroit';
   const stateCode = prop.city === 'slc' ? 'UT' : 'MI';
+  const cityUrl = prop.city === 'slc' ? `${SITE_BASE}/slc/` : `${SITE_BASE}/detroit/`;
+  const hoodName = ({ granary: 'the Granary District', downtown: 'Downtown', sugarhood: 'Sugar House', '9line': 'the 9Line', 'brush-park': 'Brush Park' })[prop.hood] || cityFull;
   const pageTitle = `${prop.name} — Lake City Flats`;
-  const pageDesc = `${prop.meta} in ${cityFull}. Book direct with Lake City Flats and save ~15% vs. Airbnb. No service fees.`;
+  const pageDesc = `${prop.meta} in ${hoodName}, ${cityFull}. Book direct with Lake City Flats — no service fees, always cheaper than Airbnb.`;
   const pageUrl = `${SITE_BASE}/property/${prop.id}/`;
   const pageImg = prop.photos[0] || prop.image;
 
@@ -51,8 +53,40 @@ data.properties.forEach(prop => {
     "numberOfRooms": prop.beds,
     "occupancy": { "@type": "QuantitativeValue", "maxValue": prop.sleeps },
     "petsAllowed": false,
+    "geo": { "@type": "GeoCoordinates", "latitude": prop.lat, "longitude": prop.lng },
+    "checkinTime": "15:00",
+    "checkoutTime": "11:00",
+    "priceRange": "$$",
     "telephone": "+18016571028",
     "email": "contact@lakecityflats.com"
+  };
+
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${SITE_BASE}/` },
+      { "@type": "ListItem", "position": 2, "name": cityFull, "item": cityUrl },
+      { "@type": "ListItem", "position": 3, "name": prop.name, "item": pageUrl }
+    ]
+  };
+
+  const qa = [
+    [`Can I book ${prop.name} directly?`,
+     `Yes. Book ${prop.name} directly at lakecityflats.com and skip the platform service fee — booking direct is always cheaper than Airbnb or Vrbo, with no service fees.`],
+    [`How many guests does ${prop.name} sleep?`,
+     `${prop.name} sleeps up to ${prop.sleeps} guests (${prop.beds} bedroom${prop.beds == 1 ? '' : 's'}, ${prop.baths} bath${prop.baths == 1 ? '' : 's'}).`],
+    [`Where is ${prop.name} located?`,
+     `${prop.name} is in ${hoodName}, ${cityFull}, ${stateCode} — self check-in, professionally managed by Lake City Flats.`]
+  ];
+  const park = (prop.amenities || []).find(a => /garage|parking/i.test(a));
+  if (park) qa.push([`Does ${prop.name} have parking?`, `Yes — ${prop.name} includes ${park.toLowerCase()}.`]);
+  const work = (prop.amenities || []).find(a => /cowork|workspace|desk/i.test(a));
+  if (work) qa.push([`Is ${prop.name} good for remote work?`, `Yes — ${prop.name} offers ${work.toLowerCase()}, plus fast WiFi throughout.`]);
+  const faq = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": qa.map(([q, a]) => ({ "@type": "Question", "name": q, "acceptedAnswer": { "@type": "Answer", "text": a } }))
   };
 
   const staticHead = `
@@ -69,7 +103,9 @@ data.properties.forEach(prop => {
 <meta name="twitter:description" content="${pageDesc}">
 <meta name="twitter:image" content="${pageImg}">
 <link rel="canonical" href="${pageUrl}">
-<script type="application/ld+json">${JSON.stringify(jsonLd)}<\/script>`;
+<script type="application/ld+json">${JSON.stringify(jsonLd)}<\/script>
+<script type="application/ld+json">${JSON.stringify(breadcrumb)}<\/script>
+<script type="application/ld+json">${JSON.stringify(faq)}<\/script>`;
 
   // Replace the generic <title> + description + placeholder OG block from the template
   let html = template

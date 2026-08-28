@@ -288,40 +288,8 @@ async function init() {
   document.querySelector('meta[name="twitter:description"]').content = pageDesc;
   document.querySelector('meta[name="twitter:image"]').content = pageImg;
 
-  const stateCode = prop.city === 'slc' ? 'UT' : 'MI';
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LodgingBusiness",
-    "name": prop.name,
-    "description": prop.description,
-    "url": pageUrl,
-    "image": prop.photos,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": cityFull,
-      "addressRegion": stateCode,
-      "addressCountry": "US"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": prop.rating,
-      "reviewCount": parseInt(prop.review_count) || 10,
-      "bestRating": "5"
-    },
-    "amenityFeature": prop.amenities.map(a => ({"@type":"LocationFeatureSpecification","name":a,"value":true})),
-    "numberOfRooms": prop.beds,
-    "occupancy": {"@type":"QuantitativeValue","maxValue":prop.sleeps},
-    "checkinTime": "15:00",
-    "checkoutTime": "11:00",
-    "geo": {"@type":"GeoCoordinates","latitude":prop.lat,"longitude":prop.lng},
-    "petsAllowed": false,
-    "telephone": "+18016571028",
-    "email": "contact@lakecityflats.com"
-  };
-  const s = document.createElement('script');
-  s.type = 'application/ld+json';
-  s.text = JSON.stringify(jsonLd);
-  document.head.appendChild(s);
+  // JSON-LD (LodgingBusiness + BreadcrumbList + FAQPage) is injected statically into
+  // each generated page's <head> by scripts/build.js — not duplicated here at runtime.
 
   // Wire "Book Direct" nav button + mobile CTAs to open booking modal
   if (prop.hospitable_id) {
