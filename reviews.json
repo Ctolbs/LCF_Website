@@ -1,21 +1,21 @@
 {
-  "updated": "2026-08-29",
-  "total_reviews": 3996,
+  "updated": "2026-08-30",
+  "total_reviews": 3998,
   "average_rating": 4.87,
   "by_source": {
     "direct": 17,
-    "airbnb": 3216,
-    "booking": 5,
+    "airbnb": 3217,
+    "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3651,
+      "count": 3652,
       "rating": 4.86
     },
     "detroit": {
-      "count": 345,
-      "rating": 4.95
+      "count": 346,
+      "rating": 4.94
     }
   },
   "property_count": 26,
@@ -50,15 +50,15 @@
     },
     "modernwest-townhome": {
       "rating": 4.99,
-      "count": 84
+      "count": 85
     },
     "9line-loft": {
       "rating": 5.0,
       "count": 8
     },
     "lumber-barons-mansion": {
-      "rating": 4.91,
-      "count": 118
+      "rating": 4.9,
+      "count": 119
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
