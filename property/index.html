@@ -218,14 +218,11 @@ function ppUpdateWidget() {
 }
 let _bmReturn = null;
 function openBM() {
-  lcfTrack('widget_open', {property_id: _lcfPropId, property_name: _lcfPropName});
-  const url = _ppDatesUrl(_bmUrl);
-  const iframe = document.getElementById('bm-iframe');
-  if (!iframe.src || iframe.src === window.location.href || iframe.src !== url) iframe.src = url;
-  _bmReturn = document.activeElement;
-  document.getElementById('bm-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  var c = document.querySelector('#bm-overlay .bm-close'); if (c) c.focus();
+  // Booking is now inline via the Hospitable loader widget — the "Book" CTAs
+  // simply scroll to it (keep the analytics event).
+  if (typeof lcfTrack !== 'undefined') lcfTrack('widget_open', {property_id: _lcfPropId, property_name: _lcfPropName});
+  var el = document.getElementById('hospitable-booking');
+  if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
 }
 function _bmClose() {
   document.getElementById('bm-overlay').classList.remove('open');
@@ -427,24 +424,8 @@ async function init() {
             <div class="pp-trust-item"><div class="pp-trust-item-icon">🛡</div><div class="pp-trust-item-label">$5M cover</div></div>
           </div>
           ${prop.hospitable_id ? `
-          <div class="pp-date-row">
-            <div><label class="pp-date-label">Check-in</label><input type="text" id="pp-checkin" class="pp-date-input" readonly placeholder="Arrival"></div>
-            <div><label class="pp-date-label">Check-out</label><input type="text" id="pp-checkout" class="pp-date-input" readonly placeholder="Departure"></div>
-            <div><label class="pp-date-label">Guests</label><select id="pp-guests" aria-label="Number of guests" class="pp-date-select"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
-          </div>
-          <iframe
-            id="booking-iframe"
-            title="Book direct"
-            sandbox="allow-top-navigation-by-user-activation allow-scripts allow-same-origin allow-forms allow-popups"
-            style="height:900px;border:none;"
-            frameborder="0"
-            src="https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}">
-          </iframe>
-          <div class="pp-mobile-book">
-            <div class="pp-mobile-book-label">Check availability &amp; book direct</div>
-            <button onclick="openBM()" class="pp-cta-primary" style="border:none;cursor:pointer;width:100%;">Check availability →</button>
-            <p class="pp-mobile-book-note">Secure via Stripe · No Airbnb service fees · Always cheaper direct</p>
-          </div>` : `
+          <div id="hospitable-booking" style="min-height:900px;"></div>
+          <p style="font-size:10.5px;color:var(--muted);text-align:center;line-height:1.5;padding:8px 16px 12px;">🔒 Secure via Stripe · No Airbnb service fees · Always cheaper direct</p>` : `
           <div class="pp-cta-block">
             <a href="${prop.url}" rel="noopener noreferrer" target="_blank" class="pp-cta-primary">Check availability →</a>
             <a href="mailto:contact@lakecityflats.com?subject=Inquiry: ${encodeURIComponent(prop.name)}" class="pp-cta-secondary">Ask us anything</a>
@@ -481,6 +462,21 @@ async function init() {
 
   // Live pricing from Hospitable/Beyond calendar
   if (prop.hospitable_id) loadPrice(prop.hospitable_id);
+
+  // Mount the Hospitable direct-booking widget via the official loader.
+  // GVR-compliant: it reads checkin/checkout/adults from the page URL (so dates
+  // carry over from Google Vacation Rentals AND from our own search), renders
+  // the widget into #hospitable-booking, and pings Hospitable to validate the
+  // embed (that ping is what keeps the page eligible for Google Vacation Rentals).
+  if (prop.hospitable_id) {
+    var _wl = document.createElement('script');
+    _wl.src = 'https://cdn.hsptb.com/direct-booking-widget/widget-loader.prod.js';
+    _wl.setAttribute('data-site-uuid', '643ae633-bfb6-4a6f-bd85-e6294860ddfc');
+    _wl.setAttribute('data-property-id', String(prop.hospitable_id));
+    _wl.setAttribute('data-container', 'hospitable-booking');
+    _wl.setAttribute('data-height', '900px');
+    document.body.appendChild(_wl);
+  }
   // Load prices for similar property cards
   if (similar.length) {
     const _fl = d => d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2);
