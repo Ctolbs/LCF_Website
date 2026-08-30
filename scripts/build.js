@@ -22,7 +22,7 @@ data.properties.forEach(prop => {
   const cityUrl = prop.city === 'slc' ? `${SITE_BASE}/slc/` : `${SITE_BASE}/detroit/`;
   const hoodName = ({ granary: 'the Granary District', downtown: 'Downtown', sugarhood: 'Sugar House', '9line': 'the 9Line', 'brush-park': 'Brush Park' })[prop.hood] || cityFull;
   const pageTitle = `${prop.name} — Lake City Flats`;
-  const pageDesc = `${prop.meta} in ${hoodName}, ${cityFull}. Book direct with Lake City Flats — no service fees, always cheaper than Airbnb.`;
+  const pageDesc = `${prop.meta} in ${hoodName}, ${cityFull}. Book direct with Lake City Flats — no Airbnb fees, cheaper than Airbnb or Vrbo.`;
   const pageUrl = `${SITE_BASE}/property/${prop.id}/`;
   const pageImg = prop.photos[0] || prop.image;
 
@@ -73,7 +73,7 @@ data.properties.forEach(prop => {
 
   const qa = [
     [`Can I book ${prop.name} directly?`,
-     `Yes. Book ${prop.name} directly at lakecityflats.com and skip the platform service fee — booking direct is always cheaper than Airbnb or Vrbo, with no service fees.`],
+     `Yes. Book ${prop.name} directly at lakecityflats.com and skip the Airbnb service fee — booking direct is always cheaper than Airbnb or Vrbo.`],
     [`How many guests does ${prop.name} sleep?`,
      `${prop.name} sleeps up to ${prop.sleeps} guests (${prop.beds} bedroom${prop.beds == 1 ? '' : 's'}, ${prop.baths} bath${prop.baths == 1 ? '' : 's'}).`],
     [`Where is ${prop.name} located?`,
