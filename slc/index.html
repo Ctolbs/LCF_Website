@@ -435,16 +435,7 @@
       var ci = document.getElementById('slc-checkin').value;
       var co = document.getElementById('slc-checkout').value;
       var guests = document.getElementById('slc-guests').value;
-      var url = WIDGET + hid;
-      url += (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (guests||'2');
-      document.getElementById('slc-iframe').src = url;
-      document.getElementById('slc-iframe-prop-link').href = '../property/?id=' + pid;
-      var sec = document.getElementById('slc-iframe-section');
-      sec.style.display = 'block';
-      setTimeout(function(){
-        var top = sec.getBoundingClientRect().top + window.pageYOffset - 68;
-        window.scrollTo({top: top, behavior: 'smooth'});
-      }, 60);
+      window.location.href = '../property/' + pid + '/' + (ci && co ? '?checkin=' + ci + '&checkout=' + co + '&adults=' + (guests||'2') : '?adults=' + (guests||'2'));
     });
     return card;
   }

@@ -456,17 +456,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
       var ci = document.getElementById('bd-checkin').value;
       var co = document.getElementById('bd-checkout').value;
       var guests = document.getElementById('bd-guests').value;
-      var url = WIDGET + hid;
-      url += (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (guests||'2');
-      lcfTrack('widget_open', {property_id: pid, source: 'bookdirect_page'});
-      document.getElementById('bd-iframe').src = url;
-      document.getElementById('bd-iframe-prop-link').href = '../property/?id=' + pid;
-      var sec = document.getElementById('bd-iframe-section');
-      sec.style.display = 'block';
-      setTimeout(function(){
-        var top = sec.getBoundingClientRect().top + window.pageYOffset - 68;
-        window.scrollTo({top: top, behavior: 'smooth'});
-      }, 60);
+      window.location.href = '../property/' + pid + '/' + (ci && co ? '?checkin=' + ci + '&checkout=' + co + '&adults=' + (guests||'2') : '?adults=' + (guests||'2'));
     });
     return card;
   }

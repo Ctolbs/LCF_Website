@@ -975,21 +975,16 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     return card;
   }
 
+  // Option A: navigate to the property page with the searched dates in the URL —
+  // the property page's Hospitable loader widget pre-fills them (same path Google
+  // Vacation Rentals uses). Unified, GVR-compliant booking flow.
   function hbpOpenIframe(hid, pid, ciOverride, coOverride) {
     var ci = ciOverride || document.getElementById('hbp-checkin').value;
     var co = coOverride || document.getElementById('hbp-checkout').value;
-    var guests = document.getElementById('hbp-guests').value;
-    var url = WIDGET + hid;
-    url += (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (guests||'2');
-    var sec = document.getElementById('bs-iframe-section');
-    document.getElementById('bs-iframe').src = url;
-    document.getElementById('bs-iframe-prop-link').href = 'property/?id=' + pid;
-    sec.style.display = 'block';
-    setTimeout(function(){
-      var top = sec.getBoundingClientRect().top + window.pageYOffset - 68;
-      window.scrollTo({top: top, behavior: 'smooth'});
-    }, 60);
-    if (typeof lcfTrack !== 'undefined') lcfTrack('booking_iframe_open', {property_id: pid, source: 'hero_panel'});
+    var guests = document.getElementById('hbp-guests').value || '2';
+    var url = 'property/' + pid + '/' + (ci && co ? '?checkin=' + ci + '&checkout=' + co + '&adults=' + guests : '?adults=' + guests);
+    if (typeof lcfTrack !== 'undefined') lcfTrack('booking_navigate', {property_id: pid, checkin: ci, checkout: co, source: 'hero_panel'});
+    window.location.href = url;
   }
 
   // Nearest available N-night window in a cached calendar (no API call — reuses
@@ -1234,18 +1229,10 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   function openIframe(hid, pid) {
     var ci = document.getElementById('bs-checkin').value;
     var co = document.getElementById('bs-checkout').value;
-    var guests = document.getElementById('bs-guests').value;
-    var url = WIDGET + hid;
-    url += (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (guests||'2');
-    var sec = document.getElementById('bs-iframe-section');
-    document.getElementById('bs-iframe').src = url;
-    document.getElementById('bs-iframe-prop-link').href = 'property/?id=' + pid;
-    sec.style.display = 'block';
-    setTimeout(function(){
-      var top = sec.getBoundingClientRect().top + window.pageYOffset - 68;
-      window.scrollTo({top: top, behavior: 'smooth'});
-    }, 60);
-    if (typeof lcfTrack !== 'undefined') lcfTrack('booking_iframe_open', {property_id: pid, source: 'booking_section'});
+    var guests = document.getElementById('bs-guests').value || '2';
+    var url = 'property/' + pid + '/' + (ci && co ? '?checkin=' + ci + '&checkout=' + co + '&adults=' + guests : '?adults=' + guests);
+    if (typeof lcfTrack !== 'undefined') lcfTrack('booking_navigate', {property_id: pid, checkin: ci, checkout: co, source: 'booking_section'});
+    window.location.href = url;
   }
 
   document.getElementById('bs-btn').addEventListener('click', function(){
