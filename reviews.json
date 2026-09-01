@@ -1,20 +1,20 @@
 {
-  "updated": "2026-08-30",
-  "total_reviews": 3998,
+  "updated": "2026-09-01",
+  "total_reviews": 4001,
   "average_rating": 4.87,
   "by_source": {
+    "airbnb": 3220,
     "direct": 17,
-    "airbnb": 3217,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3652,
+      "count": 3654,
       "rating": 4.86
     },
     "detroit": {
-      "count": 346,
+      "count": 347,
       "rating": 4.94
     }
   },
@@ -22,7 +22,7 @@
   "properties": {
     "granary-penthouse": {
       "rating": 4.9,
-      "count": 139
+      "count": 140
     },
     "granary-king-suite": {
       "rating": 4.86,
@@ -30,7 +30,7 @@
     },
     "granary-west-401": {
       "rating": 4.93,
-      "count": 87
+      "count": 88
     },
     "downtown-townhouse": {
       "rating": 4.88,
@@ -62,7 +62,7 @@
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
-      "count": 135
+      "count": 136
     },
     "granary-west-403": {
       "rating": 4.67,
