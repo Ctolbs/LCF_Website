@@ -1,20 +1,20 @@
 {
-  "updated": "2026-09-05",
-  "total_reviews": 4006,
+  "updated": "2026-09-06",
+  "total_reviews": 4009,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3225,
+    "airbnb": 3228,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3659,
+      "count": 3661,
       "rating": 4.87
     },
     "detroit": {
-      "count": 347,
+      "count": 348,
       "rating": 4.94
     }
   },
@@ -58,7 +58,7 @@
     },
     "lumber-barons-mansion": {
       "rating": 4.9,
-      "count": 119
+      "count": 120
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
@@ -78,7 +78,7 @@
     },
     "downtown-king-queen-loft": {
       "rating": 4.95,
-      "count": 101
+      "count": 102
     },
     "downtown-twin-queens": {
       "rating": 4.79,
@@ -122,7 +122,7 @@
     },
     "salt-flats-323": {
       "rating": 4.85,
-      "count": 143
+      "count": 144
     }
   }
 }
