@@ -99,9 +99,6 @@ fbq('track', 'PageView');
 .bd-promo{background:rgba(251,190,1,0.08);border:1px solid rgba(251,190,1,0.25);border-radius:3px;padding:24px 32px;max-width:620px;margin:48px auto 0;text-align:center;}
 .bd-promo-title{font-size:13px;font-weight:500;color:var(--cream);margin-bottom:6px;}
 .bd-promo-body{font-size:12px;color:rgba(245,243,237,0.5);font-weight:300;line-height:1.65;}
-/* iframe section */
-.bd-iframe-section{background:var(--warm-white);border-top:3px solid var(--gold);}
-.bd-iframe-header{max-width:900px;margin:0 auto;padding:0 56px;}
 /* Responsive */
 @media(max-width:900px){
   .bd-hero{padding:100px 32px 64px;}
@@ -226,15 +223,6 @@ fbq('track', 'PageView');
   </div>
 </section>
 
-<div id="bd-iframe-section" class="bd-iframe-section" style="display:none;">
-  <div class="bd-iframe-header">
-    <div style="display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--border);">
-      <span style="font-size:12px;font-weight:500;color:var(--forest);">🤝 Direct booking · Secure via Stripe · $5M liability protection · Cheaper than Airbnb</span>
-      <a id="bd-iframe-prop-link" href="" style="margin-left:auto;font-size:11px;color:var(--forest-light);text-decoration:none;border-bottom:1px solid currentColor;flex-shrink:0;">View property details →</a>
-    </div>
-  </div>
-  <iframe id="bd-iframe" src="" style="width:100%;height:820px;border:none;display:block;" title="Book direct" allow="payment *; camera; microphone" allowpaymentrequest></iframe>
-</div>
 
 <section class="bd-why">
   <div style="max-width:1100px;margin:0 auto;">
@@ -363,7 +351,6 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
 
 <script>
 (function(){
-  var WIDGET = 'https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/';
   var CAL = 'https://api.hospitable.com/bookings/api/properties/';
   var allProps = [];
 
@@ -478,7 +465,6 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
     var results = document.getElementById('bd-results');
     var cards = document.getElementById('bd-cards');
     var noAvail = document.getElementById('bd-no-avail');
-    document.getElementById('bd-iframe-section').style.display = 'none';
 
     var candidates = allProps.filter(function(p){ return p.sleeps >= guests; });
     if (city !== 'all') candidates = candidates.filter(function(p){ return p.city === city; });

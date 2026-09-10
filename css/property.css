@@ -122,11 +122,6 @@
 }
 .pp-direct-icon { font-size: 14px; }
 
-/* Mobile-only booking CTA (replaces iframe on small screens) */
-.pp-mobile-book { display: none; padding: 20px 16px 16px; }
-.pp-mobile-book-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); font-weight: 500; text-align: center; margin-bottom: 12px; }
-.pp-mobile-book-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; line-height: 1.5; }
-
 /* Sticky bar (mobile / scroll) */
 .pp-sticky-bar {
   display: none;
@@ -173,9 +168,11 @@
 }
 
 /* The Hospitable loader widget (#booking-iframe) now renders inline on ALL sizes —
-   the old mobile-hide + modal fallback is gone. Keep the sticky "Book direct" bar. */
+   the old mobile-hide + modal fallback is gone. Keep the sticky "Book direct" bar,
+   and reserve space so its fixed position doesn't cover the footer/widget bottom. */
 @media (max-width: 768px) {
   .pp-sticky-bar{display:flex !important;}
+  body{padding-bottom:68px;}
 }
 
 @media (max-width: 600px) {

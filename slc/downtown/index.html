@@ -275,15 +275,6 @@ fbq('track', 'PageView');
   </div>
 </section>
 
-<div id="dt-iframe-section" style="display:none;background:var(--warm-white);border-top:3px solid var(--gold);">
-  <div style="max-width:960px;margin:0 auto;padding:0 48px;">
-    <div style="display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--border);">
-      <span style="font-size:12px;font-weight:500;color:var(--forest);">🤝 Direct booking · Secure via Stripe · Cheaper than Airbnb</span>
-      <a id="dt-iframe-prop-link" href="" style="margin-left:auto;font-size:11px;color:var(--forest-light);text-decoration:none;border-bottom:1px solid currentColor;flex-shrink:0;">View property details →</a>
-    </div>
-  </div>
-  <iframe id="dt-iframe" src="" style="width:100%;height:820px;border:none;display:block;" title="Book direct" allow="payment *; camera; microphone" allowpaymentrequest></iframe>
-</div>
 
 <style>
 .dt-card{background:var(--cream);border-radius:3px;overflow:hidden;transition:transform .2s,box-shadow .2s;}
@@ -407,7 +398,6 @@ async function loadPrices(props) {
 
 <script>
 (function(){
-  var WIDGET = 'https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/';
   var CAL = 'https://api.hospitable.com/bookings/api/properties/';
   var dtProps = [];
 
@@ -519,7 +509,6 @@ async function loadPrices(props) {
     var results = document.getElementById('dt-results');
     var cards = document.getElementById('dt-book-cards');
     var noAvail = document.getElementById('dt-no-avail');
-    document.getElementById('dt-iframe-section').style.display = 'none';
 
     var candidates = dtProps.filter(function(p){ return p.sleeps >= guests; });
     status.textContent = 'Checking ' + candidates.length + ' downtown flat' + (candidates.length===1?'':'s') + '…';

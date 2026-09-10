@@ -26,8 +26,6 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/property.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <style>
 .lb{display:none;position:fixed;inset:0;z-index:9000;background:rgba(10,16,12,.94);backdrop-filter:blur(6px);align-items:center;justify-content:center;flex-direction:column;gap:16px;}
 .lb.open{display:flex;}
@@ -74,22 +72,7 @@
 .pp-price-line{display:none;align-items:baseline;gap:5px;margin:-4px 0 22px;}
 .pp-price-amt{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:400;color:var(--forest);line-height:1;}
 .pp-price-unit{font-size:13px;color:var(--muted);font-weight:300;}
-/* Booking bottom-sheet modal */
-.bm-overlay{display:none;position:fixed;inset:0;z-index:9500;background:rgba(10,16,12,.6);backdrop-filter:blur(4px);}
-.bm-overlay.open{display:flex;align-items:flex-end;}
-.bm-sheet{background:#fff;width:100%;height:92vh;border-radius:14px 14px 0 0;display:flex;flex-direction:column;overflow:hidden;animation:bmSlideUp .3s ease;}
-@keyframes bmSlideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
-.bm-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--border);flex-shrink:0;}
-.bm-title{font-family:'Jost',sans-serif;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--forest);}
-.bm-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);line-height:1;padding:4px;}
-.bm-frame{flex:1;width:min(300px,100%);border:none;display:block;align-self:center;}
 .pp-sticky-btn{border:none;cursor:pointer;}
-/* Property date picker */
-.pp-date-row{display:grid;grid-template-columns:1fr 1fr 72px;gap:6px;padding:12px 16px 14px;background:var(--parchment);border-bottom:1px solid var(--border);}
-.pp-date-label{display:block;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:4px;}
-.pp-date-input,.pp-date-select{width:100%;background:#fff;border:1px solid var(--border-warm);border-radius:2px;padding:7px 10px;font-size:12.5px;color:var(--forest);font-family:'Jost',sans-serif;cursor:pointer;box-sizing:border-box;}
-.pp-date-input:focus,.pp-date-select:focus{outline:none;border-color:var(--forest-light);}
-/* Flatpickr calendar overrides — base theme in css/style.css */
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-24FKZQFX23"></script>
@@ -167,16 +150,6 @@
     </div>
   </div></div>
 
-<div class="bm-overlay" id="bm-overlay" role="dialog" aria-modal="true" aria-label="Book direct" onclick="closeBM(event)">
-  <div class="bm-sheet">
-    <div class="bm-header">
-      <span class="bm-title">Book Direct · No Airbnb Fees</span>
-      <button class="bm-close" onclick="closeBM()" aria-label="Close booking">✕</button>
-    </div>
-    <iframe id="bm-iframe" class="bm-frame" title="Book direct" src="" sandbox="allow-top-navigation-by-user-activation allow-scripts allow-same-origin allow-forms allow-popups" frameborder="0"></iframe>
-  </div>
-</div>
-
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Property photo gallery" onclick="closeLB(event)">
   <button class="lb-close" aria-label="Close photo gallery" onclick="_lbClose()">✕</button>
   <img class="lb-img" id="lb-img" src="" alt="">
@@ -201,37 +174,14 @@ function lbNav(dir) { lbIdx = (lbIdx + dir + lbPhotos.length) % lbPhotos.length;
 function _lbClose() { document.getElementById('lb').classList.remove('open'); document.body.style.overflow = ''; if (_lbReturn && _lbReturn.focus) _lbReturn.focus(); _lbReturn = null; }
 function closeLB(e) { if (e.target === document.getElementById('lb')) _lbClose(); }
 
-let _bmUrl = '';
 let _lcfPropId = '';
 let _lcfPropName = '';
-function _ppDatesUrl(base) {
-  const ci = (document.getElementById('pp-checkin') || {}).value;
-  const co = (document.getElementById('pp-checkout') || {}).value;
-  const g  = (document.getElementById('pp-guests')   || {}).value;
-  if (!base) return base;
-  return base + (ci && co ? '?start_date=' + ci + '&end_date=' + co + '&adults=' : '?adults=') + (g || '2');
-}
-function ppUpdateWidget() {
-  const url = _ppDatesUrl(_bmUrl);
-  const iframe = document.getElementById('booking-iframe');
-  if (iframe && iframe.src !== url) iframe.src = url;
-}
-let _bmReturn = null;
 function openBM() {
   // Booking is now inline via the Hospitable loader widget — the "Book" CTAs
   // simply scroll to it (keep the analytics event).
   if (typeof lcfTrack !== 'undefined') lcfTrack('widget_open', {property_id: _lcfPropId, property_name: _lcfPropName});
   var el = document.getElementById('hospitable-booking');
   if (el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
-}
-function _bmClose() {
-  document.getElementById('bm-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-  if (_bmReturn && _bmReturn.focus) _bmReturn.focus(); _bmReturn = null;
-}
-function closeBM(e) {
-  if (e && e.type === 'click' && e.target !== document.getElementById('bm-overlay') && !e.currentTarget.classList.contains('bm-close')) return;
-  _bmClose();
 }
 document.addEventListener('keydown', e => {
   var lb = document.getElementById('lb');
@@ -242,8 +192,6 @@ document.addEventListener('keydown', e => {
     else if (e.key === 'Tab') { var fs = lb.querySelectorAll('button'); if (fs.length) { var a = fs[0], z = fs[fs.length-1]; if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); } else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); } } }
     return;
   }
-  var bm = document.getElementById('bm-overlay');
-  if (bm && bm.classList.contains('open') && e.key === 'Escape') _bmClose();
 });
 
 async function init() {
@@ -290,7 +238,6 @@ async function init() {
 
   // Wire "Book Direct" nav button + mobile CTAs to open booking modal
   if (prop.hospitable_id) {
-    _bmUrl = `https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/${prop.hospitable_id}`;
     _lcfPropId = prop.id;
     _lcfPropName = prop.name;
     const navBtn = document.querySelector('.nav-book');
@@ -495,56 +442,6 @@ async function init() {
   }
 
 
-  // Flatpickr date picker + blocked-date loading for property page
-  if (prop.hospitable_id && document.getElementById('pp-checkin')) {
-    // Local-date formatter — avoids the UTC day-shift that toISOString() causes.
-    const _fmtLocal = d => d.getFullYear() + '-' + ('0'+(d.getMonth()+1)).slice(-2) + '-' + ('0'+d.getDate()).slice(-2);
-    const _today = new Date();
-    const _todayStr = _fmtLocal(_today);
-    const _tmrw = new Date(_today); _tmrw.setDate(_tmrw.getDate()+1);
-    const _tmrwStr = _fmtLocal(_tmrw);
-    const _calEnd = _fmtLocal(new Date(_today.getTime() + 90*24*60*60*1000));
-    let _fpOut, _fpIn;
-
-    function _initFP(disabled) {
-      _fpOut = flatpickr('#pp-checkout', {
-        minDate: _tmrwStr,
-        dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true,
-        disable: disabled,
-        onClose: function(sel) {
-          if (sel[0] && _fpIn && _fpIn.selectedDates[0]) {
-            lcfTrack('dates_selected', {
-              check_in: _fmtLocal(_fpIn.selectedDates[0]),
-              check_out: _fmtLocal(sel[0])
-            });
-          }
-          ppUpdateWidget();
-        }
-      });
-      _fpIn = flatpickr('#pp-checkin', {
-        minDate: _todayStr,
-        dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true,
-        disable: disabled,
-        onClose: function(sel) {
-          if (!sel[0]) return;
-          const nxt = new Date(sel[0]); nxt.setDate(nxt.getDate()+1);
-          _fpOut.set('minDate', nxt);
-          if (!_fpOut.selectedDates[0] || _fpOut.selectedDates[0] <= sel[0]) _fpOut.setDate(nxt, true);
-          _fpOut.open();
-        }
-      });
-      ppUpdateWidget();
-    }
-
-    fetch('https://api.hospitable.com/bookings/api/properties/' + prop.hospitable_id + '/calendar?start_date=' + _todayStr + '&end_date=' + _calEnd)
-      .then(r => r.ok ? r.json() : {})
-      .then(cal => {
-        const disabled = Object.entries(cal).filter(([,d]) => !d.available).map(([dt]) => dt);
-        _initFP(disabled);
-      })
-      .catch(() => _initFP([]));
-  }
-
   // Lazy-load Mapbox only when map section scrolls into view
   (function() {
     const _lat = mapLat, _lng = mapLng;
@@ -713,10 +610,6 @@ async function loadPrice(hospitable_id) {
 <script>
 /* a11y: activate role=button pills/gallery via keyboard (Enter/Space) */
 document.addEventListener("keydown",function(e){if((e.key==="Enter"||e.key===" ")&&e.target&&e.target.matches&&e.target.matches(".hood-pill,.pp-gallery-main-img,.pp-gallery-sub-img")){e.preventDefault();e.target.click();}});
-</script>
-<script>
-/* a11y: label flatpickr's visible alt-input (it does not inherit aria-label) */
-window.addEventListener("load",function(){document.querySelectorAll("input[id$=\"-checkin\"],input[id$=\"-checkout\"]").forEach(function(o){var a=o.nextElementSibling;if(a&&a.tagName==="INPUT"&&!a.getAttribute("aria-label"))a.setAttribute("aria-label",o.getAttribute("placeholder")||(o.id.indexOf("checkin")>-1?"Check-in date":"Check-out date"));});});
 </script>
 </body>
 </html>

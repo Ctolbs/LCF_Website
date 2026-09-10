@@ -830,16 +830,6 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
   </div>
 </section>
 
-<!-- Booking iframe (full-width, below search section) -->
-<div id="bs-iframe-section" style="display:none;background:var(--warm-white);border-top:3px solid var(--gold);">
-  <div style="max-width:960px;margin:0 auto;padding:0 48px;">
-    <div style="display:flex;align-items:center;gap:12px;padding:16px 0;border-bottom:1px solid var(--border);">
-      <span style="font-size:12px;font-weight:500;color:var(--forest);">&#129309; Direct booking · Secure via Stripe · $5M liability protection</span>
-      <a id="bs-iframe-prop-link" href="" style="margin-left:auto;font-size:11px;color:var(--forest-light);text-decoration:none;border-bottom:1px solid currentColor;flex-shrink:0;">View property details &#8594;</a>
-    </div>
-  </div>
-  <iframe id="bs-iframe" src="" style="width:100%;height:900px;border:none;display:block;" title="Book direct" allow="payment *; camera; microphone" allowpaymentrequest></iframe>
-</div>
 
 <style>
 .bs-tab{padding:8px 18px;border-radius:20px;border:1px solid rgba(255,255,255,0.18);background:transparent;color:rgba(245,243,237,0.6);font-size:12px;font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.04em;cursor:pointer;transition:all .2s;}
@@ -856,7 +846,6 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 <script>
 function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
 (function(){
-  var WIDGET = 'https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/';
   var CAL = 'https://api.hospitable.com/bookings/api/properties/';
   var hbpProps = [];
   var hbpCity = '';
@@ -1119,7 +1108,6 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
 
 <script>
 (function(){
-  var WIDGET = 'https://booking.hospitable.com/widget/643ae633-bfb6-4a6f-bd85-e6294860ddfc/';
   var CAL = 'https://api.hospitable.com/bookings/api/properties/';
   var allProps = [];
   var selectedCity = '';
@@ -1257,7 +1245,6 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     var results = document.getElementById('bs-results');
     var cards = document.getElementById('bs-cards');
     var noAvail = document.getElementById('bs-no-avail');
-    document.getElementById('bs-iframe-section').style.display = 'none';
 
     var candidates = allProps.filter(function(p){ return p.sleeps >= guests; });
     if (selectedCity) candidates = candidates.filter(function(p){ return p.city === selectedCity; });
