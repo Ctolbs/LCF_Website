@@ -1,20 +1,20 @@
 {
-  "updated": "2026-09-01",
-  "total_reviews": 4001,
+  "updated": "2026-09-10",
+  "total_reviews": 4017,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3220,
+    "airbnb": 3236,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3654,
-      "rating": 4.86
+      "count": 3669,
+      "rating": 4.87
     },
     "detroit": {
-      "count": 347,
+      "count": 348,
       "rating": 4.94
     }
   },
@@ -34,23 +34,23 @@
     },
     "downtown-townhouse": {
       "rating": 4.88,
-      "count": 177
+      "count": 179
     },
     "downtown-townhome": {
       "rating": 4.85,
-      "count": 241
+      "count": 243
     },
     "brick-studio": {
       "rating": 4.77,
       "count": 123
     },
     "sugarhood-penthouse": {
-      "rating": 4.74,
-      "count": 23
+      "rating": 4.71,
+      "count": 24
     },
     "modernwest-townhome": {
       "rating": 4.99,
-      "count": 85
+      "count": 86
     },
     "9line-loft": {
       "rating": 5.0,
@@ -58,7 +58,7 @@
     },
     "lumber-barons-mansion": {
       "rating": 4.9,
-      "count": 119
+      "count": 120
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
@@ -74,27 +74,27 @@
     },
     "granary-twin-suites": {
       "rating": 4.82,
-      "count": 158
+      "count": 159
     },
     "downtown-king-queen-loft": {
       "rating": 4.95,
-      "count": 101
+      "count": 103
     },
     "downtown-twin-queens": {
       "rating": 4.79,
       "count": 118
     },
     "downtown-gym-hot-tub": {
-      "rating": 4.72,
-      "count": 101
+      "rating": 4.73,
+      "count": 102
     },
     "downtown-designer-2king": {
       "rating": 4.81,
       "count": 190
     },
     "downtown-mountain-studio": {
-      "rating": 4.72,
-      "count": 101
+      "rating": 4.73,
+      "count": 102
     },
     "downtown-2king-townhome": {
       "rating": 4.86,
@@ -102,11 +102,11 @@
     },
     "downtown-king-queen-garage": {
       "rating": 4.9,
-      "count": 290
+      "count": 292
     },
     "downtown-penthouse-view": {
       "rating": 4.87,
-      "count": 256
+      "count": 257
     },
     "downtown-midmod": {
       "rating": 4.7,
@@ -122,7 +122,7 @@
     },
     "salt-flats-323": {
       "rating": 4.85,
-      "count": 143
+      "count": 144
     }
   }
 }
