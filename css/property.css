@@ -168,16 +168,13 @@
   .pp-body{grid-template-columns:1fr;gap:40px;padding:36px 28px;max-width:100%;}
   .pp-right{position:static;}
   .pp-widget-wrapper{max-width:100%;}
-  #booking-iframe{height:820px;}
   .pp-similar{padding:48px 28px;}
   .pp-similar-grid{grid-template-columns:1fr 1fr;}
 }
 
-/* Hide iframe on tablet/mobile — widget only renders cleanly in the 350px desktop sidebar */
-/* !important required: the iframe has inline style="display:block" that beats a plain CSS rule */
+/* The Hospitable loader widget (#booking-iframe) now renders inline on ALL sizes —
+   the old mobile-hide + modal fallback is gone. Keep the sticky "Book direct" bar. */
 @media (max-width: 768px) {
-  #booking-iframe{display:none !important;}
-  .pp-mobile-book{display:block;}
   .pp-sticky-bar{display:flex !important;}
 }
 
