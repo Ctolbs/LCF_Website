@@ -124,16 +124,49 @@ def main():
     by_city = {k: {"count": d["count"], "rating": round(d["sum"]/d["count"], 2)}
                for k, d in city.items() if d["count"]}
 
+    # per-neighborhood aggregates (for the neighborhood landing pages' JSON-LD).
+    # Airbnb numbers group cleanly by each property's hood. VRBO manual reviews are
+    # tagged by city, not hood, so we distribute each city's VRBO across that city's
+    # hoods in proportion to their Airbnb review share — keeps hood totals consistent
+    # with by_city/overall (they sum up) without a manual per-listing hood table.
+    from collections import defaultdict
+    prop_hood = {p["id"]: p.get("hood") for p in props}
+    hood = {}
+    for slug, v in out.items():
+        h = prop_hood.get(slug)
+        if not h: continue
+        d = hood.setdefault(h, {"count": 0, "sum": 0.0, "city": prop_city.get(slug, "slc")})
+        d["count"] += v["count"]; d["sum"] += v["count"] * (v["rating"] or 0)
+    city_airbnb = defaultdict(float)
+    for d in hood.values(): city_airbnb[d["city"]] += d["count"]
+    vrbo_city = defaultdict(lambda: {"count": 0.0, "sum": 0.0})
+    for v in vrbo:
+        c = v.get("count") or 0
+        vc = v.get("city", "slc")
+        vrbo_city[vc]["count"] += c
+        if v.get("rating"): vrbo_city[vc]["sum"] += c * v["rating"]
+    for d in hood.values():
+        base = city_airbnb[d["city"]]
+        vc = vrbo_city[d["city"]]
+        if base > 0 and vc["count"]:
+            share = d["count"] / base
+            d["count"] += vc["count"] * share
+            d["sum"]   += vc["sum"]   * share
+    by_hood = {h: {"count": int(round(d["count"])), "rating": round(d["sum"]/d["count"], 2), "city": d["city"]}
+               for h, d in hood.items() if d["count"]}
+
     summary = {
         "updated": os.environ.get("RUN_DATE", ""),
         "total_reviews": combined_total,
         "average_rating": combined_avg,
         "by_source": {**plat_totals, "vrbo": vrbo_count},
         "by_city": by_city,
+        "by_hood": by_hood,           # per-neighborhood (Airbnb + proportional VRBO)
         "property_count": len(out),
         "properties": out,            # per-property Airbnb numbers (for cards)
     }
     print(f"BY CITY: {by_city}")
+    print(f"BY HOOD: {by_hood}")
     print(f"\nPLATFORM BREAKDOWN (Hospitable API): {plat_totals}")
     print(f"Hospitable (airbnb+direct+booking): {airbnb_count} reviews  avg {round(airbnb_sum/airbnb_count,3)}")
     print(f"VRBO (manual):                      {vrbo_count} reviews  avg {round(vrbo_sum/vrbo_count,3) if vrbo_count else None}")

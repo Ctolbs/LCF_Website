@@ -18,6 +18,33 @@
       "rating": 4.94
     }
   },
+  "by_hood": {
+    "granary": {
+      "count": 785,
+      "rating": 4.89,
+      "city": "slc"
+    },
+    "9line": {
+      "count": 1901,
+      "rating": 4.87,
+      "city": "slc"
+    },
+    "downtown": {
+      "count": 917,
+      "rating": 4.83,
+      "city": "slc"
+    },
+    "sugarhood": {
+      "count": 74,
+      "rating": 4.84,
+      "city": "slc"
+    },
+    "brush-park": {
+      "count": 350,
+      "rating": 4.94,
+      "city": "detroit"
+    }
+  },
   "property_count": 26,
   "properties": {
     "granary-penthouse": {

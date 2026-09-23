@@ -10,9 +10,9 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const data = JSON.parse(fs.readFileSync(path.join(ROOT, 'properties.json'), 'utf8'));
 const template = fs.readFileSync(path.join(ROOT, 'property', 'index.html'), 'utf8');
-// Live per-property review numbers (regenerated nightly); fall back to properties.json.
-let reviews = {};
-try { reviews = (JSON.parse(fs.readFileSync(path.join(ROOT, 'reviews.json'), 'utf8')).properties) || {}; } catch (e) {}
+// Live review numbers (regenerated nightly); fall back to properties.json.
+let reviewsFull = null, reviews = {};
+try { reviewsFull = JSON.parse(fs.readFileSync(path.join(ROOT, 'reviews.json'), 'utf8')); reviews = reviewsFull.properties || {}; } catch (e) {}
 
 const SITE_BASE = 'https://lakecityflats.com';
 
@@ -139,3 +139,60 @@ data.properties.forEach(prop => {
 });
 
 console.log(`\nDone — ${data.properties.length} property pages generated.`);
+
+// ── Refresh static aggregateRating JSON-LD from live reviews.json ─────────────
+// The human-visible review numbers already self-update client-side (data-lcf-*
+// hooks fetch reviews.json), but the JSON-LD that crawlers read is static and
+// drifts as reviews accumulate. Rewrite it here so it always matches reviews.json.
+// The deploy uploads the working tree, so this ships on every build (nightly,
+// right after the reviews refresh) without being committed back to the repo.
+// Property-page JSON-LD is already live (built per-property above); this covers
+// the site/city/neighborhood/overall pages that carry their own aggregateRating.
+const RATING_TARGETS = [
+  { file: 'index.html',              scopes: ['city:slc', 'city:detroit'] },
+  { file: 'slc/index.html',          scopes: ['city:slc'] },
+  { file: 'detroit/index.html',      scopes: ['city:detroit'] },
+  { file: 'slc/granary/index.html',  scopes: ['hood:granary'] },
+  { file: 'slc/downtown/index.html', scopes: ['hood:downtown'] },
+  { file: 'slc/9line/index.html',    scopes: ['hood:9line'] },
+  { file: 'about/index.html',        scopes: ['overall'] },
+  { file: 'reviews/index.html',      scopes: ['overall'] },
+];
+
+function scopeStats(scope) {
+  if (!reviewsFull) return null;
+  if (scope === 'overall') return { rating: reviewsFull.average_rating, count: reviewsFull.total_reviews };
+  const [kind, key] = scope.split(':');
+  const src = kind === 'city' ? reviewsFull.by_city : kind === 'hood' ? reviewsFull.by_hood : null;
+  return (src && src[key]) || null;
+}
+
+const AGG_RE = /"aggregateRating"\s*:\s*\{[^}]*\}/g;
+RATING_TARGETS.forEach(t => {
+  const fp = path.join(ROOT, t.file);
+  let html = fs.readFileSync(fp, 'utf8');
+  const found = html.match(AGG_RE) || [];
+  // Fail loudly if the page's structured-data shape drifted (mirrors the head-swap
+  // guard above) — better to abort than silently ship stale/mismapped ratings.
+  if (found.length !== t.scopes.length) {
+    console.error(`ERROR: ${t.file} has ${found.length} aggregateRating block(s), expected ${t.scopes.length} — structured-data markup drifted. Aborting.`);
+    process.exit(1);
+  }
+  let i = 0;
+  html = html.replace(AGG_RE, block => {
+    const scope = t.scopes[i++];
+    const st = scopeStats(scope);
+    if (!st || st.rating == null || st.count == null) {
+      console.warn(`  skip ${t.file} [${scope}]: no data in reviews.json — leaving existing numbers`);
+      return block;
+    }
+    // Preserve each field's existing quote style (\2 backref): compact pages leave
+    // reviewCount as a bare number, about/reviews keep it quoted — both valid JSON-LD.
+    return block
+      .replace(/("ratingValue"\s*:\s*)("?)[0-9.]+\2/, `$1$2${st.rating}$2`)
+      .replace(/("reviewCount"\s*:\s*)("?)[0-9]+\2/, `$1$2${st.count}$2`);
+  });
+  fs.writeFileSync(fp, html, 'utf8');
+  console.log(`Ratings refreshed: ${t.file} (${t.scopes.join(', ')})`);
+});
+console.log('Done — static aggregateRating JSON-LD synced to reviews.json.');
