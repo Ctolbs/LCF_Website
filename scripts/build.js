@@ -113,9 +113,48 @@ data.properties.forEach(prop => {
 <meta name="twitter:description" content="${pageDesc}">
 <meta name="twitter:image" content="${pageImg}">
 <link rel="canonical" href="${pageUrl}">
+<link rel="preload" as="image" href="${pageImg}" fetchpriority="high">
 <script type="application/ld+json">${JSON.stringify(jsonLd)}<\/script>
 <script type="application/ld+json">${JSON.stringify(breadcrumb)}<\/script>
 <script type="application/ld+json">${JSON.stringify(faq)}<\/script>`;
+
+  // ── Static, crawlable body (Option B: pre-render for SEO + LCP) ──────────────
+  // The template's #pp-root ships only a JS skeleton; the real body is built
+  // client-side, so no-JS crawlers/social/AI bots see an empty page and the LCP
+  // photo waits on 2 chained fetches. We write a static, styled body between the
+  // <!--PP_BODY_START/END--> markers here. The client init() OVERWRITES #pp-root
+  // on load, so JS users/Google get the identical interactive page as before —
+  // this only adds a crawlable + fast-painting fallback (and resilience if the
+  // fetch fails). Injected LAST (after the path-rewrites) so its hrefs are used
+  // verbatim at the generated-page depth (property/{id}/).
+  const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const isSlc = prop.city === 'slc';
+  const hoodLabel = prop.hood.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  const rvp = reviews[prop.id] || {};
+  const rRating = rvp.rating != null ? rvp.rating : prop.rating;
+  const rCount = rvp.count != null ? rvp.count : prop.review_count;
+  const sameHood = data.properties.filter(p => p.city === prop.city && p.id !== prop.id && p.hood === prop.hood);
+  const otherCity = data.properties.filter(p => p.city === prop.city && p.id !== prop.id && p.hood !== prop.hood);
+  const similar = [...sameHood, ...otherCity].slice(0, 3);
+  const photos = prop.photos || [];
+  const WALK_HOOKS = {
+    granary: ['🚶 5 min to TRAX', '🎿 30 min to Alta & Snowbird', '🍜 Granary District restaurants on your block'],
+    downtown: ['🚶 5 min walk to Delta Center', '🚶 Walk to Temple Square & City Creek', '🎿 30 min drive to ski resorts'],
+    '9line': ['🚈 TRAX stop nearby', '🚶 10 min walk to downtown SLC', '🎿 35 min to ski resorts'],
+    sugarhood: ['🌳 Sugar House Park — 10 min walk', '🍜 Sugar House restaurant row nearby', '🚗 5 min drive to downtown'],
+    'brush-park': ['🏒 2 min walk to Little Caesars Arena', '🚶 Steps from Woodward Ave', '🎵 10 min to Eastern Market'],
+  };
+  const hoodHooks = WALK_HOOKS[prop.hood] || [];
+  const galleryHtml = `<div class="pp-gallery"><div class="pp-gallery-main"><img class="pp-gallery-main-img" src="${photos[0]}" alt="${esc(prop.name)}"></div>${photos.length > 1 ? `<div class="pp-gallery-sub">${photos.slice(1, 4).map(p => `<div class="pp-gallery-sub-img"><img src="${p}" alt="${esc(prop.name)}" loading="lazy"></div>`).join('')}${photos.length > 4 ? `<div class="pp-gallery-sub-img" style="position:relative;"><img src="${photos[photos.length - 1]}" alt="${esc(prop.name)}" loading="lazy"><div class="pp-gallery-more">View all ${photos.length} photos</div></div>` : ''}</div>` : ''}</div>`;
+  const featuresHtml = [`<span class="pp-badge pp-badge-loc">${isSlc ? '🏔' : '🏛'} ${esc(cityFull)}</span>`, `<span class="pp-badge pp-badge-loc">${esc(hoodLabel)}</span>`, ...(prop.features || []).map(f => `<span class="pp-badge pp-badge-feat">${esc(f)}</span>`)].join('');
+  const amenitiesHtml = (prop.amenities || []).map(a => `<div class="pp-amenity">${esc(a)}</div>`).join('');
+  const hooksHtml = hoodHooks.length ? `<div style="display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 22px;">${hoodHooks.map(h => `<span style="display:inline-flex;align-items:center;padding:5px 12px;background:var(--parchment);border:1px solid var(--border);border-radius:20px;font-size:11px;color:var(--muted);">${esc(h)}</span>`).join('')}</div>` : '';
+  const reviewsHtml = (prop.reviews || []).map(r => `<div class="pp-review"><div class="pp-review-top"><div class="pp-review-av">${esc((r.name || '?')[0])}</div><div><div class="pp-review-name">${esc(r.name)}</div><div class="pp-review-meta">${esc(r.date)} · ${esc(r.source)}</div></div><div class="pp-review-stars">★★★★★</div></div><div class="pp-review-text">${esc(r.text)}</div></div>`).join('');
+  const similarHtml = similar.map(s => `<a href="../${s.id}/" class="pp-sim-card"><div class="pp-sim-img" style="background-image:url('${s.image}')"></div><div class="pp-sim-body"><div class="pp-sim-name">${esc(s.name)}</div><div class="pp-sim-meta">${esc(s.meta)}</div><div class="pp-sim-rating">★ ${s.rating}</div></div></a>`).join('');
+  const staticBody = `<div class="pp-breadcrumb-bar"><a href="/">Home</a><span>›</span><a href="../../${isSlc ? 'slc' : 'detroit'}/">${esc(cityFull)}</a><span>›</span><span>${esc(prop.name)}</span></div>
+${galleryHtml}
+<div class="pp-body"><div><div class="pp-badges">${featuresHtml}</div><h1 class="pp-title">${esc(prop.name)}</h1><div class="pp-meta"><span>${prop.beds} bedroom${prop.beds !== 1 ? 's' : ''} · ${prop.baths} bath${prop.baths !== 1 ? 's' : ''}</span><div class="pp-meta-dot"></div><span>Sleeps ${prop.sleeps}</span><div class="pp-meta-dot"></div><span class="pp-rating">★ ${rRating} · ${rCount} reviews</span></div><p class="pp-desc">${esc(prop.description)}</p>${hooksHtml}<div class="pp-section"><div class="pp-section-label">What's included</div><div class="pp-amenity-grid">${amenitiesHtml}</div></div><div class="pp-section"><div class="pp-section-label">Location</div><div class="pp-location-desc">${esc(prop.neighborhood_desc)}</div></div><div class="pp-section"><div class="pp-section-label">What guests say · ★ ${rRating} · ${rCount} reviews</div>${reviewsHtml}<a href="../../reviews/" style="font-size:12px;color:var(--forest-light);text-decoration:none;">Read all guest reviews →</a></div></div><div class="pp-right" id="book"><div class="pp-nudge">Book direct → <strong>always cheaper</strong> than Airbnb. No Airbnb fees.</div><div class="pp-widget-wrapper"><div class="pp-direct-banner"><span class="pp-direct-icon">🤝</span><span>Always cheaper direct · No Airbnb fees · Secure via Stripe</span></div><div class="pp-cta-block"><a href="#book" class="pp-cta-primary">Check availability →</a><a href="mailto:contact@lakecityflats.com?subject=Inquiry: ${encodeURIComponent(prop.name)}" class="pp-cta-secondary">Ask us anything</a></div></div></div></div>
+${similar.length ? `<section class="pp-similar"><div class="pp-similar-head"><div class="section-eyebrow">More in ${esc(cityFull)}</div><h2 class="pp-similar-title">You might also like</h2></div><div class="pp-similar-grid">${similarHtml}</div></section>` : ''}`;
 
   // Replace the generic <title> + description + placeholder OG block from the template
   let html = template
@@ -133,12 +172,20 @@ data.properties.forEach(prop => {
     .replace(
       /const id = new URLSearchParams\(location\.search\)\.get\('id'\);/,
       `const id = '${prop.id}';`
-    );
+    )
+    // Inject the static SEO body (LAST, so its hrefs keep the generated-page depth)
+    .replace(/<!--PP_BODY_START-->[\s\S]*?<!--PP_BODY_END-->/, () => staticBody);
 
   // Fail loudly if the head-swap didn't take (template markup drifted) instead
   // of silently shipping pages with the "Loading..." placeholder title/empty OG.
   if (html.includes('Lake City Flats — Loading...')) {
     console.error(`ERROR: static <head> not injected for "${prop.id}" — the template's head markup likely drifted from build.js's replace() pattern. Aborting before shipping broken metadata.`);
+    process.exit(1);
+  }
+  // Guard: the static SEO body must have been injected (markers consumed).
+  // Check the markers only — 'pp-skeleton' also appears in the template's CSS.
+  if (html.includes('PP_BODY_START') || html.includes('PP_BODY_END')) {
+    console.error(`ERROR: static body not injected for "${prop.id}" — the <!--PP_BODY_START/END--> markers around #pp-root drifted in property/index.html. Aborting before shipping an empty-to-crawlers page.`);
     process.exit(1);
   }
 
