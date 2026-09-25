@@ -254,3 +254,40 @@ RATING_TARGETS.forEach(t => {
   console.log(`Ratings refreshed: ${t.file} (${t.scopes.join(', ')})`);
 });
 console.log('Done — static aggregateRating JSON-LD synced to reviews.json.');
+
+// ── Static, crawlable property-card links on the landing pages ────────────────
+// The homepage/city/neighborhood pages fill their card containers via JS from
+// properties.json, so 24/26 property pages had no static inbound link (only the
+// sitemap). Inject a static, styled anchor per property into each (empty)
+// container; the page's own JS then OVERWRITES the container with its rich cards
+// on load — so crawlers/no-JS get real internal links + anchor text, JS users
+// are unchanged (and it's a graceful fallback if the fetch fails).
+const CARD_TARGETS = [
+  { file: 'index.html',               id: 'slc-list',     rel: '',       filter: p => p.city === 'slc' },
+  { file: 'index.html',               id: 'det-list',     rel: '',       filter: p => p.city === 'detroit' },
+  { file: 'slc/index.html',           id: 'slc-list',     rel: '../',    filter: p => p.city === 'slc' },
+  { file: 'detroit/index.html',       id: 'det-props',    rel: '../',    filter: p => p.city === 'detroit' },
+  { file: 'slc/downtown/index.html',  id: 'dt-prop-list', rel: '../../', filter: p => p.city === 'slc' && p.hood === 'downtown' },
+  { file: 'slc/granary/index.html',   id: 'dt-prop-list', rel: '../../', filter: p => p.city === 'slc' && p.hood === 'granary' },
+  { file: 'slc/9line/index.html',     id: 'dt-prop-list', rel: '../../', filter: p => p.city === 'slc' && p.hood === '9line' },
+  { file: 'slc/sugarhood/index.html', id: 'sh-prop-list', rel: '../../', filter: p => p.city === 'slc' && p.hood === 'sugarhood' },
+];
+const escC = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+CARD_TARGETS.forEach(t => {
+  const fp = path.join(ROOT, t.file);
+  let html = fs.readFileSync(fp, 'utf8');
+  const marker = `id="${t.id}"></div>`;
+  if (!html.includes(marker)) {
+    console.error(`ERROR: card container #${t.id} in ${t.file} isn't the expected empty <div ... id="${t.id}"></div> — markup drifted. Aborting.`);
+    process.exit(1);
+  }
+  const list = data.properties.filter(t.filter);
+  const cards = list.map(p => {
+    const rating = (reviews[p.id] && reviews[p.id].rating != null) ? reviews[p.id].rating : p.rating;
+    return `<a href="${t.rel}property/${p.id}/" class="lcf-seo-card" style="display:flex;align-items:center;gap:10px;padding:12px 16px;border:1px solid var(--border,#e8e2d8);border-radius:4px;margin-bottom:8px;text-decoration:none;color:var(--forest,#2d4a3e);font-size:14px;"><strong>${escC(p.name)}</strong><span style="color:var(--muted,#777);">· ${escC(p.meta)} · ★ ${rating}</span></a>`;
+  }).join('');
+  html = html.replace(marker, `id="${t.id}">${cards}</div>`);
+  fs.writeFileSync(fp, html, 'utf8');
+  console.log(`Static cards injected: ${t.file} #${t.id} (${list.length} links)`);
+});
+console.log('Done — static property-card links injected on landing pages.');
