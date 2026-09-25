@@ -22,7 +22,17 @@ data.properties.forEach(prop => {
   const cityUrl = prop.city === 'slc' ? `${SITE_BASE}/slc/` : `${SITE_BASE}/detroit/`;
   const hoodName = ({ granary: 'the Granary District', downtown: 'Downtown', sugarhood: 'Sugar House', '9line': 'the 9Line', 'brush-park': 'Brush Park' })[prop.hood] || cityFull;
   const pageTitle = `${prop.name} — Lake City Flats`;
-  const pageDesc = `${prop.meta} in ${hoodName}, ${cityFull}. Book direct with Lake City Flats — no Airbnb fees, cheaper than Airbnb or Vrbo.`;
+  // Unique, keyword-rich meta description per property. The old formula
+  // (`${meta} in ${hood}, ${city}`) produced BYTE-IDENTICAL descriptions across
+  // same-layout units (e.g. 5 different 9line 2BRs shared one string) — a
+  // duplicate-content signal. Lead with a distinct sentence from the property's
+  // own copy, then location + book-direct CTA. ~120–150 chars (SERP-safe).
+  const escAttr = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  let descHook = (prop.description || prop.meta).replace(/\s+/g, ' ').trim().split(/(?<=[.!?])\s/)[0].replace(/[ .]+$/, '');
+  descHook = descHook.length > 78
+    ? descHook.slice(0, 78).replace(/\s+\S*$/, '').replace(/[ ,;:—-]+$/, '') + '…'
+    : descHook + '.';
+  const pageDesc = escAttr(`${descHook} Book direct in ${hoodName}, ${cityFull} — no Airbnb fees.`);
   const pageUrl = `${SITE_BASE}/property/${prop.id}/`;
   const pageImg = prop.photos[0] || prop.image;
 
