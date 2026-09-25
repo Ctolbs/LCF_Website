@@ -165,6 +165,7 @@ const RATING_TARGETS = [
   { file: 'slc/granary/index.html',  scopes: ['hood:granary'] },
   { file: 'slc/downtown/index.html', scopes: ['hood:downtown'] },
   { file: 'slc/9line/index.html',    scopes: ['hood:9line'] },
+  { file: 'slc/sugarhood/index.html', scopes: ['hood:sugarhood'] },
   { file: 'about/index.html',        scopes: ['overall'] },
   { file: 'reviews/index.html',      scopes: ['overall'] },
 ];
