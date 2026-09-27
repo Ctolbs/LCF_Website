@@ -1,16 +1,16 @@
 {
-  "updated": "2026-09-26",
-  "total_reviews": 4030,
+  "updated": "2026-09-27",
+  "total_reviews": 4035,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3249,
+    "airbnb": 3254,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3680,
+      "count": 3685,
       "rating": 4.87
     },
     "detroit": {
@@ -20,12 +20,12 @@
   },
   "by_hood": {
     "granary": {
-      "count": 785,
+      "count": 787,
       "rating": 4.89,
       "city": "slc"
     },
     "9line": {
-      "count": 1902,
+      "count": 1905,
       "rating": 4.87,
       "city": "slc"
     },
@@ -53,7 +53,7 @@
     },
     "granary-king-suite": {
       "rating": 4.86,
-      "count": 101
+      "count": 102
     },
     "granary-west-401": {
       "rating": 4.93,
@@ -65,7 +65,7 @@
     },
     "downtown-townhome": {
       "rating": 4.85,
-      "count": 243
+      "count": 244
     },
     "brick-studio": {
       "rating": 4.77,
@@ -77,11 +77,11 @@
     },
     "modernwest-townhome": {
       "rating": 4.99,
-      "count": 86
+      "count": 87
     },
     "9line-loft": {
       "rating": 5.0,
-      "count": 8
+      "count": 9
     },
     "lumber-barons-mansion": {
       "rating": 4.9,
@@ -145,7 +145,7 @@
     },
     "9line-loft-ii": {
       "rating": 5.0,
-      "count": 8
+      "count": 9
     },
     "salt-flats-323": {
       "rating": 4.85,
