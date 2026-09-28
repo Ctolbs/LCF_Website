@@ -1,20 +1,20 @@
 {
-  "updated": "2026-09-27",
-  "total_reviews": 4035,
+  "updated": "2026-09-28",
+  "total_reviews": 4037,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3254,
+    "airbnb": 3256,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3685,
-      "rating": 4.87
+      "count": 3686,
+      "rating": 4.86
     },
     "detroit": {
-      "count": 350,
+      "count": 351,
       "rating": 4.94
     }
   },
@@ -25,7 +25,7 @@
       "city": "slc"
     },
     "9line": {
-      "count": 1905,
+      "count": 1906,
       "rating": 4.87,
       "city": "slc"
     },
@@ -40,7 +40,7 @@
       "city": "slc"
     },
     "brush-park": {
-      "count": 350,
+      "count": 351,
       "rating": 4.94,
       "city": "detroit"
     }
@@ -85,7 +85,7 @@
     },
     "lumber-barons-mansion": {
       "rating": 4.9,
-      "count": 120
+      "count": 121
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
@@ -104,8 +104,8 @@
       "count": 159
     },
     "downtown-king-queen-loft": {
-      "rating": 4.95,
-      "count": 104
+      "rating": 4.94,
+      "count": 105
     },
     "downtown-twin-queens": {
       "rating": 4.79,
