@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-01",
-  "total_reviews": 4041,
+  "updated": "2026-10-02",
+  "total_reviews": 4042,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3260,
+    "airbnb": 3261,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3690,
+      "count": 3691,
       "rating": 4.86
     },
     "detroit": {
@@ -25,7 +25,7 @@
       "city": "slc"
     },
     "9line": {
-      "count": 1908,
+      "count": 1910,
       "rating": 4.87,
       "city": "slc"
     },
@@ -65,7 +65,7 @@
     },
     "downtown-townhome": {
       "rating": 4.85,
-      "count": 245
+      "count": 246
     },
     "brick-studio": {
       "rating": 4.77,
