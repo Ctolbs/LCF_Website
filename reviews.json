@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-03",
-  "total_reviews": 4043,
+  "updated": "2026-10-04",
+  "total_reviews": 4045,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3262,
+    "airbnb": 3264,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3691,
+      "count": 3693,
       "rating": 4.86
     },
     "detroit": {
@@ -20,17 +20,17 @@
   },
   "by_hood": {
     "granary": {
-      "count": 788,
-      "rating": 4.89,
+      "count": 791,
+      "rating": 4.88,
       "city": "slc"
     },
     "9line": {
-      "count": 1910,
+      "count": 1909,
       "rating": 4.87,
       "city": "slc"
     },
     "downtown": {
-      "count": 918,
+      "count": 917,
       "rating": 4.83,
       "city": "slc"
     },
@@ -93,11 +93,11 @@
     },
     "granary-west-403": {
       "rating": 4.67,
-      "count": 78
+      "count": 79
     },
     "granary-loft": {
       "rating": 4.87,
-      "count": 150
+      "count": 151
     },
     "granary-twin-suites": {
       "rating": 4.82,
