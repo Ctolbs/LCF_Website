@@ -1,31 +1,31 @@
 {
-  "updated": "2026-10-04",
-  "total_reviews": 4045,
+  "updated": "2026-10-05",
+  "total_reviews": 4049,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3264,
+    "airbnb": 3268,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3693,
+      "count": 3696,
       "rating": 4.86
     },
     "detroit": {
-      "count": 352,
+      "count": 353,
       "rating": 4.94
     }
   },
   "by_hood": {
     "granary": {
-      "count": 791,
+      "count": 792,
       "rating": 4.88,
       "city": "slc"
     },
     "9line": {
-      "count": 1909,
+      "count": 1910,
       "rating": 4.87,
       "city": "slc"
     },
@@ -35,12 +35,12 @@
       "city": "slc"
     },
     "sugarhood": {
-      "count": 76,
-      "rating": 4.84,
+      "count": 77,
+      "rating": 4.85,
       "city": "slc"
     },
     "brush-park": {
-      "count": 352,
+      "count": 353,
       "rating": 4.94,
       "city": "detroit"
     }
@@ -77,7 +77,7 @@
     },
     "modernwest-townhome": {
       "rating": 4.99,
-      "count": 87
+      "count": 88
     },
     "9line-loft": {
       "rating": 5.0,
@@ -89,7 +89,7 @@
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
-      "count": 138
+      "count": 139
     },
     "granary-west-403": {
       "rating": 4.67,
@@ -105,7 +105,7 @@
     },
     "downtown-king-queen-loft": {
       "rating": 4.94,
-      "count": 105
+      "count": 106
     },
     "downtown-twin-queens": {
       "rating": 4.79,
@@ -140,8 +140,8 @@
       "count": 20
     },
     "sugarhood-east": {
-      "rating": 4.89,
-      "count": 38
+      "rating": 4.9,
+      "count": 39
     },
     "9line-loft-ii": {
       "rating": 5.0,
