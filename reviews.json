@@ -1,17 +1,17 @@
 {
-  "updated": "2026-10-11",
-  "total_reviews": 4055,
+  "updated": "2026-10-12",
+  "total_reviews": 4060,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3274,
+    "airbnb": 3279,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3702,
-      "rating": 4.86
+      "count": 3707,
+      "rating": 4.87
     },
     "detroit": {
       "count": 353,
@@ -20,12 +20,12 @@
   },
   "by_hood": {
     "granary": {
-      "count": 794,
+      "count": 797,
       "rating": 4.89,
       "city": "slc"
     },
     "9line": {
-      "count": 1913,
+      "count": 1914,
       "rating": 4.87,
       "city": "slc"
     },
@@ -35,7 +35,7 @@
       "city": "slc"
     },
     "sugarhood": {
-      "count": 77,
+      "count": 78,
       "rating": 4.85,
       "city": "slc"
     },
@@ -52,12 +52,12 @@
       "count": 140
     },
     "granary-king-suite": {
-      "rating": 4.86,
-      "count": 103
+      "rating": 4.87,
+      "count": 104
     },
     "granary-west-401": {
       "rating": 4.92,
-      "count": 89
+      "count": 90
     },
     "downtown-townhouse": {
       "rating": 4.88,
@@ -72,12 +72,12 @@
       "count": 124
     },
     "sugarhood-penthouse": {
-      "rating": 4.71,
-      "count": 24
+      "rating": 4.72,
+      "count": 25
     },
     "modernwest-townhome": {
       "rating": 4.99,
-      "count": 89
+      "count": 90
     },
     "9line-loft": {
       "rating": 5.0,
@@ -100,8 +100,8 @@
       "count": 151
     },
     "granary-twin-suites": {
-      "rating": 4.82,
-      "count": 159
+      "rating": 4.83,
+      "count": 160
     },
     "downtown-king-queen-loft": {
       "rating": 4.94,
