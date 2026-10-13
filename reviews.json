@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-12",
-  "total_reviews": 4060,
+  "updated": "2026-10-13",
+  "total_reviews": 4062,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3279,
+    "airbnb": 3281,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3707,
+      "count": 3709,
       "rating": 4.87
     },
     "detroit": {
@@ -25,7 +25,7 @@
       "city": "slc"
     },
     "9line": {
-      "count": 1914,
+      "count": 1916,
       "rating": 4.87,
       "city": "slc"
     },
@@ -81,7 +81,7 @@
     },
     "9line-loft": {
       "rating": 5.0,
-      "count": 9
+      "count": 10
     },
     "lumber-barons-mansion": {
       "rating": 4.9,
@@ -145,7 +145,7 @@
     },
     "9line-loft-ii": {
       "rating": 5.0,
-      "count": 9
+      "count": 10
     },
     "salt-flats-323": {
       "rating": 4.85,
