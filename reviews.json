@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-18",
-  "total_reviews": 4074,
+  "updated": "2026-10-19",
+  "total_reviews": 4077,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3293,
+    "airbnb": 3296,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3720,
+      "count": 3723,
       "rating": 4.87
     },
     "detroit": {
@@ -20,12 +20,12 @@
   },
   "by_hood": {
     "granary": {
-      "count": 800,
+      "count": 801,
       "rating": 4.89,
       "city": "slc"
     },
     "9line": {
-      "count": 1921,
+      "count": 1923,
       "rating": 4.87,
       "city": "slc"
     },
@@ -49,7 +49,7 @@
   "properties": {
     "granary-penthouse": {
       "rating": 4.9,
-      "count": 141
+      "count": 142
     },
     "granary-king-suite": {
       "rating": 4.87,
@@ -101,7 +101,7 @@
     },
     "granary-twin-suites": {
       "rating": 4.83,
-      "count": 160
+      "count": 161
     },
     "downtown-king-queen-loft": {
       "rating": 4.94,
@@ -109,7 +109,7 @@
     },
     "downtown-twin-queens": {
       "rating": 4.79,
-      "count": 118
+      "count": 119
     },
     "downtown-gym-hot-tub": {
       "rating": 4.73,
