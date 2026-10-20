@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-19",
-  "total_reviews": 4077,
+  "updated": "2026-10-20",
+  "total_reviews": 4080,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3296,
+    "airbnb": 3299,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3723,
+      "count": 3726,
       "rating": 4.87
     },
     "detroit": {
@@ -25,12 +25,12 @@
       "city": "slc"
     },
     "9line": {
-      "count": 1923,
+      "count": 1925,
       "rating": 4.87,
       "city": "slc"
     },
     "downtown": {
-      "count": 921,
+      "count": 922,
       "rating": 4.83,
       "city": "slc"
     },
@@ -65,7 +65,7 @@
     },
     "downtown-townhome": {
       "rating": 4.85,
-      "count": 247
+      "count": 248
     },
     "brick-studio": {
       "rating": 4.77,
@@ -125,7 +125,7 @@
     },
     "downtown-2king-townhome": {
       "rating": 4.86,
-      "count": 255
+      "count": 256
     },
     "downtown-king-queen-garage": {
       "rating": 4.9,
@@ -149,7 +149,7 @@
     },
     "salt-flats-323": {
       "rating": 4.85,
-      "count": 146
+      "count": 147
     }
   }
 }
