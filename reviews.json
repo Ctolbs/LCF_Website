@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-24",
-  "total_reviews": 4087,
+  "updated": "2026-10-25",
+  "total_reviews": 4091,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3306,
+    "airbnb": 3310,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3732,
+      "count": 3736,
       "rating": 4.87
     },
     "detroit": {
@@ -20,17 +20,17 @@
   },
   "by_hood": {
     "granary": {
-      "count": 803,
+      "count": 804,
       "rating": 4.89,
       "city": "slc"
     },
     "9line": {
-      "count": 1927,
+      "count": 1926,
       "rating": 4.87,
       "city": "slc"
     },
     "downtown": {
-      "count": 921,
+      "count": 925,
       "rating": 4.83,
       "city": "slc"
     },
@@ -52,8 +52,8 @@
       "count": 142
     },
     "granary-king-suite": {
-      "rating": 4.87,
-      "count": 105
+      "rating": 4.86,
+      "count": 106
     },
     "granary-west-401": {
       "rating": 4.92,
@@ -68,8 +68,8 @@
       "count": 248
     },
     "brick-studio": {
-      "rating": 4.77,
-      "count": 124
+      "rating": 4.78,
+      "count": 125
     },
     "sugarhood-penthouse": {
       "rating": 4.72,
@@ -113,7 +113,7 @@
     },
     "downtown-gym-hot-tub": {
       "rating": 4.73,
-      "count": 103
+      "count": 104
     },
     "downtown-designer-2king": {
       "rating": 4.81,
@@ -121,7 +121,7 @@
     },
     "downtown-mountain-studio": {
       "rating": 4.73,
-      "count": 103
+      "count": 104
     },
     "downtown-2king-townhome": {
       "rating": 4.86,
