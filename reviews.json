@@ -1,31 +1,31 @@
 {
-  "updated": "2026-10-25",
-  "total_reviews": 4091,
+  "updated": "2026-10-26",
+  "total_reviews": 4096,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3310,
+    "airbnb": 3315,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3736,
+      "count": 3740,
       "rating": 4.87
     },
     "detroit": {
-      "count": 355,
+      "count": 356,
       "rating": 4.94
     }
   },
   "by_hood": {
     "granary": {
-      "count": 804,
+      "count": 808,
       "rating": 4.89,
       "city": "slc"
     },
     "9line": {
-      "count": 1926,
+      "count": 1927,
       "rating": 4.87,
       "city": "slc"
     },
@@ -40,7 +40,7 @@
       "city": "slc"
     },
     "brush-park": {
-      "count": 355,
+      "count": 356,
       "rating": 4.94,
       "city": "detroit"
     }
@@ -57,11 +57,11 @@
     },
     "granary-west-401": {
       "rating": 4.92,
-      "count": 91
+      "count": 92
     },
     "downtown-townhouse": {
       "rating": 4.88,
-      "count": 182
+      "count": 183
     },
     "downtown-townhome": {
       "rating": 4.85,
@@ -77,7 +77,7 @@
     },
     "modernwest-townhome": {
       "rating": 4.99,
-      "count": 91
+      "count": 92
     },
     "9line-loft": {
       "rating": 5.0,
@@ -89,7 +89,7 @@
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
-      "count": 141
+      "count": 142
     },
     "granary-west-403": {
       "rating": 4.67,
@@ -97,7 +97,7 @@
     },
     "granary-loft": {
       "rating": 4.88,
-      "count": 152
+      "count": 153
     },
     "granary-twin-suites": {
       "rating": 4.83,
