@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-28",
-  "total_reviews": 4098,
+  "updated": "2026-10-29",
+  "total_reviews": 4100,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3317,
+    "airbnb": 3319,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3742,
+      "count": 3744,
       "rating": 4.87
     },
     "detroit": {
@@ -25,17 +25,17 @@
       "city": "slc"
     },
     "9line": {
-      "count": 1928,
+      "count": 1929,
       "rating": 4.87,
       "city": "slc"
     },
     "downtown": {
-      "count": 925,
+      "count": 926,
       "rating": 4.83,
       "city": "slc"
     },
     "sugarhood": {
-      "count": 82,
+      "count": 81,
       "rating": 4.85,
       "city": "slc"
     },
@@ -117,7 +117,7 @@
     },
     "downtown-designer-2king": {
       "rating": 4.81,
-      "count": 192
+      "count": 193
     },
     "downtown-mountain-studio": {
       "rating": 4.73,
@@ -136,8 +136,8 @@
       "count": 259
     },
     "downtown-midmod": {
-      "rating": 4.71,
-      "count": 21
+      "rating": 4.73,
+      "count": 22
     },
     "sugarhood-east": {
       "rating": 4.9,
