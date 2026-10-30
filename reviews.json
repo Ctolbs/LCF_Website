@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-29",
-  "total_reviews": 4100,
+  "updated": "2026-10-30",
+  "total_reviews": 4102,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3319,
+    "airbnb": 3321,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3744,
+      "count": 3746,
       "rating": 4.87
     },
     "detroit": {
@@ -20,12 +20,12 @@
   },
   "by_hood": {
     "granary": {
-      "count": 808,
+      "count": 809,
       "rating": 4.89,
       "city": "slc"
     },
     "9line": {
-      "count": 1929,
+      "count": 1930,
       "rating": 4.87,
       "city": "slc"
     },
@@ -77,7 +77,7 @@
     },
     "modernwest-townhome": {
       "rating": 4.99,
-      "count": 92
+      "count": 93
     },
     "9line-loft": {
       "rating": 5.0,
@@ -117,7 +117,7 @@
     },
     "downtown-designer-2king": {
       "rating": 4.81,
-      "count": 193
+      "count": 194
     },
     "downtown-mountain-studio": {
       "rating": 4.73,
