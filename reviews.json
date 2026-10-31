@@ -1,16 +1,16 @@
 {
-  "updated": "2026-10-30",
-  "total_reviews": 4102,
+  "updated": "2026-10-31",
+  "total_reviews": 4105,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3321,
+    "airbnb": 3324,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3746,
+      "count": 3749,
       "rating": 4.87
     },
     "detroit": {
@@ -30,7 +30,7 @@
       "city": "slc"
     },
     "downtown": {
-      "count": 926,
+      "count": 929,
       "rating": 4.83,
       "city": "slc"
     },
@@ -69,7 +69,7 @@
     },
     "brick-studio": {
       "rating": 4.78,
-      "count": 125
+      "count": 126
     },
     "sugarhood-penthouse": {
       "rating": 4.72,
@@ -113,7 +113,7 @@
     },
     "downtown-gym-hot-tub": {
       "rating": 4.73,
-      "count": 104
+      "count": 105
     },
     "downtown-designer-2king": {
       "rating": 4.81,
@@ -121,7 +121,7 @@
     },
     "downtown-mountain-studio": {
       "rating": 4.73,
-      "count": 104
+      "count": 105
     },
     "downtown-2king-townhome": {
       "rating": 4.86,
