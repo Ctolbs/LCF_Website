@@ -1,16 +1,16 @@
 {
-  "updated": "2026-11-02",
-  "total_reviews": 4115,
+  "updated": "2026-11-03",
+  "total_reviews": 4116,
   "average_rating": 4.87,
   "by_source": {
-    "airbnb": 3334,
+    "airbnb": 3335,
     "direct": 17,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3759,
+      "count": 3760,
       "rating": 4.87
     },
     "detroit": {
@@ -30,7 +30,7 @@
       "city": "slc"
     },
     "downtown": {
-      "count": 930,
+      "count": 931,
       "rating": 4.83,
       "city": "slc"
     },
@@ -149,7 +149,7 @@
     },
     "salt-flats-323": {
       "rating": 4.85,
-      "count": 147
+      "count": 148
     }
   }
 }
