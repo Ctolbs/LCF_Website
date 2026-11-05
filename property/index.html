@@ -305,7 +305,7 @@ async function init() {
   const hoodHooksHTML = hoodHooks.length ? `<div style="display:flex;flex-wrap:wrap;gap:7px;margin:14px 0 22px;">${hoodHooks.map(h=>`<span style="display:inline-flex;align-items:center;padding:5px 12px;background:var(--parchment);border:1px solid var(--border);border-radius:20px;font-size:11px;color:var(--muted);">${h}</span>`).join('')}</div>` : '';
 
   const similarHTML = similar.map(s=>`
-    <a href="${s.id}/" class="pp-sim-card">
+    <a href="/property/${s.id}/" class="pp-sim-card">
       <div class="pp-sim-img" style="background-image:url('${s.image}')"></div>
       <div class="pp-sim-body">
         <div class="pp-sim-name">${s.name}</div>
