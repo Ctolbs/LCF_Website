@@ -1,88 +1,48 @@
 # Lake City Flats — Website
 
-Custom direct booking site for [Lake City Flats](https://lakecityflats.com) — curated short-term rentals in Salt Lake City and Detroit.
+Direct-booking site for [Lake City Flats](https://lakecityflats.com) — short-term rentals in Salt Lake City and Detroit.
 
 ## Stack
 
-- **Frontend**: Vanilla HTML/CSS/JS — no framework dependencies
-- **Booking engine**: [Hospitable](https://hospitable.com) (formerly Smartbnb) — embedded widget per property page
-- **Fonts**: Cormorant Garamond + Instrument Sans (Google Fonts)
-- **Hosting**: TBD (Webflow / Netlify / Vercel recommended)
-- **Analytics**: GA4 + GTM + Google Search Console
-- **Pricing**: PriceLabs → Hospitable → Airbnb/VRBO sync
+- **Frontend**: static HTML/CSS/vanilla JS — no framework
+- **Hosting**: GitHub Pages (`CNAME` → lakecityflats.com), deployed by `.github/workflows/static.yml` on every push to `main`
+- **Booking**: Hospitable direct-booking widget (loader script) on each property page; search widgets use Hospitable's public booking API (calendar + quote)
+- **Data**: `properties.json` (listings), `reviews.json` (live review numbers, refreshed nightly), `reviews-manual.json` (VRBO counts, hand-maintained)
+- **Analytics**: GA4 + Meta Pixel
+
+Hospitable is the source of truth for listing facts (beds, max guests, pets, check-in time, fees). Keep `properties.json` in line with it.
 
 ## Project structure
 
 ```
-LCF_Website/
-├── index.html              # Homepage
-├── css/
-│   ├── style.css           # Global styles, design tokens
-│   ├── homepage.css        # Homepage-specific styles
-│   └── property.css        # Property detail page styles
-├── js/
-│   ├── main.js             # Nav, scroll reveal, easter egg
-│   └── filters.js          # Property/neighborhood filters
-├── property/
-│   └── index.html          # Property detail page template
-└── README.md
+index.html                 Homepage (hero search + booking-section search)
+slc/index.html             Salt Lake City landing page
+slc/{granary,downtown,9line,sugarhood}/   Neighborhood pages
+detroit/index.html         Detroit landing page
+bookdirect/  reviews/  about/  terms/  404.html
+property/index.html        Property page TEMPLATE (do not link to it directly)
+property/<slug>/index.html Generated per-property pages (by scripts/build.js)
+css/style.css              Global styles + design tokens
+css/property.css           Property page styles
+js/lcf-search.js           Shared search helpers: real price quotes, guest picker
+properties.json            All listings (26: SLC 24, Detroit 2)
+reviews.json               Generated nightly — don't hand-edit
+scripts/build.js           Pre-renders property pages; syncs JSON-LD + review totals
+scripts/update-reviews.py  Nightly review pull from Hospitable (needs HOSPITABLE_PAT)
 ```
 
-## Cities
-
-| City | Properties | Neighborhoods |
-|------|-----------|---------------|
-| Salt Lake City | 23 | Granary (6), Downtown (10), Sugarhood (3), ModernWest (1), 9line (2), Avenues (1) |
-| Detroit | 3 | Brush Park (3) |
-
-## Path 2 — Hospitable integration
-
-Each property page embeds a unique Hospitable booking widget:
-
-```html
-<!-- Booking widget — paste unique script from Hospitable dashboard -->
-<div id="hospitable-widget" style="min-height:900px;min-width:320px;">
-  <script src="https://app.hospitable.com/widget/PROPERTY_ID/embed.js"></script>
-</div>
-```
-
-The homepage also embeds a search widget that passes dates to property pages via URL params.
-
-## GVR — Google Vacation Rentals
-
-Each property page includes `VacationRental` JSON-LD structured data in `<head>`.  
-See `property/index.html` for the schema template.
-
-Steps to go live with GVR:
-1. Apply via [GVR interest form](https://docs.google.com/forms/d/e/1FAIpQLSdLLRCVqRRFiHMRGfzKpFd-n1yV43rZRmCOm3rE2bJAT9IRUQ/viewform)
-2. Connect Google Hotel Center account
-3. Submit property sitemap to Google Search Console
-4. Validate schema with [Rich Results Test](https://search.google.com/test/rich-results)
-
-## Analytics setup
-
-- GA4 property connected via GTM
-- Custom events: `widget_open`, `dates_selected`, `booking_complete`
-- Hospitable webhooks → GA4 Measurement Protocol for booking attribution
-- Search Console: property sitemap submitted
-
-## Direct booking conversion
-
-- "Save ~15% vs Airbnb" callout on all property pages
-- Homepage search widget pre-populates dates in property widget via URL params
-- Easter egg: type `lcf` anywhere → 10% discount code `LCF10`
-- Post-stay Hospitable automation: thank guest + direct booking offer
-
-## Development
-
-No build step needed. Open `index.html` in a browser or serve with:
+## Build & deploy
 
 ```bash
-npx serve .
+node scripts/build.js      # generates property/<slug>/ pages
 ```
+
+`build.js` also rewrites, **in place**, the landing pages' aggregateRating JSON-LD, review-total copy and static property-card links. The card injection is not idempotent, so don't commit landing pages after running it locally (commit only `property/<slug>/`). The build aborts on template/markup drift — fix the cause rather than bypassing the guards.
+
+`update-reviews.yml` runs nightly at 09:00 UTC: it refreshes `reviews.json` (and the rating/count fields in `properties.json`), commits, and triggers a deploy. It fails without committing if any property can't be matched.
+
+Local preview: `python3 -m http.server` from the repo root (the search widgets load `/js/lcf-search.js` by absolute path).
 
 ## Contact
 
-- 📞 801-657-1028
-- 📧 contact@lakecityflats.com
-- 📸 [@lakecityflats](https://instagram.com/lakecityflats)
+801-657-1028 · contact@lakecityflats.com · [@lakecityflats](https://instagram.com/lakecityflats)

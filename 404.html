@@ -112,6 +112,7 @@ fbq('track', 'PageView');
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <nav class="nav" id="nav">
   <a href="/" class="nav-logo">
@@ -147,6 +148,7 @@ window.addEventListener('scroll', () => document.getElementById('nav').classList
 (function(){var btn=document.getElementById('nav-hamburger'),drw=document.getElementById('nav-drawer');if(!btn)return;btn.addEventListener('click',function(){var o=drw.classList.toggle('open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));drw.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':'';});drw.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drw.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');drw.setAttribute('aria-hidden','true');document.body.style.overflow='';});});})();
 </script>
 
+<main id="main" tabindex="-1">
 <div class="notfound-wrap" style="margin-top:64px;">
   <div class="notfound-code">404</div>
   <div class="notfound-eyebrow">Page not found</div>
@@ -157,6 +159,7 @@ window.addEventListener('scroll', () => document.getElementById('nav').classList
     <a href="/detroit/" class="notfound-btn-secondary">Browse Detroit →</a>
   </div>
 </div>
+</main>
 
 </body>
 </html>
