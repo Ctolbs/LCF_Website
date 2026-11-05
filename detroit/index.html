@@ -51,6 +51,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+<script src="/js/lcf-quote.js"></script>
 <link rel="stylesheet" href="../css/style.css">
 <style>
 /* Hero */
@@ -369,7 +370,7 @@
           if (!day || !day.available) return null;
           total += day.price;
         }
-        return { avgNightly: Math.round(total / nights.length), totalPrice: Math.round(total), nights: nights.length };
+        return { avgNightly: Math.round(total / nights.length), totalPrice: Math.round(total), nights: nights.length, ci: ci, co: co };
       })
       .catch(function(e){ throw e; });
   }
@@ -394,11 +395,13 @@
           '<span>' + p.beds + ' bed' + (p.beds!==1?'s':'') + '</span><span>&middot;</span>' +
           '<span>' + p.baths + ' bath' + (p.baths!==1?'s':'') + '</span><span>&middot;</span>' +
           '<span>Sleeps ' + p.sleeps + '</span></div>' +
-        '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px;">' +
+        '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px;">' +
           '<div><span style="font-size:22px;font-weight:600;color:var(--forest);letter-spacing:-.01em;">$' + avail.avgNightly + '</span><span style="font-size:11px;color:var(--muted);"> / night</span></div>' +
-          '<div style="text-align:right;"><div style="font-size:11px;color:var(--muted);">$' + avail.totalPrice + ' total &middot; ' + avail.nights + ' night' + (avail.nights!==1?'s':'') + '</div>' +
-          '<div style="font-size:11px;color:var(--det-steel);">&#9733; ' + p.rating + ' &middot; ' + p.review_count + ' reviews</div></div></div></div>' +
+          '<div style="text-align:right;">' +
+          '<div style="font-size:11px;color:var(--det-steel);">&#9733; ' + p.rating + ' &middot; ' + p.review_count + ' reviews</div></div></div>' +
+          '<div class="lcf-qt" style="font-size:11px;color:var(--muted);line-height:1.45;margin-bottom:14px;"></div></div>' +
       '<button class="det-book-btn" data-hid="' + p.hospitable_id + '" data-pid="' + p.id + '">Book Direct &#8594;</button>';
+    if (window.lcfQuote) lcfQuote.fill(card.querySelector('.lcf-qt'), p.hospitable_id, avail, document.getElementById('det-guests').value);
     card.querySelector('.det-book-btn').addEventListener('click', function(){
       var hid = this.dataset.hid, pid = this.dataset.pid;
       var ci = document.getElementById('det-checkin').value;
