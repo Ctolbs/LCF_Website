@@ -59,7 +59,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
-<script src="/js/lcf-quote.js"></script>
+<script src="/js/lcf-search.js"></script>
 <link rel="stylesheet" href="../../css/style.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-24FKZQFX23"></script>
@@ -402,9 +402,10 @@ async function loadPrices(props) {
   var CAL = 'https://api.hospitable.com/bookings/api/properties/';
   var dtProps = [];
 
-  fetch('../../properties.json').then(function(r){return r.json();}).then(function(d){
+  fetch('../../properties.json').then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); }).then(function(d){
     dtProps = d.properties.filter(function(p){ return p.city==='slc' && p.hood==='downtown'; });
-  });
+    if (window.lcfSyncGuests) lcfSyncGuests(document.getElementById('dt-guests'), dtProps);
+  }).catch(function(){ /* handled at search time: shows a 'couldn't load' message */ });
 
   var _today = new Date();
   var _tomorrow = new Date(_today); _tomorrow.setDate(_today.getDate()+1);
@@ -531,7 +532,7 @@ async function loadPrices(props) {
       status.style.display = 'none';
       results.style.display = 'block';
       if (available.length === 0) {
-        var allErr = checks.length && checks.every(function(x){ return x.err; });
+        var allErr = !dtProps.length || (checks.length && checks.every(function(x){ return x.err; }));
         noAvail.innerHTML = allErr
           ? '<div style="font-size:32px;margin-bottom:16px;">&#9888;&#65039;</div><p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">Couldn\'t reach availability data</p><p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Please try again in a moment, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> to check directly.</p>'
           : '<div style="font-size:32px;margin-bottom:16px;">&#128532;</div><p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No downtown flats available for those dates</p><p style="font-size:13px;color:rgba(245,243,237,0.5);font-weight:300;">Try different dates, or <a href="../../slc/" style="color:var(--gold);text-decoration:none;">browse all 24 SLC flats</a> including Granary, 9line, and Sugarhood.</p>';

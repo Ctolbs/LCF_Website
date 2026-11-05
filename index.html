@@ -76,7 +76,7 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
-<script src="/js/lcf-quote.js"></script>
+<script src="/js/lcf-search.js"></script>
 <style>
 /* Flatpickr LCF dark theme */
 .flatpickr-calendar{background:#0e1a2b;border:1px solid rgba(255,255,255,0.12);border-radius:6px;box-shadow:0 16px 48px rgba(0,0,0,0.55);font-family:'Jost',sans-serif;width:auto;}
@@ -853,7 +853,9 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   var hbpProps = [];
   var hbpCity = '';
 
-  fetch('properties.json').then(function(r){return r.json();}).then(function(d){ hbpProps = d.properties; window.__lcfReviewsReady.then(function(){ window.lcfApplyReviews(hbpProps); }); });
+  fetch('properties.json').then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); }).then(function(d){ hbpProps = d.properties; window.__lcfReviewsReady.then(function(){ window.lcfApplyReviews(hbpProps); });
+    if (window.lcfSyncGuests) lcfSyncGuests(document.getElementById('hbp-guests'), hbpProps);
+  }).catch(function(){ /* handled at search time: shows a 'couldn't load' message */ });
 
   document.querySelectorAll('.hbp-tab').forEach(function(btn){
     btn.addEventListener('click', function(){
@@ -989,16 +991,19 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     if (!data || !nights) return null;
     var reqStart = new Date(ci + 'T00:00:00');
     var today = new Date(fmt(new Date()) + 'T00:00:00');
-    var scan = new Date(reqStart.getTime() - 21*86400000);
+    // Step by calendar days with setDate() — adding n*86400000 ms drifts an
+    // hour across DST changes, which shifts the formatted date by one.
+    var addDays = function(base, n){ var x = new Date(base); x.setDate(x.getDate() + n); return x; };
+    var scan = addDays(reqStart, -21);
     if (scan < today) scan = today;
-    var scanEnd = new Date(reqStart.getTime() + 45*86400000);
+    var scanEnd = addDays(reqStart, 45);
     var best = null, bestShift = Infinity;
     for (var d = new Date(scan); d <= scanEnd; d.setDate(d.getDate()+1)) {
       var day0 = data[fmt(d) + 'T00:00'];
       if (day0 && day0.min_stay && nights < day0.min_stay) continue;
       var ok = true, total = 0;
       for (var i=0; i<nights; i++) {
-        var day = data[fmt(new Date(d.getTime() + i*86400000)) + 'T00:00'];
+        var day = data[fmt(addDays(d, i)) + 'T00:00'];
         if (!day || !day.available) { ok = false; break; }
         total += day.price;
       }
@@ -1006,7 +1011,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
       var shift = Math.round(Math.abs((d - reqStart) / 86400000));
       if (shift > 0 && shift < bestShift) {
         bestShift = shift;
-        best = { ci: fmt(d), co: fmt(new Date(d.getTime() + nights*86400000)),
+        best = { ci: fmt(d), co: fmt(addDays(d, nights)),
                  avgNightly: Math.round(total/nights), shiftDays: shift };
       }
     }
@@ -1069,7 +1074,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
       cardsEl.innerHTML = '';
 
       if (available.length === 0) {
-        if (checks.some(function(x){ return x.err; })) {
+        if (!hbpProps.length || checks.some(function(x){ return x.err; })) {
           cardsEl.innerHTML = '<div class="hbp-no-avail">⚠️ We couldn\'t reach live availability right now.<br><span style="font-size:11px;">Please try again in a moment, or </span><a href="mailto:contact@lakecityflats.com" style="color:var(--gold);font-size:11px;text-decoration:none;">contact us</a><span style="font-size:11px;">.</span></div>';
           if (typeof lcfTrack !== 'undefined') lcfTrack('availability_error', {checkin:ci, checkout:co, guests:guests, source:'hero_panel'});
         } else {
@@ -1119,7 +1124,9 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   var allProps = [];
   var selectedCity = '';
 
-  fetch('properties.json').then(function(r){return r.json();}).then(function(d){ allProps = d.properties; window.__lcfReviewsReady.then(function(){ window.lcfApplyReviews(allProps); }); });
+  fetch('properties.json').then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); }).then(function(d){ allProps = d.properties; window.__lcfReviewsReady.then(function(){ window.lcfApplyReviews(allProps); });
+    if (window.lcfSyncGuests) lcfSyncGuests(document.getElementById('bs-guests'), allProps);
+  }).catch(function(){ /* handled at search time: shows a 'couldn't load' message */ });
 
   document.querySelectorAll('.bs-tab').forEach(function(btn){
     btn.addEventListener('click', function(){
@@ -1277,7 +1284,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
       status.style.display = 'none';
       results.style.display = 'block';
 
-      if (errCount > 0 && errCount === checks.length) {
+      if (!allProps.length || (errCount > 0 && errCount === checks.length)) {
         document.getElementById('bs-result-count').textContent = '';
         document.getElementById('bs-result-dates').textContent = '';
         noAvail.innerHTML = '<div style="font-size:24px;margin-bottom:16px;">&#9888;&#65039;</div>' +

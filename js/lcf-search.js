@@ -1,4 +1,8 @@
-/* LCF price quotes — shared by every availability-search widget.
+/* LCF search helpers — shared by every availability-search widget.
+ *
+ * lcfQuote: real all-in price quotes.  lcfSyncGuests: guest picker options.
+ *
+ * Price quotes:
  *
  * The calendar endpoint only returns nightly rates, so "sum of nights" is NOT
  * what a guest pays: Hospitable adds a cleaning fee, a service fee and lodging
@@ -103,4 +107,21 @@
   }
 
   window.lcfQuote = { get: get, fill: fill, fallback: fallback };
+
+  // Rebuild a guest <select> so it offers 1..max where max is the largest
+  // `sleeps` among the flats that widget searches (from properties.json), so we
+  // never offer group sizes no flat can take (or hide ones that one can).
+  window.lcfSyncGuests = function (sel, props) {
+    if (!sel || !props || !props.length) return;
+    var max = props.reduce(function (m, p) { return Math.max(m, +p.sleeps || 0); }, 0);
+    if (!max) return;
+    var cur = Math.min(parseInt(sel.value, 10) || 2, max);
+    sel.innerHTML = '';
+    for (var i = 1; i <= max; i++) {
+      var o = document.createElement('option');
+      o.value = String(i); o.textContent = i + (i === 1 ? ' guest' : ' guests');
+      if (i === cur) o.selected = true;
+      sel.appendChild(o);
+    }
+  };
 })();

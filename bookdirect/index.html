@@ -38,7 +38,7 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
-<script src="/js/lcf-quote.js"></script>
+<script src="/js/lcf-search.js"></script>
 <link rel="stylesheet" href="../css/style.css">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-24FKZQFX23"></script>
@@ -200,7 +200,6 @@ fbq('track', 'PageView');
         <option value="5">5 guests</option>
         <option value="6">6 guests</option>
         <option value="7">7 guests</option>
-        <option value="8">8+ guests</option>
       </select>
     </div>
     <button id="bd-btn" class="bd-btn">Check Availability</button>
@@ -355,7 +354,9 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
   var CAL = 'https://api.hospitable.com/bookings/api/properties/';
   var allProps = [];
 
-  fetch('../properties.json').then(function(r){return r.json();}).then(function(d){ allProps = d.properties; });
+  fetch('../properties.json').then(function(r){ if (!r.ok) throw new Error('http ' + r.status); return r.json(); }).then(function(d){ allProps = d.properties;
+    if (window.lcfSyncGuests) lcfSyncGuests(document.getElementById('bd-guests'), allProps);
+  }).catch(function(){ /* handled at search time: shows a 'couldn't load' message */ });
 
   var _today = new Date();
   var _tomorrow = new Date(_today); _tomorrow.setDate(_today.getDate()+1);
@@ -489,7 +490,7 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
       status.style.display = 'none';
       results.style.display = 'block';
       if (available.length === 0) {
-        var allErr = checks.length && checks.every(function(x){ return x.err; });
+        var allErr = !allProps.length || (checks.length && checks.every(function(x){ return x.err; }));
         noAvail.innerHTML = allErr
           ? '<div style="font-size:32px;margin-bottom:16px;">&#9888;&#65039;</div><p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">Couldn\'t reach availability data</p><p style="font-size:13px;color:rgba(245,243,237,0.45);font-weight:300;">Please try again in a moment, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> to check directly.</p>'
           : '<div style="font-size:32px;margin-bottom:16px;">&#128532;</div><p style="font-size:16px;font-weight:400;color:var(--cream);margin-bottom:8px;">No flats available for those dates</p><p style="font-size:13px;color:rgba(245,243,237,0.45);font-weight:300;">Try adjusting your dates or guest count, or <a href="mailto:contact@lakecityflats.com" style="color:var(--gold);text-decoration:none;">contact us</a> and we\'ll help find something.</p>';
