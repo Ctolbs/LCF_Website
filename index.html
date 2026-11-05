@@ -117,7 +117,7 @@ span.flatpickr-weekday{color:rgba(245,243,237,0.3);font-size:10px;letter-spacing
   --border:rgba(15,18,24,0.1); --border-warm:rgba(15,18,24,0.15);
   /* Aliases for component compatibility */
   --forest:#1C2D47; --forest-mid:#253d60; --forest-light:#344741;
-  --sage:rgba(52,71,65,0.55); --sage-pale:rgba(52,71,65,0.08);
+  --sage:#8FA89F; /* light sage: >=4.5:1 on the navy sections where eyebrows sit (was 1.2:1) */ --sage-pale:rgba(52,71,65,0.08);
   --cream:#F5F3ED; --parchment:#E0D1B2; --warm-white:#F5F3ED;
   --terra:#344741; --terra-light:#4A6260; --terra-pale:rgba(52,71,65,0.08);
   --charcoal:#0F1218;
@@ -415,6 +415,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 .email-strip-form input[type="email"]::placeholder{color:rgba(245,240,232,0.3);}
 .email-strip-form button{padding:14px 22px;background:var(--amber);border:none;color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:background .2s;}
 .email-strip-form button:hover{background:#e8ad00;}
+.email-strip-form input[type="email"]:focus-visible{outline:2px solid var(--amber);outline-offset:-2px;}
 .email-strip-note{font-size:10.5px;color:rgba(245,240,232,0.5);margin-top:12px;}
 
 /* EASTER EGG */
@@ -798,7 +799,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       </div>
       <div style="min-width:100px;">
         <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Guests</label>
-        <select id="bs-guests" aria-label="Number of guests" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;appearance:none;cursor:pointer;">
+        <select id="bs-guests" aria-label="Number of guests" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);appearance:none;cursor:pointer;">
           <option value="1">1 guest</option>
           <option value="2" selected>2 guests</option>
           <option value="3">3 guests</option>
@@ -811,7 +812,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
       <button id="bs-btn" style="padding:11px 28px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s,transform .15s;white-space:nowrap;flex-shrink:0;">Check Availability</button>
     </div>
 
-    <p style="font-size:10.5px;color:rgba(245,243,237,0.3);margin-top:10px;text-align:center;font-weight:300;">By completing a booking you agree to our <a href="/terms/" style="color:rgba(245,243,237,0.45);text-decoration:underline;">Terms &amp; Conditions</a>.</p>
+    <p style="font-size:10.5px;color:rgba(245,243,237,0.68);margin-top:10px;text-align:center;font-weight:300;">By completing a booking you agree to our <a href="/terms/" style="color:rgba(245,243,237,0.85);text-decoration:underline;">Terms &amp; Conditions</a>.</p>
 
     <!-- Status / loading -->
     <div id="bs-status" style="display:none;text-align:center;padding:48px 0;color:rgba(245,243,237,0.6);font-size:13px;font-weight:300;"></div>
@@ -872,6 +873,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   };
 
   var fpOut = flatpickr('#hbp-checkout', {
+    onReady: function(s, d, fp){ if (fp.altInput) fp.altInput.setAttribute('aria-label', 'Check-out date'); },
     minDate: tomorrow,
     dateFormat: 'Y-m-d',
     altInput: true,
@@ -881,6 +883,7 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
   });
 
   var fpIn = flatpickr('#hbp-checkin', {
+    onReady: function(s, d, fp){ if (fp.altInput) fp.altInput.setAttribute('aria-label', 'Check-in date'); },
     minDate: today,
     dateFormat: 'Y-m-d',
     altInput: true,
@@ -1130,11 +1133,13 @@ function lcfTrack(e,p){ if(typeof gtag!=='undefined') gtag('event',e,p||{}); }
     var today = new Date();
     var tomorrow = new Date(today); tomorrow.setDate(today.getDate()+1);
     var bsFpOut = flatpickr('#bs-checkout', {
+    onReady: function(s, d, fp){ if (fp.altInput) fp.altInput.setAttribute('aria-label', 'Check-out date'); },
       minDate: tomorrow,
       dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y',
       disableMobile: true
     });
     flatpickr('#bs-checkin', {
+    onReady: function(s, d, fp){ if (fp.altInput) fp.altInput.setAttribute('aria-label', 'Check-in date'); },
       minDate: today,
       dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y',
       disableMobile: true,

@@ -8,7 +8,7 @@
   --border:rgba(15,18,24,0.1); --border-warm:rgba(15,18,24,0.15);
   /* Aliases for component compatibility */
   --forest:#1C2D47; --forest-mid:#253d60; --forest-light:#344741;
-  --sage:rgba(52,71,65,0.55); --sage-pale:rgba(52,71,65,0.08);
+  --sage:#8FA89F; /* light sage: >=4.5:1 on the navy sections where eyebrows sit (was 1.2:1) */ --sage-pale:rgba(52,71,65,0.08);
   --cream:#F5F3ED; --parchment:#E0D1B2; --warm-white:#F5F3ED;
   --terra:#344741; --terra-light:#4A6260; --terra-pale:rgba(52,71,65,0.08);
   --charcoal:#0F1218;
@@ -350,6 +350,7 @@ footer{background:var(--forest);padding:56px;display:grid;grid-template-columns:
 .email-strip-sub{font-size:13px;color:rgba(245,240,232,0.42);margin-bottom:28px;font-weight:300;}
 .email-strip-form{display:flex;gap:0;max-width:440px;margin:0 auto;border-radius:3px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,0.25);}
 .email-strip-form input[type="email"]{flex:1;padding:14px 18px;border:none;background:rgba(255,255,255,0.08);color:var(--cream);font-size:13.5px;font-family:'Jost',sans-serif;outline:none;}
+.email-strip-form input[type="email"]:focus-visible{outline:2px solid var(--amber);outline-offset:-2px;}
 .email-strip-form input[type="email"]::placeholder{color:rgba(245,240,232,0.3);}
 .email-strip-form button{padding:14px 22px;background:var(--amber);border:none;color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;font-family:'Jost',sans-serif;white-space:nowrap;transition:background .2s;}
 .email-strip-form button:hover{background:#e8ad00;}

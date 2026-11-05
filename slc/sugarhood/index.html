@@ -241,15 +241,15 @@ fbq('track', 'PageView');
     <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.14);border-radius:3px;padding:20px 24px;display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;">
       <div style="flex:1;min-width:130px;">
         <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Check-in</label>
-        <input type="text" id="sh-checkin" placeholder="Check-in date" readonly style="cursor:pointer;width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;box-sizing:border-box;">
+        <input type="text" id="sh-checkin" placeholder="Check-in date" readonly style="cursor:pointer;width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);box-sizing:border-box;">
       </div>
       <div style="flex:1;min-width:130px;">
         <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Check-out</label>
-        <input type="text" id="sh-checkout" placeholder="Check-out date" readonly style="cursor:pointer;width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;box-sizing:border-box;">
+        <input type="text" id="sh-checkout" placeholder="Check-out date" readonly style="cursor:pointer;width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);box-sizing:border-box;">
       </div>
       <div style="min-width:100px;">
         <label style="display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.5);font-weight:600;margin-bottom:7px;">Guests</label>
-        <select id="sh-guests" aria-label="Number of guests" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;appearance:none;cursor:pointer;">
+        <select id="sh-guests" aria-label="Number of guests" style="width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);appearance:none;cursor:pointer;">
           <option value="1">1 guest</option>
           <option value="2" selected>2 guests</option>
           <option value="3">3 guests</option>
@@ -413,11 +413,13 @@ async function loadPrices(props) {
   var _tomorrow = new Date(_today); _tomorrow.setDate(_today.getDate()+1);
 
   var fpSHOut = flatpickr('#sh-checkout', {
+    onReady: function(s, d, fp){ if (fp.altInput) fp.altInput.setAttribute('aria-label', 'Check-out date'); },
     minDate: _tomorrow,
     dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true
   });
 
   flatpickr('#sh-checkin', {
+    onReady: function(s, d, fp){ if (fp.altInput) fp.altInput.setAttribute('aria-label', 'Check-in date'); },
     minDate: 'today',
     dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true,
     onClose: function(sel) {

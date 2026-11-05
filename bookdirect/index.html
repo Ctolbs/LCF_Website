@@ -72,9 +72,9 @@ fbq('track', 'PageView');
 /* Search bar */
 .bd-search{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:3px;padding:20px 24px;display:flex;gap:12px;flex-wrap:wrap;align-items:flex-end;max-width:900px;margin:0 auto;}
 .bd-search-label{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,237,0.45);font-weight:600;margin-bottom:7px;}
-.bd-search-input{width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;box-sizing:border-box;}
+.bd-search-input{width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);box-sizing:border-box;}
 .bd-search-input::placeholder{color:rgba(245,243,237,0.35);}
-.bd-search-select{width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);outline:none;appearance:none;cursor:pointer;}
+.bd-search-select{width:100%;padding:10px 12px;background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:2px;font-size:13px;font-family:'Jost',sans-serif;color:var(--cream);appearance:none;cursor:pointer;}
 .bd-btn{padding:11px 32px;background:var(--gold);color:var(--ink);border:none;border-radius:2px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-family:'Jost',sans-serif;cursor:pointer;transition:background .2s;white-space:nowrap;flex-shrink:0;}
 .bd-btn:hover{background:#e8ae00;}
 /* Results */
@@ -361,11 +361,13 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
   var _tomorrow = new Date(_today); _tomorrow.setDate(_today.getDate()+1);
 
   var bdFpOut = flatpickr('#bd-checkout', {
+    onReady: function(s, d, fp){ if (fp.altInput) fp.altInput.setAttribute('aria-label', 'Check-out date'); },
     minDate: _tomorrow,
     dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true
   });
 
   flatpickr('#bd-checkin', {
+    onReady: function(s, d, fp){ if (fp.altInput) fp.altInput.setAttribute('aria-label', 'Check-in date'); },
     minDate: 'today',
     dateFormat: 'Y-m-d', altInput: true, altFormat: 'M j, Y', disableMobile: true,
     onClose: function(sel) {
