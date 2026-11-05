@@ -16,6 +16,19 @@ try { reviewsFull = JSON.parse(fs.readFileSync(path.join(ROOT, 'reviews.json'), 
 
 const SITE_BASE = 'https://lakecityflats.com';
 
+// Guard: structured data reads house rules straight from properties.json — abort
+// rather than ship JSON-LD with missing/garbled policy fields.
+data.properties.forEach(prop => {
+  const bad = [];
+  if (typeof prop.pets_allowed !== 'boolean') bad.push('pets_allowed');
+  if (!/^\d{2}:\d{2}$/.test(prop.checkin_time || '')) bad.push('checkin_time');
+  if (!/^\d{2}:\d{2}$/.test(prop.checkout_time || '')) bad.push('checkout_time');
+  if (bad.length) {
+    console.error(`ERROR: properties.json "${prop.id}" is missing/invalid ${bad.join(', ')} (copy them from Hospitable's booking API). Aborting.`);
+    process.exit(1);
+  }
+});
+
 data.properties.forEach(prop => {
   const cityFull = prop.city === 'slc' ? 'Salt Lake City' : 'Detroit';
   const stateCode = prop.city === 'slc' ? 'UT' : 'MI';
@@ -62,10 +75,12 @@ data.properties.forEach(prop => {
     })),
     "numberOfRooms": prop.beds,
     "occupancy": { "@type": "QuantitativeValue", "maxValue": prop.sleeps },
-    "petsAllowed": false,
+    // Per-listing house rules mirrored from Hospitable's booking API
+    // (house_rules.allow_pets / checkin_time / checkout_time) into properties.json.
+    "petsAllowed": prop.pets_allowed,
     "geo": { "@type": "GeoCoordinates", "latitude": prop.lat, "longitude": prop.lng },
-    "checkinTime": "15:00",
-    "checkoutTime": "11:00",
+    "checkinTime": prop.checkin_time,
+    "checkoutTime": prop.checkout_time,
     "priceRange": "$$",
     "telephone": "+18016571028",
     "email": "contact@lakecityflats.com"
