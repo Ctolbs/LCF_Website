@@ -270,6 +270,51 @@ RATING_TARGETS.forEach(t => {
 });
 console.log('Done — static aggregateRating JSON-LD synced to reviews.json.');
 
+// ── Refresh human-readable review totals from reviews.json ────────────────────
+// Headline copy ("4,100+ guest reviews", rounded DOWN to the nearest 100) and the
+// no-JS fallback numbers inside data-lcf-* hooks (which JS overwrites on load)
+// were hand-typed and went stale ("3,100+", "3,998"). Rewrite them from
+// reviews.json on every build. All patterns are idempotent.
+if (reviewsFull && reviewsFull.total_reviews && reviewsFull.by_city) {
+  const nf = n => Number(n).toLocaleString('en-US');
+  const total = reviewsFull.total_reviews;
+  const avg = reviewsFull.average_rating;
+  const city = reviewsFull.by_city;
+  const rounded = nf(Math.floor(total / 100) * 100) + '+';
+  const cityStat = k => (k === 'all' ? { count: total, rating: avg } : city[k]);
+  const TEXT_RULES = [
+    // headline copy
+    [/\b\d{1,3}(?:,\d{3})*\+ guest reviews/g, () => `${rounded} guest reviews`],
+    [/(guest reviews across our Salt Lake City and Detroit flats, averaging )[0-9.]+( stars)/g, (m, a, b) => `${a}${avg}${b}`],
+    [/\b[0-9]\.[0-9]{1,2}( stars across \d{1,3}(?:,\d{3})*\+ guest reviews)/g, (m, a) => `${avg}${a}`],
+    // no-JS fallbacks inside data-lcf-* hooks
+    [/(data-lcf-count[^>]*>)[\d,]+(<)/g, (m, a, b) => `${a}${nf(total)}${b}`],
+    [/(data-lcf-avg[^>]*>)[0-9.]+(★<)/g, (m, a, b) => `${a}${avg}${b}`],
+    [/(data-lcf-filter="(all|slc|detroit)"[^>]*>[^<(]*\()[\d,]+(\))/g, (m, a, k, b) => cityStat(k) ? `${a}${nf(cityStat(k).count)}${b}` : m],
+    [/(data-lcf-city-rating="(slc|detroit)"[^>]*>)[0-9.]+(★<)/g, (m, a, k, b) => cityStat(k) ? `${a}${cityStat(k).rating}${b}` : m],
+    [/(data-lcf-(?:rev|city)="(all|slc|detroit)"[^>]*><strong>)[0-9.]+(<\/strong> (?:avg )?· )[\d,]+( reviews)/g,
+      (m, a, k, b, c) => cityStat(k) ? `${a}${cityStat(k).rating}${b}${nf(cityStat(k).count)}${c}` : m],
+  ];
+  const TEXT_TARGETS = ['index.html', 'reviews/index.html', 'about/index.html', 'slc/index.html', 'detroit/index.html'];
+  TEXT_TARGETS.forEach(file => {
+    const fp = path.join(ROOT, file);
+    let html = fs.readFileSync(fp, 'utf8');
+    let hits = 0;
+    TEXT_RULES.forEach(([re, fn]) => { html = html.replace(re, (...args) => { hits++; return fn(...args); }); });
+    fs.writeFileSync(fp, html, 'utf8');
+    console.log(`Review totals refreshed: ${file} (${hits} spots)`);
+  });
+  // Guard: no stale hand-typed headline totals may survive anywhere we ship.
+  TEXT_TARGETS.forEach(file => {
+    const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+    const stale = (html.match(/\b\d{1,3}(?:,\d{3})*\+ guest reviews/g) || []).filter(s => !s.startsWith(rounded));
+    if (stale.length) { console.error(`ERROR: ${file} still has stale review totals: ${stale.join(', ')}. Aborting.`); process.exit(1); }
+  });
+  console.log(`Done — review totals synced (${nf(total)} reviews → "${rounded}").`);
+} else {
+  console.warn('  skip review-total text refresh: reviews.json missing/incomplete — leaving existing copy');
+}
+
 // ── Static, crawlable property-card links on the landing pages ────────────────
 // The homepage/city/neighborhood pages fill their card containers via JS from
 // properties.json, so 24/26 property pages had no static inbound link (only the
