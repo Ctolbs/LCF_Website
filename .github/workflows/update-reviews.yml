@@ -36,7 +36,7 @@ jobs:
         id: commit
         if: github.event_name == 'schedule' || inputs.write == true
         run: |
-          git add reviews.json
+          git add reviews.json properties.json
           if git diff --cached --quiet; then
             echo "reviews.json unchanged — nothing to commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"

@@ -180,6 +180,32 @@ def main():
         with open(os.path.join(here, "reviews.json"), "w") as f:
             json.dump(summary, f, indent=2)
         print("Wrote reviews.json")
+        sync_properties_json(here, out)
+
+
+def sync_properties_json(here, live):
+    """Keep properties.json rating/review_count equal to the live per-property numbers.
+
+    Several pages (SLC, Detroit, 'You might also like' cards) read properties.json
+    directly, so stale hand-typed values there showed inflated ratings. Only
+    properties with live data are touched; formatting matches the existing file.
+    """
+    fp = os.path.join(here, "properties.json")
+    raw = open(fp).read()
+    data = json.loads(raw)
+    changed = 0
+    for p in data.get("properties", []):
+        d = live.get(p.get("id"))
+        if not d or d.get("rating") is None or d.get("count") is None:
+            continue
+        if p.get("rating") != str(d["rating"]) or p.get("review_count") != str(d["count"]):
+            p["rating"], p["review_count"] = str(d["rating"]), str(d["count"])
+            changed += 1
+    if changed:
+        out = json.dumps(data, indent=2, ensure_ascii=True)
+        with open(fp, "w") as f:
+            f.write(out + ("\n" if raw.endswith("\n") else ""))
+    print(f"properties.json: {changed} rating/count values synced from live reviews")
 
 if __name__ == "__main__":
     main()
