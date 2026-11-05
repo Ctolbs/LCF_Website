@@ -176,6 +176,15 @@ def main():
         print("UNMATCHED:")
         for s, why in misses: print(f"  {s}: {why}")
 
+    # Guard: a partial match would silently publish LOWER totals (unmatched
+    # properties simply drop out of every sum) and the nightly job would commit
+    # them. Fail the run instead — nothing is written, so nothing is committed.
+    if len(out) < len(props) or misses:
+        print(f"ERROR: only {len(out)}/{len(props)} properties matched — refusing to "
+              f"write reviews.json/properties.json. Fix the mapping (listing public "
+              f"name changed in Hospitable?) and re-run.", file=sys.stderr)
+        sys.exit(1)
+
     if write:
         with open(os.path.join(here, "reviews.json"), "w") as f:
             json.dump(summary, f, indent=2)
