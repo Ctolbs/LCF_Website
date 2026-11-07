@@ -9,6 +9,7 @@
     {
       "id": "granary-penthouse",
       "hospitable_id": "555848",
+      "hospitable_uuid": "9e896b22-ebbf-4ef5-b969-ea2ea3e81aad",
       "city": "slc",
       "hood": "granary",
       "name": "Granary Penthouse \u00b7 CoWork + Gym",
@@ -102,6 +103,7 @@
     {
       "id": "granary-king-suite",
       "hospitable_id": "794728",
+      "hospitable_uuid": "d653b8d4-bd1e-4800-a909-e22f98cefdc6",
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Suite \u00b7 CoWork + Gym",
@@ -193,6 +195,7 @@
     {
       "id": "granary-west-401",
       "hospitable_id": "1027962",
+      "hospitable_uuid": "ca50ae0d-a262-42de-9a5c-43e991f16ab9",
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Suite \u00b7 CoWork + Gym",
@@ -273,6 +276,7 @@
     {
       "id": "downtown-townhouse",
       "hospitable_id": "358940",
+      "hospitable_uuid": "ae3a126b-d754-4788-87ec-a0fa26b40010",
       "city": "slc",
       "hood": "9line",
       "name": "Downtown Townhouse \u00b7 King + Queen Suites + Garage",
@@ -379,6 +383,7 @@
     {
       "id": "downtown-townhome",
       "hospitable_id": "341520",
+      "hospitable_uuid": "c192cc90-2b36-4d71-8942-6d18576de93c",
       "city": "slc",
       "hood": "9line",
       "name": "Downtown Townhome \u00b7 2 King Suites + 2-Car Garage",
@@ -502,6 +507,7 @@
     {
       "id": "brick-studio",
       "hospitable_id": "789842",
+      "hospitable_uuid": "08facca7-2bd3-4e2c-9461-9f4e9c5cd4c2",
       "city": "slc",
       "hood": "downtown",
       "name": "Exposed Brick Studio \u00b7 Mountain Views",
@@ -570,6 +576,7 @@
     {
       "id": "sugarhood-penthouse",
       "hospitable_id": "1678254",
+      "hospitable_uuid": "c2e11727-0a27-416a-a580-157852c765c2",
       "city": "slc",
       "hood": "sugarhood",
       "name": "Sugarhood Penthouse \u00b7 3BR + CoWork + Garage",
@@ -682,6 +689,7 @@
     {
       "id": "modernwest-townhome",
       "hospitable_id": "1258138",
+      "hospitable_uuid": "9e254410-1840-417a-b16f-8f58a568efca",
       "city": "slc",
       "hood": "granary",
       "name": "ModernWest Townhome \u00b7 3BR + Garage",
@@ -815,6 +823,7 @@
     {
       "id": "9line-loft",
       "hospitable_id": "2236536",
+      "hospitable_uuid": "af46e954-d960-411e-9f23-2e1277aa83d3",
       "city": "slc",
       "hood": "9line",
       "name": "9line Loft \u00b7 King + Gym",
@@ -902,6 +911,7 @@
     {
       "id": "lumber-barons-mansion",
       "hospitable_id": "818686",
+      "hospitable_uuid": "40037354-82fc-400b-b408-7ce45da7eea4",
       "city": "detroit",
       "hood": "brush-park",
       "name": "Lumber Baron's Mansion \u00b7 2 King Suites",
@@ -1017,6 +1027,7 @@
     {
       "id": "lumber-barons-penthouse",
       "hospitable_id": "1087710",
+      "hospitable_uuid": "ca08beec-2800-4409-9332-cae04eea42fe",
       "city": "detroit",
       "hood": "brush-park",
       "name": "Lumber Baron's Penthouse \u00b7 3BR + Garage",
@@ -1130,6 +1141,7 @@
     {
       "id": "granary-west-403",
       "hospitable_id": "791268",
+      "hospitable_uuid": "f6834277-a453-4316-ade7-3843f9e4057c",
       "city": "slc",
       "hood": "granary",
       "name": "Granary King Suite \u00b7 CoWork + Gym",
@@ -1219,6 +1231,7 @@
     {
       "id": "granary-loft",
       "hospitable_id": "557444",
+      "hospitable_uuid": "29a650e3-df58-4d4e-89ad-547ff1e8e43d",
       "city": "slc",
       "hood": "granary",
       "name": "Granary Queen Loft \u00b7 CoWork + Gym",
@@ -1313,6 +1326,7 @@
     {
       "id": "granary-twin-suites",
       "hospitable_id": "470358",
+      "hospitable_uuid": "bfcd0e9c-959f-4f22-a8d6-cac910db2dfd",
       "city": "slc",
       "hood": "9line",
       "name": "Granary Twin Suites \u00b7 2 Queens + Garage",
@@ -1396,6 +1410,7 @@
     {
       "id": "downtown-king-queen-loft",
       "hospitable_id": "584356",
+      "hospitable_uuid": "53de54ee-9ac0-44b5-be3f-64d86b390258",
       "city": "slc",
       "hood": "9line",
       "name": "Downtown Loft \u00b7 King + Queen + Garage",
@@ -1529,6 +1544,7 @@
     {
       "id": "downtown-twin-queens",
       "hospitable_id": "515720",
+      "hospitable_uuid": "070f35a5-2518-42d1-bc5f-3e29bec8b3a1",
       "city": "slc",
       "hood": "9line",
       "name": "Downtown Townhome \u00b7 2 Queen Suites + Garage",
@@ -1627,6 +1643,7 @@
     {
       "id": "downtown-gym-hot-tub",
       "hospitable_id": "770116",
+      "hospitable_uuid": "1d6fcad7-60fb-421e-934a-9c0135c82326",
       "city": "slc",
       "hood": "downtown",
       "name": "Downtown 1BR \u00b7 Gym + Hot Tub",
@@ -1699,6 +1716,7 @@
     {
       "id": "downtown-designer-2king",
       "hospitable_id": "661170",
+      "hospitable_uuid": "2fa405f0-554b-4078-a72f-06c66cb989aa",
       "city": "slc",
       "hood": "9line",
       "name": "Downtown Townhome \u00b7 2 Kings + Garage",
@@ -1806,6 +1824,7 @@
     {
       "id": "downtown-mountain-studio",
       "hospitable_id": "234364",
+      "hospitable_uuid": "8aa7531a-3977-438b-aba9-01635f728681",
       "city": "slc",
       "hood": "downtown",
       "name": "Downtown 1BR \u00b7 Mountain Views + Gym",
@@ -1884,6 +1903,7 @@
     {
       "id": "downtown-2king-townhome",
       "hospitable_id": "341522",
+      "hospitable_uuid": "dbe91c77-f72e-4001-8c9f-a7069f5524be",
       "city": "slc",
       "hood": "9line",
       "name": "Downtown Townhome \u00b7 2 Kings + Sofa",
@@ -1987,6 +2007,7 @@
     {
       "id": "downtown-king-queen-garage",
       "hospitable_id": "346394",
+      "hospitable_uuid": "e1a76e1a-93bf-44bd-bf77-4532234b78f1",
       "city": "slc",
       "hood": "9line",
       "name": "Downtown Townhome \u00b7 King + Queen + Garage",
@@ -2092,6 +2113,7 @@
     {
       "id": "downtown-penthouse-view",
       "hospitable_id": "139804",
+      "hospitable_uuid": "7f1ff410-228d-4e3c-9f18-757d148f953b",
       "city": "slc",
       "hood": "downtown",
       "name": "Downtown 1BR \u00b7 City + Mountain Views",
@@ -2167,6 +2189,7 @@
     {
       "id": "downtown-midmod",
       "hospitable_id": "1901312",
+      "hospitable_uuid": "f44bc787-a2cc-45df-8695-fb77dc38c6c5",
       "city": "slc",
       "hood": "downtown",
       "name": "Downtown Mid-Century \u00b7 Renovated Brick",
@@ -2242,6 +2265,7 @@
     {
       "id": "sugarhood-east",
       "hospitable_id": "1698374",
+      "hospitable_uuid": "02c70b30-309c-46b7-afcd-c61a71d9aee9",
       "city": "slc",
       "hood": "sugarhood",
       "name": "Sugarhood Art House \u00b7 3BR + CoWork + Garage",
@@ -2350,6 +2374,7 @@
     {
       "id": "9line-loft-ii",
       "hospitable_id": "2248184",
+      "hospitable_uuid": "05f77d76-b7f7-42aa-8b56-55eba3805898",
       "city": "slc",
       "hood": "9line",
       "name": "9line Loft II \u00b7 King + Gym",
@@ -2445,6 +2470,7 @@
     {
       "id": "salt-flats-323",
       "hospitable_id": "668430",
+      "hospitable_uuid": "726b8e99-3f65-41c8-90a3-bbf187b47eb3",
       "city": "slc",
       "hood": "downtown",
       "name": "Salt Flats 323 \u00b7 King + Sleeper",

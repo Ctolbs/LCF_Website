@@ -80,14 +80,17 @@ def main():
     out, all_ratings, misses, plat_totals = {}, [], [], {}
     for p in props:
         slug, hid = p["id"], p["hospitable_id"]
-        try:
-            book = api(f"{BOOK}/properties/{hid}")
-            pubname = (book["data"]["name"] or "").strip()
-        except Exception as e:
-            misses.append((slug, f"booking API err: {e}")); continue
-        uuid = name_to_uuid.get(pubname)
+        # Hospitable property uuid is stored per property (Nov 2026): the old lookup went through the unauthenticated
+        # booking API (403 since 11/5) and matched by public name, which two SaltFlats units share.
+        uuid = p.get("hospitable_uuid")
         if not uuid:
-            misses.append((slug, f"no uuid for public_name: {pubname!r}")); continue
+            try:
+                book = api(f"{BOOK}/properties/{hid}")
+                uuid = name_to_uuid.get((book["data"]["name"] or "").strip())
+            except Exception as e:
+                misses.append((slug, f"no hospitable_uuid and booking API err: {e}")); continue
+        if not uuid:
+            misses.append((slug, "no hospitable_uuid")); continue
         count, avg, ratings, info = reviews_for(uuid)
         out[slug] = {"rating": avg, "count": count}
         all_ratings += ratings
@@ -168,6 +171,8 @@ def main():
     print(f"BY CITY: {by_city}")
     print(f"BY HOOD: {by_hood}")
     print(f"\nPLATFORM BREAKDOWN (Hospitable API): {plat_totals}")
+    if not airbnb_count:
+        sys.exit(f"No reviews fetched from Hospitable (misses: {misses[:3]}); leaving reviews.json unchanged.")
     print(f"Hospitable (airbnb+direct+booking): {airbnb_count} reviews  avg {round(airbnb_sum/airbnb_count,3)}")
     print(f"VRBO (manual):                      {vrbo_count} reviews  avg {round(vrbo_sum/vrbo_count,3) if vrbo_count else None}")
     print(f"COMBINED (truthful headline):       {combined_total} reviews  avg {combined_avg}")
