@@ -1,9 +1,9 @@
 {
-  "updated": "2026-11-13",
-  "total_reviews": 4237,
+  "updated": "2026-11-14",
+  "total_reviews": 4238,
   "average_rating": 4.88,
   "by_source": {
-    "airbnb": 3455,
+    "airbnb": 3456,
     "direct": 18,
     "booking": 6,
     "vrbo": 758
@@ -14,7 +14,7 @@
       "rating": 4.87
     },
     "detroit": {
-      "count": 357,
+      "count": 358,
       "rating": 4.94
     }
   },
@@ -40,7 +40,7 @@
       "city": "slc"
     },
     "brush-park": {
-      "count": 357,
+      "count": 358,
       "rating": 4.94,
       "city": "detroit"
     }
@@ -89,7 +89,7 @@
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
-      "count": 142
+      "count": 143
     },
     "granary-west-403": {
       "rating": 4.67,
