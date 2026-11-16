@@ -823,7 +823,7 @@
     {
       "id": "9line-loft",
       "hospitable_id": "2236536",
-      "hospitable_uuid": "af46e954-d960-411e-9f23-2e1277aa83d3",
+      "hospitable_uuid": "05f77d76-b7f7-42aa-8b56-55eba3805898",
       "city": "slc",
       "hood": "9line",
       "name": "9line Loft \u00b7 King + Gym",
@@ -831,8 +831,8 @@
       "beds": 1,
       "baths": 1,
       "sleeps": 3,
-      "rating": "4.91",
-      "review_count": "11",
+      "rating": "4.67",
+      "review_count": "18",
       "features": [
         "Gym Access",
         "Modern Loft",
@@ -1419,7 +1419,7 @@
       "baths": 2.5,
       "sleeps": 6,
       "rating": "4.94",
-      "review_count": "110",
+      "review_count": "111",
       "features": [
         "King + Queen Suites",
         "Private Garage",
@@ -2374,7 +2374,7 @@
     {
       "id": "9line-loft-ii",
       "hospitable_id": "2248184",
-      "hospitable_uuid": "05f77d76-b7f7-42aa-8b56-55eba3805898",
+      "hospitable_uuid": "af46e954-d960-411e-9f23-2e1277aa83d3",
       "city": "slc",
       "hood": "9line",
       "name": "9line Loft II \u00b7 King + Gym",
@@ -2382,8 +2382,8 @@
       "beds": 1,
       "baths": 1,
       "sleeps": 3,
-      "rating": "4.67",
-      "review_count": "18",
+      "rating": "4.91",
+      "review_count": "11",
       "features": [
         "Gym Access",
         "Modern Loft",
