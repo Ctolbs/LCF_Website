@@ -1,20 +1,20 @@
 {
-  "updated": "2026-11-20",
-  "total_reviews": 4244,
+  "updated": "2026-11-21",
+  "total_reviews": 4246,
   "average_rating": 4.88,
   "by_source": {
-    "airbnb": 3461,
+    "airbnb": 3463,
     "direct": 19,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3885,
+      "count": 3886,
       "rating": 4.87
     },
     "detroit": {
-      "count": 359,
+      "count": 360,
       "rating": 4.94
     }
   },
@@ -25,7 +25,7 @@
       "city": "slc"
     },
     "9line": {
-      "count": 1942,
+      "count": 1943,
       "rating": 4.87,
       "city": "slc"
     },
@@ -40,7 +40,7 @@
       "city": "slc"
     },
     "brush-park": {
-      "count": 359,
+      "count": 360,
       "rating": 4.94,
       "city": "detroit"
     }
@@ -61,7 +61,7 @@
     },
     "downtown-townhouse": {
       "rating": 4.87,
-      "count": 185
+      "count": 186
     },
     "downtown-townhome": {
       "rating": 4.85,
@@ -85,7 +85,7 @@
     },
     "lumber-barons-mansion": {
       "rating": 4.9,
-      "count": 123
+      "count": 124
     },
     "lumber-barons-penthouse": {
       "rating": 4.94,
