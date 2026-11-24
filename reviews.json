@@ -1,16 +1,16 @@
 {
-  "updated": "2026-11-23",
-  "total_reviews": 4247,
+  "updated": "2026-11-24",
+  "total_reviews": 4249,
   "average_rating": 4.88,
   "by_source": {
-    "airbnb": 3464,
+    "airbnb": 3466,
     "direct": 19,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3886,
+      "count": 3888,
       "rating": 4.87
     },
     "detroit": {
@@ -20,12 +20,12 @@
   },
   "by_hood": {
     "granary": {
-      "count": 809,
+      "count": 808,
       "rating": 4.89,
       "city": "slc"
     },
     "9line": {
-      "count": 1943,
+      "count": 1945,
       "rating": 4.87,
       "city": "slc"
     },
@@ -65,7 +65,7 @@
     },
     "downtown-townhome": {
       "rating": 4.85,
-      "count": 250
+      "count": 251
     },
     "brick-studio": {
       "rating": 4.78,
@@ -105,7 +105,7 @@
     },
     "downtown-king-queen-loft": {
       "rating": 4.94,
-      "count": 111
+      "count": 112
     },
     "downtown-twin-queens": {
       "rating": 4.79,
