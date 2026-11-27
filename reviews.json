@@ -1,16 +1,16 @@
 {
-  "updated": "2026-11-26",
-  "total_reviews": 4251,
+  "updated": "2026-11-27",
+  "total_reviews": 4255,
   "average_rating": 4.88,
   "by_source": {
-    "airbnb": 3468,
+    "airbnb": 3472,
     "direct": 19,
     "booking": 6,
     "vrbo": 758
   },
   "by_city": {
     "slc": {
-      "count": 3890,
+      "count": 3894,
       "rating": 4.87
     },
     "detroit": {
@@ -20,12 +20,12 @@
   },
   "by_hood": {
     "granary": {
-      "count": 808,
-      "rating": 4.89,
+      "count": 809,
+      "rating": 4.88,
       "city": "slc"
     },
     "9line": {
-      "count": 1947,
+      "count": 1948,
       "rating": 4.87,
       "city": "slc"
     },
@@ -35,8 +35,8 @@
       "city": "slc"
     },
     "sugarhood": {
-      "count": 82,
-      "rating": 4.85,
+      "count": 84,
+      "rating": 4.86,
       "city": "slc"
     },
     "brush-park": {
@@ -56,8 +56,8 @@
       "count": 106
     },
     "granary-west-401": {
-      "rating": 4.91,
-      "count": 94
+      "rating": 4.88,
+      "count": 95
     },
     "downtown-townhouse": {
       "rating": 4.87,
@@ -72,16 +72,16 @@
       "count": 126
     },
     "sugarhood-penthouse": {
-      "rating": 4.73,
-      "count": 26
+      "rating": 4.74,
+      "count": 27
     },
     "modernwest-townhome": {
       "rating": 4.99,
       "count": 94
     },
     "9line-loft": {
-      "rating": 4.67,
-      "count": 18
+      "rating": 4.68,
+      "count": 19
     },
     "lumber-barons-mansion": {
       "rating": 4.9,
@@ -140,8 +140,8 @@
       "count": 23
     },
     "sugarhood-east": {
-      "rating": 4.9,
-      "count": 42
+      "rating": 4.91,
+      "count": 43
     },
     "9line-loft-ii": {
       "rating": 4.91,
